@@ -1,0 +1,1008 @@
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\appsettings.Development.json
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\appsettings.json
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.staticwebassets.runtime.json
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.exe
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.deps.json
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.runtimeconfig.json
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.pdb
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Azure.Core.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Azure.Identity.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Humanizer.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Mono.TextTemplating.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.CodeDom.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Convention.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Hosting.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Runtime.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.TypedParts.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Drawing.Common.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Memory.Data.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Runtime.Caching.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Security.Permissions.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Windows.Extensions.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.csproj.AssemblyReference.cache
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.GeneratedMSBuildEditorConfig.editorconfig
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.AssemblyInfoInputs.cache
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.AssemblyInfo.cs
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.csproj.CoreCompileInputs.cache
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.MvcApplicationPartsAssemblyInfo.cache
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.RazorAssemblyInfo.cache
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.RazorAssemblyInfo.cs
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.build.json
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.development.json
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.InventarioPaldaca.Microsoft.AspNetCore.StaticWebAssets.props
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.build.InventarioPaldaca.props
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.InventarioPaldaca.props
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.InventarioPaldaca.props
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.pack.json
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\bundle\InventarioPaldaca.styles.css
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\projectbundle\InventarioPaldaca.bundle.scp.css
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\Inventar.B113DD32.Up2Date
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\refint\InventarioPaldaca.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.pdb
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.genruntimeconfig.cache
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\ref\InventarioPaldaca.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Build.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Build.Framework.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Newtonsoft.Json.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Common.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Configuration.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Frameworks.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.LibraryModel.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Packaging.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.ProjectModel.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Protocol.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Versioning.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\af\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ar\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\az\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\bg\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\da\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\el\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fa\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\he\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hr\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hu\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hy\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\id\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\is\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ku\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\lv\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\mt\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nb\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nl\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ro\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sk\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sl\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sr\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sv\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uk\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\vi\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
+G:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\appsettings.Development.json
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\appsettings.json
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.staticwebassets.runtime.json
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.exe
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.deps.json
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.runtimeconfig.json
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.pdb
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Azure.Core.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Azure.Identity.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Humanizer.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Build.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Build.Framework.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Common.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Configuration.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Frameworks.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.LibraryModel.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Packaging.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.ProjectModel.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Protocol.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Versioning.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.CodeDom.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\af\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ar\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\az\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\bg\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\da\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\el\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fa\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\he\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hr\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hu\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hy\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\id\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\is\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ku\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\lv\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\mt\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nb\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nl\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ro\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sk\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sl\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sr\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sv\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uk\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\vi\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.csproj.AssemblyReference.cache
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.GeneratedMSBuildEditorConfig.editorconfig
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.AssemblyInfoInputs.cache
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.AssemblyInfo.cs
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.csproj.CoreCompileInputs.cache
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.MvcApplicationPartsAssemblyInfo.cache
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.RazorAssemblyInfo.cache
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.RazorAssemblyInfo.cs
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.build.json
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.development.json
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.InventarioPaldaca.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.build.InventarioPaldaca.props
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.InventarioPaldaca.props
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.InventarioPaldaca.props
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\bundle\InventarioPaldaca.styles.css
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\projectbundle\InventarioPaldaca.bundle.scp.css
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\Inventar.B113DD32.Up2Date
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\refint\InventarioPaldaca.dll
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.pdb
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.genruntimeconfig.cache
+D:\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\ref\InventarioPaldaca.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\appsettings.Development.json
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\appsettings.json
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.staticwebassets.runtime.json
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.exe
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.deps.json
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.runtimeconfig.json
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.pdb
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Azure.Core.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Azure.Identity.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Humanizer.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Build.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Build.Framework.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Mono.TextTemplating.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Newtonsoft.Json.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Common.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Configuration.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Frameworks.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.LibraryModel.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Packaging.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.ProjectModel.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Protocol.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Versioning.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.CodeDom.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Convention.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Hosting.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Runtime.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.TypedParts.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Drawing.Common.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Memory.Data.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Runtime.Caching.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Security.Permissions.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Windows.Extensions.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\af\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ar\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\az\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\bg\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\da\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\el\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fa\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\he\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hr\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hu\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hy\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\id\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\is\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ku\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\lv\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\mt\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nb\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nl\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ro\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sk\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sl\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sr\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sv\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uk\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\vi\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.csproj.AssemblyReference.cache
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.GeneratedMSBuildEditorConfig.editorconfig
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.AssemblyInfoInputs.cache
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.AssemblyInfo.cs
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.csproj.CoreCompileInputs.cache
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.MvcApplicationPartsAssemblyInfo.cache
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.RazorAssemblyInfo.cache
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.RazorAssemblyInfo.cs
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.build.json
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.development.json
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.InventarioPaldaca.Microsoft.AspNetCore.StaticWebAssets.props
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.build.InventarioPaldaca.props
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.InventarioPaldaca.props
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.InventarioPaldaca.props
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.pack.json
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\bundle\InventarioPaldaca.styles.css
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\projectbundle\InventarioPaldaca.bundle.scp.css
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\Inventar.B113DD32.Up2Date
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\refint\InventarioPaldaca.dll
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.pdb
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.genruntimeconfig.cache
+F:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\ref\InventarioPaldaca.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\appsettings.Development.json
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\appsettings.json
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.staticwebassets.runtime.json
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.exe
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.deps.json
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.runtimeconfig.json
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.pdb
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Azure.Core.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Azure.Identity.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Humanizer.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Build.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Build.Framework.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Common.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Configuration.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Frameworks.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.LibraryModel.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Packaging.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.ProjectModel.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Protocol.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\NuGet.Versioning.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.CodeDom.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\af\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ar\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\az\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\bg\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\da\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\el\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fa\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\he\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hr\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hu\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\hy\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\id\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\is\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ku\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\lv\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\mt\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nb\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\nl\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ro\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sk\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sl\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sr\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\sv\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uk\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\vi\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.csproj.AssemblyReference.cache
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.GeneratedMSBuildEditorConfig.editorconfig
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.AssemblyInfoInputs.cache
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.AssemblyInfo.cs
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.csproj.CoreCompileInputs.cache
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.MvcApplicationPartsAssemblyInfo.cache
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.RazorAssemblyInfo.cache
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.RazorAssemblyInfo.cs
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.build.json
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.development.json
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.InventarioPaldaca.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.build.InventarioPaldaca.props
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.InventarioPaldaca.props
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.InventarioPaldaca.props
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\bundle\InventarioPaldaca.styles.css
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\scopedcss\projectbundle\InventarioPaldaca.bundle.scp.css
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\Inventar.B113DD32.Up2Date
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\refint\InventarioPaldaca.dll
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.pdb
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.genruntimeconfig.cache
+D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\ref\InventarioPaldaca.dll
