@@ -1,0 +1,83 @@
+﻿@model InventarioPaldaca.Models.ViewModels.UsuarioPerfilViewModel
+
+@{
+    ViewBag.Title = "Buscar Usuarios";
+}
+@section Styles {
+        <link rel="stylesheet" href="~/css/PerfilUsuario.css">
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+}
+
+<!-- Formulario de búsqueda -->
+<section class="container my-5">
+ <div class="card">
+            <div class="card-body p-4">
+                <!-- Formulario de búsqueda -->
+                <form id="searchForm">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <!-- Caja de búsqueda con icono -->
+                            <div class="search">
+                                <span class="material-symbols-outlined search-icon">Search</span>
+                                <input type="search" name="searchTerm" id="searchTerm" class="form-control border-start-0 search-input"
+                                       placeholder="Buscar Usuario" value="@Model.SearchTerm">
+                            </div>
+                            <!-- Botón de búsqueda -->
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-primary btn-search mt-3" id="searchBtn">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+ </div>
+    <!-- Mostrar usuarios encontrados -->
+        <div id="usuariosEncontradosContainer" class="text-white p-4 rounded">
+            <partial name="_UsuariosEncontradosPartial" model="Model" />
+        </div>
+</section>
+
+
+@section Scripts {
+    <script>
+
+        document.getElementById("searchTerm").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("searchBtn").click(); // Simular clic en el botón de búsqueda
+            }
+        });
+
+        document.getElementById("searchBtn").addEventListener("click", function () {
+            var searchTerm = document.getElementById("searchTerm").value.trim();
+
+            if (!searchTerm) {
+                // Si el campo de búsqueda está vacío, no realizar la solicitud
+                document.getElementById("usuariosEncontradosContainer").innerHTML = '';
+                document.getElementById("noUsersFoundMessage").classList.remove("d-none");
+                return;
+            }
+
+            var url = `/Usuario/PerfilUsuario?id=@Model.UsuarioId&searchTerm=${encodeURIComponent(searchTerm)}`;
+
+            fetch(url, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+                .then(response => response.text())
+                .then(html => {
+                    var usuariosEncontradosContainer = document.getElementById("usuariosEncontradosContainer");
+                    usuariosEncontradosContainer.innerHTML = html;
+
+                    var noUsersFoundMessage = document.getElementById("noUsersFoundMessage");
+                    if (!document.querySelector("#usuariosEncontradosContainer .list-group-item")) {
+                        noUsersFoundMessage.classList.remove("d-none");
+                    } else {
+                        noUsersFoundMessage.classList.add("d-none");
+                    }
+                });
+        });
+    </script>
+}

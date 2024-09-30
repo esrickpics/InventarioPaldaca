@@ -1,0 +1,198 @@
+﻿@model InventarioPaldaca.Models.ViewModels.ListaActivosViewModel
+
+<div class="container my-5 form-container" id="top">
+    <h1 class="form-titleActivos">Activos</h1>
+
+    <!-- Botones de acciones -->
+    <div class="row text-center mb-4">
+        <div class="col-md-4">
+            <a asp-action="Create" class="botonaction">Nuevo Activo</a>
+        </div>
+        <div class="col-md-4">
+            <button id= "toggleDelete" class="btn btn-primary w-100 btn-action">
+                Eliminar activos
+            </button>
+        </div>
+        <div class="col-md-4">
+            <button id="generatePdfBtn" class="btn btn-primary w-100 btn-action">
+               Generar PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filter-container mb-4">
+        <h5>Filtrar activos</h5>
+        <form id="filterForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="categoria" class="form-label">Categoría:</label>
+                    <select class="form-select" id="categoria" onchange="filtrarActivos()">
+                        <option value="">Seleccione una categoría</option>
+                        @foreach (var categoria in Model.Categorias)
+                        {
+                            <option value="@categoria.CategoriaNombre">@categoria.CategoriaNombre</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="ubicacion" class="form-label">Ubicación:</label>
+                    <select class="form-select" id="ubicacion" onchange="filtrarActivos()">
+                        <option value="">Seleccione una ubicación</option>
+                        @foreach (var ubicacion in Model.Ubicaciones)
+                        {
+                            <option value="@ubicacion.UbicacionNombre">@ubicacion.UbicacionNombre</option>
+                        }
+                    </select>
+                </div>
+            </div>
+             <div class="col-md-4 mt-3">
+                <label for="codigoInventario" class="form-label">Código de Inventario:</label>
+                <input type="text" class="form-control" id="codigoInventario" placeholder="Ingrese el código de inventario" onkeyup="filtrarActivos()">
+            </div>
+          </form>
+    </div>
+
+    <table class="table" id = "activosTable">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Categoría</th>
+            <th>Número de Serial</th>
+            <th>Ubicación</th>
+            <th>Codigo De Inventario</th>
+            <th class="delete-column" style="display:none;">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody id="activosTableBody">
+        <partial name="_ListaActivosPartial" model="Model" />
+    </tbody>
+</table>
+
+
+    <!-- Total activos -->
+    <div class="total-container text-center">
+        <h3>Total de Activos: @Model.TotalActivos</h3>
+            <div class="row">
+                <h4>Activos por Categoría:</h4>
+                <ul>
+                    @foreach (var categoria in Model.ActivosPorCategoria)
+                    {
+                        <li>@categoria.Key: @categoria.Value</li>
+                    }
+                </ul>
+
+                <h4>Activos por Ubicación:</h4>
+                <ul>
+                    @foreach (var ubicacion in Model.ActivosPorUbicacion)
+                    { 
+                        <li>@ubicacion.Key: @ubicacion.Value</li>
+                    }
+                </ul>
+        </div>
+    </div>
+</div>
+
+<a class="ToTop mb-5 mt-3" href="#top">
+    <svg class="svgIcon" viewBox="0 0 384 512">
+        <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3
+              0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z">
+        </path>
+    </svg>
+</a>
+
+
+@section Scripts {
+    <!-- Incluir jsPDF y jsPDF AutoTable -->
+    <script>
+        // Función para generar y guardar el PDF
+        async function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Configurar el contenido del PDF
+            doc.text("Activos", 14, 16);
+            doc.autoTable({
+                html: '#activosTable',
+                startY: 20,
+                theme: 'grid',
+                headStyles: { fillColor: [52, 58, 64], fontSize: 12, halign: 'center' },
+                bodyStyles: { textColor: [0, 0, 0], fontSize: 10, halign: 'right' },
+                styles: { lineColor: [0, 0, 0], lineWidth: 0.5 },
+            });
+
+            // Generar el PDF como un Blob
+            const pdfBlob = doc.output('blob');
+
+            // Intentar usar la API File System Access si está disponible
+            if (window.showSaveFilePicker) {
+                const options = {
+                    suggestedName: 'activos.pdf',
+                    types: [{
+                        description: 'PDF file',
+                        accept: { 'application/pdf': ['.pdf'] },
+                    }],
+                };
+
+                try {
+                    const fileHandle = await window.showSaveFilePicker(options);
+                    const writableStream = await fileHandle.createWritable();
+                    await writableStream.write(pdfBlob);
+                    await writableStream.close();
+                    alert('Archivo guardado exitosamente.');
+                } catch (error) {
+                    alert('Error al guardar el archivo: ' + error.message);
+                }
+            } else {
+                // Fallback si la API no está disponible
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(pdfBlob);
+                link.download = 'activos.pdf';
+                link.click();
+                URL.revokeObjectURL(link.href);
+            }
+        }
+        $(document).ready(function () {
+            // Manejar la generación de PDF
+            $('#generatePdfBtn').click(generatePDF);
+
+            // Mostrar/ocultar la columna de eliminar
+            $('#toggleDelete').click(function () {
+                $('.delete-column').toggle();
+            });
+
+            // Manejar los cambios en los campos de filtro
+            $('#filterForm select, #filterForm input').on('change', function () {
+            filtrarActivos();
+            });
+
+    // Función para filtrar los activos según los criterios seleccionados
+    function filtrarActivos() {
+        var categoria = $('#categoria').val();
+        var ubicacion = $('#ubicacion').val();
+        var codigoInventario = $('#codigoInventario').val();
+
+        // Realizar la solicitud AJAX para filtrar los activos
+        $.ajax({
+            url: '@Url.Action("FiltrarActivos", "Activo")',
+            type: 'GET',
+            data: {
+                categoria: categoria,
+                ubicacion: ubicacion,
+                codigoInventario: codigoInventario
+            },
+            success: function (result) {
+                console.log(result);
+                $('#activosTableBody').html(result); // Actualiza el contenido del tbody
+            },
+            error: function (xhr, status, error) {
+                alert('Ocurrió un error al filtrar los activos: ' + error);
+            }
+        });
+    }
+});
+  </script>
+}

@@ -1,0 +1,45 @@
+﻿@model InventarioPaldaca.Models.ViewModels.UbicacionViewModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Create.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+}
+<div class="form-container">
+    <h2 class="form-title">Nueva Ubicacion</h2>
+    <hr class="linea" />
+
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UbicacionNombre"></label>
+                <input asp-for="UbicacionNombre" class="form-control" />
+                <span asp-validation-for="UbicacionNombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UbicacionDireccion"></label>
+                <input asp-for="UbicacionDireccion" class="form-control" />
+                <span asp-validation-for="UbicacionDireccion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UbicacionDescripcion"></label>
+                <textarea asp-for="UbicacionDescripcion" class="form-control"></textarea>
+                <span asp-validation-for="UbicacionDescripcion" class="text-danger"></span>
+            </div>
+
+            <hr class="linea" />
+                <div class="form-group">
+                    <input type="submit" value="Crear" class="btn btn-primary" />
+                </div>
+      </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
