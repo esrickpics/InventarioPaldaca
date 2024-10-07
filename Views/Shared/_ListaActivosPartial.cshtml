@@ -2,15 +2,15 @@
 
 @if (Model.ListaActivos == null || !Model.ListaActivos.Any())
 {
-   
     <tr>
-        <td colspan="7" class="text-center">No se encontraron activos que coincidan con los criterios.</td>
+        <td colspan="8" class="text-center">No se encontraron activos que coincidan con los criterios.</td>
     </tr>
 }
 else
+{
     @foreach (var activo in Model.ListaActivos)
     {
-        <tr onclick="window.location='@Url.Action("PerfilUsuario", "Usuario", new { id = activo.Usuario.UsuarioId })'">
+        <tr onclick="window.location='@Url.Action("PerfilUsuario", "Usuario", new { id = activo.Usuario?.UsuarioId })'">
             <td>@(activo.Usuario?.UsuarioNombre ?? "No asignado")</td>
             <td>@(activo.Usuario?.UsuarioApellido ?? "No asignado")</td>
             <td>@Html.DisplayFor(m => activo.Marca)</td>
@@ -18,12 +18,12 @@ else
             <td>@(activo.Categoria?.CategoriaNombre ?? "Sin categoría")</td>
             <td>@Html.DisplayFor(m => activo.NumeroSerial)</td>
             <td>@(activo.Ubicacion?.UbicacionNombre ?? "No asignada")</td>
-            <td>@(string.IsNullOrEmpty(activo.CodigoInventario) ? "No asignada" : activo.CodigoInventario)</td>
+            <td>@(string.IsNullOrEmpty(activo.CodigoInventario) ? "No asignado" : activo.CodigoInventario)</td>
             <td class="delete-column" style="display:none;">
                 <form asp-action="Delete" asp-route-id="@activo.ActivoId" method="post">
                     <button type="submit" class="btn btn-danger">Eliminar</button>
                 </form>
-            </td>
+            </td> 
         </tr>
     }
-
+}

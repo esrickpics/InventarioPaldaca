@@ -1,0 +1,334 @@
+
+:root{
+
+--e-global-color-red: #C92842;
+--e-global-color-azulmarino: #141644;
+--e-global-color-azul: #282C89;
+}
+
+.main-content { 
+    background-color: white !important;
+}
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+.linea {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+.headercontainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-top: 20px;
+    padding-right: 80px;
+}
+.logoheader {
+    max-width: 100%;
+    height: auto;
+}
+.form-container {
+    background-color: #c9c5c0; /* Color de fondo gris */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 1200px; /* Ajustar el tamaño máximo */
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 180px;
+}
+
+/* Título del formulario */
+.form-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2a3f7a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+    .form-title::before {
+        content: "\2611"; /*content: url('path/to/your/icon.svg'); colocar icono svg*/
+        font-size: 32px;
+        margin-right: 10px;
+    }
+
+body {
+    background-color: white !important;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 60px;
+}
+    .form-title::before {
+        content: "\2611"; /*content: url('path/to/your/icon.svg'); colocar icono svg*/
+        font-size: 32px;
+        margin-right: 10px;
+    }
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+header {
+    background-color: var(--e-global-color-azulmarino);
+}
+.bgcolor {
+    background-color: var(--e-global-color-azulmarino);
+}
+
+.bgcolorazul {
+    background-color: var(--e-global-color-azul);
+    
+}
+.btn-custom{
+    background-color: var(--e-global-color-azulmarino);
+    color:white;
+    border-radius: 10px;
+    align-items: center;
+}
+
+/* Estilos de las tarjetas de acciones */
+.action-item {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-action {
+    background-color: #2a3f7a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+    .btn-action:hover {
+        background-color: #1f3161;
+    }
+
+.Btn {
+    text-decoration:none;
+    font-size: 18px;
+    color: #000;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+}
+
+    .Btn:focus,
+    .Btn:hover {
+        color: #000;
+    }
+
+        .Btn:focus:after,
+        .Btn:hover:after {
+            width: 100%;
+            left: 0%;
+        }
+
+    .Btn:after {
+        content: "";
+        pointer-events: none;
+        bottom: -2px;
+        left: 50%;
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background-color: #000;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-duration: 400ms;
+        transition-property: width, left;
+    }   
+    /* Estilos de las tarjetas de estadísticas */
+.stat-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+.stat-icon, .stat-number {
+    color: white;
+}
+.stat-number {
+    font-size: 36px;
+    font-weight: bold;
+  
+}
+.stat-item {
+   
+    border-radius: 15px;
+    color: white;
+}
+
+/* Contenedor principal */
+.form-container {
+    background-color: #f4f4f4; /* Fondo gris claro */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 1200px; /* Ancho máximo */
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 180px;
+}
+/* Título del formulario */
+.form-titleActivos {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2a3f7a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.botonaction {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #2a3f7a; /* Color del botón */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    width: 100%;
+}
+
+    .botonaction:hover {
+        background-color: #1f3161; /* Color al pasar el cursor */
+        color: white;
+        text-decoration: none;
+    }
+
+
+    /* Icono antes del título */
+    .form-titleActivos::before {
+        content: "\2611"; /* Puedes reemplazarlo con el ícono que prefieras */
+        font-size: 32px;
+        margin-right: 10px;
+    }
+
+/* Iconos de los botones */
+.btn-icon {
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+}
+
+/* Contenedor de filtros */
+.filter-container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Links de total activos */
+.link-info {
+    font-weight: bold;
+    color: #2a3f7a;
+    text-decoration: none;
+}
+    .link-info:hover {
+        text-decoration: underline;
+    }
+
+    .btn-space{
+        margin-right: 8px;
+    }
+.ToTop {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.svgIcon {
+    width: 12px;
+    transition-duration: 0.3s;
+}
+
+    .svgIcon path {
+        fill: white;
+    }
+
+.ToTop:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: rgb(181, 160, 255);
+    align-items: center;
+}
+
+    .ToTop:hover .svgIcon {
+        /* width: 20px; */
+        transition-duration: 0.3s;
+        transform: translateY(-200%);
+    }
+
+.ToTop::before {
+    position: absolute;
+    bottom: -20px;
+    content: "Volver Arriba";
+    color: white;
+     transition-duration: .3s; 
+    font-size: 0px;
+}
+
+.ToTop:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    bottom: unset;
+    /* transform: translateY(-30px); */
+    transition-duration: 0.3s;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    .form-container {
+        padding: 20px;
+        max-width: 100%; 
+        margin: 20px auto;
+    }
+
+    .form-title, .form-titleActivos {
+        font-size: 20px;
+    }
+
+    .botonaction {
+        width: auto; 
+        padding: 10px 15px;
+        font-size: 14px; 
+    }
+
+    .headercontainer {
+        justify-content: center;
+        padding-right: 20px;
+    }
+
+  
+    .stat-item, .action-item {
+        margin-bottom: 15px;
+    }
+}

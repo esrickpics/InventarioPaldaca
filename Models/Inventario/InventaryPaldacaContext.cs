@@ -27,10 +27,12 @@ public partial class InventaryPaldacaContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-85DQ6DB; Database=InventaryPaldaca; Trusted_Connection=true; TrustServerCertificate=True ");
+        => optionsBuilder.UseSqlServer("Server=RAG\\SQLEXPRESS; Database=InventaryPaldaca; Trusted_Connection=True; TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.UseCollation("Modern_Spanish_CI_AS");
+
         modelBuilder.Entity<Activo>(entity =>
         {
             entity.HasKey(e => e.ActivoId).HasName("PK__activo__D2F3F0903D6062D4");
@@ -38,9 +40,10 @@ public partial class InventaryPaldacaContext : DbContext
             entity.ToTable("activo");
 
             entity.Property(e => e.ActivoId).HasColumnName("activo_id");
+            entity.Property(e => e.Adquisicion).HasColumnName("adquisicion");
             entity.Property(e => e.CategoriaId).HasColumnName("categoria_id");
             entity.Property(e => e.CodigoInventario)
-                .HasMaxLength(20)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("codigo_inventario");
             entity.Property(e => e.Funcionabilidad).HasColumnName("funcionabilidad");
@@ -53,7 +56,7 @@ public partial class InventaryPaldacaContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("modelo");
             entity.Property(e => e.NumeroSerial)
-                .HasMaxLength(100)
+                .HasMaxLength(150)
                 .IsUnicode(false)
                 .HasColumnName("numero_serial");
             entity.Property(e => e.Observaciones)

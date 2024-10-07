@@ -58,9 +58,15 @@
             <span asp-validation-for="CodigoInventario" class="text-danger"></span>
         </div>
 
+        <div class="form-group">
+            <label asp-for="AñoAdquirido"></label>
+            <input asp-for="AñoAdquirido" class="form-control" />
+            <span asp-validation-for="AñoAdquirido" class="text-danger"></span>
+        </div>
+
         <!-- Opciones adicionales -->
         <div class="option-group">
-           
+            
             <div class="form-group">
                 <label asp-for="CategoriaId"></label>
                 <div class="input-group">

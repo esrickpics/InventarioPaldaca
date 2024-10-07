@@ -1,347 +1,347 @@
 {
   "Files": [
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\InventarioPaldaca.bundle.scp.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\InventarioPaldaca.bundle.scp.css",
       "PackagePath": "staticwebassets\\InventarioPaldaca.bundle.scp.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\Create.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\Create.css",
       "PackagePath": "staticwebassets\\css\\Create.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\PerfilUsuario.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\PerfilUsuario.css",
       "PackagePath": "staticwebassets\\css\\PerfilUsuario.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\normalize.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\normalize.css",
       "PackagePath": "staticwebassets\\css\\normalize.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\4092564-about-mobile-ui-profile-ui-user-website_114033.svg",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\4092564-about-mobile-ui-profile-ui-user-website_114033.svg",
       "PackagePath": "staticwebassets\\img\\4092564-about-mobile-ui-profile-ui-user-website_114033.svg"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Download.svg",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Download.svg",
       "PackagePath": "staticwebassets\\img\\Download.svg"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Paldaca Icon.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Paldaca Icon.png",
       "PackagePath": "staticwebassets\\img\\Paldaca Icon.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.AlbaGomez.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.AlbaGomez.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.AlbaGomez.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.AristidesSalazar.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.AristidesSalazar.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.AristidesSalazar.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.BettyFajardo.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.BettyFajardo.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.BettyFajardo.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.CarmenLopez.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.CarmenLopez.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.CarmenLopez.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.EdnaArreaza.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.EdnaArreaza.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.EdnaArreaza.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.ElesbanRodriguez.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.ElesbanRodriguez.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.ElesbanRodriguez.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.JohanaRodriguez.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.JohanaRodriguez.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.JohanaRodriguez.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.LuisArreaza.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.LuisArreaza.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.LuisArreaza.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.LuisSolorzano.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.LuisSolorzano.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.LuisSolorzano.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.MarieneHernández.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.MarieneHernández.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.MarieneHernández.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.NiviaGuariman.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.NiviaGuariman.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.NiviaGuariman.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.NoiveGuarimata.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.NoiveGuarimata.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.NoiveGuarimata.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.Peluche.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.Peluche.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.Peluche.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.RafaelReymi.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.RafaelReymi.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.RafaelReymi.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.RafaelVelasquez.jpg",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.RafaelVelasquez.jpg",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.RafaelVelasquez.jpg"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.RicardoGoitia.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.RicardoGoitia.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.RicardoGoitia.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.default.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.default.png",
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.default.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldaca_logo-footer-2.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldaca_logo-footer-2.png",
       "PackagePath": "staticwebassets\\img\\paldaca_logo-footer-2.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldaca_logo-header-2.png",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldaca_logo-header-2.png",
       "PackagePath": "staticwebassets\\img\\paldaca_logo-header-2.png"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "D:\\Mis Cosas\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

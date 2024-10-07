@@ -1,9 +1,8 @@
 
-:root{
-
---e-global-color-red: #C92842;
---e-global-color-azulmarino: #141644;
---e-global-color-azul: #282C89;
+:root {
+    --e-global-color-red: #ed2546;
+    --e-global-color-azulmarino: #141644;
+    --e-global-color-azul: #282c89;
 }
 
 .main-content { 
@@ -300,7 +299,17 @@ header {
     /* transform: translateY(-30px); */
     transition-duration: 0.3s;
 }
-
+.sort-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    text-align: left; /* Alinea el texto a la izquierda como el resto del contenido */
+    cursor: pointer;
+    width: 100%; /* Ajusta el botón al tamaño de la celda */
+}
 @media (max-width: 768px) {
     html {
         font-size: 14px;
@@ -331,4 +340,8 @@ header {
     .stat-item, .action-item {
         margin-bottom: 15px;
     }
+
+
+
+
 }

@@ -5,17 +5,22 @@
 
     <!-- Botones de acciones -->
     <div class="row text-center mb-4">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <a asp-action="Create" class="botonaction">Nuevo Activo</a>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <button id= "toggleDelete" class="btn btn-primary w-100 btn-action">
                 Eliminar activos
             </button>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <button id="generatePdfBtn" class="btn btn-primary w-100 btn-action">
                Generar PDF
+            </button>
+        </div>
+        <div class="col-md-3">
+            <button id="openReassignModalBtn" class="btn btn-primary w-100 btn-action">
+                Reasignar activos
             </button>
         </div>
     </div>
@@ -56,12 +61,12 @@
     <table class="table" id = "activosTable">
     <thead>
         <tr>
-            <th>Nombre</th>
+            <th><button id="sortByName" class="sort-button">Nombre</button></th>
             <th>Apellido</th>
             <th>Marca</th>
             <th>Modelo</th>
             <th>Categoría</th>
-            <th>Número de Serial</th>
+            <th>Número de Serial</th>   
             <th>Ubicación</th>
             <th>Codigo De Inventario</th>
             <th class="delete-column" style="display:none;">Eliminar</th>
@@ -71,6 +76,48 @@
         <partial name="_ListaActivosPartial" model="Model" />
     </tbody>
 </table>
+
+    <!-- Modal para reasignar activos -->
+    <div class="modal fade" id="reassignModal" tabindex="-1" role="dialog" aria-labelledby="reassignModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reassignModalLabel">Reasignar activo</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="reassignForm" asp-action="ReasignarActivo" method="post">
+                        <div class="form-group">
+                            <label for="activoId">Seleccione un activo:</label>
+                            <select id="activoId" name="id" class="form-control">
+                                <!-- Cambiado a "id" -->
+                                @foreach (var activo in Model.ListaActivos)
+                                {
+                                    <option value="@activo.ActivoId">@activo.Marca - @activo.Modelo - @activo.Categoria - @(activo.Usuario?.UsuarioNombre ?? "No asignado")</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="usuarioId">Seleccione un nuevo usuario:</label>
+                            <select id="usuarioId" name="usuarioId" class="form-control">
+                                <!-- Cambiado a "usuarioId" -->
+                                @foreach (var usuario in ViewBag.Usuarios)
+                                {
+                                    <option value="@usuario.Value">@usuario.Text</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Reasignar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Total activos -->
@@ -103,7 +150,6 @@
         </path>
     </svg>
 </a>
-
 
 @section Scripts {
     <!-- Incluir jsPDF y jsPDF AutoTable -->
@@ -156,6 +202,11 @@
             }
         }
         $(document).ready(function () {
+            // Mostrar modal de reasignación
+            $('#openReassignModalBtn').click(function () {
+                $('#reassignModal').modal('show');
+            });
+
             // Manejar la generación de PDF
             $('#generatePdfBtn').click(generatePDF);
 
@@ -166,33 +217,55 @@
 
             // Manejar los cambios en los campos de filtro
             $('#filterForm select, #filterForm input').on('change', function () {
-            filtrarActivos();
+                filtrarActivos();
             });
 
-    // Función para filtrar los activos según los criterios seleccionados
-    function filtrarActivos() {
-        var categoria = $('#categoria').val();
-        var ubicacion = $('#ubicacion').val();
-        var codigoInventario = $('#codigoInventario').val();
+            let sortOrder = 'desc'; // Controla el orden (ascendente o descendente)
 
-        // Realizar la solicitud AJAX para filtrar los activos
-        $.ajax({
-            url: '@Url.Action("FiltrarActivos", "Activo")',
-            type: 'GET',
-            data: {
-                categoria: categoria,
-                ubicacion: ubicacion,
-                codigoInventario: codigoInventario
-            },
-            success: function (result) {
-                console.log(result);
-                $('#activosTableBody').html(result); // Actualiza el contenido del tbody
-            },
-            error: function (xhr, status, error) {
-                alert('Ocurrió un error al filtrar los activos: ' + error);
+            $('#sortByName').click(function (e) {
+                e.preventDefault();
+                sortOrder = (sortOrder === 'asc') ? 'desc' : 'asc'; // Alterna entre ascendente y descendente
+                  
+                // Realiza la solicitud AJAX para ordenar por nombre
+                $.ajax({
+                    url: '@Url.Action("OrdenarPorNombre", "Activo")',
+                    type: 'GET',
+                    data: {
+                        sortOrder: sortOrder
+                    },
+                    success: function (result) {
+                        console.log(result); // Para ver el contenido devuelto por el servidor
+                        $('#activosTableBody').html(result);
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Ocurrió un error al ordenar los activos: ' + error);
+                    }
+                });
+            });
+            // Función para filtrar los activos según los criterios seleccionados
+            function filtrarActivos() {
+                var categoria = $('#categoria').val();
+                var ubicacion = $('#ubicacion').val();
+                var codigoInventario = $('#codigoInventario').val();
+
+                // Realizar la solicitud AJAX para filtrar los activos
+                $.ajax({
+                    url: '@Url.Action("FiltrarActivos", "Activo")',
+                    type: 'GET',
+                    data: {
+                        categoria: categoria,
+                        ubicacion: ubicacion,
+                        codigoInventario: codigoInventario
+                    },
+                    success: function (result) {
+                        console.log(result);
+                        $('#activosTableBody').html(result); // Actualiza el contenido del tbody
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Ocurrió un error al filtrar los activos: ' + error);
+                    }
+                });
             }
         });
-    }
-});
-  </script>
+    </script>
 }

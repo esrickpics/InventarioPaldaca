@@ -17,75 +17,75 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = InventarioPaldaca
 build_property.RootNamespace = InventarioPaldaca
-build_property.ProjectDir = D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\
+build_property.ProjectDir = C:\Users\ricar\OneDrive\Documents\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Mis Cosas\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca
+build_property.MSBuildProjectDirectory = C:\Users\ricar\OneDrive\Documents\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Activo/Create.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Activo/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZvXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Activo/Index.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Activo/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Categoria/Create.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Categoria/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Home/Index.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Home/Privacy.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Shared/Error.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Shared/_ListaActivosPartial.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Shared/_ListaActivosPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MaXN0YUFjdGl2b3NQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Shared/_UsuariosEncontradosPartial.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Shared/_UsuariosEncontradosPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc3Vhcmlvc0VuY29udHJhZG9zUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Ubicacion/Create.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Ubicacion/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVWJpY2FjaW9uXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Usuario/Create.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Usuario/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Usuario/Index.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Usuario/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Usuario/PerfilUsuario.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Usuario/PerfilUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xQZXJmaWxVc3VhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/_ViewImports.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/_ViewStart.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Mis Cosas/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Shared/_Layout.cshtml]
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-4ztpfw0dx9

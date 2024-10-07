@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InventarioPaldaca")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7fdad2d94732d74a34c6cfcd2ac89037ef1f2392")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a515edb8834e7989ff54e812edd49d498bcbb986")]
 [assembly: System.Reflection.AssemblyProductAttribute("InventarioPaldaca")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InventarioPaldaca")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

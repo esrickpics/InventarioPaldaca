@@ -21,6 +21,12 @@ namespace InventarioPaldaca.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            ViewData["Usuarios"] = new SelectList(_context.Usuarios
+                                             .Select(u => new {
+                                                 u.UsuarioId,
+                                                 NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido
+                                             }), "UsuarioId", "NombreCompleto");
+
             // Obtener todos los activos incluyendo sus relaciones
             var Activos = await _context.Activos
                                .Include(u => u.Usuario)
@@ -91,7 +97,8 @@ namespace InventarioPaldaca.Controllers
                     CodigoInventario = model.CodigoInventario,
                     CategoriaId = model.CategoriaId,
                     UbicacionId = model.UbicacionId,
-                    UsuarioId = model.UsuarioId
+                    UsuarioId = model.UsuarioId,
+                    Adquisicion = model.AñoAdquirido
                 };
 
                 try
@@ -170,20 +177,72 @@ namespace InventarioPaldaca.Controllers
             }
 
             var listaActivos = activos.ToList();
-
-            // Si no hay activos que coincidan, devolvemos un JSON con el mensaje de "No se encontraron activos"
-            if (!listaActivos.Any())
-            {
-                return Json(new { success = false, message = "No se encontraron activos que coincidan con los criterios." });
-            }
-
+         
             var model = new ListaActivosViewModel
             {
                 ListaActivos = activos.ToList()
             };
           
-
             return PartialView("_ListaActivosPartial", model);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> OrdenarPorNombre(string sortOrder)
+        {
+            var activos = _context.Activos
+                                  .Include(u => u.Usuario)
+                                  .Include(u => u.Ubicacion)
+                                  .Include(u => u.Categoria)
+                                  .AsQueryable();
+
+            // Ordenar por nombre dependiendo del sortOrder ('asc' o 'desc')
+            if (sortOrder == "asc")
+            {
+                activos = activos.OrderBy(a => a.Usuario.UsuarioNombre);
+            }
+            else
+            {
+                activos = activos.OrderByDescending(a => a.Usuario.UsuarioNombre);
+            }
+
+            var model = new ListaActivosViewModel
+            {
+                ListaActivos = await activos.ToListAsync()
+            };
+
+            // Devolvemos la vista parcial actualizada con la lista ordenada
+            return PartialView("_ListaActivosPartial", model);
+        }
+
+        [HttpPost]
+        public IActionResult ReasignarActivo(int id, int usuarioId)
+        {
+            var activo = _context.Activos.Find(id);
+            if (activo == null)
+            {
+                // Manejo de errores: redirigir a una vista de error o agregar un mensaje
+                return NotFound(); // O una vista de error
+            }
+
+            activo.UsuarioId = usuarioId;
+
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores: registrar el error o mostrar un mensaje al usuario
+                // Aquí puedes registrar el error en un log, por ejemplo:
+                // _logger.LogError(ex, "Error al guardar los cambios del activo {ActivoId}.", id);
+
+               
+                TempData["ErrorMessage"] = "Ocurrió un error al intentar reasignar el activo. Por favor, inténtalo de nuevo.";
+                return RedirectToAction("Index"); 
+            }
+
+            return RedirectToAction("Index"); // O la vista que prefieras.
+        }
+
     }
 }

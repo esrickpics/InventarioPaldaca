@@ -37,5 +37,7 @@ namespace InventarioPaldaca.Models.ViewModels
         [DisplayName("Usuario")]
         public int UsuarioId { get; set; }
 
+        public int AñoAdquirido { get; set; }
+
     }
 }
