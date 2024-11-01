@@ -1,0 +1,28 @@
+﻿@model InventarioPaldaca.Models.ViewModels.ProveedorViewModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/PerfilUsuario.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+}
+@if (Model?.ProveedoresEncontrados?.Any() ?? false)
+{
+    <ul class="list-group">
+        @foreach (var proveedor in Model.ProveedoresEncontrados)
+        {
+            <li class="list-group-item cardusuario">
+                <div class="bg-primary text-white p-4 rounded">
+                    <strong>@proveedor.ProveedorNombre</strong> - @proveedor.ProveedorTelefono
+                </div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <div class="card mt-5 d-none text-dark" id="noProvidersFoundMessage">
+        <div class="card-body">
+            <p>No se encontraron Proveedores</p>
+        </div>
+    </div>
+}

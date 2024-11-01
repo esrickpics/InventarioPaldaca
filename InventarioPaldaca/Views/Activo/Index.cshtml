@@ -1,0 +1,313 @@
+﻿@model InventarioPaldaca.Models.ViewModels.ListaActivosViewModel
+
+<div class="container my-5 form-container" id="top">
+    <h1 class="form-title">
+        <img src="/img/Iconos/activos.svg" alt="Icono Activos" style="width: 32px; height: 32px; margin-right: 10px;">
+        Activos
+    </h1>
+    <hr class="linea" style="color: #32407b"/>
+
+    <!-- Botones de acciones -->
+    <div class="row text-center mb-4">
+        <div class="col-md-3">
+            <a asp-action="Create" class="btn btn-primary w-100 btn-action">Nuevo Activo</a>
+        </div>
+        <div class="col-md-3">
+            <button id= "toggleDelete" class="btn btn-primary w-100 btn-action">
+                Eliminar activos
+            </button>
+        </div>
+        <div class="col-md-3">
+            <button id="generatePdfBtn" class="btn btn-primary w-100 btn-action">
+               Generar PDF
+            </button>
+        </div>
+        <div class="col-md-3">
+            <button id="openReassignModalBtn" class="btn btn-primary w-100 btn-action">
+                Reasignar activos
+            </button>
+        </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filter-container mb-4">
+        <h5 class="form-title" style="font-size: 20px;">
+            <img src="/img/Iconos/filtrar.svg" alt="Icono Activos" style="width: 32px; height: 32px; margin-right: 10px;">
+            Filtrar activos
+        </h5>
+        <form id="filterForm">
+            <div class="row">
+                <!-- Primera fila con Categoría Maestra ocupando toda la fila -->
+                <div class="col-md-12">
+                    <label for="categoriaMaster" class="form-label">Categoría Maestra:</label>
+                    <select class="form-select" id="categoriaMaster" onchange="filtrarActivos()">
+                        <option value="">Seleccione una Categoría</option>
+                        @foreach (var categoriaMaster in Model.CategoriasMaster)
+                        {
+                            <option value="@categoriaMaster.Nombre">@categoriaMaster.Nombre</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Segunda fila con Categoría y Ubicación ocupando la mitad cada una -->
+                <div class="col-md-6 mt-3">
+                    <label for="categoria" class="form-label">Categoría:</label>
+                    <select class="form-select" id="categoria" onchange="filtrarActivos()">
+                        <option value="">Seleccione una sub-categoría</option>
+                        @foreach (var categoria in Model.Categorias)
+                        {
+                            <option value="@categoria.CategoriaNombre">@categoria.CategoriaNombre</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="col-md-6 mt-3">
+                    <label for="ubicacion" class="form-label">Ubicación:</label>
+                    <select class="form-select" id="ubicacion" onchange="filtrarActivos()">
+                        <option value="">Seleccione una ubicación</option>
+                        @foreach (var ubicacion in Model.Ubicaciones)
+                        {
+                            <option value="@ubicacion.UbicacionNombre">@ubicacion.UbicacionNombre</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Tercera fila con Código de Inventario ocupando toda la fila -->
+                <div class="col-md-12 mt-3">
+                    <label for="codigoInventario" class="form-label">Código de Inventario:</label>
+                    <input type="text" class="form-control" id="codigoInventario" placeholder="Ingrese el código de inventario" onkeyup="filtrarActivos()">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <table class="table" id = "activosTable">
+    <thead>
+        <tr>
+            <th><button id="sortByName" class="sort-button">Nombre</button></th>
+            <th>Apellido</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Categoría</th>
+            <th>Número de Serial</th>   
+            <th>Ubicación</th>
+            <th>Codigo De Inventario</th>
+            <th class="delete-column" style="display:none;">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody id="activosTableBody">
+        <partial name="_ListaActivosPartial" model="Model" />
+    </tbody>
+</table>
+
+    <!-- Modal para reasignar activos -->
+    <div class="modal fade" id="reassignModal" tabindex="-1" role="dialog" aria-labelledby="reassignModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reassignModalLabel">Reasignar activo</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="reassignForm" asp-action="ReasignarActivo" method="post">
+                        <div class="form-group">
+                            <label for="activoId">Seleccione un activo:</label>
+                            <select id="activoId" name="id" class="form-control">
+                                <!-- Cambiado a "id" -->
+                                @foreach (var activo in Model.ListaActivos)
+                                {
+                                    <option value="@activo.ActivoId">@activo.Marca - @activo.Modelo - @activo.Categoria.CategoriaNombre - @(activo.Usuario?.UsuarioNombre ?? "No asignado")</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="usuarioId">Seleccione un nuevo usuario:</label>
+                            <select id="usuarioId" name="usuarioId" class="form-control">
+                                <!-- Cambiado a "usuarioId" -->
+                                @foreach (var usuario in ViewBag.Usuarios)
+                                {
+                                    <option value="@usuario.Value">@usuario.Text</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Reasignar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <hr class="linea" />
+
+    <!-- Total activos -->
+    <div class="total-container text-center">
+        <h3 class="form-title" style="font-size:20px;">Total de Activos: @Model.TotalActivos</h3>
+            <div class="row">
+                <h4 class="form-title" style="font-size:18px;">Activos por Categoría:</h4>
+                <ul>
+                    @foreach (var categoria in Model.ActivosPorCategoria)
+                    {
+                        <li>@categoria.Key: @categoria.Value</li>
+                    }
+                </ul>
+
+                <h4 class="form-title" style="font-size:18px;">Activos por Ubicación:</h4>
+                <ul>
+                    @foreach (var ubicacion in Model.ActivosPorUbicacion)
+                    { 
+                        <li>@ubicacion.Key: @ubicacion.Value</li>
+                    }
+                </ul>
+        </div>
+    </div>
+</div>
+
+<a class="ToTop mb-5 mt-3" href="#top">
+    <svg class="svgIcon" viewBox="0 0 384 512">
+        <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3
+              0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z">
+        </path>
+    </svg>
+</a>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Función para generar y guardar el PDF
+            $('#generatePdfBtn').click(generatePDF);
+
+            $('#openReassignModalBtn').click(function () {
+                $('#reassignModal').modal('show');
+            });
+
+            $('#toggleDelete').click(function () {
+                $('.delete-column').toggle();
+            });
+
+            $('#categoriaMaster').change(function () {
+                var categoriaMaster = $(this).val();
+                var $categoriaSelect = $('#categoria');
+                $categoriaSelect.empty(); // Limpiar opciones anteriores
+                $categoriaSelect.append('<option value="">Seleccione una sub-categoría</option>'); // Opción por defecto
+
+                // Solo hacer la solicitud AJAX si se ha seleccionado una categoría maestra válida
+                if (categoriaMaster) {
+                    $.ajax({
+                        url: '@Url.Action("ObtenerSubcategorias", "Activo")',
+                        type: 'GET',
+                        data: { categoriaMaster: categoriaMaster },
+                        success: function (subcategorias) {
+                          
+                            // Agregar nuevas opciones
+                            $.each(subcategorias, function (index, subcategoria) {
+                                if (subcategoria.categoriaNombre) { // Asegurarse de que el campo no sea undefined
+                                    $categoriaSelect.append('<option value="' + subcategoria.categoriaNombre + '">' + subcategoria.categoriaNombre + '</option>');
+                                }
+                            });
+                        },
+                        error: function (xhr, status, error) {
+                            alert('Ocurrió un error al obtener las subcategorías: ' + error);
+                        }
+                    });
+                }
+            });
+
+            // Manejar los cambios en los campos de filtro
+            $('#filterForm select, #filterForm input').on('change', function () {
+                filtrarActivos();
+            });
+
+            let sortOrder = 'desc';
+
+            $('#sortByName').click(function (e) {
+                e.preventDefault();
+                sortOrder = (sortOrder === 'asc') ? 'desc' : 'asc';
+
+                $.ajax({
+                    url: '@Url.Action("OrdenarPorNombre", "Activo")',
+                    type: 'GET',
+                    data: { sortOrder: sortOrder },
+                    success: function (result) {
+                        $('#activosTableBody').html(result);
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Ocurrió un error al ordenar los activos: ' + error);
+                    }
+                });
+            });
+
+            // Función para filtrar los activos según los criterios seleccionados
+            function filtrarActivos(categoriaMaster = '') {
+                var categoria = $('#categoria').val();
+                var ubicacion = $('#ubicacion').val();
+                var codigoInventario = $('#codigoInventario').val();
+
+                // Realizar la solicitud AJAX para filtrar los activos
+                $.ajax({
+                    url: '@Url.Action("FiltrarActivos", "Activo")',
+                    type: 'GET',
+                    data: {
+                        categoria: categoria,
+                        ubicacion: ubicacion,
+                        codigoInventario: codigoInventario,
+                        categoriamaster: categoriaMaster // Agregar categoriaMaster aquí
+                    },
+                    success: function (result) {
+                        $('#activosTableBody').html(result); // Actualiza el contenido del tbody
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Ocurrió un error al filtrar los activos: ' + error);
+                    }
+                });
+            }
+        });
+
+        // Función para generar y guardar el PDF
+        async function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.text("Activos", 14, 16);
+            doc.autoTable({
+                html: '#activosTable',
+                startY: 20,
+                theme: 'grid',
+                headStyles: { fillColor: [52, 58, 64], fontSize: 12, halign: 'center' },
+                bodyStyles: { textColor: [0, 0, 0], fontSize: 10, halign: 'right' },
+                styles: { lineColor: [0, 0, 0], lineWidth: 0.5 },
+            });
+
+            const pdfBlob = doc.output('blob');
+
+            if (window.showSaveFilePicker) {
+                const options = {
+                    suggestedName: 'activos.pdf',
+                    types: [{
+                        description: 'PDF file',
+                        accept: { 'application/pdf': ['.pdf'] },
+                    }],
+                };
+
+                try {
+                    const fileHandle = await window.showSaveFilePicker(options);
+                    const writableStream = await fileHandle.createWritable();
+                    await writableStream.write(pdfBlob);
+                    await writableStream.close();
+                    alert('Archivo guardado exitosamente.');
+                } catch (error) {
+                    alert('Error al guardar el archivo: ' + error.message);
+                }
+            } else {
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(pdfBlob);
+                link.download = 'activos.pdf';
+                link.click();
+                URL.revokeObjectURL(link.href);
+            }
+        }
+    </script>
+}

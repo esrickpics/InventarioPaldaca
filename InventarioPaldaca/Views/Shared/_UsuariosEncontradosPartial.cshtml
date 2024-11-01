@@ -1,0 +1,53 @@
+﻿@model InventarioPaldaca.Models.ViewModels.UsuarioPerfilViewModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/PerfilUsuario.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+}
+@if (Model.UsuariosEncontrados != null && Model.UsuariosEncontrados.Any())
+{
+    <div class="card-body">
+        <ul class="list-group">
+            @foreach (var usuario in Model.UsuariosEncontrados)
+            {
+                <li class="list-group-item cardusuario">
+                    <a asp-action="PerfilUsuario" asp-route-id="@usuario.UsuarioId" class="LinkUsuario">
+                        <div class="bg-primary text-white p-4 rounded">
+                            <h3>Usuario Encontrado</h3>
+                            <div class="d-flex align-items-center mt-3">
+                                <!-- Mostrar imagen del usuario si existe, o una imagen predeterminada -->
+                                 @* <img src="@(!string.IsNullOrEmpty(usuario.) ? usuario.UsuarioImagen : Url.Content("~/img/default-profile.svg"))"
+                                             alt="Imagen de Perfil"
+                                             width="40"
+                                height="40">
+                                class="iconoperfil"   imagen perfil*@
+
+                                <div class="ms-3">
+                                    <h4>@usuario.UsuarioNombre @usuario.UsuarioApellido</h4>
+                                    <p>Información de Contacto:</p>
+                                    <p>
+                                        <i class="fas fa-envelope"></i>
+                                        @usuario.UsuarioEmail
+                                    </p>
+                                    <p>
+                                        <i class="fas fa-phone"></i>
+                                        @usuario.UsuarioTelefono
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <div class="card mt-5 d-none text-black" id="noUsersFoundMessage">
+        <div class="card-body">
+            <p>No se encontraron usuarios.</p>
+        </div>
+    </div>
+}
