@@ -33,7 +33,7 @@ namespace InventarioPaldaca.Controllers
 
                 _context.Ubicacions.Add(ubicacion);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Create", "Activo"); // Redirige a la creación de un Activo o a donde lo necesites.
+                return RedirectToAction("Create", "Activo"); 
             }
 
             return View(model);

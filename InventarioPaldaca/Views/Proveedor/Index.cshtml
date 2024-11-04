@@ -5,6 +5,7 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 }
+
 <section class="container form-container mt-5 mb-5">
     <h2 class="form-title">
         <img src="/img/Iconos/proveedor.svg" alt="Icono Proveedor" style="width: 32px; height: 32px; margin-right: 10px;">
@@ -29,54 +30,63 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Filtro de Categoría Maestra -->
+                <div class="form-group mt-3">
+                    <label for="categoriaMasterFilter" class="form-label">Filtrar por Categoría:</label>
+                    <select class="form-select" id="categoriaMasterFilter">
+                        <option value="">Seleccione una Categoría</option>
+                        @foreach (var categoriaMaster in Model.CategoriasMaestras)
+                        {
+                            <option value="@categoriaMaster.CategoriaMasterId">@categoriaMaster.Nombre</option>
+                        }
+                    </select>
+                </div>
             </form>
         </div>
     </div>
+    
     <div id="proveedoresEncontradosContainer" class="text-white p-4 rounded">
-        <partial name="_ProveedoresEncontradosPartial" model="Model" />
+        <partial name="_ProveedoresEncontradosPartial" model="Model.ProveedoresEncontrados" />
     </div>
 </section>
 
 @section Scripts {
     <script>
-        document.getElementById("searchTermProveedor").addEventListener("keydown", function (event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                document.getElementById("searchBtnProveedor").click(); // Simular clic en el botón de búsqueda
-            }
-        });
-
-        document.getElementById("searchBtnProveedor").addEventListener("click", function () {
+        // Función para realizar la búsqueda o filtrar por categoría maestra
+        function buscarProveedores() {
             var searchTerm = document.getElementById("searchTermProveedor").value.trim();
+            var categoriaMasterId = document.getElementById("categoriaMasterFilter").value;
 
-            if (!searchTerm) {
-                // Si el campo de búsqueda está vacío, no realizar la solicitud
-                document.getElementById("proveedoresEncontradosContainer").innerHTML = '';
-                document.getElementById("noProvidersFoundMessage").classList.remove("d-none");
-                return;
-            }
-
-            var url = `/Proveedor/BuscarProveedores?searchTerm=${encodeURIComponent(searchTerm)}`;
+            var url = `/Proveedor/BuscarProveedores?searchTerm=${encodeURIComponent(searchTerm)}&categoriaMasterId=${encodeURIComponent(categoriaMasterId)}`;
 
             fetch(url, {
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
                 }
             })
-                .then(response => response.text())
-                .then(html => {
-                    var proveedoresEncontradosContainer = document.getElementById("proveedoresEncontradosContainer");
-                    proveedoresEncontradosContainer.innerHTML = html;
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("proveedoresEncontradosContainer").innerHTML = html;
+            });
+        }
 
-                    var noProvidersFoundMessage = document.getElementById("noProvidersFoundMessage");
-                    if (!document.querySelector("#proveedoresEncontradosContainer .list-group-item")) {
-                        noProvidersFoundMessage.classList.remove("d-none");
-                    } else {
-                        if (noProvidersFoundMessage) {
-                            noProvidersFoundMessage.classList.add("d-none");
-                        }
-                    }
-                });
+        // Escucha del botón de búsqueda
+        document.getElementById("searchBtnProveedor").addEventListener("click", function () {
+            buscarProveedores();
+        });
+
+        // Escucha para la entrada de búsqueda (presionar Enter)
+        document.getElementById("searchTermProveedor").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                buscarProveedores();
+            }
+        });
+
+        // Escucha para el cambio de la categoría maestra en el filtro
+        document.getElementById("categoriaMasterFilter").addEventListener("change", function () {
+            buscarProveedores();
         });
     </script>
 }

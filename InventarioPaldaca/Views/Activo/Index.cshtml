@@ -192,7 +192,7 @@
                 var categoriaMaster = $(this).val();
                 var $categoriaSelect = $('#categoria');
                 $categoriaSelect.empty(); // Limpiar opciones anteriores
-                $categoriaSelect.append('<option value="">Seleccione una sub-categoría</option>'); // Opción por defecto
+                $categoriaSelect.append('<option value="">Seleccione una sub-categoría</option>'); 
 
                 // Solo hacer la solicitud AJAX si se ha seleccionado una categoría maestra válida
                 if (categoriaMaster) {

@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Inventario\" />
     <Folder Include="wwwroot\img\AsignacionPDF\" />
     <Folder Include="wwwroot\img\Usuarios\" />
   </ItemGroup>
