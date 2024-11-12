@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zIWpP9xnV+v4xm9+L2TzlMdiyaz2EWJw8eteC2J1M8E=",
+  "Hash": "/RXj8AmuZlIa56AROMf/Epit0KHoPR1dkZhPcrUlz2A=",
   "Source": "InventarioPaldaca",
   "BasePath": "_content/InventarioPaldaca",
   "Mode": "Default",
@@ -642,6 +642,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Paldaca Icon.png"
+    },
+    {
+      "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Paldaca logoyRif.png",
+      "SourceId": "InventarioPaldaca",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\",
+      "BasePath": "_content/InventarioPaldaca",
+      "RelativePath": "img/Paldaca logoyRif.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Paldaca logoyRif.png"
     },
     {
       "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldaca_logo-footer-2.png",

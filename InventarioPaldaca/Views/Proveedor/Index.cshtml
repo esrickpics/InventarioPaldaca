@@ -30,17 +30,22 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Filtro de Categoría Maestra -->
-                <div class="form-group mt-3">
-                    <label for="categoriaMasterFilter" class="form-label">Filtrar por Categoría:</label>
-                    <select class="form-select" id="categoriaMasterFilter">
-                        <option value="">Seleccione una Categoría</option>
-                        @foreach (var categoriaMaster in Model.CategoriasMaestras)
-                        {
-                            <option value="@categoriaMaster.CategoriaMasterId">@categoriaMaster.Nombre</option>
-                        }
-                    </select>
+                <div class="filter-container mb-4 mt-4">
+                    <h5 class="form-title" style="font-size: 20px;">
+                        <img src="/img/Iconos/filtrar.svg" alt="Icono Activos" style="width: 32px; height: 32px; margin-right: 10px;">
+                        Filtrar Proveedores
+                    </h5>
+                    <!-- Filtro de Categoría Maestra -->
+                    <div class="form-group mt-3">
+                        
+                        <select class="form-select" id="categoriaMasterFilter">
+                            <option value="">Seleccione una Categoría</option>
+                            @foreach (var categoriaMaster in Model.CategoriasMaestras)
+                            {
+                                <option value="@categoriaMaster.CategoriaMasterId">@categoriaMaster.Nombre</option>
+                            }
+                        </select>
+                    </div>
                 </div>
             </form>
         </div>

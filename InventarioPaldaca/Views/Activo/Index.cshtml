@@ -118,7 +118,7 @@
                                 <!-- Cambiado a "id" -->
                                 @foreach (var activo in Model.ListaActivos)
                                 {
-                                    <option value="@activo.ActivoId">@activo.Marca - @activo.Modelo - @activo.Categoria.CategoriaNombre - @(activo.Usuario?.UsuarioNombre ?? "No asignado")</option>
+                                    <option value="@activo.ActivoId">@activo.CodigoInventario - @activo.Modelo - @activo.Categoria.CategoriaNombre - @(activo.Usuario?.UsuarioNombre ?? "No asignado")</option>
                                 }
                             </select>
                         </div>
@@ -174,6 +174,7 @@
         </path>
     </svg>
 </a>
+
 @section Scripts {
     <script>
         $(document).ready(function () {
@@ -266,23 +267,101 @@
             }
         });
 
-        // Función para generar y guardar el PDF
         async function generatePDF() {
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+            const doc = new jsPDF('portrait', 'mm', 'a4');
 
-            doc.text("Activos", 14, 16);
+            // Ruta de la imagen en el servidor
+            const logoUrl = '/img/Paldaca logoyRif.png';
+                //encabezado
+            // Cargar la imagen desde el servidor y convertirla a base64
+            async function getBase64ImageFromUrl(url) {
+                const response = await fetch(url);
+                const blob = await response.blob();
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => resolve(reader.result);
+                    reader.onerror = () => reject(new Error('Error al cargar la imagen'));
+                    reader.readAsDataURL(blob);
+                });
+            }
+
+            try {
+                const logoBase64 = await getBase64ImageFromUrl(logoUrl);
+                doc.addImage(logoBase64, 'PNG', 14, 10, 40, 15);
+            } catch (error) {
+                console.error('Error al cargar el logo:', error);
+            }
+
+            // Genera la tabla del encabezado
+            doc.autoTable({
+                startY: 10, // Posición vertical
+                margin: { left: 60, right: 40 }, // Margen izquierdo para que no se superponga con el logo
+                tableWidth: 140, // Ajusta el ancho de la tabla
+                theme: 'plain',
+                body: [
+                    [{ content: 'SISTEMA DE GESTION DE LA CALIDAD', styles: { halign: 'center', fontSize: 10 } }],
+                    [{ content: 'SISTEMAS Y TECNOLOGÍA', styles: { halign: 'center', fontSize: 10 } }],
+                    [{ content: 'CONTROL DE INVENTARIO', styles: { halign: 'center', fontSize: 12, fontStyle: 'bold' } }],
+                ],
+                styles: {
+                    cellPadding: 2,
+                    textColor: [0, 0, 0],
+                    lineColor: [0, 0, 0],
+                    lineWidth: 0.5,
+                    font: 'helvetica',
+                },
+                showHead: false, // No mostrar encabezados de tabla
+            });
+            // Línea divisoria
+            doc.setLineWidth(0.5);
+            doc.line(14, 52, 196, 52);
+
+            // Tabla de datos
             doc.autoTable({
                 html: '#activosTable',
-                startY: 20,
+                startY: 55,
                 theme: 'grid',
-                headStyles: { fillColor: [52, 58, 64], fontSize: 12, halign: 'center' },
-                bodyStyles: { textColor: [0, 0, 0], fontSize: 10, halign: 'right' },
-                styles: { lineColor: [0, 0, 0], lineWidth: 0.5 },
+                headStyles: {
+                    fillColor: [0, 51, 102],
+                    textColor: [255, 255, 255],
+                    fontSize: 8,
+                    halign: 'center',
+                    fontStyle: 'bold'
+                },
+                bodyStyles: {
+                    textColor: [0, 0, 0],
+                    fontSize: 7,
+                    halign: 'center',
+                    cellPadding: 2
+                },
+                alternateRowStyles: {
+                    fillColor: [240, 240, 240]
+                },
+                styles: {
+                    lineColor: [0, 0, 0],
+                    lineWidth: 0.5,
+                },
+                tableLineColor: [0, 0, 0],
+                tableLineWidth: 0.75
             });
 
-            const pdfBlob = doc.output('blob');
+            // Pie de página
+            doc.setFontSize(10);
+            doc.text("ELABORADO POR:", 14, doc.lastAutoTable.finalY + 10);
+            doc.text("Nombre: ___________________", 14, doc.lastAutoTable.finalY + 18);
+            doc.text("Cargo: _____________________", 14, doc.lastAutoTable.finalY + 26);
+            doc.text("Firma: _____________________", 14, doc.lastAutoTable.finalY + 34);
+            doc.text("Fecha: _____________________", 14, doc.lastAutoTable.finalY + 42);
 
+            doc.text("REVISADO POR:", 110, doc.lastAutoTable.finalY + 10);
+            doc.text("Nombre: ___________________", 110, doc.lastAutoTable.finalY + 18);
+            doc.text("Cargo: _____________________", 110, doc.lastAutoTable.finalY + 26);
+            doc.text("Firma: _____________________", 110, doc.lastAutoTable.finalY + 34);
+            doc.text("Fecha: _____________________", 110, doc.lastAutoTable.finalY + 42);
+
+            // Guardar o mostrar el PDF
+            const pdfBlob = doc.output('blob');
             if (window.showSaveFilePicker) {
                 const options = {
                     suggestedName: 'activos.pdf',
@@ -302,9 +381,10 @@
                     alert('Error al guardar el archivo: ' + error.message);
                 }
             } else {
+                // Método de respaldo para navegadores sin soporte de File System Access API
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(pdfBlob);
-                link.download = 'activos.pdf';
+                link.download = 'controlactivos.pdf';
                 link.click();
                 URL.revokeObjectURL(link.href);
             }
