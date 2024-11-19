@@ -1,4 +1,5 @@
 ﻿@model InventarioPaldaca.Models.ViewModels.UsuarioPerfilViewModel
+@using System.IO
 
 @{
     ViewBag.Title = "Perfil del Usuario";
@@ -177,14 +178,11 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Nuevo campo de archivo para el PDF -->
             <div class="row mt-4">
                 <div class="col-md-12">
                     <div class="profile-content">
                         <h2 id="pdfHeading" class="d-none">Ingrese la plantilla de Asignación</h2>
                         <div class="contact-item">
-                            <!-- Mostrar o ocultar el campo de subida cuando se edita -->
                             <input asp-for="AsignacionPdf" type="file" id="pdfInput" name="pdfFile" accept=".pdf" class="form-control d-none" />
                             <span asp-validation-for="AsignacionPdf" class="text-danger"></span>
                         </div>
@@ -334,6 +332,37 @@
                 });
             }
 
+            document.addEventListener("DOMContentLoaded", function () {
+                const pdfInput = document.getElementById("pdfInput");
+                const pdfFileNameDisplay = document.getElementById("pdfFileNameDisplay");
+
+                // Mostrar el nombre del archivo PDF cargado
+                if (pdfInput) {
+                    pdfInput.addEventListener("change", function (event) {
+                        const file = event.target.files[0];
+                        if (file) {
+                            if (file.type !== "application/pdf") {
+                                alert("Por favor, selecciona un archivo PDF.");
+                                event.target.value = ""; // Resetear el campo de archivo
+                            } else if (pdfFileNameDisplay) {
+                                pdfFileNameDisplay.textContent = "Archivo cargado: " + file.name;
+                                pdfFileNameDisplay.classList.remove("d-none");
+                            }
+                        }
+                    });
+                }
+
+                // Lógica para alternar entre modo de edición y vista
+                function toggleEditing(isEditing) {
+                    document.querySelectorAll("#perfilForm input").forEach(input => {
+                        input.classList.toggle("d-none", !isEditing);
+                    });
+
+                    if (pdfFileNameDisplay) {
+                        pdfFileNameDisplay.classList.toggle("d-none", isEditing);
+                    }
+                }
+            });
             // Validación para el PDF asignado
             var asignacionPdf = '@Model.AsignacionPdf';
             const errorMessage = document.getElementById("error-message");

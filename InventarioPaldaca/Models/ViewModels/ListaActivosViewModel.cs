@@ -24,5 +24,8 @@ namespace InventarioPaldaca.Models.ViewModels
         public Dictionary<string, int> ActivosPorCategoria { get; set; }
         public Dictionary<string, int> ActivosPorUbicacion { get; set; }
 
+        public int TotalActivosDañados { get; set; }
+
+
     }
 }

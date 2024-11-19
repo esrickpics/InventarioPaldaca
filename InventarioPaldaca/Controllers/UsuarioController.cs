@@ -100,10 +100,10 @@ namespace InventarioPaldaca.Controllers
         }
         public async Task<IActionResult> EditarUsuario(UsuarioPerfilViewModel model, IFormFile pdfFile, IFormFile imageFile)
         {
-            // Remover la validación de SearchTerm y AsignacionPdf
             ModelState.Remove("SearchTerm");
-            ModelState.Remove("AsignacionPdf");  // Remueve AsignacionPdf de la validación
-            ModelState.Remove("ImagenUrl");  // Remueve ImagenUrl de la validación
+            ModelState.Remove("imageFile");
+            ModelState.Remove("AsignacionPdf");
+            ModelState.Remove("pdfFile");
 
             if (model.UsuarioId < 0)
             {
@@ -111,16 +111,12 @@ namespace InventarioPaldaca.Controllers
                 return RedirectToAction("PerfilUsuario", new { id = model.UsuarioId });
             }
 
-            // Validaciones adicionales para el correo electrónico y teléfono
+            // Validar correo electrónico y teléfono
             if (!string.IsNullOrEmpty(model.UsuarioCorreo) && !new EmailAddressAttribute().IsValid(model.UsuarioCorreo))
-            {
                 ModelState.AddModelError("UsuarioCorreo", "Ingrese un correo electrónico válido.");
-            }
 
             if (!string.IsNullOrEmpty(model.UsuarioTelefono) && !new PhoneAttribute().IsValid(model.UsuarioTelefono))
-            {
                 ModelState.AddModelError("UsuarioTelefono", "Ingrese un número de teléfono válido.");
-            }
 
             var usuario = await _context.Usuarios.FindAsync(model.UsuarioId);
             if (usuario == null)
@@ -129,115 +125,43 @@ namespace InventarioPaldaca.Controllers
                 return RedirectToAction("PerfilUsuario", new { id = model.UsuarioId });
             }
 
-            model.UsuarioImagenUrl = usuario.ImagenUrl ?? "/img/default-profile.png";
+            // Valores predeterminados para imagen y PDF
+            model.AsignacionPdf ??= usuario.AsignacionPdf;
+            model.UsuarioImagenUrl ??= usuario.ImagenUrl ?? "~/img/Usuarios/Img.default.png";
 
-            model.AsignacionPdf = usuario.AsignacionPdf ?? string.Empty;
-
-            // Subida del archivo PDF
+            // Manejar archivo PDF
             if (pdfFile != null && pdfFile.Length > 0)
             {
-                if (Path.GetExtension(pdfFile.FileName).ToLower() != ".pdf")
+                var pdfResult = await ManejarArchivo(pdfFile, "wwwroot/img/AsignacionPDF", ".pdf");
+                if (!pdfResult.Success)
                 {
-                    ModelState.AddModelError("PdfFile", "Solo se permiten archivos PDF.");
+                    ModelState.AddModelError("PdfFile", pdfResult.ErrorMessage);
                 }
                 else
                 {
-                    // Eliminar el PDF anterior si existe
-                    if (!string.IsNullOrEmpty(usuario.AsignacionPdf))
-                    {
-                        var previousFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", usuario.AsignacionPdf.TrimStart('/'));
-                        if (System.IO.File.Exists(previousFilePath))
-                        {
-                            try
-                            {
-                                System.IO.File.Delete(previousFilePath);  // Eliminar el archivo antiguo
-                            }
-                            catch (Exception ex)
-                            {
-                                TempData["Error"] = $"No se pudo eliminar el archivo anterior: {ex.Message}";
-                            }
-                        }
-                    }
-
-                    // Guardar el nuevo archivo PDF
-                    var originalFileName = Path.GetFileNameWithoutExtension(pdfFile.FileName);
-                    var yearMonth = DateTime.Now.ToString("yyyyMM");
-                    var fileName = $"{originalFileName}_{yearMonth}{Path.GetExtension(pdfFile.FileName)}";
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/AsignacionPDF", fileName);
-
-                    try
-                    {
-                        using (var stream = new FileStream(filePath, FileMode.Create))
-                        {
-                            await pdfFile.CopyToAsync(stream);
-                        }
-
-                        // Asignar la nueva ruta del PDF al modelo y usuario
-                        model.AsignacionPdf = $"/img/AsignacionPDF/{fileName}";
-                        usuario.AsignacionPdf = model.AsignacionPdf;
-                    }
-                    catch (Exception ex)
-                    {
-                        ModelState.AddModelError("PdfFile", $"Ocurrió un error al subir el archivo PDF: {ex.Message}");
-                    }
+                    EliminarArchivo(usuario.AsignacionPdf); // Eliminar PDF anterior
+                    usuario.AsignacionPdf = pdfResult.FilePath;
                 }
             }
 
-            // Subida del archivo de imagen
+            // Manejar archivo de imagen
             if (imageFile != null && imageFile.Length > 0)
             {
-                var validExtensions = new[] { ".jpg", ".jpeg", ".png" };
-                var extension = Path.GetExtension(imageFile.FileName).ToLower();
-                if (!validExtensions.Contains(extension))
+                var imageResult = await ManejarArchivo(imageFile, "wwwroot/img/Usuarios", ".jpg,.jpeg,.png");
+                if (!imageResult.Success)
                 {
-                    ModelState.AddModelError("ImageFile", "Solo se permiten archivos JPG o PNG.");
+                    ModelState.AddModelError("ImageFile", imageResult.ErrorMessage);
                 }
                 else
                 {
-                    // Eliminar la imagen anterior si existe
-                    if (!string.IsNullOrEmpty(usuario.ImagenUrl))
-                    {
-                        var previousImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", usuario.ImagenUrl.TrimStart('/'));
-                        if (System.IO.File.Exists(previousImagePath))
-                        {
-                            try
-                            {
-                                System.IO.File.Delete(previousImagePath);  // Eliminar la imagen antigua
-                            }
-                            catch (Exception ex)
-                            {
-                                TempData["Error"] = $"No se pudo eliminar la imagen anterior: {ex.Message}";
-                            }
-                        }
-                    }
-
-                    // Guardar la nueva imagen
-                    var originalFileName = Path.GetFileNameWithoutExtension(imageFile.FileName);
-                    
-                    var imageName = $"{originalFileName}{extension}";
-                    var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Usuarios", imageName);
-
-                    try
-                    {
-                        using (var stream = new FileStream(imagePath, FileMode.Create))
-                        {
-                            await imageFile.CopyToAsync(stream);
-                        }
-
-                        // Asignar la nueva ruta de la imagen al modelo y usuario
-                        model.UsuarioImagenUrl = $"/img/Usuarios/{imageName}";
-                        usuario.ImagenUrl = model.UsuarioImagenUrl;
-                    }
-                    catch (Exception ex)
-                    {
-                        ModelState.AddModelError("ImageFile", $"Ocurrió un error al subir la imagen: {ex.Message}");
-                    }
+                    EliminarArchivo(usuario.ImagenUrl); // Eliminar imagen anterior
+                    usuario.ImagenUrl = imageResult.FilePath;
                 }
             }
 
             if (ModelState.IsValid)
             {
-                // Actualizar los campos del usuario
+                // Actualizar los datos del usuario
                 usuario.UsuarioNombre = model.UsuarioNombre;
                 usuario.UsuarioApellido = model.UsuarioApellido;
                 usuario.UsuarioEmail = model.UsuarioCorreo;
@@ -257,12 +181,62 @@ namespace InventarioPaldaca.Controllers
 
                 return RedirectToAction("PerfilUsuario", new { id = model.UsuarioId });
             }
-            else
+
+            TempData["Error"] = string.Join("; ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
+            model = await ObtenerPerfilUsuarioAsync(model.UsuarioId); // Recargar datos en caso de error
+            return View("PerfilUsuario", model);
+        }
+
+
+        // Método reutilizable para manejar la subida de archivos
+        private async Task<(bool Success, string FilePath, string ErrorMessage)> ManejarArchivo(IFormFile file, string uploadPath, string allowedExtensions)
+        {
+            try
             {
-                TempData["Error"] = string.Join("; ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
-                // Recargar datos del usuario en caso de error
-                model = await ObtenerPerfilUsuarioAsync(model.UsuarioId);
-                return View("PerfilUsuario", model);
+                var validExtensions = allowedExtensions.Split(',');
+                var extension = Path.GetExtension(file.FileName).ToLower();
+
+                if (!validExtensions.Contains(extension))
+                    return (false, null, $"Solo se permiten archivos de tipo {string.Join(", ", validExtensions)}.");
+
+                var fileName = $"{Path.GetFileNameWithoutExtension(file.FileName)}_{DateTime.Now:yyyyMMddHHmmss}{extension}";
+                var filePath = Path.Combine(uploadPath, fileName);
+
+                // Crear directorio si no existe
+                Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), uploadPath));
+
+                // Guardar el archivo
+                using (var stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), filePath), FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                return (true, $"/{filePath.Substring("wwwroot/".Length)}", null);
+
+            }
+            catch (Exception ex)
+            {
+                return (false, null, $"Error al subir el archivo: {ex.Message}");
+            }
+        }
+
+        // Método para eliminar archivos
+        private void EliminarArchivo(string filePath)
+        {
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                var fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", filePath.TrimStart('/'));
+                if (System.IO.File.Exists(fullPath))
+                {
+                    try
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error al eliminar archivo: {ex.Message}");
+                    }
+                }
             }
         }
 

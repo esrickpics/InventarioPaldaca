@@ -33,7 +33,11 @@ namespace InventarioPaldaca.Controllers
                                .Include(u => u.Usuario)
                                .Include(u => u.Ubicacion)
                                .Include(u => u.Categoria)
+                               .ThenInclude(c => c.CategoriaMaster)
                                .ToListAsync();
+
+           
+       
 
             // Calcular el total de activos
             int totalActivos = Activos?.Count ?? 0;
@@ -43,6 +47,9 @@ namespace InventarioPaldaca.Controllers
 
             // Obtener todas las ubicaciones disponibles
             var ubicaciones = await _context.Ubicacions.ToListAsync();
+           
+
+            int totalActivosDañados = Activos?.Count(a => a.Funcionabilidad == false) ?? 0;
 
             // Obtener todas las categorías maestras disponibles
             var categoriasMaster = await _context.CategoriaMasters.ToListAsync();
@@ -68,12 +75,28 @@ namespace InventarioPaldaca.Controllers
                 CategoriasMaster = categoriasMaster ?? new List<CategoriaMaster>(),
                 ListaActivos = Activos ?? new List<Activo>(),
                 Categorias = categorias ?? new List<Categorium>(),
-                Ubicaciones = ubicaciones ?? new List<Ubicacion>()
+                Ubicaciones = ubicaciones ?? new List<Ubicacion>(),
+                TotalActivosDañados = totalActivosDañados
             };
 
             return View(model);
         }
+        public IActionResult ActivosDañados()
+        {
+            var activosDañados = _context.Activos
+                                          .Include(a => a.Usuario)
+                                          .Include(a => a.Categoria)
+                                          .Include(a => a.Ubicacion)
+                                         .Where(a => a.Funcionabilidad == false)
+                                          .ToList();
 
+            var model = new ListaActivosViewModel
+            {
+                ListaActivos = activosDañados
+            };
+
+            return View("ActivosDañados", model);
+        }
         public IActionResult Create()
         {
             ViewData["Categoria"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaNombre");
@@ -123,7 +146,7 @@ namespace InventarioPaldaca.Controllers
             {
                 foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
                 {
-                    Console.WriteLine(error.ErrorMessage); // Revisa qué error aparece
+                    Console.WriteLine(error.ErrorMessage); 
                 }
             }
             ViewData["Categoria"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaNombre", model.CategoriaId);
@@ -135,6 +158,7 @@ namespace InventarioPaldaca.Controllers
                                                                   }), "UsuarioId", "NombreCompleto", model.UsuarioId);
             return View(model);
         }
+        
 
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
@@ -187,7 +211,12 @@ namespace InventarioPaldaca.Controllers
             // Filtrar por Categoría Maestra
             if (!string.IsNullOrEmpty(categoriamaster))
             {
-                activos = activos.Where(a => a.Categoria.CategoriaMaster.Nombre.Contains(categoriamaster));
+                var subcategorias = _context.Categoria
+                                            .Where(c => c.CategoriaMaster.Nombre == categoriamaster)
+                                            .Select(c => c.CategoriaNombre)
+                                            .ToList();
+
+                activos = activos.Where(a => subcategorias.Contains(a.Categoria.CategoriaNombre));
             }
 
             var listaActivos = activos.ToList();
@@ -243,7 +272,8 @@ namespace InventarioPaldaca.Controllers
             // Devolvemos la vista parcial actualizada con la lista ordenada
             return PartialView("_ListaActivosPartial", model);
         }
-
+  
+       
         [HttpPost]
         public IActionResult ReasignarActivo(int id, int usuarioId)
         {
@@ -262,15 +292,32 @@ namespace InventarioPaldaca.Controllers
             }
             catch (Exception ex)
             {
-                // Manejo de errores: registrar el error o mostrar un mensaje al usuario
-                // Aquí puedes registrar el error en un log, por ejemplo:
-                // _logger.LogError(ex, "Error al guardar los cambios del activo {ActivoId}.", id);
-   
                 TempData["ErrorMessage"] = "Ocurrió un error al intentar reasignar el activo. Por favor, inténtalo de nuevo.";
                 return RedirectToAction("Index"); 
             }
 
             return RedirectToAction("Index"); // O la vista que prefieras.
+        }
+        [HttpPost]
+        public IActionResult RelocalizarActivo(int id, int ubicacionId)
+        {
+            var activo = _context.Activos.FirstOrDefault(a => a.ActivoId == id);
+            if (activo != null)
+            {
+                activo.UbicacionId = ubicacionId;
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    TempData["ErrorMessage"] = "Ocurrió un error al intentar reasignar el activo. Por favor, inténtalo de nuevo.";
+                    return RedirectToAction("Index");
+                }
+
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index"); // O la vista que corresponda.
         }
 
     }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/RXj8AmuZlIa56AROMf/Epit0KHoPR1dkZhPcrUlz2A=",
+  "Hash": "rUT7aQQXukP2Ore3GdytdbS8IFaqjo4lI9nVRiKE2aQ=",
   "Source": "InventarioPaldaca",
   "BasePath": "_content/InventarioPaldaca",
   "Mode": "Default",
@@ -169,12 +169,12 @@
       "OriginalItemSpec": "wwwroot\\img\\4092564-about-mobile-ui-profile-ui-user-website_114033.svg"
     },
     {
-      "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\AsignacionPDF\\AsignacionAlba_202410.pdf",
+      "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\AsignacionPDF\\AsignacionAlba_20241119105641.pdf",
       "SourceId": "InventarioPaldaca",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\",
       "BasePath": "_content/InventarioPaldaca",
-      "RelativePath": "img/AsignacionPDF/AsignacionAlba_202410.pdf",
+      "RelativePath": "img/AsignacionPDF/AsignacionAlba_20241119105641.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -185,7 +185,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\AsignacionPDF\\AsignacionAlba_202410.pdf"
+      "OriginalItemSpec": "wwwroot\\img\\AsignacionPDF\\AsignacionAlba_20241119105641.pdf"
     },
     {
       "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\AsignacionPDF\\AsignacionBerlimar_202410.pdf",
@@ -359,12 +359,12 @@
       "OriginalItemSpec": "wwwroot\\img\\AsignacionPDF\\AsignacionRafavelaz_202410.pdf"
     },
     {
-      "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\AsignacionPDF\\AsignacionVictorE_202410.pdf",
+      "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\AsignacionPDF\\AsignacionVictorE_20241119111702.pdf",
       "SourceId": "InventarioPaldaca",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\",
       "BasePath": "_content/InventarioPaldaca",
-      "RelativePath": "img/AsignacionPDF/AsignacionVictorE_202410.pdf",
+      "RelativePath": "img/AsignacionPDF/AsignacionVictorE_20241119111702.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -375,7 +375,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\AsignacionPDF\\AsignacionVictorE_202410.pdf"
+      "OriginalItemSpec": "wwwroot\\img\\AsignacionPDF\\AsignacionVictorE_20241119111702.pdf"
     },
     {
       "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\AsignacionPDF\\AsignacionWillian_202410.pdf",

@@ -79,5 +79,6 @@ namespace InventarioPaldaca.Controllers
 
             return model;
         }
+
     }
 }

@@ -7,35 +7,44 @@ namespace InventarioPaldaca.Models.ViewModels
 {
     public class UsuarioPerfilViewModel
     {
+        // Identificador único del usuario
         public int UsuarioId { get; set; }
 
+        // Nombre del usuario (obligatorio)
         [Required(ErrorMessage = "El nombre es obligatorio.")]
         public string UsuarioNombre { get; set; }
 
+        // Apellido del usuario (obligatorio)
         [Required(ErrorMessage = "El apellido es obligatorio.")]
         public string UsuarioApellido { get; set; }
-        [AllowNull]
+
+        // Correo electrónico (opcional, con validación de formato)
         [EmailAddress(ErrorMessage = "Ingrese un correo electrónico válido.")]
-        public string UsuarioCorreo { get; set; } // No es obligatorio ahora
+        public string? UsuarioCorreo { get; set; }
 
-        [AllowNull]
+        // Teléfono del usuario (opcional, con validación de formato)
         [Phone(ErrorMessage = "Ingrese un número de teléfono válido.")]
-        public string UsuarioTelefono { get; set; } // No es obligatorio ahora
+        public string? UsuarioTelefono { get; set; }
 
-        public string UsuarioCargo { get; set; } = string.Empty;
+        // Cargo del usuario (opcional, con valor predeterminado)
+        public string? UsuarioCargo { get; set; } = string.Empty;
 
-        // Imagen no obligatoria, con un valor predeterminado
-        public string UsuarioImagenUrl { get; set; } = "~/img/Usuarios/Img.default.png";
-        [AllowNull]
-        public string AsignacionPdf { get; set; }
+        // URL de la imagen del usuario (opcional, con valor predeterminado)
+        public string? UsuarioImagenUrl { get; set; } = "~/img/Usuarios/Img.default.png";
 
-        public IFormFile PdfFile { get; set; }
+        // Ruta del archivo PDF asociado (opcional)
+        public string? AsignacionPdf { get; set; }
 
+        // Archivo PDF cargado (opcional)
+        public IFormFile? PdfFile { get; set; }
+
+        // Lista de activos asociados al usuario
         public List<ActivosAsociadosViewModel> ActivosAsociados { get; set; } = new List<ActivosAsociadosViewModel>();
 
-        // Datos para la búsqueda
-        public string SearchTerm { get; set; }
+        // Término de búsqueda (opcional)
+        public string? SearchTerm { get; set; }
+
+        // Lista de usuarios encontrados por el término de búsqueda
         public List<Usuario> UsuariosEncontrados { get; set; } = new List<Usuario>();
     }
 }
-

@@ -5,30 +5,34 @@
         <img src="/img/Iconos/activos.svg" alt="Icono Activos" style="width: 32px; height: 32px; margin-right: 10px;">
         Activos
     </h1>
-    <hr class="linea" style="color: #32407b"/>
+    <hr class="linea" style="color: #32407b" />
 
     <!-- Botones de acciones -->
-    <div class="row text-center mb-4">
-        <div class="col-md-3">
-            <a asp-action="Create" class="btn btn-primary w-100 btn-action">Nuevo Activo</a>
+    <div class="row text-center g-2 mb-4">
+        <div class="col">
+            <a asp-action="Create" class="btn btn-action btn-sm w-100">Nuevo Activo</a>
         </div>
-        <div class="col-md-3">
-            <button id= "toggleDelete" class="btn btn-primary w-100 btn-action">
+        <div class="col">
+            <button id="toggleDelete" class="btn w-100 btn-action">
                 Eliminar activos
             </button>
         </div>
-        <div class="col-md-3">
-            <button id="generatePdfBtn" class="btn btn-primary w-100 btn-action">
-               Generar PDF
+        <div class="col">
+            <button id="generatePdfBtn" class="btn btn-action btn-sm w-100">
+                Generar PDF
             </button>
         </div>
-        <div class="col-md-3">
-            <button id="openReassignModalBtn" class="btn btn-primary w-100 btn-action">
+        <div class="col">
+            <button id="openReassignModalBtn" class="btn btn-action btn-sm w-100">
                 Reasignar activos
             </button>
         </div>
+        <div class="col">
+            <button id="relocalizarBtn" class="btn btn-action btn-sm w-100" data-bs-toggle="modal" data-bs-target="#relocalizarModal">
+                Reubicar activos
+            </button>
+        </div>
     </div>
-
     <!-- Filtros -->
     <div class="filter-container mb-4">
         <h5 class="form-title" style="font-size: 20px;">
@@ -81,24 +85,24 @@
         </form>
     </div>
 
-    <table class="table" id = "activosTable">
-    <thead>
-        <tr>
-            <th><button id="sortByName" class="sort-button">Nombre</button></th>
-            <th>Apellido</th>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>Categoría</th>
-            <th>Número de Serial</th>   
-            <th>Ubicación</th>
-            <th>Codigo De Inventario</th>
-            <th class="delete-column" style="display:none;">Eliminar</th>
-        </tr>
-    </thead>
-    <tbody id="activosTableBody">
-        <partial name="_ListaActivosPartial" model="Model" />
-    </tbody>
-</table>
+    <table class="table" id="activosTable">
+        <thead>
+            <tr>
+                <th><button id="sortByName" class="sort-button">Nombre</button></th>
+                <th>Apellido</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Categoría</th>
+                <th>Número de Serial</th>
+                <th>Ubicación</th>
+                <th>Codigo De Inventario</th>
+                <th class="delete-column" style="display:none;">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody id="activosTableBody">
+            <partial name="_ListaActivosPartial" model="Model" />
+        </tbody>
+    </table>
 
     <!-- Modal para reasignar activos -->
     <div class="modal fade" id="reassignModal" tabindex="-1" role="dialog" aria-labelledby="reassignModalLabel" aria-hidden="true">
@@ -142,27 +146,67 @@
         </div>
     </div>
 
-   <hr class="linea" />
+    <!-- Modal para reubicar activos -->
+    <div class="modal fade" id="relocalizarModal" tabindex="-1" role="dialog" aria-labelledby="relocalizarModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="relocalizarModalLabel">Relocalizar activo</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="relocalizarForm" asp-action="RelocalizarActivo" method="post">
+                        <div class="form-group">
+                            <label for="activoId">Seleccione un activo:</label>
+                            <select id="activoId" name="id" class="form-control">
+                                @foreach (var activo in Model.ListaActivos)
+                                {
+                                    <option value="@activo.ActivoId">@activo.CodigoInventario - @activo.Modelo - @activo.Categoria.CategoriaNombre - @(activo.Usuario?.UsuarioNombre ?? "No asignado")</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ubicacionId">Seleccione una nueva ubicación:</label>
+                            <select id="ubicacionId" name="ubicacionId" class="form-control">
+                                @foreach (var ubicacion in Model.Ubicaciones)
+                                {
+                                    <option value="@ubicacion.UbicacionId">@ubicacion.UbicacionNombre</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Relocalizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="linea" />
 
     <!-- Total activos -->
     <div class="total-container text-center">
         <h3 class="form-title" style="font-size:20px;">Total de Activos: @Model.TotalActivos</h3>
-            <div class="row">
-                <h4 class="form-title" style="font-size:18px;">Activos por Categoría:</h4>
-                <ul>
-                    @foreach (var categoria in Model.ActivosPorCategoria)
-                    {
-                        <li>@categoria.Key: @categoria.Value</li>
-                    }
-                </ul>
+        <div class="row">
+            <h4 class="form-title" style="font-size:18px;">Activos por Categoría:</h4>
+            <ul>
+                @foreach (var categoria in Model.ActivosPorCategoria)
+                {
+                    <li>@categoria.Key: @categoria.Value</li>
+                }
+            </ul>
 
-                <h4 class="form-title" style="font-size:18px;">Activos por Ubicación:</h4>
-                <ul>
-                    @foreach (var ubicacion in Model.ActivosPorUbicacion)
-                    { 
-                        <li>@ubicacion.Key: @ubicacion.Value</li>
-                    }
-                </ul>
+            <h4 class="form-title" style="font-size:18px;">Activos por Ubicación:</h4>
+            <ul>
+                @foreach (var ubicacion in Model.ActivosPorUbicacion)
+                {
+                    <li>@ubicacion.Key: @ubicacion.Value</li>
+                }
+            </ul>
         </div>
     </div>
 </div>
@@ -193,7 +237,7 @@
                 var categoriaMaster = $(this).val();
                 var $categoriaSelect = $('#categoria');
                 $categoriaSelect.empty(); // Limpiar opciones anteriores
-                $categoriaSelect.append('<option value="">Seleccione una sub-categoría</option>'); 
+                $categoriaSelect.append('<option value="">Seleccione una sub-categoría</option>');
 
                 // Solo hacer la solicitud AJAX si se ha seleccionado una categoría maestra válida
                 if (categoriaMaster) {
@@ -202,7 +246,7 @@
                         type: 'GET',
                         data: { categoriaMaster: categoriaMaster },
                         success: function (subcategorias) {
-                          
+
                             // Agregar nuevas opciones
                             $.each(subcategorias, function (index, subcategoria) {
                                 if (subcategoria.categoriaNombre) { // Asegurarse de que el campo no sea undefined
@@ -273,7 +317,7 @@
 
             // Ruta de la imagen en el servidor
             const logoUrl = '/img/Paldaca logoyRif.png';
-                //encabezado
+            //encabezado
             // Cargar la imagen desde el servidor y convertirla a base64
             async function getBase64ImageFromUrl(url) {
                 const response = await fetch(url);

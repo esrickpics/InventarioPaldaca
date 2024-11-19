@@ -24,6 +24,8 @@ namespace InventarioPaldaca.Controllers
             // Obtener todos los activos incluyendo sus relaciones
             var Activos = await _context.Activos.ToListAsync();
 
+            int totalActivosDañados = Activos?.Count(a => a.Funcionabilidad == false) ?? 0;
+
             // Calcular el total de activos
             int totalActivos = Activos?.Count ?? 0;
 
@@ -31,7 +33,8 @@ namespace InventarioPaldaca.Controllers
             var model = new ListaActivosViewModel
             {
                 TotalActivos = totalActivos,
-                ListaActivos = Activos ?? new List<Activo>()
+                ListaActivos = Activos ?? new List<Activo>(),
+                TotalActivosDañados = totalActivosDañados
             };
             return View(model);
         }

@@ -18,15 +18,20 @@
 <body class="d-flex flex-column min-vh-100">
     <header class="bg-opacity-10 bgcolor text-white py-3 px-4">
         <div class="container d-flex justify-content-between align-items-center">
-            <nav class="d-none d-md-flex">
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="text-white text-decoration-none me-4">Inicio</a>
-                <a asp-area="" asp-controller="Activo" asp-action="Index" class="text-white text-decoration-none me-4">Activos</a>             
-                <a asp-area="" asp-controller="Usuario" asp-action="Index" class="text-white text-decoration-none m me-4">Usuarios</a>
-                <a asp-area="" asp-controller="Proveedor" asp-action="Index" class="text-white text-decoration-none m me-4">Proveedores</a>
+            <nav class="d-flex align-items-center">
+                <button class="navbar-toggler d-md-none btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarNav">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="text-white text-decoration-none me-4">Inicio</a>
+                    <a asp-area="" asp-controller="Activo" asp-action="Index" class="text-white text-decoration-none me-4">Activos</a>
+                    <a asp-area="" asp-controller="Usuario" asp-action="Index" class="text-white text-decoration-none me-4">Usuarios</a>
+                    <a asp-area="" asp-controller="Proveedor" asp-action="Index" class="text-white text-decoration-none me-4">Proveedores</a>
+                </div>
             </nav>
         </div>
     </header>
-    <div class="headercontainer"> 
+    <div class="headercontainer">  
         <a asp-area="" asp-controller="Home" asp-action="Index" class="text-decoration-none d-flex align-items-center">
             <img src="~/img/paldaca_logo-header-2.png" class="logoheader" />
         </a>
@@ -36,12 +41,12 @@
             @RenderBody()
         </div>
     </main>
-    <footer class="text-white py-3 border-top footer mt-3">
+    <footer class="text-white py-3 border-top footer mt-3 bgcolor">
         <div class="container d-flex justify-content-between align-items-center">
             <a asp-area="" asp-controller="Home" asp-action="Index" class="headercontainer">
                 <img src="~/img/paldaca_logo-header-2.png" />
             </a>
-            <nav class="d-none d-md-flex">
+            <nav class="d-md-flex bg-opacity-50">
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="text-white text-decoration-none me-4">Inicio</a>
                 <a asp-area="" asp-controller="Activo" asp-action="Index" class="text-white text-decoration-none me-4">Activos</a>
                 <a asp-area="" asp-controller="Usuario" asp-action="Index" class="text-white text-decoration-none me-4">Usuarios</a>

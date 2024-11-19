@@ -1,0 +1,45 @@
+﻿@model InventarioPaldaca.Models.ViewModels.ListaActivosViewModel
+
+
+<h2>Activos Dañados</h2>
+
+<table class="table" id="activosTable">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Categoría</th>
+            <th>Número de Serial</th>
+            <th>Ubicación</th>
+            <th>Código de Inventario</th>
+            <th class="delete-column" style="display:none;">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.ListaActivos == null || !Model.ListaActivos.Any())
+        {
+            <tr>
+                <td colspan="8" class="text-center">No se encontraron activos dañados.</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var activo in Model.ListaActivos)
+            {
+                <tr onclick="window.location='@Url.Action("PerfilUsuario", "Usuario", new { id = activo.Usuario?.UsuarioId })'">
+                    <td>@(activo.Usuario?.UsuarioNombre ?? "No asignado")</td>
+                    <td>@(activo.Usuario?.UsuarioApellido ?? "No asignado")</td>
+                    <td>@Html.DisplayFor(m => activo.Marca)</td>
+                    <td>@Html.DisplayFor(m => activo.Modelo)</td>
+                    <td>@(activo.Categoria?.CategoriaNombre ?? "Sin categoría")</td>
+                    <td>@Html.DisplayFor(m => activo.NumeroSerial)</td>
+                    <td>@(activo.Ubicacion?.UbicacionNombre ?? "No asignada")</td>
+                    <td>@(string.IsNullOrEmpty(activo.CodigoInventario) ? "No asignado" : activo.CodigoInventario)</td>
+                    <td>@Html.DisplayFor(m=> activo.Observaciones)</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

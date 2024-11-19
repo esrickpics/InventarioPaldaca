@@ -51,7 +51,6 @@ html {
     align-items: center;
 }
 
-
 body {
     background-color: white !important;
     font-family: 'Roboto', sans-serif;
@@ -95,9 +94,11 @@ header {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
     .btn-action:hover {
         background-color: #1f3161;
+        color: white;
     }
 
 .Btn {
@@ -139,7 +140,12 @@ header {
         transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
         transition-duration: 400ms;
         transition-property: width, left;
-    }   
+    }
+@media (max-width: 767px) {
+    .row.text-center.mb-4 > div {
+        margin-bottom: 1rem;
+    }
+}
     /* Estilos de las tarjetas de estadísticas */
 .stat-icon {
     font-size: 36px;
@@ -265,10 +271,6 @@ header {
     cursor: pointer;
     width: 100%; /* Ajusta el botón al tamaño de la celda */
 }
-
-.footer{
-    background-color: #e9e9e9
-}
 @media (max-width: 768px) {
     html {
         font-size: 14px;
@@ -284,7 +286,7 @@ header {
         font-size: 20px;
     }
 
-    .botonaction {
+    .boton-action {
         width: auto; 
         padding: 10px 15px;
         font-size: 14px; 
