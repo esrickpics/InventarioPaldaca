@@ -272,8 +272,31 @@ namespace InventarioPaldaca.Controllers
             // Devolvemos la vista parcial actualizada con la lista ordenada
             return PartialView("_ListaActivosPartial", model);
         }
-  
-       
+
+        [HttpPost]
+        public IActionResult ActualizarFuncionabilidad(int id)
+        {
+            var activo = _context.Activos.FirstOrDefault(a => a.ActivoId == id);
+            if (activo != null)
+            {
+                activo.Funcionabilidad = !activo.Funcionabilidad; // Cambiar estado
+                try
+                {
+                    _context.SaveChanges();
+                    TempData["SuccessMessage"] = "El estado de funcionabilidad del activo se actualizó correctamente.";
+                }
+                catch (Exception ex)
+                {
+                    TempData["ErrorMessage"] = "Ocurrió un error al intentar actualizar el activo.";
+                }
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Activo no encontrado.";
+            }
+            return RedirectToAction("Index"); // Redirige a la lista de activos o donde lo necesites
+        }
+
         [HttpPost]
         public IActionResult ReasignarActivo(int id, int usuarioId)
         {
