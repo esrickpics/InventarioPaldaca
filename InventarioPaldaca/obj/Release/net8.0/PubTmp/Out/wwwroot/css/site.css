@@ -1,9 +1,9 @@
 
-:root{
-
---e-global-color-red: #C92842;
---e-global-color-azulmarino: #141644;
---e-global-color-azul: #282C89;
+:root {
+    --e-global-color-red: #ed2546;
+    --e-global-color-moradopaldaca: #32407b;
+    --e-global-color-azulmarino: #141644;
+    --e-global-color-azul: #282c89;
 }
 
 .main-content { 
@@ -18,6 +18,7 @@ html {
 .linea {
     border-top: 1px solid #ccc;
     margin: 20px 0;
+    color: #000;
 }
 .headercontainer {
     display: flex;
@@ -31,7 +32,7 @@ html {
     height: auto;
 }
 .form-container {
-    background-color: #c9c5c0; /* Color de fondo gris */
+    background-color: #f8f8f8; /* Color de fondo gris */
     padding: 30px;
     border-radius: 10px;
     max-width: 1200px; /* Ajustar el tamaño máximo */
@@ -44,32 +45,18 @@ html {
 .form-title {
     font-size: 24px;
     font-weight: bold;
-    color: #2a3f7a;
+    color: var(--e-global-color-moradopaldaca);
     margin-bottom: 20px;
     display: flex;
     align-items: center;
 }
-    .form-title::before {
-        content: "\2611"; /*content: url('path/to/your/icon.svg'); colocar icono svg*/
-        font-size: 32px;
-        margin-right: 10px;
-    }
 
 body {
     background-color: white !important;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 60px;
 }
-    .form-title::before {
-        content: "\2611"; /*content: url('path/to/your/icon.svg'); colocar icono svg*/
-        font-size: 32px;
-        margin-right: 10px;
-    }
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -94,7 +81,7 @@ header {
 
 /* Estilos de las tarjetas de acciones */
 .action-item {
-    background-color: #f4f4f4;
+    background-color: #e9e9e9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -107,9 +94,11 @@ header {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
     .btn-action:hover {
         background-color: #1f3161;
+        color: white;
     }
 
 .Btn {
@@ -151,7 +140,12 @@ header {
         transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
         transition-duration: 400ms;
         transition-property: width, left;
-    }   
+    }
+@media (max-width: 767px) {
+    .row.text-center.mb-4 > div {
+        margin-bottom: 1rem;
+    }
+}
     /* Estilos de las tarjetas de estadísticas */
 .stat-icon {
     font-size: 36px;
@@ -173,7 +167,7 @@ header {
 
 /* Contenedor principal */
 .form-container {
-    background-color: #f4f4f4; /* Fondo gris claro */
+    background-color: #f8f8f8; /* Fondo gris claro */
     padding: 30px;
     border-radius: 10px;
     max-width: 1200px; /* Ancho máximo */
@@ -181,40 +175,6 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 180px;
 }
-/* Título del formulario */
-.form-titleActivos {
-    font-size: 24px;
-    font-weight: bold;
-    color: #2a3f7a;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-}
-.botonaction {
-    display: inline-block;
-    text-align: center;
-    padding: 10px 20px;
-    background-color: #2a3f7a; /* Color del botón */
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    width: 100%;
-}
-
-    .botonaction:hover {
-        background-color: #1f3161; /* Color al pasar el cursor */
-        color: white;
-        text-decoration: none;
-    }
-
-
-    /* Icono antes del título */
-    .form-titleActivos::before {
-        content: "\2611"; /* Puedes reemplazarlo con el ícono que prefieras */
-        font-size: 32px;
-        margin-right: 10px;
-    }
 
 /* Iconos de los botones */
 .btn-icon {
@@ -225,7 +185,7 @@ header {
 
 /* Contenedor de filtros */
 .filter-container {
-    background-color: #f4f4f4;
+    background-color: #e9e9e9;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -300,7 +260,17 @@ header {
     /* transform: translateY(-30px); */
     transition-duration: 0.3s;
 }
-
+.sort-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    text-align: left; /* Alinea el texto a la izquierda como el resto del contenido */
+    cursor: pointer;
+    width: 100%; /* Ajusta el botón al tamaño de la celda */
+}
 @media (max-width: 768px) {
     html {
         font-size: 14px;
@@ -312,11 +282,11 @@ header {
         margin: 20px auto;
     }
 
-    .form-title, .form-titleActivos {
+    .form-title {
         font-size: 20px;
     }
 
-    .botonaction {
+    .boton-action {
         width: auto; 
         padding: 10px 15px;
         font-size: 14px; 

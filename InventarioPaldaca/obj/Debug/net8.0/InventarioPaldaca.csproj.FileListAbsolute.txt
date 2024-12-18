@@ -1260,3 +1260,7 @@ C:\Users\ricar\OneDrive\Documents\Trabajos Programacion\InventarioPaldaca\Invent
 C:\Users\ricar\OneDrive\Documents\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.pdb
 C:\Users\ricar\OneDrive\Documents\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\InventarioPaldaca.genruntimeconfig.cache
 C:\Users\ricar\OneDrive\Documents\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\ref\InventarioPaldaca.dll
+C:\Users\ricar\OneDrive\Documents\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\bin\Debug\net8.0\InventarioPaldaca.staticwebassets.endpoints.json
+C:\Users\ricar\OneDrive\Documents\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\ricar\OneDrive\Documents\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets\msbuild.InventarioPaldaca.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\ricar\OneDrive\Documents\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

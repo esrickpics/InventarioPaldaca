@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\InventarioPaldaca.bundle.scp.css",
-      "PackagePath": "staticwebassets\\InventarioPaldaca.bundle.scp.css"
+      "PackagePath": "staticwebassets\\InventarioPaldaca.hw0kjtg2uf.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\Create.css",
@@ -495,6 +495,10 @@
     {
       "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.InventarioPaldaca.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.InventarioPaldaca.Microsoft.AspNetCore.StaticWebAssets.props",

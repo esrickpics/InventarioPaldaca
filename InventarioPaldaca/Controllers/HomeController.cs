@@ -16,7 +16,7 @@ namespace InventarioPaldaca.Controllers
         public HomeController(ILogger<HomeController> logger, InventaryPaldacaContext context)
         {
             _logger = logger;
-            _context = context;
+            _context = context; 
         }
 
         public async Task<IActionResult> Index()

@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ricar\OneDrive\Documents\Trabajos Programacion\InventarioPaldaca\InventarioPaldaca
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Activo/ActivosDañados.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZvXEFjdGl2b3NEYcOxYWRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Activo/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZvXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

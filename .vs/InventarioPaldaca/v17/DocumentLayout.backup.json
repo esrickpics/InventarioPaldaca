@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\views\\shared\\_listaactivospartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\views\\shared\\_listaactivospartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\views\\activo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\views\\activo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\controllers\\activocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\controllers\\activocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,54 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "InventarioPaldaca\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "InventarioPaldaca\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAABcBAAAAAAAAAAAAABwBAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-11-19T19:35:50.044Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Activo\\Index.cshtml",
-              "RelativeDocumentMoniker": "InventarioPaldaca\\Views\\Activo\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Activo\\Index.cshtml",
-              "RelativeToolTip": "InventarioPaldaca\\Views\\Activo\\Index.cshtml",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAAAGMAAABNAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "InventarioPaldaca\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "InventarioPaldaca\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-19T18:03:18.812Z",
+              "WhenOpened": "2024-12-12T18:57:58.183Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_ListaActivosPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Shared\\_ListaActivosPartial.cshtml",
-              "RelativeDocumentMoniker": "InventarioPaldaca\\Views\\Shared\\_ListaActivosPartial.cshtml",
-              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Shared\\_ListaActivosPartial.cshtml",
-              "RelativeToolTip": "InventarioPaldaca\\Views\\Shared\\_ListaActivosPartial.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAAxAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Activo\\Index.cshtml",
+              "RelativeDocumentMoniker": "InventarioPaldaca\\Views\\Activo\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Activo\\Index.cshtml",
+              "RelativeToolTip": "InventarioPaldaca\\Views\\Activo\\Index.cshtml",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAANAAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-19T17:42:01.743Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ActivoController.cs",
-              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Controllers\\ActivoController.cs",
-              "RelativeDocumentMoniker": "InventarioPaldaca\\Controllers\\ActivoController.cs",
-              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Controllers\\ActivoController.cs",
-              "RelativeToolTip": "InventarioPaldaca\\Controllers\\ActivoController.cs",
-              "ViewState": "AgIAACkBAAAAAAAAAAAwwCoBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T15:22:53.096Z",
+              "WhenOpened": "2024-11-25T00:31:47.226Z",
               "EditorCaption": ""
             }
           ]
