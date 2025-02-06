@@ -21,7 +21,5 @@ namespace InventarioPaldaca.Models.ViewModels
         public string Telefono { get; set; } = string.Empty;
         [Display(Name = "Cargo")]
         public string? Cargo { get; set; }
-
-   
     }
 }

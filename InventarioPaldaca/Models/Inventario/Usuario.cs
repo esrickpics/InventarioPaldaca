@@ -21,5 +21,13 @@ public partial class Usuario
 
     public string? AsignacionPdf { get; set; }
 
+    public string UsuarioPassword { get; set; } = null!;
+
+    public int RolId { get; set; }
+
     public virtual ICollection<Activo> Activos { get; set; } = new List<Activo>();
+
+    public virtual ICollection<Reporte> Reportes { get; set; } = new List<Reporte>();
+
+    public virtual Rol UsuarioRol { get; set; } = null!;
 }

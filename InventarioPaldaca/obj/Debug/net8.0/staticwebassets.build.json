@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WLer6BfSCnZbEpDLzDsqws2M6J30H5WJt8bP6KmlV80=",
+  "Hash": "b7P/qH95kWJ9aCah4SyAszxXAFlnYBqrp0Bx7BiZIQw=",
   "Source": "InventarioPaldaca",
   "BasePath": "_content/InventarioPaldaca",
   "Mode": "Default",
@@ -141,6 +141,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\styleslogin.css",
+      "SourceId": "InventarioPaldaca",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\",
+      "BasePath": "_content/InventarioPaldaca",
+      "RelativePath": "css/styleslogin#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "aqryehel0p",
+      "Integrity": "4pLGj0DYmOA5zmNlbEzDO/pR58vyRnwxD2K3DsbXypA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styleslogin.css"
     },
     {
       "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\favicon.ico",
@@ -771,6 +792,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\paldaca_logo-header-2.png"
+    },
+    {
+      "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldacalogin.png",
+      "SourceId": "InventarioPaldaca",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\",
+      "BasePath": "_content/InventarioPaldaca",
+      "RelativePath": "img/paldacalogin#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hi0fw45g9b",
+      "Integrity": "WbANr3Dd/No8b1Ij8emw0bVQnpMsuY2GAv+rnkYkWxQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\paldacalogin.png"
     },
     {
       "Identity": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\Usuarios\\Img.AlbaGomez.png",
@@ -2968,6 +3010,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-z5k97RyX81B0Vei4Gg8sz3fMfNBcTBf1Sd4w2TGY+4s="
+        }
+      ]
+    },
+    {
+      "Route": "css/styleslogin.aqryehel0p.css",
+      "AssetFile": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\styleslogin.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4438"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4pLGj0DYmOA5zmNlbEzDO/pR58vyRnwxD2K3DsbXypA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 16:18:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "aqryehel0p"
+        },
+        {
+          "Name": "label",
+          "Value": "css/styleslogin.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4pLGj0DYmOA5zmNlbEzDO/pR58vyRnwxD2K3DsbXypA="
+        }
+      ]
+    },
+    {
+      "Route": "css/styleslogin.css",
+      "AssetFile": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\styleslogin.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4438"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4pLGj0DYmOA5zmNlbEzDO/pR58vyRnwxD2K3DsbXypA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 16:18:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4pLGj0DYmOA5zmNlbEzDO/pR58vyRnwxD2K3DsbXypA="
         }
       ]
     },
@@ -5428,6 +5552,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-R3OgsZrP9jm1uDSHI8m8zBEjV05iyzkJuohHxE71S9Q="
+        }
+      ]
+    },
+    {
+      "Route": "img/paldacalogin.hi0fw45g9b.png",
+      "AssetFile": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldacalogin.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "98200"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WbANr3Dd/No8b1Ij8emw0bVQnpMsuY2GAv+rnkYkWxQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 20:20:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hi0fw45g9b"
+        },
+        {
+          "Name": "label",
+          "Value": "img/paldacalogin.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WbANr3Dd/No8b1Ij8emw0bVQnpMsuY2GAv+rnkYkWxQ="
+        }
+      ]
+    },
+    {
+      "Route": "img/paldacalogin.png",
+      "AssetFile": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldacalogin.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "98200"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WbANr3Dd/No8b1Ij8emw0bVQnpMsuY2GAv+rnkYkWxQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 20:20:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WbANr3Dd/No8b1Ij8emw0bVQnpMsuY2GAv+rnkYkWxQ="
         }
       ]
     },

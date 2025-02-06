@@ -2,6 +2,7 @@ wwwroot\css\Create.css
 wwwroot\css\normalize.css
 wwwroot\css\PerfilUsuario.css
 wwwroot\css\site.css
+wwwroot\css\styleslogin.css
 wwwroot\favicon.ico
 wwwroot\img\4092564-about-mobile-ui-profile-ui-user-website_114033.svg
 wwwroot\img\AsignacionPDF\AsignacionAlba_20241119105641.pdf
@@ -32,6 +33,7 @@ wwwroot\img\Paldaca Icon.png
 wwwroot\img\Paldaca logoyRif.png
 wwwroot\img\paldaca_logo-footer-2.png
 wwwroot\img\paldaca_logo-header-2.png
+wwwroot\img\paldacalogin.png
 wwwroot\img\Usuarios\Img.AlbaGomez.png
 wwwroot\img\Usuarios\Img.AlexisHernandez.png
 wwwroot\img\Usuarios\Img.AlondraTorres.png

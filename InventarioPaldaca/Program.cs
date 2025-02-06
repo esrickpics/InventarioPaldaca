@@ -1,24 +1,34 @@
-using InventarioPaldaca.Models.Inventario;
+using InventarioPaldaca.Models.Inventario; 
+using InventarioPaldaca.Utilidades.Filters;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+// Configuración de servicios
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(new VerificarSession());
+});
 
-builder.Services.AddDbContext<InventaryPaldacaContext>(options =>
+builder.Services.AddDbContext<InventarioPaldacaContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("InventaryPaldacaContext"));
 });
 
+// Configuración de sesión
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Tiempo de expiración
+    options.Cookie.HttpOnly = true; // Seguridad adicional
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
+// Configuración del pipeline HTTP
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -26,11 +36,29 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession(); // Habilita el middleware de sesión
 app.UseAuthorization();
+
+app.MapGet("/", context =>
+{
+    var session = context.Request.HttpContext.Session;
+    var usuarioId = session.GetString("UsuarioId");
+
+    if (string.IsNullOrEmpty(usuarioId))
+    {
+        // Redirigir al login si no hay sesión
+        context.Response.Redirect("/acceso/login");
+    }
+    else
+    {
+        // Redirigir al Home si hay sesión
+        context.Response.Redirect("/home/index");
+    }
+    return Task.CompletedTask;
+});
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Acceso}/{action=Login}/{id?}");
 
 app.Run();
