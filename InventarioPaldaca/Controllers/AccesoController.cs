@@ -4,6 +4,7 @@ using InventarioPaldaca.Models.Inventario;
 using InventarioPaldaca.Utilidades;
 using InventarioPaldaca.Models.ViewModels;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Http;
 
 namespace InventarioPaldaca.Controllers
 {
@@ -26,9 +27,8 @@ namespace InventarioPaldaca.Controllers
         [HttpPost]
         public IActionResult Login(LoginViewModel model)
         {
-            Console.WriteLine("Intento de carga de login");
 
-            if (model.Password.IsNullOrEmpty()) 
+            if (model.Password.IsNullOrEmpty())
             {
                 ViewBag.Error = "ingrese la contraseña";
                 return View();
@@ -48,10 +48,10 @@ namespace InventarioPaldaca.Controllers
             if (usuario != null)
             {
                 HttpContext.Session.Clear();
-                // Autenticación exitosa 
-                // Aquí puedes establecer la sesión o un token
+
                 HttpContext.Session.SetString("UsuarioId", usuario.UsuarioId.ToString());
                 HttpContext.Session.SetString("UsuarioNombre", usuario.UsuarioNombre);
+                HttpContext.Session.SetString("UsuarioRol", usuario.RolId.ToString());
                 return RedirectToAction("Index", "Home"); // Redirigir al panel principal
             }
             // Autenticación fallida
@@ -86,6 +86,7 @@ namespace InventarioPaldaca.Controllers
 
                 var rolUsuario = _context.Rols.FirstOrDefault(r => r.RolNombre == "Usuario");
 
+
                 if (rolUsuario == null)
                 {
                     Console.WriteLine("Error: El rol 'Usuario' no está configurado en la base de datos.");
@@ -118,7 +119,7 @@ namespace InventarioPaldaca.Controllers
                 return RedirectToAction("Login");
             }
             Console.WriteLine("Validación del modelo fallida.");
-            return View("Registro", model); 
+            return View("Registro", model);
         }
 
         public IActionResult AccesoDenegado()

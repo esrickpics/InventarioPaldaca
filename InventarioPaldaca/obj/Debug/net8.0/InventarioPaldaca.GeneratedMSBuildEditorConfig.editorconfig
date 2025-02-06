@@ -36,13 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-<<<<<<< Updated upstream
 [C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Acceso/Registro(1).cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXFJlZ2lzdHJvKDEpLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-=======
->>>>>>> Stashed changes
 [C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Acceso/Registro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXFJlZ2lzdHJvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -65,13 +62,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Home/AdminHome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZG1pbkhvbWUuY3NodG1s
-<<<<<<< Updated upstream
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-=======
->>>>>>> Stashed changes
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Home/Privacy.cshtml]

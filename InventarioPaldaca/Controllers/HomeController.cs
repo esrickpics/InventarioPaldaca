@@ -20,28 +20,36 @@ namespace InventarioPaldaca.Controllers
             _logger = logger;
             _context = context;
         }
-       
+
         public IActionResult Index()
         {
-            var usuarioId = HttpContext.Session.GetString("UsuarioId");
-            var rol = HttpContext.Session.GetString("UsuarioRol");
+            
+            string usuarioId = HttpContext.Session.GetString("UsuarioId");
+            string rolString = HttpContext.Session.GetString("UsuarioRol");
 
-            Console.WriteLine($"UsuarioId: {usuarioId}, Rol: {rol}");
+            Console.WriteLine($"UsuarioId: {usuarioId}, Rol: {rolString}");
 
-            if (string.IsNullOrEmpty(usuarioId) || string.IsNullOrEmpty(rol))
+            // Verificar si la sesión o el rol son inválidos, o si no se pudo convertir el rol a entero
+            if (string.IsNullOrEmpty(usuarioId) ||
+                string.IsNullOrEmpty(rolString) ||
+                !int.TryParse(rolString, out int rol))
             {
-                Console.WriteLine("Sesión no encontrada. Redirigiendo al login.");
+                Console.WriteLine("Sesión no encontrada o rol no válido. Redirigiendo al login.");
                 return RedirectToAction("Login", "Acceso");
             }
 
-            if (rol == "Usuario")
+            // Utilizar un switch expression para determinar la redirección según el rol
+            IActionResult redireccion = rol switch
             {
-                Console.WriteLine("Redirigiendo a UsuarioHome.");
-                return RedirectToAction("UsuarioHome");
-            }
+                1 => RedirectToAction("UsuarioHome"),
+                2 => RedirectToAction("AdminHome"),
+                _ => RedirectToAction("Login", "Acceso")
+            };
 
-            Console.WriteLine("Redirigiendo a AdminHome.");
-            return RedirectToAction("AdminHome");
+            // Opcional: imprimir la redirección que se realizará
+            Console.WriteLine($"Redirigiendo a {(rol == 1 ? "UsuarioHome" : rol == 2 ? "AdminHome" : "Login")}.");
+
+            return redireccion;
         }
 
         public async Task<IActionResult> AdminHome()

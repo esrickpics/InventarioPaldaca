@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\views\\acceso\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\views\\acceso\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\models\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\models\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\views\\acceso\\accesodenegado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\views\\acceso\\accesodenegado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|c:\\users\\ricar\\onedrive\\documents\\trabajos programacion\\inventariopaldaca\\inventariopaldaca\\views\\activo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C5833303-4C2E-4109-8DE5-F28E78F02D84}|InventarioPaldaca\\InventarioPaldaca.csproj|solutionrelative:inventariopaldaca\\views\\activo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,56 +41,43 @@
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AccesoDenegado.cshtml",
-              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Acceso\\AccesoDenegado.cshtml",
-              "RelativeDocumentMoniker": "InventarioPaldaca\\Views\\Acceso\\AccesoDenegado.cshtml",
-              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Acceso\\AccesoDenegado.cshtml",
-              "RelativeToolTip": "InventarioPaldaca\\Views\\Acceso\\AccesoDenegado.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-20T22:01:49.978Z"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-<<<<<<< Updated upstream
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Activo\\Index.cshtml",
-              "RelativeDocumentMoniker": "InventarioPaldaca\\Views\\Activo\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Activo\\Index.cshtml",
-              "RelativeToolTip": "InventarioPaldaca\\Views\\Activo\\Index.cshtml",
-              "ViewState": "AgIAANEAAAAAAAAAAAAAAL8AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-25T00:31:47.226Z",
-=======
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "InventarioPaldaca\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "InventarioPaldaca\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAcwEUAAAABAAAAAAAAAA==",
+              "Title": "ReporteController.cs",
+              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Controllers\\ReporteController.cs",
+              "RelativeDocumentMoniker": "InventarioPaldaca\\Controllers\\ReporteController.cs",
+              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Controllers\\ReporteController.cs",
+              "RelativeToolTip": "InventarioPaldaca\\Controllers\\ReporteController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T16:31:19.63Z",
->>>>>>> Stashed changes
+              "WhenOpened": "2025-02-06T20:27:24.037Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Registro.cshtml",
-              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Acceso\\Registro.cshtml",
-              "RelativeDocumentMoniker": "InventarioPaldaca\\Views\\Acceso\\Registro.cshtml",
-              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Acceso\\Registro.cshtml",
-              "RelativeToolTip": "InventarioPaldaca\\Views\\Acceso\\Registro.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAADsAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-20T22:01:43.828Z"
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Models\\ViewModels\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "InventarioPaldaca\\Models\\ViewModels\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Models\\ViewModels\\LoginViewModel.cs",
+              "RelativeToolTip": "InventarioPaldaca\\Models\\ViewModels\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T20:03:05.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "InventarioPaldaca\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "InventarioPaldaca\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T19:43:40.364Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -96,9 +87,23 @@
               "RelativeDocumentMoniker": "InventarioPaldaca\\Controllers\\AccesoController.cs",
               "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Controllers\\AccesoController.cs",
               "RelativeToolTip": "InventarioPaldaca\\Controllers\\AccesoController.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAAAHgAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T21:45:46.989Z"
+              "WhenOpened": "2025-02-06T18:39:44.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Activo\\Index.cshtml",
+              "RelativeDocumentMoniker": "InventarioPaldaca\\Views\\Activo\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\Views\\Activo\\Index.cshtml",
+              "RelativeToolTip": "InventarioPaldaca\\Views\\Activo\\Index.cshtml",
+              "ViewState": "AgIAANEAAAAAAAAAAAAAAOgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-25T00:31:47.226Z",
+              "EditorCaption": ""
             }
           ]
         }

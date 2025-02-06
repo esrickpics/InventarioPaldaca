@@ -5333,6 +5333,170 @@
       ]
     },
     {
+      "Route": "img/images (1).2v00sia60d.jpeg",
+      "AssetFile": "img/images (1).jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8662"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"orfyhoac+yX7IKdWXdUCfa0O2vSF6rTD8VXyxcxPj6g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 20:14:03 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2v00sia60d"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-orfyhoac+yX7IKdWXdUCfa0O2vSF6rTD8VXyxcxPj6g="
+        },
+        {
+          "Name": "label",
+          "Value": "img/images (1).jpeg"
+        }
+      ]
+    },
+    {
+      "Route": "img/images (1).jpeg",
+      "AssetFile": "img/images (1).jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8662"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"orfyhoac+yX7IKdWXdUCfa0O2vSF6rTD8VXyxcxPj6g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 20:14:03 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-orfyhoac+yX7IKdWXdUCfa0O2vSF6rTD8VXyxcxPj6g="
+        }
+      ]
+    },
+    {
+      "Route": "img/paldaca login.jpeg",
+      "AssetFile": "img/paldaca login.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3527"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Iv39BkdSQ79+L80WZKBwTLSiWlYwrZHgzYIXYFYz+Cw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 19:20:23 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Iv39BkdSQ79+L80WZKBwTLSiWlYwrZHgzYIXYFYz+Cw="
+        }
+      ]
+    },
+    {
+      "Route": "img/paldaca login.upktjbr57m.jpeg",
+      "AssetFile": "img/paldaca login.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3527"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Iv39BkdSQ79+L80WZKBwTLSiWlYwrZHgzYIXYFYz+Cw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 19:20:23 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "upktjbr57m"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Iv39BkdSQ79+L80WZKBwTLSiWlYwrZHgzYIXYFYz+Cw="
+        },
+        {
+          "Name": "label",
+          "Value": "img/paldaca login.jpeg"
+        }
+      ]
+    },
+    {
       "Route": "img/paldaca_logo-footer-2.png",
       "AssetFile": "img/paldaca_logo-footer-2.png",
       "Selectors": [],
@@ -5575,6 +5739,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-WbANr3Dd/No8b1Ij8emw0bVQnpMsuY2GAv+rnkYkWxQ="
+        }
+      ]
+    },
+    {
+      "Route": "js/main.js",
+      "AssetFile": "js/main.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1019"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5fzeAZJqOcDSiwWiQAdqijLX0BVKpGP7VdqADMk1ago=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Jan 2025 18:28:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5fzeAZJqOcDSiwWiQAdqijLX0BVKpGP7VdqADMk1ago="
+        }
+      ]
+    },
+    {
+      "Route": "js/main.ntr9uwbwng.js",
+      "AssetFile": "js/main.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1019"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5fzeAZJqOcDSiwWiQAdqijLX0BVKpGP7VdqADMk1ago=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Jan 2025 18:28:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ntr9uwbwng"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5fzeAZJqOcDSiwWiQAdqijLX0BVKpGP7VdqADMk1ago="
+        },
+        {
+          "Name": "label",
+          "Value": "js/main.js"
         }
       ]
     },
