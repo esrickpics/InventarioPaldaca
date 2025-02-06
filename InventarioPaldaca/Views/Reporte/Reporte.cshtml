@@ -1,0 +1,21 @@
+﻿@model InventarioPaldaca.Models.ViewModels.ReporteViewModel 
+
+<div class="container mt-4">
+    <h2>Generar Reporte</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    <form asp-action="Generar" method="post">
+        <div class="mb-3">
+            <label for="Descripcion" class="form-label">Descripción del Reporte</label>
+            <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Generar</button>
+    </form>
+</div>
