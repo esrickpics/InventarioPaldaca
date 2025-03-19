@@ -100,7 +100,7 @@ namespace InventarioPaldaca.Controllers
                     UsuarioApellido = model.Apellido,
                     UsuarioEmail = model.Email,
                     UsuarioPassword = Encrypt.GetSHA256(model.Password),
-                    UsuarioRol = rolUsuario
+                    RolId = rolUsuario.RolId,
                 };
 
                 Console.WriteLine("Intentando guardar usuario en la base de datos.");

@@ -60,8 +60,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Home/AdminHome.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZG1pbkhvbWUuY3NodG1s
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Home/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ricar/OneDrive/Documents/Trabajos Programacion/InventarioPaldaca/InventarioPaldaca/Views/Home/Privacy.cshtml]

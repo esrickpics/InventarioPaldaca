@@ -29,5 +29,5 @@ public partial class Usuario
 
     public virtual ICollection<Reporte> Reportes { get; set; } = new List<Reporte>();
 
-    public virtual Rol UsuarioRol { get; set; } = null!;
+    public virtual Rol Rol { get; set; } = null!;
 }

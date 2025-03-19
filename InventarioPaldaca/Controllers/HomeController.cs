@@ -42,17 +42,17 @@ namespace InventarioPaldaca.Controllers
             IActionResult redireccion = rol switch
             {
                 1 => RedirectToAction("UsuarioHome"),
-                2 => RedirectToAction("AdminHome"),
+                2 => RedirectToAction("Home"),
                 _ => RedirectToAction("Login", "Acceso")
             };
 
             // Opcional: imprimir la redirección que se realizará
-            Console.WriteLine($"Redirigiendo a {(rol == 1 ? "UsuarioHome" : rol == 2 ? "AdminHome" : "Login")}.");
+            Console.WriteLine($"Redirigiendo a {(rol == 1 ? "UsuarioHome" : rol == 2 ? "Home" : "Login")}.");
 
             return redireccion;
         }
 
-        public async Task<IActionResult> AdminHome()
+        public async Task<IActionResult> Home()
         {
             var Activos = await _context.Activos.ToListAsync();
 

@@ -1,0 +1,55 @@
+﻿@model InventarioPaldaca.Models.ViewModels.ListaActivosViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="container">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card bg-light shadow-sm p-4">
+                <div class="card-body">
+                    <h5 class="card-title">Activos Totales</h5>
+                    <p class="card-text display-4 fw-bold">@Model.TotalActivos</p> 
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-light shadow-sm p-4">
+                <div class="card-body">
+                    <h5 class="card-title">In Stock</h5>
+                    <p class="card-text display-4 fw-bold">@Model.ActivosPorUbicacion</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-light shadow-sm p-4">
+                <div class="card-body">
+                    <h5 class="card-title">Out of Stock</h5>
+                    <p class="card-text display-4 fw-bold">@Model.ActivosPorCategoria</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mt-4">
+       
+        <div class="col-md-4">
+            <div class="card bg-light shadow-sm p-4">
+                <div class="card-body">
+                    <h5 class="card-title">Inventario</h5>
+                    <p class="card-text text-muted">Ver los activos del inventario</p>
+                    <a asp-area="" asp-controller="Activo" asp-action="Index" class="btn btn-lg btn-custom mt-3">Ver lista</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-light shadow-sm p-4">
+                <div class="card-body">
+                    <h5 class="card-title">Agregar Nuevo Activo</h5>
+                    <p class="card-text text-muted">Agrega un nuevo producto al inventario</p>
+                    <a asp-area="" asp-controller="Activo" asp-action="Create" class="btn btn-lg btn-custom mt-3">Agregar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

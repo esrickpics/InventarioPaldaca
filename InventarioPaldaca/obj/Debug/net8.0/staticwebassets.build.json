@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tsg0hhTG3AtJwHNzWNXKWGkRUr8QKUMc4KbdJAybdDs=",
+  "Hash": "BggUEMUeX9W7KANkKfsBmu6MvWFNCfCFXECt/FVms0M=",
   "Source": "InventarioPaldaca",
   "BasePath": "_content/InventarioPaldaca",
   "Mode": "Default",
@@ -157,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "aqryehel0p",
-      "Integrity": "4pLGj0DYmOA5zmNlbEzDO/pR58vyRnwxD2K3DsbXypA=",
+      "Fingerprint": "spjk31ez5u",
+      "Integrity": "0MeYXrY2Ca8aTKIeUJlX62ZZAd0dny8wxhdXurgxiho=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\styleslogin.css"
@@ -3077,51 +3077,6 @@
       ]
     },
     {
-      "Route": "css/styleslogin.aqryehel0p.css",
-      "AssetFile": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\styleslogin.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4438"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4pLGj0DYmOA5zmNlbEzDO/pR58vyRnwxD2K3DsbXypA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 17 Jan 2025 16:18:42 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "aqryehel0p"
-        },
-        {
-          "Name": "label",
-          "Value": "css/styleslogin.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-4pLGj0DYmOA5zmNlbEzDO/pR58vyRnwxD2K3DsbXypA="
-        }
-      ]
-    },
-    {
       "Route": "css/styleslogin.css",
       "AssetFile": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\styleslogin.css",
       "Selectors": [],
@@ -3132,7 +3087,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4438"
+          "Value": "4666"
         },
         {
           "Name": "Content-Type",
@@ -3140,11 +3095,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4pLGj0DYmOA5zmNlbEzDO/pR58vyRnwxD2K3DsbXypA=\""
+          "Value": "\"0MeYXrY2Ca8aTKIeUJlX62ZZAd0dny8wxhdXurgxiho=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 17 Jan 2025 16:18:42 GMT"
+          "Value": "Fri, 07 Feb 2025 15:38:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3154,7 +3109,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4pLGj0DYmOA5zmNlbEzDO/pR58vyRnwxD2K3DsbXypA="
+          "Value": "sha256-0MeYXrY2Ca8aTKIeUJlX62ZZAd0dny8wxhdXurgxiho="
+        }
+      ]
+    },
+    {
+      "Route": "css/styleslogin.spjk31ez5u.css",
+      "AssetFile": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\styleslogin.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4666"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0MeYXrY2Ca8aTKIeUJlX62ZZAd0dny8wxhdXurgxiho=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Feb 2025 15:38:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "spjk31ez5u"
+        },
+        {
+          "Name": "label",
+          "Value": "css/styleslogin.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0MeYXrY2Ca8aTKIeUJlX62ZZAd0dny8wxhdXurgxiho="
         }
       ]
     },
@@ -5313,7 +5313,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 20:14:03 GMT"
+          "Value": "Fri, 07 Feb 2025 15:38:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5358,7 +5358,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 20:14:03 GMT"
+          "Value": "Fri, 07 Feb 2025 15:38:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5477,7 +5477,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 19:20:23 GMT"
+          "Value": "Fri, 07 Feb 2025 15:38:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5514,7 +5514,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 19:20:23 GMT"
+          "Value": "Fri, 07 Feb 2025 15:38:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5805,7 +5805,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 20:20:58 GMT"
+          "Value": "Fri, 07 Feb 2025 15:38:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5850,7 +5850,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 20:20:58 GMT"
+          "Value": "Fri, 07 Feb 2025 15:38:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8593,7 +8593,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 18:28:07 GMT"
+          "Value": "Fri, 07 Feb 2025 15:38:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8630,7 +8630,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 18:28:07 GMT"
+          "Value": "Fri, 07 Feb 2025 15:38:00 GMT"
         },
         {
           "Name": "Cache-Control",

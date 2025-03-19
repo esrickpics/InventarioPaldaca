@@ -73,7 +73,6 @@ namespace InventarioPaldaca.Controllers
                         ProveedorEmail = p.ProveedorEmail,
                         ProveedorDireccion = p.ProveedorDireccion,
                         ProveedorOrigen = p.Origen,
-                        Requisicion = p.Requisicion
                     })
                     .ToListAsync()
             };

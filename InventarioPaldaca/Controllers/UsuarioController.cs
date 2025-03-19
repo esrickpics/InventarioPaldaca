@@ -102,6 +102,7 @@ namespace InventarioPaldaca.Controllers
 
             return View(model);
         }
+        [AuthorizeRole("Administrador")]
         public async Task<IActionResult> EditarUsuario(UsuarioPerfilViewModel model, IFormFile pdfFile, IFormFile imageFile)
         {
             ModelState.Remove("SearchTerm");
