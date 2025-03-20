@@ -12,7 +12,7 @@ builder.Services.AddControllersWithViews(options =>
 
 builder.Services.AddDbContext<InventarioPaldacaContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("InventaryPaldacaContext"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("InventarioPaldacaContext"));
 });
 
 // Configuración de sesión
@@ -34,7 +34,6 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 app.UseSession(); // Habilita el middleware de sesión
 app.UseAuthorization();

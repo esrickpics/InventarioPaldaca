@@ -27,7 +27,6 @@ namespace InventarioPaldaca.Controllers
         [HttpPost]
         public IActionResult Login(LoginViewModel model)
         {
-
             if (model.Password.IsNullOrEmpty())
             {
                 ViewBag.Error = "ingrese la contraseña";
@@ -121,10 +120,14 @@ namespace InventarioPaldaca.Controllers
             Console.WriteLine("Validación del modelo fallida.");
             return View("Registro", model);
         }
-
         public IActionResult AccesoDenegado()
         {
             return View();
+        }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear(); // Elimina toda la sesión
+            return RedirectToAction("Login", "Acceso"); // Redirige al login
         }
     }
 }

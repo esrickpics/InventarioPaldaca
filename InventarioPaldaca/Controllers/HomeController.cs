@@ -55,14 +55,15 @@ namespace InventarioPaldaca.Controllers
         public async Task<IActionResult> Home()
         {
             var Activos = await _context.Activos.ToListAsync();
+            var TotalReportes = await _context.Reportes.CountAsync(); // Contar los reportes en la BD
 
             var model = new ListaActivosViewModel
             {
                 TotalActivos = Activos.Count,
                 ListaActivos = Activos,
-                TotalActivosDañados = Activos.Count(a => a.Funcionabilidad == false)
+                TotalActivosDañados = Activos.Count(a => a.Funcionabilidad == false),
+                TotalReportes = TotalReportes // Asignar la cantidad de reportes
             };
-
             return View(model);
         }
         public IActionResult UsuarioHome()
