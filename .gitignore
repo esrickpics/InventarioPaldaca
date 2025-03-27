@@ -1,8 +1,8 @@
 # Archivos de configuración de usuario específico
-.suo
-.user
-.userosscache
-.sln.docstates
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 
 # Archivos de carpeta .vs (Visual Studio)
 .vs/
