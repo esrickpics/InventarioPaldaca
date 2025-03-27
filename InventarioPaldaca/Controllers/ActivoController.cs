@@ -9,19 +9,17 @@ using System.Collections.Generic;
 using InventarioPaldaca.Models;
 using System.Diagnostics;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using InventarioPaldaca.Utilidades.Filters;
 
 namespace InventarioPaldaca.Controllers
 {
     public class ActivoController : Controller
     {
-        private readonly InventarioPaldacaContext _context;
+        private readonly InventaryPaldacaContext _context;
 
-        public ActivoController(InventarioPaldacaContext context)
+        public ActivoController(InventaryPaldacaContext context)
         {
             _context = context;
         }
-        [AuthorizeRole("Administrador")]
         public async Task<IActionResult> Index()
         {
             ViewData["Usuarios"] = new SelectList(_context.Usuarios
@@ -83,7 +81,6 @@ namespace InventarioPaldaca.Controllers
 
             return View(model);
         }
-        [AuthorizeRole("Administrador")]
         public IActionResult ActivosDañados()
         {
             var activosDañados = _context.Activos
@@ -114,8 +111,6 @@ namespace InventarioPaldaca.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        [AuthorizeRole("Administrador")]
         public async Task<IActionResult> Create(ActivoViewModel model)
         {
             if (ModelState.IsValid)
@@ -163,8 +158,8 @@ namespace InventarioPaldaca.Controllers
                                                                   }), "UsuarioId", "NombreCompleto", model.UsuarioId);
             return View(model);
         }
+        
 
-        [AuthorizeRole("Administrador")]
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
@@ -187,7 +182,6 @@ namespace InventarioPaldaca.Controllers
                 return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, Message = ex.Message });
             }
         }
-
 
         public IActionResult FiltrarActivos(string categoria, string CodigoInventario, string ubicacion, string categoriamaster)
         {

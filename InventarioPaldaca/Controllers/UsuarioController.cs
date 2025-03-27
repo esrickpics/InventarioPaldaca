@@ -1,6 +1,5 @@
 ﻿using InventarioPaldaca.Models.Inventario;
 using InventarioPaldaca.Models.ViewModels;
-using InventarioPaldaca.Utilidades.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
@@ -11,13 +10,12 @@ namespace InventarioPaldaca.Controllers
 {
     public class UsuarioController : Controller
     {
-        private readonly InventarioPaldacaContext _context;
+        private readonly InventaryPaldacaContext _context;
 
-        public UsuarioController(InventarioPaldacaContext context)
-        {
-            _context = context;
-        }
-        [AuthorizeRole("Administrador")]
+       public UsuarioController(InventaryPaldacaContext context)
+            {
+                _context = context;
+            }
         public async Task<IActionResult> Index(string searchTerm = "")
         {
             var model = new UsuarioPerfilViewModel
@@ -26,7 +24,6 @@ namespace InventarioPaldaca.Controllers
             };
             return View(model);
         }
-        [AuthorizeRole("Administrador")]
         [HttpPost]
         public async Task<IActionResult> BuscarUsuariosIndex(string searchTerm = "")
         {
@@ -40,10 +37,10 @@ namespace InventarioPaldaca.Controllers
         }
 
         public IActionResult Create()
-        {
-            return View();
-        }
-        [AuthorizeRole("Administrador")]
+            {
+                return View();
+            }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(UsuarioViewModel model)
@@ -67,7 +64,6 @@ namespace InventarioPaldaca.Controllers
         }
 
         // Acción para mostrar el perfil de un usuario
-        [AuthorizeRole("Administrador")]
         public async Task<IActionResult> PerfilUsuario(int? id, string searchTerm = "")
         {
             if (id == null)
@@ -102,7 +98,6 @@ namespace InventarioPaldaca.Controllers
 
             return View(model);
         }
-        [AuthorizeRole("Administrador")]
         public async Task<IActionResult> EditarUsuario(UsuarioPerfilViewModel model, IFormFile pdfFile, IFormFile imageFile)
         {
             ModelState.Remove("SearchTerm");
@@ -248,20 +243,20 @@ namespace InventarioPaldaca.Controllers
         // Acción para buscar usuarios
         public async Task<IActionResult> BuscarUsuarios(string searchTerm = "")
         {
-            if (string.IsNullOrWhiteSpace(searchTerm))
-            {
-                // Devuelve la vista principal sin ningún cambio
-                return PartialView("_UsuariosEncontradosPartial", null);
-            }
+                if (string.IsNullOrWhiteSpace(searchTerm))
+                {
+                    // Devuelve la vista principal sin ningún cambio
+                    return PartialView("_UsuariosEncontradosPartial", null);
+                }
 
-            var model = await BuscarUsuariosAsync(searchTerm);
+                var model = await BuscarUsuariosAsync(searchTerm);
 
-            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-            {
-                return PartialView("_UsuariosEncontradosPartial", model);
-            }
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    return PartialView("_UsuariosEncontradosPartial", model);
+                }
 
-            return View("PerfilUsuario", model);
+                return View("PerfilUsuario", model);
         }
 
         // Método privado para obtener el perfil del usuario 
@@ -289,8 +284,7 @@ namespace InventarioPaldaca.Controllers
                 UsuarioTelefono = usuario.UsuarioTelefono,
                 UsuarioCargo = usuario.UsuarioCargo,
                 UsuarioImagenUrl = usuario.ImagenUrl,
-                AsignacionPdf = usuario.AsignacionPdf,
-                
+                AsignacionPdf= usuario.AsignacionPdf,
                 ActivosAsociados = usuario.Activos.Select(a => new ActivosAsociadosViewModel
                 {
                     Marca = a.Marca,
