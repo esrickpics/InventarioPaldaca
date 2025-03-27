@@ -1,0 +1,50 @@
+﻿@model InventarioPaldaca.Models.ViewModels.LoginViewModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/styleslogin.css" asp-append-version="true" />
+
+}
+
+<title>Login</title>
+
+<div class="login">
+    <div class="login__content">
+        <div class="login__img">
+            <img src="~/img/paldacalogin.png" alt="">
+        </div>
+
+        <div class="login__forms">
+            <form asp-action="Login" method="post" class="login__registre" id="login-in">
+                <h1 class="login__title">Iniciar Sesión</h1>
+
+                <div class="login__box">
+                    <i class='bx bx-user login__icon'></i>
+                    <input asp-for="Email" type="text" placeholder="Correo" class="login__input">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="login__box">
+                    <i class='bx bx-lock-alt login__icon'></i>
+                    <input asp-for="Password" type="password" placeholder="Contraseña" class="login__input">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <a asp-action="Restablecer" class="login__forgot">¿Olvidaste tu contraseña?</a>
+
+                <button type="submit" class="login__button">Iniciar Sesión</button>
+
+                <div>
+                    <span class="login__account">¿No tienes una cuenta?</span>
+                    <a asp-action="Registro" class="login__signup">Registrarse</a>
+                </div>
+                <hr />
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger">
+                        @ViewBag.Error
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>

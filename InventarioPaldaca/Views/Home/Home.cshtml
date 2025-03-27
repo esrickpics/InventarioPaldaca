@@ -1,0 +1,79 @@
+﻿@model InventarioPaldaca.Models.ViewModels.ListaActivosViewModel
+
+<div class="container form-container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="form-title">
+                <img src="/img/Iconos/activos.svg" alt="Icono Activos" style="width: 32px; height: 32px; margin-right: 10px;">
+                Activos
+            </h2>
+
+        </div>
+    </div>
+    <hr class="linea" />
+    <!-- Sección de estadísticas -->
+    <div class="row stats-container text-center">
+        <div class="col-md-4">
+            <div class="card stat-item bgcolorazul">
+                <div class="card-body">
+                    <div class="stat-icon">🔄</div>
+                    <h3 class="card-title">Total de Activos</h3>
+                    <p class="stat-number">@Model.TotalActivos</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card stat-item bgcolorazul">
+                <div class="card-body">
+                    <div class="stat-icon">🛒</div>
+                    <h3 class="card-title">Reportes</h3>
+                    <p class="stat-number">555</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card stat-item bgcolorazul">
+                <div class="card-body">
+                    <a asp-area="" asp-controller="Activo" asp-action="ActivosDañados" class="text-white text-decoration-none">
+                    <div class="stat-icon">❌</div>
+                    <h3 class="card-title">Activos Dañados</h3>
+                    <p class="stat-number">@Model.TotalActivosDañados</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de acciones -->
+    <div class="row actions-container text-center mt-4">
+        <div class="col-md-4">
+            <div class="card action-item">
+                <div class="card-body">
+                    <h4 class="card-title">Agregar Usuario</h4>
+                    <p class="card-text">Agrega un nuevo usuario al sistema</p>
+                    <a asp-area="" asp-controller="Usuario" asp-action="Create" class="Btn">Agregar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card action-item">
+                <div class="card-body">
+                    <h4 class="card-title">Inventario</h4>
+                    <p class="card-text">Ver los activos del inventario</p>
+                    <a asp-area="" asp-controller="Activo" asp-action="Index" class="Btn">Ver lista</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card action-item">
+                <div class="card-body">
+                    <h4 class="card-title">Agregar nuevo activo</h4>
+                    <p class="card-text">Agrega un nuevo producto al inventario</p>
+                    <a asp-area="" asp-controller="Activo" asp-action="Create" class="Btn">Agregar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
