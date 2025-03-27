@@ -26,7 +26,6 @@ namespace InventarioPaldaca.Models.ViewModels
 
         public int TotalActivosDañados { get; set; }
 
-        public int TotalReportes { get; set; }
 
     }
 }

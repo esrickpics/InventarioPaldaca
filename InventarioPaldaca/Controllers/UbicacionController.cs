@@ -1,24 +1,23 @@
 ﻿using InventarioPaldaca.Models.Inventario;
 using InventarioPaldaca.Models.ViewModels;
-using InventarioPaldaca.Utilidades.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventarioPaldaca.Controllers
 {
     public class UbicacionController : Controller
     {
-        private readonly InventarioPaldacaContext _context;
+        private readonly InventaryPaldacaContext _context;
 
-        public UbicacionController(InventarioPaldacaContext context)
+        public UbicacionController(InventaryPaldacaContext context)
         {
             _context = context;
         }
-   
+
         public IActionResult Create()
         {
             return View();
         }
-        [AuthorizeRole("Administrador")]
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(UbicacionViewModel model)

@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InventarioPaldaca.Models.Inventario;
 
-public partial class InventarioPaldacaContext : DbContext
+public partial class InventaryPaldacaContext : DbContext
 {
-    public InventarioPaldacaContext()
+    public InventaryPaldacaContext()
     {
     }
 
-    public InventarioPaldacaContext(DbContextOptions<InventarioPaldacaContext> options)
+    public InventaryPaldacaContext(DbContextOptions<InventaryPaldacaContext> options)
         : base(options)
     {
     }
@@ -23,23 +23,21 @@ public partial class InventarioPaldacaContext : DbContext
 
     public virtual DbSet<Proveedor> Proveedors { get; set; }
 
-    public virtual DbSet<Reporte> Reportes { get; set; }
-
-    public virtual DbSet<Rol> Rols { get; set; }
-
     public virtual DbSet<Ubicacion> Ubicacions { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=RAG\\SQLEXPRESS; Database=InventarioPaldaca; Trusted_Connection=true; TrustServerCertificate=True ");
+        => optionsBuilder.UseSqlServer("Server=RAG\\SQLEXPRESS; Database=InventaryPaldaca; Trusted_Connection=True; TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.UseCollation("Modern_Spanish_CI_AS");
+
         modelBuilder.Entity<Activo>(entity =>
         {
-            entity.HasKey(e => e.ActivoId).HasName("PK__activo__D2F3F09055EC7B0D");
+            entity.HasKey(e => e.ActivoId).HasName("PK__activo__D2F3F0903D6062D4");
 
             entity.ToTable("activo");
 
@@ -73,24 +71,24 @@ public partial class InventarioPaldacaContext : DbContext
 
             entity.HasOne(d => d.Categoria).WithMany(p => p.Activos)
                 .HasForeignKey(d => d.CategoriaId)
-                .HasConstraintName("FK__activo__categori__5535A963");
+                .HasConstraintName("FK__activo__categori__5165187F");
 
             entity.HasOne(d => d.Proveedor).WithMany(p => p.Activos)
                 .HasForeignKey(d => d.ProveedorId)
-                .HasConstraintName("FK__activo__proveedo__5629CD9C");
+                .HasConstraintName("FK__activo__proveedo__5441852A");
 
             entity.HasOne(d => d.Ubicacion).WithMany(p => p.Activos)
                 .HasForeignKey(d => d.UbicacionId)
-                .HasConstraintName("FK__activo__ubicacio__571DF1D5");
+                .HasConstraintName("FK__activo__ubicacio__52593CB8");
 
             entity.HasOne(d => d.Usuario).WithMany(p => p.Activos)
                 .HasForeignKey(d => d.UsuarioId)
-                .HasConstraintName("FK__activo__usuario___5812160E");
+                .HasConstraintName("FK__activo__usuario___534D60F1");
         });
 
         modelBuilder.Entity<CategoriaMaster>(entity =>
         {
-            entity.HasKey(e => e.CategoriaMasterId).HasName("PK__Categori__4695212E31C5E5F0");
+            entity.HasKey(e => e.CategoriaMasterId).HasName("PK__Categori__4695212EFF4C0E9D");
 
             entity.ToTable("CategoriaMaster");
 
@@ -102,7 +100,7 @@ public partial class InventarioPaldacaContext : DbContext
 
         modelBuilder.Entity<Categorium>(entity =>
         {
-            entity.HasKey(e => e.CategoriaId).HasName("PK__categori__DB875A4FA166AFA7");
+            entity.HasKey(e => e.CategoriaId).HasName("PK__categori__DB875A4FC215485D");
 
             entity.ToTable("categoria");
 
@@ -124,7 +122,7 @@ public partial class InventarioPaldacaContext : DbContext
 
         modelBuilder.Entity<Proveedor>(entity =>
         {
-            entity.HasKey(e => e.ProveedorId).HasName("PK__proveedo__88BBADA4AA901FB7");
+            entity.HasKey(e => e.ProveedorId).HasName("PK__proveedo__88BBADA4E3F5BDD6");
 
             entity.ToTable("proveedor");
 
@@ -152,63 +150,29 @@ public partial class InventarioPaldacaContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("proveedor_telefono");
+            entity.Property(e => e.Requisicion).HasColumnName("REQUISICION");
 
             entity.HasMany(d => d.Categoria).WithMany(p => p.Proveedors)
                 .UsingEntity<Dictionary<string, object>>(
                     "ProveedorCategorium",
                     r => r.HasOne<Categorium>().WithMany()
                         .HasForeignKey("CategoriaId")
-                        .HasConstraintName("FK__proveedor__categ__59FA5E80"),
+                        .HasConstraintName("FK__proveedor__categ__7C4F7684"),
                     l => l.HasOne<Proveedor>().WithMany()
                         .HasForeignKey("ProveedorId")
-                        .HasConstraintName("FK__proveedor__prove__5AEE82B9"),
+                        .HasConstraintName("FK__proveedor__prove__7B5B524B"),
                     j =>
                     {
-                        j.HasKey("ProveedorId", "CategoriaId").HasName("PK__proveedo__6503D800F137C9DD");
+                        j.HasKey("ProveedorId", "CategoriaId").HasName("PK__proveedo__6503D8009A2E882A");
                         j.ToTable("proveedor_categoria");
                         j.IndexerProperty<int>("ProveedorId").HasColumnName("proveedor_id");
                         j.IndexerProperty<int>("CategoriaId").HasColumnName("categoria_id");
                     });
         });
 
-        modelBuilder.Entity<Reporte>(entity =>
-        {
-            entity.HasKey(e => e.ReporteId).HasName("PK__Reporte__0B29EA6E59A0A6C3");
-
-            entity.ToTable("Reporte");
-
-            entity.Property(e => e.Descripcion)
-                .HasMaxLength(255)
-                .IsUnicode(false);
-            entity.Property(e => e.FechaGeneracion)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
-            entity.Property(e => e.RutaArchivo)
-                .HasMaxLength(500)
-                .IsUnicode(false);
-
-            entity.HasOne(d => d.Usuario).WithMany(p => p.Reportes)
-                .HasForeignKey(d => d.UsuarioId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Reporte__Usuario__2A164134");
-        });
-
-        modelBuilder.Entity<Rol>(entity =>
-        {
-            entity.HasKey(e => e.RolId).HasName("PK__Rol__CF32E443050FE306");
-
-            entity.ToTable("Rol");
-
-            entity.Property(e => e.RolId).HasColumnName("rol_id");
-            entity.Property(e => e.RolNombre)
-                .HasMaxLength(250)
-                .IsUnicode(false)
-                .HasColumnName("rol_nombre");
-        });
-
         modelBuilder.Entity<Ubicacion>(entity =>
         {
-            entity.HasKey(e => e.UbicacionId).HasName("PK__ubicacio__5451282938C63BC6");
+            entity.HasKey(e => e.UbicacionId).HasName("PK__ubicacio__545128291D1E5E8C");
 
             entity.ToTable("ubicacion");
 
@@ -229,7 +193,7 @@ public partial class InventarioPaldacaContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.UsuarioId).HasName("PK__usuario__2ED7D2AFDE44D96C");
+            entity.HasKey(e => e.UsuarioId).HasName("PK__usuario__2ED7D2AFDDF23721");
 
             entity.ToTable("usuario");
 
@@ -240,7 +204,6 @@ public partial class InventarioPaldacaContext : DbContext
             entity.Property(e => e.ImagenUrl)
                 .HasMaxLength(255)
                 .IsUnicode(false);
-            entity.Property(e => e.RolId).HasColumnName("rol_id");
             entity.Property(e => e.UsuarioApellido)
                 .HasMaxLength(40)
                 .IsUnicode(false)
@@ -256,18 +219,9 @@ public partial class InventarioPaldacaContext : DbContext
                 .HasMaxLength(40)
                 .IsUnicode(false)
                 .HasColumnName("usuario_nombre");
-            entity.Property(e => e.UsuarioPassword)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("usuario_password");
             entity.Property(e => e.UsuarioTelefono)
                 .HasMaxLength(20)
                 .IsUnicode(false);
-
-            entity.HasOne(d => d.Rol).WithMany(p => p.Usuarios)
-                .HasForeignKey(d => d.RolId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_usuario_rol");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -1,63 +1,36 @@
-using InventarioPaldaca.Models.Inventario; 
-using InventarioPaldaca.Utilidades.Filters;
+using InventarioPaldaca.Models.Inventario;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuración de servicios
-builder.Services.AddControllersWithViews(options =>
-{
-    options.Filters.Add(new VerificarSession());
-});
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<InventarioPaldacaContext>(options =>
+builder.Services.AddDbContext<InventaryPaldacaContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("InventarioPaldacaContext"));
-});
-
-// Configuración de sesión
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Tiempo de expiración
-    options.Cookie.HttpOnly = true; // Seguridad adicional
-    options.Cookie.IsEssential = true;
+    options.UseSqlServer(builder.Configuration.GetConnectionString("InventaryPaldacaContext"));
 });
 
 var app = builder.Build();
 
-// Configuración del pipeline HTTP
+
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
-app.UseSession(); // Habilita el middleware de sesión
+
 app.UseAuthorization();
-
-app.MapGet("/", context =>
-{
-    var session = context.Request.HttpContext.Session;
-    var usuarioId = session.GetString("UsuarioId");
-
-    if (string.IsNullOrEmpty(usuarioId))
-    {
-        // Redirigir al login si no hay sesión
-        context.Response.Redirect("/acceso/login");
-    }
-    else
-    {
-        // Redirigir al Home si hay sesión
-        context.Response.Redirect("/home/index");
-    }
-    return Task.CompletedTask;
-});
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Acceso}/{action=Login}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

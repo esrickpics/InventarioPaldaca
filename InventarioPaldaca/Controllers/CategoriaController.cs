@@ -6,9 +6,9 @@ namespace InventarioPaldaca.Controllers
 {
     public class CategoriaController : Controller
     {
-        private readonly InventarioPaldacaContext _context;
+        private readonly InventaryPaldacaContext _context;
 
-        public CategoriaController(InventarioPaldacaContext context)
+        public CategoriaController(InventaryPaldacaContext context)
         {
             _context = context;
         }

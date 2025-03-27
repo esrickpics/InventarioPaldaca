@@ -37,7 +37,7 @@
                     <td>@Html.DisplayFor(m => activo.NumeroSerial)</td>
                     <td>@(activo.Ubicacion?.UbicacionNombre ?? "No asignada")</td>
                     <td>@(string.IsNullOrEmpty(activo.CodigoInventario) ? "No asignado" : activo.CodigoInventario)</td>
-                    <td>@Html.DisplayFor(m => activo.Observaciones)</td>
+                    <td>@Html.DisplayFor(m=> activo.Observaciones)</td>
                 </tr>
             }
         }
