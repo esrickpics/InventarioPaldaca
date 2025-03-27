@@ -5,18 +5,19 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using InventarioPaldaca.Utilidades.Filters;
 
 namespace InventarioPaldaca.Controllers
 {
     public class ProveedorController : Controller
     {
-        private readonly InventaryPaldacaContext _context;
+        private readonly InventarioPaldacaContext _context;
 
-        public ProveedorController(InventaryPaldacaContext context)
+        public ProveedorController(InventarioPaldacaContext context)
         {
             _context = context;
         }
-
+        [AuthorizeRole("Administrador")]
         public IActionResult Index()
         {
             var viewModel = new ProveedorViewModel
@@ -72,7 +73,6 @@ namespace InventarioPaldaca.Controllers
                         ProveedorEmail = p.ProveedorEmail,
                         ProveedorDireccion = p.ProveedorDireccion,
                         ProveedorOrigen = p.Origen,
-                        Requisicion = p.Requisicion
                     })
                     .ToListAsync()
             };

@@ -19,8 +19,6 @@ public partial class Proveedor
 
     public string? Origen { get; set; }
 
-    public int? Requisicion { get; set; }
-
     public virtual ICollection<Activo> Activos { get; set; } = new List<Activo>();
 
     public virtual ICollection<Categorium> Categoria { get; set; } = new List<Categorium>();
