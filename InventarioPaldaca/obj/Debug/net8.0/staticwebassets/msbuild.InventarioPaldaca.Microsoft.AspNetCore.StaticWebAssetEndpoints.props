@@ -40,13 +40,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ayraCy6CN4SNdeGdtxpo9Jxtrx\u002BaMlXb0U5tlQLqZkM="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7805"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ayraCy6CN4SNdeGdtxpo9Jxtrx\u002BaMlXb0U5tlQLqZkM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Mar 2025 19:36:17 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7805"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ayraCy6CN4SNdeGdtxpo9Jxtrx\u002BaMlXb0U5tlQLqZkM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 27 Mar 2025 18:37:32 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/InventarioPaldaca/css/site.pfyxhm6ee0.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"pfyxhm6ee0"},{"Name":"integrity","Value":"sha256-ayraCy6CN4SNdeGdtxpo9Jxtrx\u002BaMlXb0U5tlQLqZkM="},{"Name":"label","Value":"_content/InventarioPaldaca/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7805"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ayraCy6CN4SNdeGdtxpo9Jxtrx\u002BaMlXb0U5tlQLqZkM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Mar 2025 19:36:17 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7805"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ayraCy6CN4SNdeGdtxpo9Jxtrx\u002BaMlXb0U5tlQLqZkM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 27 Mar 2025 18:37:32 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/InventarioPaldaca/css/styleslogin.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\styleslogin.css'))</AssetFile>

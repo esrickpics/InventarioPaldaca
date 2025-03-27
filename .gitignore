@@ -1,0 +1,50 @@
+# Archivos de configuración de usuario específico
+.suo
+.user
+.userosscache
+.sln.docstates
+
+# Archivos de carpeta .vs (Visual Studio)
+.vs/
+.vscode/
+
+# Resultados de compilación
+[Bb]in/
+[Oo]bj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.db
+*.db-shm
+*.db-wal
+
+# Archivos de salida de publicación
+publish/
+
+# Archivos de MSBuild
+*.log
+*.binlog
+
+# Archivos de Resharper
+_ReSharper*/
+*.ReSharper
+
+# Archivos de Node.js
+node_modules/
+
+# Archivos de NuGet
+packages/
+*.nupkg
+.nuget/
+NuGet.exe
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de Rider
+.idea/
+
+# Archivos de Azure Functions
+func/

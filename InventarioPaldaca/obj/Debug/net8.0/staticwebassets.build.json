@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6lg4BlYLE1qYKq05Zm3nUvhMDeh+H7uD8sDnEXB7Z4E=",
+  "Hash": "S6MxRCT2Jj9o4wNqKCdi8tj2J61SPLgzfvFVLFUaA4o=",
   "Source": "InventarioPaldaca",
   "BasePath": "_content/InventarioPaldaca",
   "Mode": "Default",
@@ -3017,7 +3017,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Mar 2025 19:36:17 GMT"
+          "Value": "Thu, 27 Mar 2025 18:37:32 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3054,7 +3054,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Mar 2025 19:36:17 GMT"
+          "Value": "Thu, 27 Mar 2025 18:37:32 GMT"
         },
         {
           "Name": "Cache-Control",
