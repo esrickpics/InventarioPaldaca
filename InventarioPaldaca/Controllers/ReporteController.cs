@@ -2,6 +2,7 @@
 using InventarioPaldaca.Models.ViewModels;
 using InventarioPaldaca.Utilidades.Filters;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace InventarioPaldaca.Controllers
 {
@@ -20,7 +21,7 @@ namespace InventarioPaldaca.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Reporte(ReporteViewModel model)
+        public async Task<IActionResult> Generar(ReporteViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -38,9 +39,17 @@ namespace InventarioPaldaca.Controllers
                 await _context.SaveChangesAsync();
 
                 TempData["Success"] = "Reporte generado exitosamente.";
-                return RedirectToAction("Generar");
+                return RedirectToAction("Index", "Home");
             }
             return View(model);
+        }
+        [AuthorizeRole("Administrador")]
+        public async Task<IActionResult> Index()
+        {
+            var reportes = await _context.Reportes
+                .Include(r => r.Usuario) // Asegura que se carga el nombre del usuario
+                .ToListAsync();
+            return View(reportes);
         }
     }
 }

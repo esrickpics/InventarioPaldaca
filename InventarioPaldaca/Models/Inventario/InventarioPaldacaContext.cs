@@ -152,7 +152,6 @@ public partial class InventarioPaldacaContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("proveedor_telefono");
-            entity.Property(e => e.Requisicion).HasColumnName("REQUISICION");
 
             entity.HasMany(d => d.Categoria).WithMany(p => p.Proveedors)
                 .UsingEntity<Dictionary<string, object>>(
@@ -265,7 +264,7 @@ public partial class InventarioPaldacaContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.UsuarioRol).WithMany(p => p.Usuarios)
+            entity.HasOne(d => d.Rol).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.RolId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_usuario_rol");

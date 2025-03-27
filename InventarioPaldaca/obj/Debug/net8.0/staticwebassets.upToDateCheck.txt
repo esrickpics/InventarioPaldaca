@@ -2,6 +2,7 @@ wwwroot\css\Create.css
 wwwroot\css\normalize.css
 wwwroot\css\PerfilUsuario.css
 wwwroot\css\site.css
+wwwroot\css\styleslogin.css
 wwwroot\favicon.ico
 wwwroot\img\4092564-about-mobile-ui-profile-ui-user-website_114033.svg
 wwwroot\img\AsignacionPDF\AsignacionAlba_20241119105641.pdf
@@ -28,10 +29,13 @@ wwwroot\img\Iconos\out-stock.svg
 wwwroot\img\Iconos\proveedor.svg
 wwwroot\img\Iconos\total-activo.svg
 wwwroot\img\Iconos\usuario.svg
+wwwroot\img\images (1).jpeg
 wwwroot\img\Paldaca Icon.png
+wwwroot\img\paldaca login.jpeg
 wwwroot\img\Paldaca logoyRif.png
 wwwroot\img\paldaca_logo-footer-2.png
 wwwroot\img\paldaca_logo-header-2.png
+wwwroot\img\paldacalogin.png
 wwwroot\img\Usuarios\Img.AlbaGomez.png
 wwwroot\img\Usuarios\Img.AlexisHernandez.png
 wwwroot\img\Usuarios\Img.AlondraTorres.png
@@ -63,6 +67,7 @@ wwwroot\img\Usuarios\Img.Peluche.png
 wwwroot\img\Usuarios\Img.RafaelReymi.png
 wwwroot\img\Usuarios\Img.RafaelVelasquez.png
 wwwroot\img\Usuarios\Img.RicardoGoitia.png
+wwwroot\js\main.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

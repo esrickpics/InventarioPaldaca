@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\css\\styleslogin.css",
+      "PackagePath": "staticwebassets\\css\\styleslogin.css"
+    },
+    {
       "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -257,12 +261,28 @@
       "PackagePath": "staticwebassets\\img\\Usuarios\\Img.default.png"
     },
     {
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\images (1).jpeg",
+      "PackagePath": "staticwebassets\\img\\images (1).jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldaca login.jpeg",
+      "PackagePath": "staticwebassets\\img\\paldaca login.jpeg"
+    },
+    {
       "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldaca_logo-footer-2.png",
       "PackagePath": "staticwebassets\\img\\paldaca_logo-footer-2.png"
     },
     {
       "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldaca_logo-header-2.png",
       "PackagePath": "staticwebassets\\img\\paldaca_logo-header-2.png"
+    },
+    {
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\img\\paldacalogin.png",
+      "PackagePath": "staticwebassets\\img\\paldacalogin.png"
+    },
+    {
+      "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
       "Id": "C:\\Users\\ricar\\OneDrive\\Documents\\Trabajos Programacion\\InventarioPaldaca\\InventarioPaldaca\\wwwroot\\js\\site.js",
