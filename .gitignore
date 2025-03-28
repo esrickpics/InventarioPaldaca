@@ -1,50 +1,107 @@
-# Archivos de configuración de usuario específico
-.suo
-.user
-.userosscache
-.sln.docstates
-
-# Archivos de carpeta .vs (Visual Studio)
-.vs/
-.vscode/
-
-# Resultados de compilación
+### ASP.NET Core 8 ###
 [Bb]in/
 [Oo]bj/
-*.exe
-*.dll
-*.pdb
-*.cache
-*.db
-*.db-shm
-*.db-wal
-
-# Archivos de salida de publicación
-publish/
-
-# Archivos de MSBuild
-*.log
-*.binlog
-
-# Archivos de Resharper
-_ReSharper*/
-*.ReSharper
-
-# Archivos de Node.js
-node_modules/
-
-# Archivos de NuGet
-packages/
+[Ll]og/
+[Ll]ogs/
+[Tt]emp/
+[Tt]mp/
+[Dd]ebug/
+[Rr]elease/
+[Dd]ebugPublic/
+*.user
+*.suo
+*.userprefs
+*.lock.json
+*.vspscc
+*.vssscc
+*.pidb
+*.vc.vc.opendb
 *.nupkg
-.nuget/
-NuGet.exe
-
-# Archivos temporales
+*.pdb
+*.dll
+*.exe
+*.min.*
+*.cache
+*.bak
 *.tmp
-*.temp
+*.orig
+*.log
 
-# Archivos de Rider
-.idea/
+### Visual Studio 2022 ###
+.vs/
+.vsconfig
+.suo
+.vscode/
+*.sln
+*.slnf
+*.swagger
+*.userosscache
+*.msi
+*.njsproj
+*.opensdf
+*.sdf
+*.vsp
+*.vspx
+*.psess
+*.Testsettings
+*.dbmdl
+*.jfm
+obj/
 
-# Archivos de Azure Functions
-func/
+### VSCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+### SQL Server 2022 ###
+*.mdf            # Archivos de datos primarios
+*.ldf            # Archivos de transacciones
+*.ndf            # Archivos de datos secundarios
+*.bak            # Backups de bases de datos
+*.trn            # Backup de transacciones
+*.sqlpubxml      # Publicación de bases de datos
+*.dacpac         # Paquete de capa de datos
+*.bacpac         # Backup de capa de datos
+SqlScripts/.vs/  # Archivos temporales de SQL Projects
+
+### Entity Framework (Migrations) ###
+**/Migrations/*.Designer.cs
+!**/Migrations/*.cs       # ⚠️ Mantiene los archivos de migración (pero no los autogenerados)
+
+### NuGet ###
+[Nn]uget.exe
+.nuget/
+packages/
+nuget.config
+**/packages.lock.json
+
+### Node.js ###
+node_modules/
+npm-debug.log
+package-lock.json
+yarn.lock
+
+### Docker ###
+.dockerignore
+Dockerfile
+docker-compose.*
+.env
+docker-compose.override.yml
+
+### Azure ###
+.azure/
+*.pubxml
+*.publishsettings
+
+### Misc ###
+.DS_Store
+Thumbs.db
+appsettings.Development.json
+appsettings.local.json
+**/launchSettings.json
+**/appsettings*.json
+!appsettings.json          # ⚠️ Mantiene el principal
+secrets.json              # Configuraciones sensibles
