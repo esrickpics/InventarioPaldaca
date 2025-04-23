@@ -6,20 +6,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using InventarioPaldaca.Utilidades.Filters;
+using InventarioPaldaca.Utilidades;
 
 namespace InventarioPaldaca.Controllers
 {
     public class ProveedorController : Controller
     {
+        private readonly Dolar _dolar;
         private readonly InventarioPaldacaContext _context;
 
-        public ProveedorController(InventarioPaldacaContext context)
+        public ProveedorController(Dolar dolar, InventarioPaldacaContext context)
         {
+            _dolar = dolar;
             _context = context;
         }
+
         [AuthorizeRole("Administrador")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var precio = await _dolar.ObtenerPrecioDolarAsync();
+            ViewBag.PrecioDolar = precio;
             var viewModel = new ProveedorViewModel
             {
                 CategoriasMaestras = _context.CategoriaMasters.ToList(),

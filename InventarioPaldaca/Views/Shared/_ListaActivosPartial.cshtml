@@ -1,44 +1,97 @@
 ﻿@model InventarioPaldaca.Models.ViewModels.ListaActivosViewModel
 
-@if (Model.ListaActivos == null || !Model.ListaActivos.Any())
-{
-    <tr>
-        <td colspan="10" class="text-center">No se encontraron activos que coincidan con los criterios.</td>
-    </tr>
-}
-else
-{
-    @foreach (var activo in Model.ListaActivos)
-    {
-        <tr onclick="window.location='@Url.Action("PerfilUsuario", "Usuario", new { id = activo.Usuario?.UsuarioId })'">
-            <td>@(activo.Usuario?.UsuarioNombre ?? "No asignado")</td>
-            <td>@(activo.Usuario?.UsuarioApellido ?? "No asignado")</td>
-            <td>@Html.DisplayFor(m => activo.Marca)</td>
-            <td>@Html.DisplayFor(m => activo.Modelo)</td>
-            <td>@(activo.Categoria?.CategoriaNombre ?? "Sin categoría")</td>
-            <td>@Html.DisplayFor(m => activo.NumeroSerial)</td>
-            <td>@(activo.Ubicacion?.UbicacionNombre ?? "No asignada")</td>
-            <td>@(string.IsNullOrEmpty(activo.CodigoInventario) ? "No asignado" : activo.CodigoInventario)</td>
-            <td class="funcionabilidad-column">
-                <form asp-action="ActualizarFuncionabilidad" method="post" style="display:inline;">
-                    <input type="hidden" name="id" value="@activo.ActivoId" />
-                    <button type="submit" class="btn btn-sm btn-action" style="font-size: 12px; padding: 5px 10px;">
+        @if (Model.ListaActivos == null || !Model.ListaActivos.Any())
+        {
+            <tr>
+                <td colspan="10" class="text-center">No se encontraron activos que coincidan con los criterios.</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var activo in Model.ListaActivos)
+            {
+                    <tr class="clickable-row" data-user-url="@Url.Action("PerfilUsuario", "Usuario", new { id = activo.Usuario?.UsuarioId })" onclick="redirectToProfile(event)">
+                    <td>@(activo.Usuario?.UsuarioNombre ?? "No asignado")</td>
+                    <td>@(activo.Usuario?.UsuarioApellido ?? "No asignado")</td>
+                    <td>@Html.DisplayFor(m => activo.Marca)</td>
+                    <td>@Html.DisplayFor(m => activo.Modelo)</td>
+                    <td>@(activo.Categoria?.CategoriaNombre ?? "Sin categoría")</td>
+                    <td>@Html.DisplayFor(m => activo.NumeroSerial)</td>
+                    <td>@(activo.Ubicacion?.UbicacionNombre ?? "No asignada")</td>
+                    <td>@(string.IsNullOrEmpty(activo.CodigoInventario) ? "No asignado" : activo.CodigoInventario)</td>
+                    <td class="funcionabilidad-column">
                         @if (activo.Funcionabilidad.GetValueOrDefault())
                         {
-                            <span>Marcar como dañado</span>
+                            <button type="button" class="btn btn-sm btn-action" data-bs-toggle="modal" data-bs-target="#mantenimientoModal-@activo.ActivoId" style="font-size: 12px; padding: 5px 10px;">
+                                Marcar como dañado
+                            </button>
                         }
                         else
                         {
-                            <span>Reparado</span>
+                            <form asp-action="ActualizarFuncionabilidad" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@activo.ActivoId" />
+                                <button type="submit" class="btn btn-sm btn-action" style="font-size: 12px; padding: 5px 10px;">
+                                    Reparado
+                                </button>
+                            </form>
                         }
-                    </button>
-                </form>
-            </td>
-            <td class="delete-column" style="display:none;">
-                <form asp-action="Delete" asp-route-id="@activo.ActivoId" method="post">
-                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                </form>
-            </td>
-        </tr>
-    }
+                        <div class="modal fade" id="mantenimientoModal-@activo.ActivoId" tabindex="-1" aria-labelledby="mantenimientoModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form asp-action="ActualizarFuncionabilidad" method="post">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="mantenimientoModalLabel">Registrar Mantenimiento</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="hidden" name="id" value="@activo.ActivoId" />
+                                            <div class="mb-3">
+                                                <label class="form-label">Técnico</label>
+                                                <input type="text" name="Tecnico" class="form-control" required />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Número del Técnico</label>
+                                                <input type="text" name="NumeroTecnico" class="form-control" required />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Costo</label>
+                                                <input type="number" step="0.01" name="Costo" class="form-control" required />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Descripción</label>
+                                                <textarea name="Descripcion" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-primary">Guardar Mantenimiento</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="delete-column" style="display:none;">
+                        <form asp-action="Delete" asp-route-id="@activo.ActivoId" method="post">
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+
+@section scripts{
+    <script>
+                function redirectToProfile(event) {
+            // Verificar si el clic fue en un botón o formulario
+            if (event.target.closest('button') || event.target.closest('form')) {
+                return;  // No hacer nada si el clic fue en un botón o formulario
+            }
+
+            // Si el clic fue en el tr y no en un botón o formulario, redirigir
+            var userUrl = event.currentTarget.getAttribute('data-user-url');
+            window.location = userUrl;  // Redirigir al perfil
+        }
+
+    </script>
 }

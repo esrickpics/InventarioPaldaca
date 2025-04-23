@@ -19,5 +19,6 @@ namespace InventarioPaldaca.Models
 
         // Indica si se debe mostrar un mensaje específico o solo el genérico
         public bool ShowDetailedMessage => !string.IsNullOrEmpty(Message);
+        public string? ErrorType { get; set; }
     }
 }

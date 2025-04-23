@@ -73,7 +73,28 @@ namespace InventarioPaldaca.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            // Si la excepción está disponible en el contexto, obtenemos detalles específicos
+            var statusCode = HttpContext.Response.StatusCode; // Obtiene el código de estado (404, 500, etc.)
+            var requestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+
+            // Creamos el modelo de error
+            var errorViewModel = new ErrorViewModel
+            {
+                RequestId = requestId
+            };
+
+            if (statusCode == 404)
+            {
+                errorViewModel.Message = "La página que estás buscando no existe.";
+                errorViewModel.ErrorType = "Página no encontrada";
+            }
+            else
+            {
+                errorViewModel.Message = "Hubo un problema con la solicitud.";
+                errorViewModel.ErrorType = "Error desconocido";
+            }
+
+            return View(errorViewModel); // Redirige a la vista de error con los detalles
         }
     }
 }

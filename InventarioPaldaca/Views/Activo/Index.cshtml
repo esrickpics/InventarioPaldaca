@@ -85,25 +85,12 @@
         </form>
     </div>
 
-    <table class="table" id="activosTable">
-        <thead>
-            <tr>
-                <th><button id="sortByName" class="sort-button">Nombre</button></th>
-                <th>Apellido</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Categoría</th>
-                <th>Número de Serial</th>
-                <th>Ubicación</th>
-                <th>Codigo De Inventario</th>
-                <th class="funcionabilidad-column">Funcionalidad</th>
-                <th class="delete-column" style="display:none;">Eliminar</th>
-            </tr>
-        </thead>
-        <tbody id="activosTableBody">
-            <partial name="_ListaActivosPartial" model="Model" />
-        </tbody>
-    </table>
+    <div id="contenedorTablaPaginada">
+        <partial name="_PaginacionActivosPartial" model="Model" />
+    </div>
+
+    <hr class="linea" />
+
 
     <!-- Modal para reasignar activos -->
     <div class="modal fade" id="reassignModal" tabindex="-1" role="dialog" aria-labelledby="reassignModalLabel" aria-hidden="true">
@@ -121,7 +108,7 @@
                             <label for="activoId">Seleccione un activo:</label>
                             <select id="activoId" name="id" class="form-control">
                                 <!-- Cambiado a "id" -->
-                                @foreach (var activo in Model.ListaActivos)
+                                @foreach (var activo in Model.ListaActivosCompleta)
                                 {
                                     <option value="@activo.ActivoId">@activo.CodigoInventario - @activo.Modelo - @activo.Categoria.CategoriaNombre - @(activo.Usuario?.UsuarioNombre ?? "No asignado")</option>
                                 }
@@ -162,7 +149,7 @@
                         <div class="form-group">
                             <label for="activoId">Seleccione un activo:</label>
                             <select id="activoId" name="id" class="form-control">
-                                @foreach (var activo in Model.ListaActivos)
+                                @foreach (var activo in Model.ListaActivosCompleta)
                                 {
                                     <option value="@activo.ActivoId">@activo.CodigoInventario - @activo.Modelo - @activo.Categoria.CategoriaNombre - @(activo.Usuario?.UsuarioNombre ?? "No asignado")</option>
                                 }
@@ -186,9 +173,6 @@
             </div>
         </div>
     </div>
-
-    <hr class="linea" />
-
     <!-- Total activos -->
     <div class="total-container text-center">
         <h3 class="form-title" style="font-size:20px;">Total de Activos: @Model.TotalActivos</h3>
@@ -222,6 +206,47 @@
 
 @section Scripts {
     <script>
+
+    function cargarPagina(pagina) {
+                var categoria = $('#categoria').val();
+                var ubicacion = $('#ubicacion').val();
+                var codigoInventario = $('#codigoInventario').val();
+                var categoriaMaster = $('#categoriaMaster').val();
+
+                $.ajax({
+                    url: '@Url.Action("FiltrarActivos", "Activo")',
+                    type: 'GET',
+                    data: {
+                        categoria: categoria,
+                        ubicacion: ubicacion,
+                        codigoInventario: codigoInventario,
+                        categoriaMaster: categoriaMaster,
+                        pagina: pagina,
+                        pageSize: 10
+                    },
+                    success: function (result) {
+                        $('#contenedorTablaPaginada').html(result);
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error al cambiar de página: ' + error);
+                    }
+                });
+            }
+
+                function redirectToProfile(event) {
+                const target = event.target;
+
+                // Si el clic fue dentro de un botón o formulario, no redirige
+                if (target.closest('button') || target.closest('form') || target.closest('.modal')) {
+                    return;
+                }
+
+                const row = target.closest('.clickable-row');
+                if (row && row.dataset.userUrl) {
+                    window.location.href = row.dataset.userUrl;
+                }
+            }
+
         $(document).ready(function () {
             // Función para generar y guardar el PDF
             $('#generatePdfBtn').click(generatePDF);
@@ -291,12 +316,11 @@
             });
 
             // Función para filtrar los activos según los criterios seleccionados
-            function filtrarActivos(categoriaMaster = '') {
+                function filtrarActivos(categoriaMaster = '') {
                 var categoria = $('#categoria').val();
                 var ubicacion = $('#ubicacion').val();
                 var codigoInventario = $('#codigoInventario').val();
 
-                // Realizar la solicitud AJAX para filtrar los activos
                 $.ajax({
                     url: '@Url.Action("FiltrarActivos", "Activo")',
                     type: 'GET',
@@ -304,10 +328,10 @@
                         categoria: categoria,
                         ubicacion: ubicacion,
                         codigoInventario: codigoInventario,
-                        categoriamaster: categoriaMaster // Agregar categoriaMaster aquí
+                        categoriaMaster: categoriaMaster
                     },
                     success: function (result) {
-                        $('#activosTableBody').html(result); // Actualiza el contenido del tbody
+                        $('#contenedorTablaPaginada').html(result); // Reemplaza toda la tabla + paginación
                     },
                     error: function (xhr, status, error) {
                         alert('Ocurrió un error al filtrar los activos: ' + error);
@@ -437,6 +461,9 @@
                 link.click();
                 URL.revokeObjectURL(link.href);
             }
+        }
+            function cambiarTamañoPagina(size) {
+            window.location.href = '@Url.Action("Index")' + '?pagina=1&pageSize=' + size;
         }
     </script>
 }

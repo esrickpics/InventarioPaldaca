@@ -10,7 +10,7 @@ using InventarioPaldaca.Models;
 using System.Diagnostics;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using InventarioPaldaca.Utilidades.Filters;
-
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 namespace InventarioPaldaca.Controllers
 {
     public class ActivoController : Controller
@@ -21,77 +21,71 @@ namespace InventarioPaldaca.Controllers
         {
             _context = context;
         }
+
+        // ========================== VISTAS PRINCIPALES ==========================
+
         [AuthorizeRole("Administrador")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pagina = 1, int pageSize = 10)
         {
             ViewData["Usuarios"] = new SelectList(_context.Usuarios
-                                             .Select(u => new {
-                                                 u.UsuarioId,
-                                                 NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido
-                                             }), "UsuarioId", "NombreCompleto");
+                .Select(u => new { u.UsuarioId, NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido }),
+                "UsuarioId", "NombreCompleto");
 
-            // Obtener todos los activos incluyendo sus relaciones
-            var Activos = await _context.Activos
-                               .Include(u => u.Usuario)
-                               .Include(u => u.Ubicacion)
-                               .Include(u => u.Categoria)
-                               .ThenInclude(c => c.CategoriaMaster)
-                               .ToListAsync();
+            var query = _context.Activos
+                .Include(a => a.Usuario)
+                .Include(a => a.Ubicacion)
+                .Include(a => a.Categoria)
+                .ThenInclude(c => c.CategoriaMaster)
+                .AsQueryable();
 
-           
-       
+            int totalActivos = await query.CountAsync();
 
-            // Calcular el total de activos
-            int totalActivos = Activos?.Count ?? 0;
+            var activosPaginados = await query
+                .OrderBy(a => a.ActivoId)
+                .Skip((pagina - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+            var listaActivosCompleta = await _context.Activos
+           .Include(a => a.Categoria)
+           .Include(a => a.Usuario)
+           .ToListAsync(); // Esto trae todos
 
-            // Obtener todas las categorías disponibles
-            var categorias = await _context.Categoria.ToListAsync();
 
-            // Obtener todas las ubicaciones disponibles
-            var ubicaciones = await _context.Ubicacions.ToListAsync();
-           
-
-            int totalActivosDañados = Activos?.Count(a => a.Funcionabilidad == false) ?? 0;
-
-            // Obtener todas las categorías maestras disponibles
-            var categoriasMaster = await _context.CategoriaMasters.ToListAsync();
-
-            // Contar los activos por categoría
-            var activosPorCategoria = Activos?
-                .GroupBy(a => a.Categoria.CategoriaNombre)
-                .ToDictionary(g => g.Key, g => g.Count())
-                ?? new Dictionary<string, int>();
-
-            // Contar los activos por ubicación
-            var activosPorUbicacion = Activos?
-                .GroupBy(a => a.Ubicacion.UbicacionNombre)
-                .ToDictionary(g => g.Key, g => g.Count())
-                ?? new Dictionary<string, int>();
-
-            // Crear el ViewModel
             var model = new ListaActivosViewModel
             {
+                ListaActivos = activosPaginados,
+                Categorias = await _context.Categoria.ToListAsync(),
+                Ubicaciones = await _context.Ubicacions.ToListAsync(),
+                CategoriasMaster = await _context.CategoriaMasters.ToListAsync(),
                 TotalActivos = totalActivos,
-                ActivosPorCategoria = activosPorCategoria,
-                ActivosPorUbicacion = activosPorUbicacion,
-                CategoriasMaster = categoriasMaster ?? new List<CategoriaMaster>(),
-                ListaActivos = Activos ?? new List<Activo>(),
-                Categorias = categorias ?? new List<Categorium>(),
-                Ubicaciones = ubicaciones ?? new List<Ubicacion>(),
-                TotalActivosDañados = totalActivosDañados
+                TotalActivosDañados = await _context.Activos.CountAsync(a => a.Funcionabilidad == false),
+                PaginaActual = pagina,
+                PageSize = pageSize,
+                TotalFiltrados = totalActivos,
+                ListaActivosCompleta = listaActivosCompleta,  
+                ActivosPorCategoria = await query
+                    .GroupBy(a => a.Categoria.CategoriaNombre)
+                    .Select(g => new { g.Key, Count = g.Count() })
+                    .ToDictionaryAsync(g => g.Key, g => g.Count),
+                ActivosPorUbicacion = await query
+                    .GroupBy(a => a.Ubicacion.UbicacionNombre)
+                    .Select(g => new { g.Key, Count = g.Count() })
+                    .ToDictionaryAsync(g => g.Key, g => g.Count)
             };
 
             return View(model);
         }
+
         [AuthorizeRole("Administrador")]
         public IActionResult ActivosDañados()
         {
-            var activosDañados = _context.Activos
-                                          .Include(a => a.Usuario)
-                                          .Include(a => a.Categoria)
-                                          .Include(a => a.Ubicacion)
-                                         .Where(a => a.Funcionabilidad == false)
-                                          .ToList();
+             var activosDañados = _context.Activos
+            .Include(a => a.Usuario)
+            .Include(a => a.Categoria)
+            .Include(a => a.Ubicacion)
+            .Include(a => a.Mantenimientos)
+            .Where(a => a.Funcionabilidad == false)
+            .ToList();
 
             var model = new ListaActivosViewModel
             {
@@ -100,27 +94,68 @@ namespace InventarioPaldaca.Controllers
 
             return View("ActivosDañados", model);
         }
+
+        [HttpPost]
+        public IActionResult EditarMantenimiento(int MantenimientoId, string Tecnico, string NumeroTecnico, decimal Costo, string Descripcion, string Estado)
+        {
+            var mantenimiento = _context.Mantenimientos.FirstOrDefault(m => m.MantenimientoId == MantenimientoId);
+            if (mantenimiento == null)
+            {
+                TempData["ErrorMessage"] = "Mantenimiento no encontrado.";
+                return RedirectToAction("ActivosDañados");
+            }
+
+            mantenimiento.Tecnico = Tecnico;
+            mantenimiento.NumeroTecnico = NumeroTecnico;
+            mantenimiento.Costo = Costo;
+            mantenimiento.Descripcion = Descripcion;
+            mantenimiento.Estado = Estado;
+
+            if (Estado == "Finalizado" && mantenimiento.FechaFin == null)
+            {
+                mantenimiento.FechaFin = DateOnly.FromDateTime(DateTime.Now);
+
+                // Opcional: reactivar la funcionabilidad del activo
+                var activo = _context.Activos.FirstOrDefault(a => a.ActivoId == mantenimiento.ActivoId);
+                if (activo != null)
+                {
+                    activo.Funcionabilidad = true;
+                }
+            }
+
+            _context.SaveChanges();
+            TempData["SuccessMessage"] = "Mantenimiento actualizado correctamente.";
+            return RedirectToAction("ActivosDañados");
+        }
+
+        // ========================== CREACIÓN ==========================
+
         public IActionResult Create()
         {
+            var usuarios = _context.Usuarios
+                .Select(u => new UsuarioSelectDTO
+                {
+                    UsuarioId = u.UsuarioId,
+                    NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido
+                }).ToList();
+
+            usuarios.Insert(0, new UsuarioSelectDTO { UsuarioId = null, NombreCompleto = "-- No asignado --" });
+
+            ViewData["Usuario"] = new SelectList(usuarios, "UsuarioId", "NombreCompleto");
             ViewData["Categoria"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaNombre");
             ViewData["Ubicacion"] = new SelectList(_context.Ubicacions, "UbicacionId", "UbicacionNombre");
-            ViewData["Usuario"] = new SelectList(_context.Usuarios
-                                                        .Select(u => new {
-                                                           u.UsuarioId,
-                                                           NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido
-                                                         }), "UsuarioId", "NombreCompleto");
+
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         [AuthorizeRole("Administrador")]
         public async Task<IActionResult> Create(ActivoViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var activo = new Activo()
+                var activo = new Activo
                 {
                     Marca = model.Marca,
                     Modelo = model.Modelo,
@@ -131,7 +166,6 @@ namespace InventarioPaldaca.Controllers
                     CategoriaId = model.CategoriaId,
                     UbicacionId = model.UbicacionId,
                     UsuarioId = model.UsuarioId,
-                    Adquisicion = model.AñoAdquirido
                 };
 
                 try
@@ -142,39 +176,122 @@ namespace InventarioPaldaca.Controllers
                 }
                 catch (Exception ex)
                 {
-                    // Manejar excepción o registrar el error
-                    Console.WriteLine(ex.Message);
                     ModelState.AddModelError("", "No se pudo guardar el activo. Intente nuevamente.");
+                    Console.WriteLine(ex.Message);
                 }
             }
-            else
-            {
-                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+
+            var usuarios = _context.Usuarios
+                .Select(u => new UsuarioSelectDTO
                 {
-                    Console.WriteLine(error.ErrorMessage); 
-                }
-            }
-            ViewData["Categoria"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaNombre", model.CategoriaId);
-            ViewData["Ubicacion"] = new SelectList(_context.Ubicacions, "UbicacionId", "UbicacionNombre", model.UbicacionId);
-            ViewData["Usuario"] = new SelectList(_context.Usuarios
-                                                                  .Select(u => new {
-                                                                      u.UsuarioId,
-                                                                      NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido
-                                                                  }), "UsuarioId", "NombreCompleto", model.UsuarioId);
+                    UsuarioId = u.UsuarioId,
+                    NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido
+                }).ToList();
+
+            usuarios.Insert(0, new UsuarioSelectDTO { UsuarioId = null, NombreCompleto = "-- No asignado --" });
+
+            ViewData["Usuario"] = new SelectList(usuarios, "UsuarioId", "NombreCompleto", model.UsuarioId);
+            ViewData["Categoria"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaNombre");
+            ViewData["Ubicacion"] = new SelectList(_context.Ubicacions, "UbicacionId", "UbicacionNombre");
+
             return View(model);
         }
 
-        [AuthorizeRole("Administrador")]
+        // ========================== FILTROS, ORDEN Y BÚSQUEDA ==========================
+        public async Task<IActionResult> FiltrarActivos(string categoria, string CodigoInventario, string ubicacion, string categoriamaster, int pagina = 1, int pageSize = 10)
+        {
+            var activos = _context.Activos
+                .Include(a => a.Usuario)
+                .Include(a => a.Categoria)
+                .Include(a => a.Ubicacion)
+                .AsQueryable();
+
+            // Aplicar los filtros
+            if (!string.IsNullOrEmpty(CodigoInventario))
+                activos = activos.Where(a => a.CodigoInventario.Contains(CodigoInventario));
+
+            if (!string.IsNullOrEmpty(categoria))
+                activos = activos.Where(a => a.Categoria.CategoriaNombre.Contains(categoria));
+
+            if (!string.IsNullOrEmpty(ubicacion))
+                activos = activos.Where(a => a.Ubicacion.UbicacionNombre.Contains(ubicacion));
+
+            if (!string.IsNullOrEmpty(categoriamaster))
+            {
+                var subcategorias = _context.Categoria
+                    .Where(c => c.CategoriaMaster.Nombre == categoriamaster)
+                    .Select(c => c.CategoriaNombre)
+                    .ToList();
+
+                activos = activos.Where(a => subcategorias.Contains(a.Categoria.CategoriaNombre));
+            }
+
+            // Contar el total de activos después de aplicar los filtros
+            var totalActivos = await activos.CountAsync();
+
+            // Paginación: Aplicar Skip y Take para la paginación
+            var listaActivos = await activos
+                .OrderBy(a => a.ActivoId)  // Ordenar como necesites
+                .Skip((pagina - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            // Crear el ViewModel
+            var model = new ListaActivosViewModel
+            {
+                ListaActivos = listaActivos,
+                TotalFiltrados = totalActivos,
+                PaginaActual = pagina,
+                PageSize = pageSize
+            };
+            Console.WriteLine($"Pagina actual {pagina}");
+            return PartialView("_PaginacionActivosPartial", model);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> OrdenarPorNombre(string sortOrder)
+        {
+            var activos = _context.Activos
+                .Include(a => a.Usuario)
+                .Include(a => a.Ubicacion)
+                .Include(a => a.Categoria)
+                .AsQueryable();
+
+            activos = sortOrder == "asc"
+                ? activos.OrderBy(a => a.Usuario.UsuarioNombre)
+                : activos.OrderByDescending(a => a.Usuario.UsuarioNombre);
+
+            var model = new ListaActivosViewModel
+            {
+                ListaActivos = await activos.ToListAsync()
+            };
+
+            return PartialView("_ListaActivosPartial", model);
+        }
+
+        public IActionResult ObtenerSubcategorias(string categoriaMaster)
+        {
+            if (string.IsNullOrEmpty(categoriaMaster))
+                return Json(new List<object>());
+
+            var subcategorias = _context.Categoria
+                .Where(c => c.CategoriaMaster.Nombre == categoriaMaster)
+                .Select(c => new { c.CategoriaNombre })
+                .ToList();
+
+            return Json(subcategorias);
+        }
+
+        // ========================== ACCIONES SOBRE ACTIVOS ==========================
+
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
             try
             {
                 var activo = await _context.Activos.FindAsync(id);
-                if (activo == null)
-                {
-                    return NotFound("El activo no fue encontrado.");
-                }
+                if (activo == null) return NotFound("El activo no fue encontrado.");
 
                 _context.Activos.Remove(activo);
                 await _context.SaveChangesAsync();
@@ -183,135 +300,78 @@ namespace InventarioPaldaca.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("", "Ocurrió un error inesperado al intentar eliminar el activo.");
-                return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, Message = ex.Message });
+                return View("Error", new ErrorViewModel
+                {
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+                    Message = ex.Message
+                });
             }
-        }
-
-
-        public IActionResult FiltrarActivos(string categoria, string CodigoInventario, string ubicacion, string categoriamaster)
-        {
-            var activos = _context.Activos.Include(a => a.Usuario)
-                                           .Include(a => a.Categoria)
-                                           .Include(a => a.Ubicacion)
-                                           .AsQueryable();
-
-            // Filtrar por Código de Inventario
-            if (!string.IsNullOrEmpty(CodigoInventario))
-            {
-                activos = activos.Where(a => a.CodigoInventario.Contains(CodigoInventario));
-            }
-
-            // Filtrar por Categoría
-            if (!string.IsNullOrEmpty(categoria))
-            {
-                activos = activos.Where(a => a.Categoria.CategoriaNombre.Contains(categoria));
-            }
-
-            // Filtrar por Ubicación
-            if (!string.IsNullOrEmpty(ubicacion))
-            {
-                activos = activos.Where(a => a.Ubicacion.UbicacionNombre.Contains(ubicacion));
-            }
-
-            // Filtrar por Categoría Maestra
-            if (!string.IsNullOrEmpty(categoriamaster))
-            {
-                var subcategorias = _context.Categoria
-                                            .Where(c => c.CategoriaMaster.Nombre == categoriamaster)
-                                            .Select(c => c.CategoriaNombre)
-                                            .ToList();
-
-                activos = activos.Where(a => subcategorias.Contains(a.Categoria.CategoriaNombre));
-            }
-
-            var listaActivos = activos.ToList();
-
-            var model = new ListaActivosViewModel
-            {
-                ListaActivos = listaActivos
-            };
-
-            return PartialView("_ListaActivosPartial", model);
-        }
-
-        public IActionResult ObtenerSubcategorias(string categoriaMaster)
-        {
-            // Asegúrate de que categoriaMaster no esté vacío o nulo
-            if (string.IsNullOrEmpty(categoriaMaster))
-            {
-                return Json(new List<object>()); // Retorna una lista vacía si no hay valor
-            }
-
-            var subcategorias = _context.Categoria
-                .Where(s => s.CategoriaMaster.Nombre == categoriaMaster)
-                .Select(s => new { s.CategoriaNombre })
-                .ToList();
-
-            return Json(subcategorias);
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> OrdenarPorNombre(string sortOrder)
-        {
-            var activos = _context.Activos
-                                  .Include(u => u.Usuario)
-                                  .Include(u => u.Ubicacion)
-                                  .Include(u => u.Categoria)
-                                  .AsQueryable();
-
-            // Ordenar por nombre dependiendo del sortOrder ('asc' o 'desc')
-            if (sortOrder == "asc")
-            {
-                activos = activos.OrderBy(a => a.Usuario.UsuarioNombre);
-            }
-            else
-            {
-                activos = activos.OrderByDescending(a => a.Usuario.UsuarioNombre);
-            }
-
-            var model = new ListaActivosViewModel
-            {
-                ListaActivos = await activos.ToListAsync()
-            };
-
-            // Devolvemos la vista parcial actualizada con la lista ordenada
-            return PartialView("_ListaActivosPartial", model);
         }
 
         [HttpPost]
-        public IActionResult ActualizarFuncionabilidad(int id)
+        public IActionResult ActualizarFuncionabilidad(int id, string Tecnico, string NumeroTecnico, decimal? Costo, string Descripcion)
         {
-            var activo = _context.Activos.FirstOrDefault(a => a.ActivoId == id);
-            if (activo != null)
+            var activo = _context.Activos
+                .Include(a => a.Mantenimientos)
+                .FirstOrDefault(a => a.ActivoId == id);
+
+            if (activo == null)
             {
-                activo.Funcionabilidad = !activo.Funcionabilidad; // Cambiar estado
-                try
+                TempData["ErrorMessage"] = "Activo no encontrado.";
+                return RedirectToAction("Index");
+            }
+
+            activo.Funcionabilidad = !(activo.Funcionabilidad ?? false);
+
+            if (!(activo.Funcionabilidad ?? false))
+            {
+                // Se marcó como dañado, registrar nuevo mantenimiento con datos del modal
+                var nuevoMantenimiento = new Mantenimiento
                 {
-                    _context.SaveChanges();
-                    TempData["SuccessMessage"] = "El estado de funcionabilidad del activo se actualizó correctamente.";
-                }
-                catch (Exception ex)
-                {
-                    TempData["ErrorMessage"] = "Ocurrió un error al intentar actualizar el activo.";
-                }
+                    ActivoId = activo.ActivoId,
+                    FechaInicio = DateOnly.FromDateTime(DateTime.Now),
+                    Estado = "En proceso",
+                    Tecnico = string.IsNullOrWhiteSpace(Tecnico) ? "Por asignar" : Tecnico,
+                    NumeroTecnico = string.IsNullOrWhiteSpace(NumeroTecnico) ? "No registrado" : NumeroTecnico,
+                    Costo = Costo ?? 0,
+                    Descripcion = Descripcion
+                };
+
+                _context.Mantenimientos.Add(nuevoMantenimiento);
             }
             else
             {
-                TempData["ErrorMessage"] = "Activo no encontrado.";
+                // Se marcó como reparado, finalizar mantenimiento
+                var mantenimientoEnProceso = activo.Mantenimientos
+                    .Where(m => m.Estado == "En proceso")
+                    .OrderByDescending(m => m.FechaInicio)
+                    .FirstOrDefault();
+
+                if (mantenimientoEnProceso != null)
+                {
+                    mantenimientoEnProceso.Estado = "Finalizado";
+                    mantenimientoEnProceso.FechaFin = DateOnly.FromDateTime(DateTime.Now);
+                }
             }
-            return RedirectToAction("Index"); // Redirige a la lista de activos o donde lo necesites
+
+            try
+            {
+                _context.SaveChanges();
+                TempData["SuccessMessage"] = "El estado del activo y el mantenimiento se actualizaron correctamente.";
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = "Ocurrió un error al intentar actualizar el activo.";
+            }
+
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult ReasignarActivo(int id, int usuarioId)
         {
             var activo = _context.Activos.Find(id);
-            if (activo == null)
-            {
-                // Manejo de errores: redirigir a una vista de error o agregar un mensaje
-                return NotFound(); // O una vista de error
-            }
+            if (activo == null) return NotFound();
 
             activo.UsuarioId = usuarioId;
 
@@ -319,35 +379,39 @@ namespace InventarioPaldaca.Controllers
             {
                 _context.SaveChanges();
             }
-            catch (Exception ex)
+            catch
             {
-                TempData["ErrorMessage"] = "Ocurrió un error al intentar reasignar el activo. Por favor, inténtalo de nuevo.";
-                return RedirectToAction("Index"); 
+                TempData["ErrorMessage"] = "Error al reasignar el activo.";
             }
 
-            return RedirectToAction("Index"); // O la vista que prefieras.
+            return RedirectToAction("Index");
         }
+
         [HttpPost]
         public IActionResult RelocalizarActivo(int id, int ubicacionId)
         {
             var activo = _context.Activos.FirstOrDefault(a => a.ActivoId == id);
-            if (activo != null)
+            if (activo == null) return RedirectToAction("Index");
+            activo.UbicacionId = ubicacionId;
+
+            try
             {
-                activo.UbicacionId = ubicacionId;
-                try
-                {
-                    _context.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    TempData["ErrorMessage"] = "Ocurrió un error al intentar reasignar el activo. Por favor, inténtalo de nuevo.";
-                    return RedirectToAction("Index");
-                }
-
-                return RedirectToAction("Index");
+                _context.SaveChanges();
             }
-            return RedirectToAction("Index"); // O la vista que corresponda.
-        }
+            catch
+            {
+                TempData["ErrorMessage"] = "Error al relocalizar el activo.";
+            }
 
+            return RedirectToAction("Index");
+        }
+    }
+
+    // ========================== DTOs ==========================
+
+    public class UsuarioSelectDTO
+    {
+        public int? UsuarioId { get; set; }
+        public string NombreCompleto { get; set; }
     }
 }

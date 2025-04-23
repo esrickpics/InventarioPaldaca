@@ -1,4 +1,5 @@
-using InventarioPaldaca.Models.Inventario; 
+using InventarioPaldaca.Models.Inventario;
+using InventarioPaldaca.Utilidades;
 using InventarioPaldaca.Utilidades.Filters;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +23,7 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true; // Seguridad adicional
     options.Cookie.IsEssential = true;
 });
+builder.Services.AddHttpClient<Dolar>();
 
 var app = builder.Build();
 
@@ -38,6 +40,7 @@ app.UseRouting();
 app.UseSession(); // Habilita el middleware de sesión
 app.UseAuthorization();
 
+// Aquí agregas la lógica de redirección dependiendo de la sesión
 app.MapGet("/", context =>
 {
     var session = context.Request.HttpContext.Session;

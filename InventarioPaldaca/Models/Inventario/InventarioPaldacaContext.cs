@@ -21,7 +21,11 @@ public partial class InventarioPaldacaContext : DbContext
 
     public virtual DbSet<Categorium> Categoria { get; set; }
 
+    public virtual DbSet<Mantenimiento> Mantenimientos { get; set; }
+
     public virtual DbSet<Proveedor> Proveedors { get; set; }
+
+    public virtual DbSet<Proyecto> Proyectos { get; set; }
 
     public virtual DbSet<Reporte> Reportes { get; set; }
 
@@ -44,7 +48,6 @@ public partial class InventarioPaldacaContext : DbContext
             entity.ToTable("activo");
 
             entity.Property(e => e.ActivoId).HasColumnName("activo_id");
-            entity.Property(e => e.Adquisicion).HasColumnName("adquisicion");
             entity.Property(e => e.CategoriaId).HasColumnName("categoria_id");
             entity.Property(e => e.CodigoInventario)
                 .HasMaxLength(50)
@@ -122,6 +125,22 @@ public partial class InventarioPaldacaContext : DbContext
                 .HasConstraintName("FK_CategoriaMaster");
         });
 
+        modelBuilder.Entity<Mantenimiento>(entity =>
+        {
+            entity.HasKey(e => e.MantenimientoId).HasName("PK__Mantenim__A62E61A23CD93147");
+
+            entity.Property(e => e.Costo).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.Estado).HasMaxLength(50);
+            entity.Property(e => e.FechaInicio).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.NumeroTecnico).HasMaxLength(20);
+            entity.Property(e => e.Tecnico).HasMaxLength(100);
+
+            entity.HasOne(d => d.Activo).WithMany(p => p.Mantenimientos)
+                .HasForeignKey(d => d.ActivoId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Mantenimientos_Activos");
+        });
+
         modelBuilder.Entity<Proveedor>(entity =>
         {
             entity.HasKey(e => e.ProveedorId).HasName("PK__proveedo__88BBADA4AA901FB7");
@@ -169,6 +188,14 @@ public partial class InventarioPaldacaContext : DbContext
                         j.IndexerProperty<int>("ProveedorId").HasColumnName("proveedor_id");
                         j.IndexerProperty<int>("CategoriaId").HasColumnName("categoria_id");
                     });
+        });
+
+        modelBuilder.Entity<Proyecto>(entity =>
+        {
+            entity.HasKey(e => e.ProyectoId).HasName("PK__Proyecto__CF241D65A2125893");
+
+            entity.Property(e => e.Estado).HasMaxLength(50);
+            entity.Property(e => e.Nombre).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Reporte>(entity =>

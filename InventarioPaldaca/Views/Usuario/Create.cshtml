@@ -1,7 +1,6 @@
 ﻿@using InventarioPaldaca.Models.ViewModels
 @model UsuarioViewModel
 
-
 @section Styles {
     <link rel="stylesheet" href="~/css/Create.css">
     <link rel="stylesheet"
@@ -39,9 +38,30 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="Telefono"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" type="password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ConfirmarPassword"></label>
+                <input asp-for="ConfirmarPassword" class="form-control" type="password" />
+                <span asp-validation-for="ConfirmarPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Rol"></label>
+                <select asp-for="Rol" class="form-control">
+                    <option value="1">Usuario</option>
+                    <option value="2">Administrador</option>
+                </select>
+                <span asp-validation-for="Rol" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                    <label asp-for="Telefono"></label>
+                    <input asp-for="Telefono" class="form-control" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
             </div>
 
         <hr class="linea" />

@@ -27,9 +27,9 @@ public partial class Activo
 
     public int? ProveedorId { get; set; }
 
-    public int? Adquisicion { get; set; }
-
     public virtual Categorium? Categoria { get; set; }
+
+    public virtual ICollection<Mantenimiento> Mantenimientos { get; set; } = new List<Mantenimiento>();
 
     public virtual Proveedor? Proveedor { get; set; }
 

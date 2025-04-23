@@ -1,0 +1,49 @@
+﻿@model InventarioPaldaca.Models.ViewModels.ListaActivosViewModel
+
+<table class="table" id="activosTable">
+    <thead>
+        <tr>
+            <th><button id="sortByName" class="sort-button">Nombre</button></th>
+            <th>Apellido</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Categoría</th>
+            <th>Número de Serial</th>
+            <th>Ubicación</th>
+            <th>Codigo De Inventario</th>
+            <th class="funcionabilidad-column">Funcionalidad</th>
+            <th class="delete-column" style="display:none;">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody id="activosTableBody">
+        <partial name="_ListaActivosPartial" model="Model" />
+    </tbody>
+</table>
+
+@if (Model.TotalPage > 1)
+{
+    <div class="pagination-container text-center mt-3">
+        <ul class="pagination justify-content-center">
+            @if (Model.PaginaActual > 1)
+            {
+                <li class="page-item">
+                    <button class="page-link" onclick="cargarPagina(@(Model.PaginaActual - 1))">Anterior</button>
+                </li>
+            }
+
+            @for (int i = 1; i <= Model.TotalPage; i++)
+            {
+                <li class="page-item @(i == Model.PaginaActual ? "active" : "")">
+                    <button class="page-link" onclick="cargarPagina(@i)">@i</button>
+                </li>
+            }
+
+            @if (Model.PaginaActual < Model.TotalPage)
+            {
+                <li class="page-item">
+                    <button class="page-link" onclick="cargarPagina(@(Model.PaginaActual + 1))">Siguiente</button>
+                </li>
+            }
+        </ul>
+    </div>
+}

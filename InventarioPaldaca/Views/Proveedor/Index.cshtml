@@ -6,11 +6,24 @@
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 }
 
+<div class="cuadro-dolar top-0 end-0 m-3 p-3">
+    @if (ViewBag.PrecioDolar != null)
+    {
+        <strong>Precio del dólar oficial (VES):</strong> @ViewBag.PrecioDolar
+    }
+    else
+    {
+        <span>No se pudo obtener el precio del dólar.</span>
+    }
+</div>
 <section class="container form-container mt-5 mb-5">
     <h2 class="form-title">
         <img src="/img/Iconos/proveedor.svg" alt="Icono Proveedor" style="width: 32px; height: 32px; margin-right: 10px;">
         Proveedores
     </h2>
+
+    
+  
     <div class="card">
         <hr class="linea" />
         <div class="card-body cardsearch">

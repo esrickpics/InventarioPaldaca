@@ -1,8 +1,10 @@
 ﻿using InventarioPaldaca.Models.Inventario;
 using InventarioPaldaca.Models.ViewModels;
+using InventarioPaldaca.Utilidades;
 using InventarioPaldaca.Utilidades.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -39,6 +41,48 @@ namespace InventarioPaldaca.Controllers
             return View("PerfilUsuario", model); // Devuelve a la vista Index con el modelo actualizado
         }
 
+        // Acción para mostrar el perfil de un usuario
+        [AuthorizeRole("Administrador")]
+        public async Task<IActionResult> PerfilUsuario(int? id, string searchTerm = "")
+        {
+            if (id == null)
+            {
+                Console.WriteLine("ID de usuario no proporcionado.");
+                return NotFound();
+
+            }
+
+            // Obtener perfil del usuario
+            var model = await ObtenerPerfilUsuarioAsync(id.Value);
+
+            if (model == null)
+            {
+                // Si el activo no existe o no tiene usuario asignado, redirigir a la página de error
+                return NotFound();
+
+            }
+
+            // Validar si el usuario tiene asignado un PDF
+            if (string.IsNullOrEmpty(model.AsignacionPdf))
+            {
+                ViewBag.ErrorMensaje = "Este usuario no tiene un PDF asignado.";
+             
+            }
+
+            // Realizar búsqueda si se proporcionó un término de búsqueda
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                model = await BuscarUsuariosAsync(searchTerm);
+
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    return PartialView("_UsuariosEncontradosPartial", model);
+                }
+            }
+
+            return View(model);
+        }
+        [AuthorizeRole("Administrador")]
         public IActionResult Create()
         {
             return View();
@@ -56,9 +100,10 @@ namespace InventarioPaldaca.Controllers
                     UsuarioApellido = model.Apellido,
                     UsuarioEmail = model.Email,
                     UsuarioTelefono = model.Telefono,
-                    UsuarioCargo = model.Cargo
+                    UsuarioCargo = model.Cargo,
+                    UsuarioPassword = Encrypt.GetSHA256(model.Password),
+                    RolId = model.Rol
                 };
-
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Create", "Activo"); // Redirige a la acción deseada
@@ -66,42 +111,6 @@ namespace InventarioPaldaca.Controllers
             return View(model);
         }
 
-        // Acción para mostrar el perfil de un usuario
-        [AuthorizeRole("Administrador")]
-        public async Task<IActionResult> PerfilUsuario(int? id, string searchTerm = "")
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            // Obtener perfil del usuario
-            var model = await ObtenerPerfilUsuarioAsync(id.Value);
-
-            if (model == null)
-            {
-                return NotFound();
-            }
-
-            // Validar si el usuario tiene asignado un PDF
-            if (string.IsNullOrEmpty(model.AsignacionPdf))
-            {
-                ViewBag.ErrorMensaje = "Este usuario no tiene un PDF asignado.";
-            }
-
-            // Realizar búsqueda si se proporcionó un término de búsqueda
-            if (!string.IsNullOrWhiteSpace(searchTerm))
-            {
-                model = await BuscarUsuariosAsync(searchTerm);
-
-                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-                {
-                    return PartialView("_UsuariosEncontradosPartial", model);
-                }
-            }
-
-            return View(model);
-        }
         [AuthorizeRole("Administrador")]
         public async Task<IActionResult> EditarUsuario(UsuarioPerfilViewModel model, IFormFile pdfFile, IFormFile imageFile)
         {
@@ -226,25 +235,8 @@ namespace InventarioPaldaca.Controllers
         }
 
         // Método para eliminar archivos
-        private void EliminarArchivo(string filePath)
-        {
-            if (!string.IsNullOrEmpty(filePath))
-            {
-                var fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", filePath.TrimStart('/'));
-                if (System.IO.File.Exists(fullPath))
-                {
-                    try
-                    {
-                        System.IO.File.Delete(fullPath);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error al eliminar archivo: {ex.Message}");
-                    }
-                }
-            }
-        }
-
+      
+        [AuthorizeRole("Administrador")]
         // Acción para buscar usuarios
         public async Task<IActionResult> BuscarUsuarios(string searchTerm = "")
         {
@@ -277,9 +269,11 @@ namespace InventarioPaldaca.Controllers
 
             if (usuario == null)
             {
+                Console.WriteLine($"Usuario con ID {id} no encontrado.");
                 return null;
             }
 
+            Console.WriteLine($"Usuario encontrado: {usuario.UsuarioNombre} {usuario.UsuarioApellido}");
             return new UsuarioPerfilViewModel
             {
                 UsuarioId = usuario.UsuarioId,
@@ -305,6 +299,7 @@ namespace InventarioPaldaca.Controllers
         // Método privado para buscar usuarios
         private async Task<UsuarioPerfilViewModel> BuscarUsuariosAsync(string searchTerm)
         {
+            Console.WriteLine($"Buscando usuarios con término: '{searchTerm}'");
             var model = new UsuarioPerfilViewModel
             {
                 SearchTerm = searchTerm,
@@ -312,8 +307,26 @@ namespace InventarioPaldaca.Controllers
                   .Where(u => u.UsuarioNombre.Contains(searchTerm) || u.UsuarioApellido.Contains(searchTerm) || u.UsuarioEmail.Contains(searchTerm))
                   .ToListAsync()
             };
-
+            Console.WriteLine($"Se encontraron {model.UsuariosEncontrados.Count} usuarios con el término de búsqueda '{searchTerm}'.");
             return model;
+        } 
+        private void EliminarArchivo(string filePath)
+        {
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                var fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", filePath.TrimStart('/'));
+                if (System.IO.File.Exists(fullPath))
+                {
+                    try
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error al eliminar archivo: {ex.Message}");
+                    }
+                }
+            }
         }
     }
 }

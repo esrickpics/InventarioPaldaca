@@ -1,45 +1,107 @@
 ﻿@model InventarioPaldaca.Models.ViewModels.ListaActivosViewModel
 
+<h2>Activos en Mantenimiento</h2>
 
-<h2>Activos Dañados</h2>
-
-<table class="table" id="activosTable">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Marca</th>
-            <th>Modelo</th>
             <th>Categoría</th>
-            <th>Número de Serial</th>
             <th>Ubicación</th>
-            <th>Código de Inventario</th>
-            <th class="delete-column" style="display:none;">Eliminar</th>
+            <th>Usuario Asignado</th>
+            <th>Estado del Mantenimiento</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-        @if (Model.ListaActivos == null || !Model.ListaActivos.Any())
-        {
-            <tr>
-                <td colspan="8" class="text-center">No se encontraron activos dañados.</td>
-            </tr>
-        }
-        else
-        {
-            @foreach (var activo in Model.ListaActivos)
-            {
-                <tr onclick="window.location='@Url.Action("PerfilUsuario", "Usuario", new { id = activo.Usuario?.UsuarioId })'">
-                    <td>@(activo.Usuario?.UsuarioNombre ?? "No asignado")</td>
-                    <td>@(activo.Usuario?.UsuarioApellido ?? "No asignado")</td>
-                    <td>@Html.DisplayFor(m => activo.Marca)</td>
-                    <td>@Html.DisplayFor(m => activo.Modelo)</td>
-                    <td>@(activo.Categoria?.CategoriaNombre ?? "Sin categoría")</td>
-                    <td>@Html.DisplayFor(m => activo.NumeroSerial)</td>
-                    <td>@(activo.Ubicacion?.UbicacionNombre ?? "No asignada")</td>
-                    <td>@(string.IsNullOrEmpty(activo.CodigoInventario) ? "No asignado" : activo.CodigoInventario)</td>
-                    <td>@Html.DisplayFor(m => activo.Observaciones)</td>
-                </tr>
-            }
-        }
+    @foreach (var activo in Model.ListaActivos)
+    {
+        var mantenimientoActual = activo.Mantenimientos
+            .Where(m => m.Estado == "En proceso")
+            .OrderByDescending(m => m.FechaInicio)
+            .FirstOrDefault();
+
+        <tr>
+            <td>@activo.CodigoInventario</td>
+            <td>@activo.Categoria?.CategoriaNombre</td>
+            <td>@activo.Ubicacion?.UbicacionNombre</td>
+            <td>@activo.Usuario?.UsuarioNombre</td>
+            <td>
+                @if (mantenimientoActual != null)
+                {
+                    <span class="badge bg-warning">En proceso desde @mantenimientoActual.FechaInicio</span>
+                }
+                else
+                {
+                    <span class="badge bg-secondary">Sin mantenimiento activo</span>
+                }
+            </td>
+            <td>
+                @if (mantenimientoActual != null)
+                {
+                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editarMantenimientoModal-@mantenimientoActual.MantenimientoId">
+                        Editar / Finalizar
+                    </button>
+
+                    <!-- Modal de edición -->
+                    <div class="modal fade" id="editarMantenimientoModal-@mantenimientoActual.MantenimientoId" tabindex="-1" aria-labelledby="editarMantenimientoLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form asp-action="EditarMantenimiento" method="post">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Editar Mantenimiento</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="hidden" name="MantenimientoId" value="@mantenimientoActual.MantenimientoId" />
+                                        <div class="mb-3">
+                                            <label class="form-label">Técnico</label>
+                                            <input type="text" name="Tecnico" value="@mantenimientoActual.Tecnico" class="form-control" required />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Número Técnico</label>
+                                            <input type="text" name="NumeroTecnico" value="@mantenimientoActual.NumeroTecnico" class="form-control" required />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Costo</label>
+                                            <input type="number" name="Costo" value="@mantenimientoActual.Costo" step="0.01" class="form-control" required />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Descripción</label>
+                                            <textarea name="Descripcion" class="form-control">@mantenimientoActual.Descripcion</textarea>
+                                        </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Estado</label>
+                                                <select name="Estado" class="form-control">
+                                                    @if (mantenimientoActual.Estado == "En proceso")
+                                                    {
+                                                        <option value="En proceso" selected>En proceso</option>
+                                                        <option value="Finalizado">Finalizado</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="En proceso">En proceso</option>
+                                                        <option value="Finalizado" selected>Finalizado</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <span class="text-muted">N/A</span>
+                }
+            </td>
+        </tr>
+    }
     </tbody>
 </table>

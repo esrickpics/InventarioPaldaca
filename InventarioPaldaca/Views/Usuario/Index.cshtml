@@ -33,6 +33,7 @@
                                 <button type="button" class="btn btn-primary btn-search mt-3" id="searchBtn">Buscar</button>
                             </div>
                         </div>
+
                     </div>
                 </form>
             </div>
@@ -41,48 +42,47 @@
         <div id="usuariosEncontradosContainer" class="text-white p-4 rounded">
             <partial name="_UsuariosEncontradosPartial" model="Model" />
         </div>
-</section>
+    <div id="noUsersFoundMessage" class="alert alert-warning mt-3 d-none">
+        No se encontraron usuarios con ese nombre.
+    </div>
 
+</section>
 
 @section Scripts {
     <script>
+        const searchBtn = document.getElementById("searchBtn");
+        const searchInput = document.getElementById("searchTerm");
 
-        document.getElementById("searchTerm").addEventListener("keydown", function (event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                document.getElementById("searchBtn").click(); // Simular clic en el botón de búsqueda
-            }
-        });
+        function buscarUsuarios() {
+            const searchTerm = searchInput.value.trim();
 
-        document.getElementById("searchBtn").addEventListener("click", function () {
-            var searchTerm = document.getElementById("searchTerm").value.trim();
-
-            if (!searchTerm) {
-                // Si el campo de búsqueda está vacío, no realizar la solicitud
-                document.getElementById("usuariosEncontradosContainer").innerHTML = '';
-                document.getElementById("noUsersFoundMessage").classList.remove("d-none");
-                return;
-            }
-
-            var url = `/Usuario/PerfilUsuario?id=@Model.UsuarioId&searchTerm=${encodeURIComponent(searchTerm)}`;
-
-            fetch(url, {
+            fetch(`/Usuario/BuscarUsuariosIndex?searchTerm=${encodeURIComponent(searchTerm)}`, {
+                method: 'POST',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
                 }
             })
                 .then(response => response.text())
                 .then(html => {
-                    var usuariosEncontradosContainer = document.getElementById("usuariosEncontradosContainer");
-                    usuariosEncontradosContainer.innerHTML = html;
+                    const container = document.getElementById("usuariosEncontradosContainer");
+                    container.innerHTML = html;
 
-                    var noUsersFoundMessage = document.getElementById("noUsersFoundMessage");
+                    const noUsersFoundMessage = document.getElementById("noUsersFoundMessage");
                     if (!document.querySelector("#usuariosEncontradosContainer .list-group-item")) {
-                        noUsersFoundMessage.classList.remove("d-none");
+                        noUsersFoundMessage?.classList.remove("d-none");
                     } else {
-                        noUsersFoundMessage.classList.add("d-none");
+                        noUsersFoundMessage?.classList.add("d-none");
                     }
                 });
+        }
+
+        searchBtn.addEventListener("click", buscarUsuarios);
+
+        searchInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                buscarUsuarios();
+            }
         });
     </script>
 }
