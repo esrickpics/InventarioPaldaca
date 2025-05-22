@@ -43,13 +43,12 @@ namespace InventarioPaldaca.Controllers
 
         // Acción para mostrar el perfil de un usuario
         [AuthorizeRole("Administrador")]
-        public async Task<IActionResult> PerfilUsuario(int? id, string searchTerm = "")
+        public async Task<IActionResult> PerfilUsuario(int? id, string searchTerm = "", bool mostrarBotonRestablecer = false)
         {
             if (id == null)
             {
                 Console.WriteLine("ID de usuario no proporcionado.");
                 return NotFound();
-
             }
 
             // Obtener perfil del usuario
@@ -57,7 +56,7 @@ namespace InventarioPaldaca.Controllers
 
             if (model == null)
             {
-                // Si el activo no existe o no tiene usuario asignado, redirigir a la página de error
+          
                 return NotFound();
 
             }
@@ -79,9 +78,29 @@ namespace InventarioPaldaca.Controllers
                     return PartialView("_UsuariosEncontradosPartial", model);
                 }
             }
+            // Ya lo haces bien aquí:
+            ViewBag.MostrarBotonRestablecer = model.SolicitarRestablecer;
 
             return View(model);
         }
+
+
+        [HttpPost]
+        public IActionResult AprobarRestablecimiento(int usuarioId)
+        {
+            var usuario = _context.Usuarios.FirstOrDefault(u => u.UsuarioId == usuarioId);
+            if (usuario == null)
+                return NotFound();
+
+            usuario.PuedeRestablecer = true;
+            _context.Update(usuario);
+            _context.SaveChanges();
+
+            TempData["Mensaje"] = "Restablecimiento aprobado.";
+            return RedirectToAction("PerfilUsuario", new { id = usuarioId });
+        }
+
+
         [AuthorizeRole("Administrador")]
         public IActionResult Create()
         {
@@ -284,7 +303,8 @@ namespace InventarioPaldaca.Controllers
                 UsuarioCargo = usuario.UsuarioCargo,
                 UsuarioImagenUrl = usuario.ImagenUrl,
                 AsignacionPdf = usuario.AsignacionPdf,
-                
+                SolicitarRestablecer = usuario.SolicitoRestablecer,
+
                 ActivosAsociados = usuario.Activos.Select(a => new ActivosAsociadosViewModel
                 {
                     Marca = a.Marca,

@@ -45,6 +45,7 @@ namespace InventarioPaldaca.Controllers
                 .Skip((pagina - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
+
             var listaActivosCompleta = await _context.Activos
            .Include(a => a.Categoria)
            .Include(a => a.Usuario)
@@ -139,7 +140,7 @@ namespace InventarioPaldaca.Controllers
                     NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido
                 }).ToList();
 
-            usuarios.Insert(0, new UsuarioSelectDTO { UsuarioId = null, NombreCompleto = "-- No asignado --" });
+            usuarios.Insert(0, new UsuarioSelectDTO { UsuarioId = null, NombreCompleto = "-- Disponible --" });
 
             ViewData["Usuario"] = new SelectList(usuarios, "UsuarioId", "NombreCompleto");
             ViewData["Categoria"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaNombre");
@@ -167,7 +168,6 @@ namespace InventarioPaldaca.Controllers
                     UbicacionId = model.UbicacionId,
                     UsuarioId = model.UsuarioId,
                 };
-
                 try
                 {
                     _context.Add(activo);
@@ -226,12 +226,12 @@ namespace InventarioPaldaca.Controllers
                 activos = activos.Where(a => subcategorias.Contains(a.Categoria.CategoriaNombre));
             }
 
-            // Contar el total de activos después de aplicar los filtros
+            
             var totalActivos = await activos.CountAsync();
 
             // Paginación: Aplicar Skip y Take para la paginación
             var listaActivos = await activos
-                .OrderBy(a => a.ActivoId)  // Ordenar como necesites
+                .OrderBy(a => a.ActivoId)  
                 .Skip((pagina - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
@@ -370,13 +370,33 @@ namespace InventarioPaldaca.Controllers
         [HttpPost]
         public IActionResult ReasignarActivo(int id, int usuarioId)
         {
-            var activo = _context.Activos.Find(id);
+            var activo = _context.Activos
+                .Include(a => a.Usuario)
+                .FirstOrDefault(a => a.ActivoId == id);
+
             if (activo == null) return NotFound();
 
+            var usuarioAnteriorId = activo.UsuarioId;
             activo.UsuarioId = usuarioId;
 
             try
             {
+                var cantidadMantenimientos = _context.Mantenimientos
+                    .Count(m => m.ActivoId == id);
+
+                var movimiento = new Movimiento
+                {
+                    ActivoId = id,
+                    FechaMovimiento = DateTime.Now,
+                    UsuarioAnteriorId = usuarioAnteriorId,
+                    UsuarioNuevoId = usuarioId,
+                    UbicacionAnteriorId = activo.UbicacionId,
+                    UbicacionNuevaId = activo.UbicacionId, // no cambia en este caso
+                    CantidadMantenimientos = cantidadMantenimientos,
+                    Observaciones = $"Reasignación del usuario responsable del activo {id}"
+                };
+
+                _context.Movimientos.Add(movimiento);
                 _context.SaveChanges();
             }
             catch
@@ -390,12 +410,31 @@ namespace InventarioPaldaca.Controllers
         [HttpPost]
         public IActionResult RelocalizarActivo(int id, int ubicacionId)
         {
-            var activo = _context.Activos.FirstOrDefault(a => a.ActivoId == id);
+            var activo = _context.Activos
+                .Include(a => a.Ubicacion)
+                .FirstOrDefault(a => a.ActivoId == id);
             if (activo == null) return RedirectToAction("Index");
+
+            var ubicacionAnteriorId = activo.UbicacionId;
+
             activo.UbicacionId = ubicacionId;
 
             try
             {
+                var cantidadMantenimientos = _context.Mantenimientos
+                    .Count(m => m.ActivoId == id);
+
+                var movimiento = new Movimiento
+                {
+                    ActivoId = id,
+                    FechaMovimiento = DateTime.Now,
+                    UbicacionAnteriorId = ubicacionAnteriorId,
+                    UbicacionNuevaId = ubicacionId,
+                    CantidadMantenimientos = cantidadMantenimientos,
+                    Observaciones = $"Cambio de ubicación del activo #{id}"
+                };
+
+                _context.Movimientos.Add(movimiento);
                 _context.SaveChanges();
             }
             catch

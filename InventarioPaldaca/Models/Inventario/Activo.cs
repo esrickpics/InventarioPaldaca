@@ -31,7 +31,11 @@ public partial class Activo
 
     public virtual ICollection<Mantenimiento> Mantenimientos { get; set; } = new List<Mantenimiento>();
 
+    public virtual ICollection<Movimiento> Movimientos { get; set; } = new List<Movimiento>();
+
     public virtual Proveedor? Proveedor { get; set; }
+
+    public virtual ICollection<Reporte> Reportes { get; set; } = new List<Reporte>();
 
     public virtual Ubicacion? Ubicacion { get; set; }
 

@@ -15,6 +15,19 @@
 
 <a asp-action="Create" asp-controller="Usuario" class="btn btn-primary mt-3">Nuevo Usuario</a>
 
+@if (Model.SolicitarRestablecer && !Model.PuedeRestablecer)
+{
+    <form asp-action="AutorizarRestablecer" method="post">
+        <input type="hidden" name="id" value="@Model.UsuarioId" />
+        <button type="submit" class="btn btn-action mt-3">
+            Autorizar restablecimiento de contraseña
+        </button>
+    </form>
+}
+else if (Model.PuedeRestablecer)
+{
+    <span class="badge bg-success mt-3">Autorizado para restablecer contraseña</span>
+}
 <!-- Mensajes de éxito o error -->
 @if (TempData["Success"] != null)
 {
@@ -24,114 +37,82 @@
 {
     <div class="alert alert-danger mt-3">@TempData["Error"]</div>
 }
-
-<!-- Contenedor principal -->
 <div class="container mt-5 mb-5">
-    <h2 class="form-title">
-        <img src="/img/Iconos/usuario.svg" alt="Icono Activos" style="width: 32px; height: 32px; margin-right: 10px;">
+    <h2 class="form-title d-flex align-items-center">
+        <img src="/img/Iconos/usuario.svg" alt="Icono Activos" class="me-2" style="width: 32px; height: 32px;">
         Perfil de Usuario
     </h2>
-    <!-- Formulario de búsqueda -->
+
+    <!-- Buscador (NO MODIFICADO) -->
     <div class="card">
         <hr class="linea" />
-
         <div class="card-body cardsearch">
-            <!-- Formulario de búsqueda -->
             <form id="searchForm">
-                <div class="form-group">
-                    <div class="input-group">
-                        <!-- Caja de búsqueda con icono -->
-                        <div class="search">
-                            <span class="material-symbols-outlined search-icon">Search</span>
-                            <input type="search" name="searchTerm" id="searchTerm" class="form-control border-start-0 search-input"
-                                   placeholder="Buscar Usuario" value="@Model.SearchTerm">
-                        </div>
-                        <!-- Botón de búsqueda -->
-                        <div class="input-group-append">
-                            <button type="button" class="btn btn-primary btn-search mt-2" id="searchBtn">Buscar</button>
-                        </div>
+                <div class="input-group">
+                    <div class="search">
+                        <span class="material-symbols-outlined search-icon">Search</span>
+                        <input type="search" name="searchTerm" id="searchTerm" class="form-control border-start-0 search-input"
+                               placeholder="Buscar Usuario" value="@Model.SearchTerm">
+                    </div>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary btn-search mt-2" id="searchBtn">Buscar</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Mostrar usuarios encontrados -->
     <div id="usuariosEncontradosContainer">
-         <partial name="_UsuariosEncontradosPartial" model="Model" />
+        <partial name="_UsuariosEncontradosPartial" model="Model" />
     </div>
 
-    <!-- Botón de editar -->
-    <div class="text-right mt-4">
+    <div class="text-end mt-3">
         <button id="editarBtn" class="btn btn-primary">Editar Usuario</button>
     </div>
 
-    <div class="user-profile mt-5">
+    <!-- Contenedor del formulario con clase form-container -->
+    <div class="container mt-4 p-4">
         <form asp-action="EditarUsuario" method="post" id="perfilForm" enctype="multipart/form-data">
             @Html.AntiForgeryToken()
             <input type="hidden" name="UsuarioId" value="@Model.UsuarioId" />
 
-            <!-- Fila principal: Información del usuario y activos asociados -->
-            <div class="row">
-                <!-- Columna izquierda: Imagen e información del usuario -->
-                <div class="col-md-6">
-                    <div class="row">
-                        <!-- Formulario de edición de perfil de usuario -->
-                        <div class="col-md-4 text-center">
-                            <!-- Imagen actual del usuario -->
-                            <img id="userImagePreview" src="@Url.Content(string.IsNullOrEmpty(Model.UsuarioImagenUrl) ? "~/img/Usuarios/Img.default.png" : Model.UsuarioImagenUrl)"
-                                 alt="Imagen del usuario" class="img-fluid rounded-circle user-profile" />
-
-                          
-                            <!-- Campo de archivo para cargar una nueva imagen (se oculta inicialmente) -->
-                            <div class="row mt-4">
-                                <div class="col-md-12">
-                                    <div class="profile-content">
-                                        <h2 id="imageHeading" class="d-none">Ingrese una nueva imagen de perfil</h2>
-                                        <div class="contact-item">
-                                            <!-- Mostrar o ocultar el campo de subida cuando se edita -->
-                                            <input asp-for="UsuarioImagenUrl" type="file" id="userImageInput" name="userImage" accept="image/*" class="form-control d-none" />
-                                            <span asp-validation-for="UsuarioImagenUrl" class="text-danger"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <!-- Información del usuario -->
-                        <div class="col-md-8">
-                            <div class="profile-header-info">
-                                <h1>
-                                    <span id="displayNombre">@Model.UsuarioNombre</span>
-                                    <input asp-for="UsuarioNombre" class="form-control d-none" placeholder="Nombre del usuario" />
-                                    <span id="displayApellido">@Model.UsuarioApellido</span>
-                                    <input asp-for="UsuarioApellido" class="form-control d-none" placeholder="Apellido del usuario" />
-                                </h1>
-                                <p>
-                                    <span id="displayCargo">@Model.UsuarioCargo</span>
-                                    <input asp-for="UsuarioCargo" class="form-control d-none" placeholder="Cargo del usuario" />
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row g-4 align-items-center">
+                <!-- Foto -->
+                <div class="col-lg-3 text-center">
+                    <img id="userImagePreview" src="@Url.Content(string.IsNullOrEmpty(Model.UsuarioImagenUrl) ? "~/img/Usuarios/Img.default.png" : Model.UsuarioImagenUrl)" class="img-fluid rounded-circle profile-img mb-2" />
+                    <input asp-for="UsuarioImagenUrl" type="file" id="userImageInput" name="userImage" accept="image/*" class="form-control d-none mt-2" />
                 </div>
 
-                <!-- Columna derecha: Activos asociados -->
-                <div class="col-md-6">
-                    <div class="profile-assets-table">
-                        <h2>Activos Asociados</h2>
-                        @if (Model.ActivosAsociados != null && Model.ActivosAsociados.Any())
-                        {
-                            <table class="table table-sm table-striped">
-                                <thead>
+                <!-- Datos -->
+                <div class="col-lg-5">
+                    <h4 class="mb-1">
+                        <span id="displayNombre">@Model.UsuarioNombre</span>
+                        <input asp-for="UsuarioNombre" class="form-control d-none mb-2" />
+                        <span id="displayApellido">@Model.UsuarioApellido</span>
+                        <input asp-for="UsuarioApellido" class="form-control d-none mb-2" />
+                    </h4>
+                    <p class="text-muted mb-2">
+                        <span id="displayCargo">@Model.UsuarioCargo</span>
+                        <input asp-for="UsuarioCargo" class="form-control d-none" />
+                    </p>
+                    <p class="mb-1"><i class="fas fa-envelope me-2"></i><span id="displayCorreo">@Model.UsuarioCorreo</span></p>
+                    <input asp-for="UsuarioCorreo" class="form-control d-none mb-2" />
+                    <p><i class="fas fa-phone me-2"></i><span id="displayTelefono">@Model.UsuarioTelefono</span></p>
+                    <input asp-for="UsuarioTelefono" class="form-control d-none" />
+                </div>
+
+                <!-- Activos -->
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">Activos Asociados</h5>
+                    @if (Model.ActivosAsociados != null && Model.ActivosAsociados.Any())
+                    {
+                        <div class="table-responsive" style="max-height: 250px;">
+                            <table class="table table-sm table-bordered mb-0">
+                                <thead class="table-light">
                                     <tr>
                                         <th>Marca</th>
                                         <th>Modelo</th>
-                                        <th>Código de Inventario</th>
-                                        <th>Categoría</th>
-                                        <th>Ubicación</th>
+                                        <th>Código</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -141,80 +122,49 @@
                                             <td>@activo.Marca</td>
                                             <td>@activo.Modelo</td>
                                             <td>@activo.CodigoInventario</td>
-                                            <td>@activo.CategoriaName</td>
-                                            <td>@activo.UbicacionName</td>
                                         </tr>
                                     }
                                 </tbody>
                             </table>
-                        }
-                        else
-                        {
-                            <p>No hay activos asociados a este usuario.</p>
-                        }
-                    </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Sin activos asociados.</p>
+                    }
                 </div>
             </div>
 
-            <!-- Fila para información de contacto -->
+            <!-- PDF -->
             <div class="row mt-4">
-                <div class="col-md-12">
-                    <div class="profile-content">
-                        <h2>Información de Contacto</h2>
-                        <div class="contact-info">
-                            <!-- Correo Electrónico -->
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <span id="displayCorreo">@Model.UsuarioCorreo</span>
-                                <input asp-for="UsuarioCorreo" class="form-control d-none" placeholder="Correo electrónico" />
-                            </div>
-                            <!-- Teléfono -->
-                            <div class="contact-item mt-2">
-                                <i class="fas fa-phone"></i>
-                                <span id="displayTelefono">@Model.UsuarioTelefono</span>
-                                <input asp-for="UsuarioTelefono" class="form-control d-none" placeholder="Número de teléfono" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-12">
-                    <div class="profile-content">
-                        <h2 id="pdfHeading" class="d-none">Ingrese la plantilla de Asignación</h2>
-                        <div class="contact-item">
-                            <input asp-for="AsignacionPdf" type="file" id="pdfInput" name="pdfFile" accept=".pdf" class="form-control d-none" />
-                            <span asp-validation-for="AsignacionPdf" class="text-danger"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Contenedor para el mensaje de advertencia -->
-            @if (!string.IsNullOrEmpty(ViewBag.ErrorMensaje))
-            {
-                <div id="error-message" class="alert alert-danger mt-4">@ViewBag.ErrorMensaje</div>
-            }
-            else
-            {
-                <div class="btn-group mt-3 me-2" id="pdf-buttons" role="group" aria-label="PDF Actions" style="display:none;">
-                    <a href="@Model.AsignacionPdf" target="_blank" class="btn btn-success btn-space">
-                        Ver Asignacion
-                    </a>
-                    <a href="@Model.AsignacionPdf" download="AsignacionPDF_@($"{Model.UsuarioNombre}_{Model.UsuarioApellido}.pdf")" class="btn btn-primary">
-                        Descargar PDF
-                    </a>
-                </div>
-            }
+                <div class="col-12">
+                    <label class="form-label fw-bold d-none" id="pdfHeading">Plantilla de Asignación</label>
+                    <input asp-for="AsignacionPdf" type="file" id="pdfInput" name="pdfFile" accept=".pdf" class="form-control d-none" />
+                    <span asp-validation-for="AsignacionPdf" class="text-danger"></span>
 
-            <!-- Validación y botones -->
-            <div asp-validation-summary="ModelOnly" class="text-danger mt-3"></div>
-            <div class="text-right mt-4">
+                    @if (!string.IsNullOrEmpty(ViewBag.ErrorMensaje))
+                    {
+                        <div class="alert alert-danger mt-3">@ViewBag.ErrorMensaje</div>
+                    }
+                    else
+                    {
+                        <div id="pdf-buttons" class="btn-group mt-3 d-none" role="group">
+                            <a href="@Model.AsignacionPdf" target="_blank" class="btn btn-outline-success">Ver Asignación</a>
+                            <a href="@Model.AsignacionPdf" download="AsignacionPDF_@($"{Model.UsuarioNombre}_{Model.UsuarioApellido}.pdf")" class="btn btn-outline-primary">Descargar</a>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="text-end mt-4">
                 <button type="submit" id="guardarBtn" class="btn btn-success d-none">Guardar</button>
                 <button type="button" id="cancelarBtn" class="btn btn-danger d-none">Cancelar</button>
             </div>
         </form>
     </div>
 </div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

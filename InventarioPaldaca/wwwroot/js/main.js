@@ -25,10 +25,3 @@ signIn.addEventListener('click', ()=>{
     loginUp.classList.toggle('none')
 })
 
-document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', (e) => {
-        if (form.classList.contains('none')) {
-            e.preventDefault(); // Evita enviar formularios ocultos
-        }
-    });
-});

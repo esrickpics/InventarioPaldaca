@@ -1,5 +1,11 @@
 ﻿@model InventarioPaldaca.Models.ViewModels.ListaActivosViewModel
 
+
+<a asp-action="HistorialMantenimientos" asp-controller="Mantenimientos" class="btn btn-action btn-sm">
+    Historial de Mantenimientos
+</a>
+
+
 <h2>Activos en Mantenimiento</h2>
 
 <table class="table table-bordered">
@@ -40,7 +46,7 @@
                 @if (mantenimientoActual != null)
                 {
                     <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editarMantenimientoModal-@mantenimientoActual.MantenimientoId">
-                        Editar / Finalizar
+                        Editar
                     </button>
 
                     <!-- Modal de edición -->

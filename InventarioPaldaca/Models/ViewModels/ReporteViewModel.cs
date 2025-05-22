@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace InventarioPaldaca.Models.ViewModels
 {
@@ -6,8 +7,9 @@ namespace InventarioPaldaca.Models.ViewModels
     {
         [Required(ErrorMessage = "La descripción es obligatoria.")]
         public string Descripcion { get; set; }
-
-        public string? RutaArchivo { get; set; }
+        public int? ActivoIdSeleccionado { get; set; }
+        public List<SelectListItem> ActivosAsociados { get; set; } = new();
+        public string RutaArchivo { get; set; } // si usas archivos
 
     }
 }

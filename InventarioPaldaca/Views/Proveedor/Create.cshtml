@@ -1,0 +1,87 @@
+﻿@model InventarioPaldaca.Models.ViewModels.CreateProveedorViewModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Create.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+}
+
+<div class="form-container">
+    <h2 class="form-title">
+        <img src="/img/Iconos/proveedor.svg" alt="Icono Proveedor" style="width: 32px; height: 32px; margin-right: 10px;">
+        Crear Proveedor
+    </h2>
+    <hr class="linea" />
+
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <!-- Nombre del Proveedor -->
+        <div class="form-group">
+            <label for="ProveedorNombre">Nombre</label>
+            <input asp-for="Proveedor.ProveedorNombre" class="form-control" placeholder="Ingrese el nombre del proveedor" />
+            <span asp-validation-for="Proveedor.ProveedorNombre" class="text-danger"></span>
+        </div>
+
+        <!-- RIF del Proveedor -->
+        <div class="form-group">
+            <label for="ProveedorRif">RIF</label>
+            <input asp-for="Proveedor.ProveedorRif" class="form-control" placeholder="Ingrese el RIF del proveedor" />
+            <span asp-validation-for="Proveedor.ProveedorRif" class="text-danger"></span>
+        </div>
+
+        <!-- Teléfono del Proveedor -->
+        <div class="form-group">
+            <label for="ProveedorTelefono">Teléfono</label>
+            <input asp-for="Proveedor.ProveedorTelefono" class="form-control" placeholder="Ingrese el teléfono del proveedor" />
+            <span asp-validation-for="Proveedor.ProveedorTelefono" class="text-danger"></span>
+        </div>
+
+        <!-- Email del Proveedor -->
+        <div class="form-group">
+            <label for="ProveedorEmail">Email</label>
+            <input asp-for="Proveedor.ProveedorEmail" class="form-control" placeholder="Ingrese el email del proveedor" />
+            <span asp-validation-for="Proveedor.ProveedorEmail" class="text-danger"></span>
+        </div>
+
+        <!-- Dirección del Proveedor -->
+        <div class="form-group">
+            <label for="ProveedorDireccion">Dirección</label>
+            <input asp-for="Proveedor.ProveedorDireccion" class="form-control" placeholder="Ingrese la dirección del proveedor" />
+            <span asp-validation-for="Proveedor.ProveedorDireccion" class="text-danger"></span>
+        </div>
+
+        <!-- Origen del Proveedor -->
+        <div class="form-group">
+            <label for="ProveedorOrigen">Origen</label>
+            <input asp-for="Proveedor.Origen" class="form-control" placeholder="Ingrese el origen del proveedor" />
+            <span asp-validation-for="Proveedor.Origen" class="text-danger"></span>
+        </div>
+
+        <!-- Selección de Categoría Maestra -->
+        <div class="form-group">
+            <label for="CategoriaMasterIdSeleccionada">Seleccionar Categoría</label>
+            <select asp-for="CategoriaMasterIdSeleccionada" class="form-control">
+                <option value="">-- Seleccione una Categoría Maestra --</option>
+                @foreach (var categoriaMaster in Model.CategoriaMasters)
+                {
+                    <option value="@categoriaMaster.CategoriaMasterId">@categoriaMaster.Nombre</option>
+                }
+            </select>
+            <span asp-validation-for="CategoriaMasterIdSeleccionada" class="text-danger"></span>
+        </div>
+
+        <hr />
+
+        <!-- Botón de Envío -->
+        <div class="form-group">
+            <input type="submit" value="Crear Proveedor" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

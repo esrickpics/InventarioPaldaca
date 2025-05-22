@@ -48,6 +48,10 @@
     .card-body {
         padding: 1rem;
     }
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 /* General styling */
@@ -246,4 +250,55 @@ div.bg-primary p {
     100% {
         background-position: right bottom;
     }
+}
+
+
+.form-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.cardsearch .input-group {
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-icon {
+    font-size: 20px;
+    color: #6c757d;
+}
+
+.user-profile img {
+    object-fit: cover;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    max-height: 250px;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border: 3px solid #ddd;
 }

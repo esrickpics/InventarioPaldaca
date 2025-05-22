@@ -45,12 +45,68 @@ namespace InventarioPaldaca.Controllers
 
             return View("Index", model);
         }
+        
+        public IActionResult Create()
+        {
+            var viewModel = new CreateProveedorViewModel
+            {
+                // Obtener todas las Categorías Maestras
+                CategoriaMasters = _context.CategoriaMasters.ToList()
+            };
+            return View(viewModel);
+        }
 
+        // POST: Proveedor/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [AuthorizeRole("Administrador")]
+        public async Task<IActionResult> Create(CreateProveedorViewModel Model)
+        {
+            if (!ModelState.IsValid)
+            {
+                Model.CategoriaMasters = _context.CategoriaMasters.ToList();
+                return View(Model);
+            }
+
+            // Crear el nuevo proveedor con los datos del ViewModel
+            var proveedor = new Proveedor
+            {
+                ProveedorNombre = Model.Proveedor.ProveedorNombre,
+                ProveedorRif = Model.Proveedor.ProveedorRif,
+                ProveedorTelefono = Model.Proveedor.ProveedorTelefono,
+                ProveedorEmail = Model.Proveedor.ProveedorEmail,
+                ProveedorDireccion = Model.Proveedor.ProveedorDireccion,
+                Origen = Model.Proveedor.Origen
+            };
+
+            // Llamar al método privado para asociar las categorías al proveedor
+            AsociarCategoriasAlProveedor(proveedor, Model.CategoriaMasterIdSeleccionada);
+
+            _context.Proveedors.Add(proveedor);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        // Método privado para asociar las categorías al proveedor basado en la categoría maestra
+        private void AsociarCategoriasAlProveedor(Proveedor proveedor, int? categoriaMasterId)
+        {
+            if (categoriaMasterId.HasValue)
+            {
+                var categoriasAsociadas = _context.Categoria
+                    .Where(c => c.CategoriaMasterId == categoriaMasterId.Value)
+                    .ToList();
+
+                foreach (var categoria in categoriasAsociadas)
+                {
+                    proveedor.Categoria.Add(categoria);
+                }
+            }
+        }
         private async Task<ProveedorViewModel> BuscarProveedoresAsync(string searchTerm, int? categoriaMasterId)
         {
             var query = _context.Proveedors.AsQueryable();
 
-            // Filtro por término de búsqueda si está presente
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
                 query = query.Where(p => p.ProveedorNombre.Contains(searchTerm) ||
@@ -82,9 +138,7 @@ namespace InventarioPaldaca.Controllers
                     })
                     .ToListAsync()
             };
-
             return model;
         }
-
     }
 }

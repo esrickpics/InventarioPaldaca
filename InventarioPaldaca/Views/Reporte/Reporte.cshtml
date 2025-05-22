@@ -9,13 +9,22 @@
             @TempData["Success"]
         </div>
     }
-
     <form asp-action="Generar" method="post">
+        <div class="mb-3">
+            <label for="ActivoIdSeleccionado" class="form-label">Activo asociado</label>
+            <select asp-for="ActivoIdSeleccionado" asp-items="Model.ActivosAsociados" class="form-select">
+                <option value="">-- Selecciona un activo --</option>
+            </select>
+            <span asp-validation-for="ActivoIdSeleccionado" class="text-danger"></span>
+        </div>
+
         <div class="mb-3">
             <label for="Descripcion" class="form-label">Descripción del Reporte</label>
             <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
             <span asp-validation-for="Descripcion" class="text-danger"></span>
         </div>
+
         <button type="submit" class="btn btn-primary">Generar</button>
     </form>
+
 </div>

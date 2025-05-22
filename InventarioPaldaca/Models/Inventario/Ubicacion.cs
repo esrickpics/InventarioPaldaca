@@ -14,4 +14,8 @@ public partial class Ubicacion
     public string? UbicacionDescripcion { get; set; }
 
     public virtual ICollection<Activo> Activos { get; set; } = new List<Activo>();
+
+    public virtual ICollection<Movimiento> MovimientoUbicacionAnteriors { get; set; } = new List<Movimiento>();
+
+    public virtual ICollection<Movimiento> MovimientoUbicacionNuevas { get; set; } = new List<Movimiento>();
 }

@@ -23,6 +23,8 @@ public partial class InventarioPaldacaContext : DbContext
 
     public virtual DbSet<Mantenimiento> Mantenimientos { get; set; }
 
+    public virtual DbSet<Movimiento> Movimientos { get; set; }
+
     public virtual DbSet<Proveedor> Proveedors { get; set; }
 
     public virtual DbSet<Proyecto> Proyectos { get; set; }
@@ -141,6 +143,36 @@ public partial class InventarioPaldacaContext : DbContext
                 .HasConstraintName("FK_Mantenimientos_Activos");
         });
 
+        modelBuilder.Entity<Movimiento>(entity =>
+        {
+            entity.HasKey(e => e.MovimientoId).HasName("PK__Movimien__BF923C2C2630DD66");
+
+            entity.Property(e => e.FechaMovimiento)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+
+            entity.HasOne(d => d.Activo).WithMany(p => p.Movimientos)
+                .HasForeignKey(d => d.ActivoId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Movimient__Activ__634EBE90");
+
+            entity.HasOne(d => d.UbicacionAnterior).WithMany(p => p.MovimientoUbicacionAnteriors)
+                .HasForeignKey(d => d.UbicacionAnteriorId)
+                .HasConstraintName("FK__Movimient__Ubica__662B2B3B");
+
+            entity.HasOne(d => d.UbicacionNueva).WithMany(p => p.MovimientoUbicacionNuevas)
+                .HasForeignKey(d => d.UbicacionNuevaId)
+                .HasConstraintName("FK__Movimient__Ubica__671F4F74");
+
+            entity.HasOne(d => d.UsuarioAnterior).WithMany(p => p.MovimientoUsuarioAnteriors)
+                .HasForeignKey(d => d.UsuarioAnteriorId)
+                .HasConstraintName("FK__Movimient__Usuar__6442E2C9");
+
+            entity.HasOne(d => d.UsuarioNuevo).WithMany(p => p.MovimientoUsuarioNuevos)
+                .HasForeignKey(d => d.UsuarioNuevoId)
+                .HasConstraintName("FK__Movimient__Usuar__65370702");
+        });
+
         modelBuilder.Entity<Proveedor>(entity =>
         {
             entity.HasKey(e => e.ProveedorId).HasName("PK__proveedo__88BBADA4AA901FB7");
@@ -204,6 +236,7 @@ public partial class InventarioPaldacaContext : DbContext
 
             entity.ToTable("Reporte");
 
+            entity.Property(e => e.ActivoId).HasColumnName("Activo_Id");
             entity.Property(e => e.Descripcion)
                 .HasMaxLength(255)
                 .IsUnicode(false);
@@ -213,6 +246,10 @@ public partial class InventarioPaldacaContext : DbContext
             entity.Property(e => e.RutaArchivo)
                 .HasMaxLength(500)
                 .IsUnicode(false);
+
+            entity.HasOne(d => d.Activo).WithMany(p => p.Reportes)
+                .HasForeignKey(d => d.ActivoId)
+                .HasConstraintName("FK_Reporte_Activo");
 
             entity.HasOne(d => d.Usuario).WithMany(p => p.Reportes)
                 .HasForeignKey(d => d.UsuarioId)
@@ -267,7 +304,7 @@ public partial class InventarioPaldacaContext : DbContext
             entity.Property(e => e.ImagenUrl)
                 .HasMaxLength(255)
                 .IsUnicode(false);
-            entity.Property(e => e.RolId).HasColumnName("rol_id");
+            entity.Property(e => e.RolId).HasColumnName("Rol_Id");
             entity.Property(e => e.UsuarioApellido)
                 .HasMaxLength(40)
                 .IsUnicode(false)
@@ -293,8 +330,7 @@ public partial class InventarioPaldacaContext : DbContext
 
             entity.HasOne(d => d.Rol).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.RolId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_usuario_rol");
+                .HasConstraintName("FK_Usuario_Rol");
         });
 
         OnModelCreatingPartial(modelBuilder);

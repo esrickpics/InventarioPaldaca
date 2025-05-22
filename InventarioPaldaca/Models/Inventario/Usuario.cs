@@ -23,11 +23,19 @@ public partial class Usuario
 
     public string UsuarioPassword { get; set; } = null!;
 
-    public int RolId { get; set; }
+    public int? RolId { get; set; }
+
+    public bool SolicitoRestablecer { get; set; }
+
+    public bool PuedeRestablecer { get; set; }
 
     public virtual ICollection<Activo> Activos { get; set; } = new List<Activo>();
 
+    public virtual ICollection<Movimiento> MovimientoUsuarioAnteriors { get; set; } = new List<Movimiento>();
+
+    public virtual ICollection<Movimiento> MovimientoUsuarioNuevos { get; set; } = new List<Movimiento>();
+
     public virtual ICollection<Reporte> Reportes { get; set; } = new List<Reporte>();
 
-    public virtual Rol Rol { get; set; } = null!;
+    public virtual Rol? Rol { get; set; }
 }

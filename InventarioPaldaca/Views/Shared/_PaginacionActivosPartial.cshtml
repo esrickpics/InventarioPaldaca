@@ -1,5 +1,8 @@
 ﻿@model InventarioPaldaca.Models.ViewModels.ListaActivosViewModel
-
+@{
+    ViewData["Title"] = "Lista de Activos";
+}
+<div class="table-responsive">
 <table class="table" id="activosTable">
     <thead>
         <tr>
@@ -19,7 +22,7 @@
         <partial name="_ListaActivosPartial" model="Model" />
     </tbody>
 </table>
-
+</div>
 @if (Model.TotalPage > 1)
 {
     <div class="pagination-container text-center mt-3">

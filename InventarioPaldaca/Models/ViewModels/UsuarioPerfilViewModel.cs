@@ -44,6 +44,11 @@ namespace InventarioPaldaca.Models.ViewModels
         // Término de búsqueda (opcional)
         public string? SearchTerm { get; set; }
 
+        public bool SolicitarRestablecer { get; set; } // ← Debe existir y estar mapeada correctamente
+
+        public bool PuedeRestablecer { get; set; }    // Admin aprobó
+
+
         // Lista de usuarios encontrados por el término de búsqueda
         public List<Usuario> UsuariosEncontrados { get; set; } = new List<Usuario>();
     }

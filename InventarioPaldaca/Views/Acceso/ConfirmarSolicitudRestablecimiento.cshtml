@@ -1,0 +1,11 @@
+﻿@model InventarioPaldaca.Models.ViewModels.ConfirmarSolicitudViewModel
+
+<div class="container mt-5">
+    <div class="alert alert-info">
+        <h4>¡Hola @Model.NombreCompleto!</h4>
+        <p>Hemos recibido tu solicitud para restablecer la contraseña del correo: <strong>@Model.Email</strong>.</p>
+        <p>Tu solicitud será revisada por un administrador. Una vez aprobada, podrás cambiar tu contraseña.</p>
+    </div>
+
+    <a asp-action="Login" class="btn btn-primary">Volver al Login</a>
+</div>

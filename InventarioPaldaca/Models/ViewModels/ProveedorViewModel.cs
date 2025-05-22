@@ -5,6 +5,8 @@ namespace InventarioPaldaca.Models.ViewModels
     public class ProveedorViewModel
     {
         public int ProveedorId { get; set; }
+
+    
         public string ProveedorNombre { get; set; } = null!;
         public string ProveedorRif { get; set; } = string.Empty;
         public string ProveedorTelefono { get; set; } = string.Empty;

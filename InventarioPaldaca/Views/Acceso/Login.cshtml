@@ -4,9 +4,7 @@
     <link rel="stylesheet" href="~/css/styleslogin.css" asp-append-version="true" />
 
 }
-
 <title>Login</title>
-
 <div class="login">
     <div class="login__content">
         <div class="login__img">
@@ -14,22 +12,40 @@
         </div>
 
         <div class="login__forms">
+
+            @* Mostrar mensajes *@
+            @if (ViewBag.Error != null || ViewBag.Mensaje != null)
+            {
+                <div class="login__mensajes">
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger">@ViewBag.Error</div>
+                    }
+                    @if (ViewBag.Mensaje != null)
+                    {
+                        <div class="alert alert-success">@ViewBag.Mensaje</div>
+                    }
+                </div>
+            }
+
             <form asp-action="Login" method="post" class="login__registre" id="login-in">
+                @Html.AntiForgeryToken()
                 <h1 class="login__title">Iniciar Sesión</h1>
 
                 <div class="login__box">
                     <i class='bx bx-user login__icon'></i>
-                    <input asp-for="Email" type="text" placeholder="Correo" class="login__input">
+                    <input asp-for="Email" id="inputEmail" type="text" placeholder="Correo" class="login__input" value="@Model?.Email" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
                 <div class="login__box">
                     <i class='bx bx-lock-alt login__icon'></i>
-                    <input asp-for="Password" type="password" placeholder="Contraseña" class="login__input">
+                    <input asp-for="Password" type="password" placeholder="Contraseña" class="login__input" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
 
-                <a asp-action="Restablecer" class="login__forgot">¿Olvidaste tu contraseña?</a>
+              
+
 
                 <button type="submit" class="login__button">Iniciar Sesión</button>
 
@@ -37,14 +53,35 @@
                     <span class="login__account">¿No tienes una cuenta?</span>
                     <a asp-action="Registro" class="login__signup">Registrarse</a>
                 </div>
-                <hr />
-                @if (ViewBag.Error != null)
-                {
-                    <div class="alert alert-danger">
-                        @ViewBag.Error
-                    </div>
-                }
             </form>
+            @* Botón para restablecer contraseña debajo de los inputs *@
+            <div class="mb-3">
+                <a href="#" id="btnOlvidoContrasena" class="btn btn-link login__forgot" style="padding-left: 0;">
+                    ¿Olvidaste tu contraseña?
+                </a>
+
+            </div>
         </div>
     </div>
 </div>
+
+
+
+@section Scripts {
+
+    <script>
+        document.getElementById("btnOlvidoContrasena").addEventListener("click", function (e) {
+            e.preventDefault(); // Previene el salto a #
+
+            const email = document.getElementById("inputEmail").value.trim();
+
+            if (email === "") {
+                alert("Por favor, ingresa tu correo.");
+                return;
+            }
+
+            // Redirige al controlador que maneja la lógica
+            window.location.href = `/Acceso/RestablecerContrasena?email=${encodeURIComponent(email)}`;
+        });
+   </script>
+}

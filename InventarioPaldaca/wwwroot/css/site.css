@@ -400,3 +400,105 @@ header {
     .clickable-row [data-bs-toggle] {
         cursor: default;
     }
+
+
+.info-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.075);
+}
+
+    .info-card h5 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .info-card ul {
+        padding-left: 0;
+    }
+
+    .info-card li {
+        text-align: left;
+        font-size: 16px;
+    }
+
+/* Estilos generales */
+@media (max-width: 576px) {
+    /* Ajustar padding/márgenes */
+    .form-container {
+        padding: 10px !important;
+    }
+
+    .form-title {
+        font-size: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .form-title img {
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+        }
+
+    .btn-action {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    /* Botones: una columna por fila */
+    .row.text-center.g-2.mb-4 .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Filtros en columnas completas */
+    #filterForm .col-md-6,
+    #filterForm .col-md-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* Input y select más amigables en móvil */
+    #filterForm .form-control,
+    #filterForm .form-select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    /* Tabla: scroll horizontal */
+    #contenedorTablaPaginada {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+        #contenedorTablaPaginada table {
+            width: 1000px; /* o ajusta según contenido */
+        }
+
+    /* Totales y tarjetas info: una por fila */
+    .total-container .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .info-card h5 {
+        font-size: 16px;
+    }
+
+    .info-card p.display-6 {
+        font-size: 24px;
+    }
+
+    /* Modal: textos más pequeños */
+    .modal .form-control,
+    .modal .form-group label {
+        font-size: 14px;
+    }
+}

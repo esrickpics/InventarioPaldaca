@@ -1,0 +1,49 @@
+﻿@model InventarioPaldaca.Models.ViewModels.CategoriaViewModel
+
+<div class="form-container">
+    <h2 class="form-title">
+        <img src="/img/Iconos/nueva-categoria.svg" alt="Icono" style="width: 32px; height: 32px; margin-right: 10px;">
+        Editar Categoría
+    </h2>
+    <hr class="linea" />
+
+    <form asp-action="Edit">
+        <div class="form-group">
+            <label asp-for="CategoriaNombre"></label>
+            <input asp-for="CategoriaNombre" class="form-control" />
+            <span asp-validation-for="CategoriaNombre" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CategoriaDescripcion"></label>
+            <textarea asp-for="CategoriaDescripcion" class="form-control"></textarea>
+            <span asp-validation-for="CategoriaDescripcion" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="CategoriaMasterId">Categoría Master</label>
+            <select asp-for="CategoriaMasterId" class="form-control" asp-items="ViewBag.CategoriaMasterId">
+                <option value="">Seleccione una categoría master</option>
+            </select>
+            <span asp-validation-for="CategoriaMasterId" class="text-danger"></span>
+
+        </div>
+
+        <hr />
+        <div class="form-group">
+            <input type="submit" value="Guardar Cambios" class="btn btn-action" />
+            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

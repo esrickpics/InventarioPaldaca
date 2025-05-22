@@ -1,0 +1,46 @@
+﻿@model IEnumerable<InventarioPaldaca.Models.ViewModels.MovimientoHistorialViewModel>
+
+@{
+    ViewData["Title"] = "Historial de movimientos";
+}
+
+<h2>Historial de movimientos del activo</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Usuario Anterior</th>
+            <th>Usuario Nuevo</th>
+            <th>Ubicación Anterior</th>
+            <th>Ubicación Nueva</th>
+            <th>Mantenimientos</th>
+            <th>Observaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="7" class="text-center">No hay movimientos registrados.</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var mov in Model)
+            {
+                <tr>
+                    <td>@mov.FechaMovimiento.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@mov.UsuarioAnterior</td>
+                    <td>@mov.UsuarioNuevo</td>
+                    <td>@mov.UbicacionAnterior</td>
+                    <td>@mov.UbicacionNueva</td>
+                    <td>@mov.CantidadMantenimientos</td>
+                    <td>@mov.Observaciones</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" asp-controller="Activo" class="btn btn-secondary">Volver a Activos</a>

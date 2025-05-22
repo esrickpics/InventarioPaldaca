@@ -34,16 +34,23 @@ namespace InventarioPaldaca.Models.ViewModels
         public Dictionary<string, int> ActivosPorCategoria { get; set; }
         public Dictionary<string, int> ActivosPorUbicacion { get; set; }
 
+        public Dictionary<string, string> IconosPorCategoria => new Dictionary<string, string>
+        {
+            { "Laptop", "/img/Iconos/iconlaptop.svg" },
+            { "Impresora", "/img/Iconos/iconimpresora.svg" },
+            { "Proyector", "/img/Iconos/iconproyector.svg" },
+            { "MiniPC", "/img/Iconos/iconminipc.svg" },
+            { "Escáner", "/img/Iconos/iconscanner.svg" },
+            { "Servidor", "/img/Iconos/iconservidor.svg" },
+            { "PC", "/img/Iconos/iconpc.svg" }
+        };
+
         // Paginación
         public int PaginaActual { get; set; } = 1;
         public int PageSize { get; set; } = 10;
         public int TotalPage => (int)Math.Ceiling(TotalFiltrados / (double)PageSize);
 
         // Estados disponibles para filtros o formularios
-        public List<SelectListItem> EstadosDisponibles { get; set; } = new List<SelectListItem>
-        {
-        new SelectListItem { Text = "En proceso", Value = "En proceso" },
-        new SelectListItem { Text = "Finalizado", Value = "Finalizado" }
-        };
+       
     }
 }

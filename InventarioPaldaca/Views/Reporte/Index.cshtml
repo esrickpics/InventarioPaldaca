@@ -2,43 +2,41 @@
 @{
     ViewData["Title"] = "Reportes Generados";
 }
+@section styles {
+    <link rel="stylesheet" href="~/css/Reportes.css" />
+}
 
-<h2 class="mb-4">Reportes Generados</h2>
+<h2 class="mb-4">Reportes</h2>
 
 @if (Model.Any())
 {
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Usuario</th>
-                <th>Fecha de Generación</th>
-                <th>Descripción</th>
-                <th>Archivo</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var reporte in Model)
-            {
-                <tr>
-                    <td>@reporte.ReporteId</td>
-                    <td>@reporte.Usuario.UsuarioNombre</td>
-                    <td>@reporte.FechaGeneracion.ToString("dd/MM/yyyy HH:mm")</td>
-                    <td>@reporte.Descripcion</td>
-                    <td>
-                        @if (!string.IsNullOrEmpty(reporte.RutaArchivo))
+    <div class="reportes-container">
+        @foreach (var reporte in Model)
+        {
+            <div class="reporte-card">
+                <div class="reporte-fecha">
+                    @reporte.FechaGeneracion.ToString("dd/MM/yyyy HH:mm")
+                </div>
+                <div class="reporte-body">
+                    <img src="@Url.Content(string.IsNullOrEmpty(reporte.Usuario.ImagenUrl) ? "~/img/Usuarios/Img.default.png" : reporte.Usuario.ImagenUrl)" alt="Foto del usuario" class="reporte-img" />
+                    <div class="reporte-info">
+                        <strong>@reporte.Usuario.UsuarioNombre</strong><br />
+                        <small class="cargo">@reporte.Usuario.UsuarioCargo</small><br />
+                        @if (reporte.Activo != null)
                         {
-                            <a href="@Url.Content(reporte.RutaArchivo)" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+                            <small class="cargo">Activo con Código: @reporte.Activo.CodigoInventario</small>
                         }
                         else
                         {
-                            <span class="text-muted">No disponible</span>
+                            <small class="cargo text-muted">Sin registro de activo</small>
                         }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+
+                        <p class="descripcion">@reporte.Descripcion</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 }
 else
 {
@@ -46,3 +44,4 @@ else
         No hay reportes generados.
     </div>
 }
+

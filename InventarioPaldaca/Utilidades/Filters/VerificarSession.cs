@@ -14,7 +14,17 @@ namespace InventarioPaldaca.Utilidades.Filters
 
             Console.WriteLine($"Ruta solicitada: {path}, UsuarioId: {usuarioId}");
 
-            var rutasPermitidas = new[] { "/", "/acceso/login", "/acceso/registro" };
+            // Rutas que no requieren sesión activa
+            // 🔧 Si necesitas permitir acceso sin sesión a nuevas rutas, agrégalas aquí:
+            var rutasPermitidas = new[]
+            {
+                "/",
+                "/acceso/login",
+                "/acceso/registro",
+                "/acceso/restablecercontrasena",
+                "/acceso/restablecerpassword",
+                "/acceso/confirmarsolicitudrestablecimiento"
+            };
 
             if (rutasPermitidas.Contains(path))
             {
@@ -32,4 +42,5 @@ namespace InventarioPaldaca.Utilidades.Filters
         }
     }
 }
+
 

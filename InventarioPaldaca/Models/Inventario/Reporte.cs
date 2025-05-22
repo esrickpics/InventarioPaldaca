@@ -15,5 +15,9 @@ public partial class Reporte
 
     public string? RutaArchivo { get; set; }
 
+    public int? ActivoId { get; set; }
+
+    public virtual Activo? Activo { get; set; }
+
     public virtual Usuario Usuario { get; set; } = null!;
 }

@@ -25,17 +25,19 @@
         <div class="col-md-4">
             <div class="card stat-item bgcolorazul">
                 <div class="card-body">
+                    <a asp-area="" asp-controller="Reporte" asp-action="Index" class="text-white text-decoration-none">
                     <div class="stat-icon">📝</div>
                     <h3 class="card-title">Reportes</h3>
                     <p class="stat-number">@Model.TotalReportes</p>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card stat-item bgcolorazul">
                 <div class="card-body">
-                    <a asp-area="" asp-controller="Activo" asp-action="ActivosDañados" class="text-white text-decoration-none">
-                    <div class="stat-icon">❌</div>
+                    <a asp-area="" asp-controller="Mantenimientos" asp-action="ActivosEnMantenimiento" class="text-white text-decoration-none">
+                    <div class="stat-icon">🔧</div>
                     <h3 class="card-title">Activos En Mantenimiento</h3>
                     <p class="stat-number">@Model.TotalActivosDañados</p>
                     </a>
