@@ -1,49 +1,155 @@
-﻿@model InventarioPaldaca.Models.ViewModels.CategoriaViewModel
+﻿@model InventarioPaldaca.Models.ViewModels.EditarCategoriaViewModel
 
+@{
+    ViewData["Title"] = "Editar Categoría";
+}
+@Html.AntiForgeryToken()
 <div class="form-container">
     <h2 class="form-title">
-        <img src="/img/Iconos/nueva-categoria.svg" alt="Icono" style="width: 32px; height: 32px; margin-right: 10px;">
-        Editar Categoría
+        <img src="/img/Iconos/nueva-categoria.svg" alt="Icono Activos" style="width: 32px; height: 32px; margin-right: 10px;">
+        Gestionar Categorias
     </h2>
-    <hr class="linea" />
+    <div class="form-group">
+        <label for="categoriaSelect">Seleccionar Categoría</label>
+        <select id="categoriaSelect" class="form-control">
+            <option value="">Seleccione una categoría...</option>
+            @foreach (var categoria in Model.CategoriasDisponibles)
+            {
+                <option value="@categoria.Value">@categoria.Text</option>
+            }
+        </select>
+    </div>
 
-    <form asp-action="Edit">
-        <div class="form-group">
-            <label asp-for="CategoriaNombre"></label>
-            <input asp-for="CategoriaNombre" class="form-control" />
-            <span asp-validation-for="CategoriaNombre" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="CategoriaDescripcion"></label>
-            <textarea asp-for="CategoriaDescripcion" class="form-control"></textarea>
-            <span asp-validation-for="CategoriaDescripcion" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label for="CategoriaMasterId">Categoría Master</label>
-            <select asp-for="CategoriaMasterId" class="form-control" asp-items="ViewBag.CategoriaMasterId">
-                <option value="">Seleccione una categoría master</option>
-            </select>
-            <span asp-validation-for="CategoriaMasterId" class="text-danger"></span>
-
-        </div>
-
-        <hr />
-        <div class="form-group">
-            <input type="submit" value="Guardar Cambios" class="btn btn-action" />
-            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-        </div>
-    </form>
+    <button type="button" class="btn btn-action mt-3" id="btnEditar" disabled>
+        Editar SubCategoría
+    </button>
+    <button type="button" class="btn btn-danger mt-3 ml-3" id="btnEliminar" style="display: none;">
+        Eliminar SubCategoría
+    </button>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form method="post" asp-controller="Categoria" asp-action="GuardarCambiosCategoria">
+        
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Categoría</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="CategoriaSeleccionadaId" name="CategoriaSeleccionadaId" />
 
 
+                    <div class="form-group">
+                        <label for="CategoriaNombre">Nombre</label>
+                        <input type="text" class="form-control" id="CategoriaNombre" name="CategoriaNombre" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="CategoriaDescripcion">Descripción</label>
+                        <textarea class="form-control" id="CategoriaDescripcion" name="CategoriaDescripcion"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-action">Guardar</button>
+                    <button type="button" class="btn btn-secondary" onclick="$('#editarModal').modal('hide')">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
-
-
+@if (TempData["MensajeExito"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        @TempData["MensajeExito"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+}
+@if (TempData["Errores"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        @TempData["Errores"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+}
 
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+      <script>
+
+          document.addEventListener("DOMContentLoaded", () => {
+            const categoriaSelect = document.getElementById("categoriaSelect");
+            const btnEditar = document.getElementById("btnEditar");
+
+            categoriaSelect.addEventListener("change", async () => {
+                const id = categoriaSelect.value;
+                btnEditar.disabled = !id;
+            });
+
+            btnEditar.addEventListener("click", async () => {
+                const id = categoriaSelect.value;
+                if (!id) return;
+
+                try {
+                    const response = await fetch(`/Categoria/ObtenerCategoria/${id}`);
+                    if (!response.ok) throw new Error("Error al obtener la categoría.");
+
+                    const data = await response.json();
+
+                    document.getElementById("CategoriaSeleccionadaId").value = data.categoriaId;
+                    document.getElementById("CategoriaNombre").value = data.categoriaNombre;
+                    document.getElementById("CategoriaDescripcion").value = data.categoriaDescripcion ?? '';
+
+                    // Abre el modal manualmente con jQuery
+                    $('#editarModal').modal('show');
+                } catch (err) {
+                    alert("Error al cargar los datos: " + err.message);
+                }
+            });
+        });
+
+
+        const btnEliminar = document.getElementById("btnEliminar");
+
+        categoriaSelect.addEventListener("change", () => {
+            const id = categoriaSelect.value;
+            btnEditar.disabled = !id;
+            btnEliminar.style.display = id ? "inline-block" : "none";
+        });
+
+               btnEliminar.addEventListener("click", async () => {
+            const id = categoriaSelect.value;
+            if (!id) return;
+
+            const confirmado = confirm("¿Estás seguro de que deseas eliminar esta categoría?");
+            if (!confirmado) return;
+
+            try {
+                const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+                const formData = new FormData();
+                formData.append("id", id);
+                formData.append("__RequestVerificationToken", token);
+
+                const response = await fetch('/Categoria/EliminarCategoria', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                if (result.exito) {
+                    alert(result.mensaje);
+                    location.reload();
+                } else {
+                    alert(result.mensaje);
+                }
+            } catch (error) {
+                alert("Error al intentar eliminar: " + error.message);
+            }
+        });
+
+
+    </script>
 }

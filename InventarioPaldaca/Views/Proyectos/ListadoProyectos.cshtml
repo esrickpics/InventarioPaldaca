@@ -1,0 +1,140 @@
+﻿@model List<InventarioPaldaca.Models.ViewModels.ListarProyectosViewModel>
+
+@{
+    ViewData["Title"] = "Todos los Proyectos";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/css/Reportes.css" />
+}
+<div class="container my-5 form-container" id="top">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h2 class="form-title" style="margin: 0;">
+            <img src="/img/Iconos/Mantenimiento.svg" alt="Icono Mantenimiento" style="width: 32px; height: 32px; margin-right: 10px;">
+            Listado de Proyectos
+        </h2>
+        <a asp-action="Crear" asp-controller="Proyectos" class="btn btn-sm btn-action text-white mb-2 shadow-sm"
+           style="min-width: 150px; margin-bottom: 0 !important;">
+            Nuevo Proyecto
+        </a>
+    </div>
+    @if (Model.Any())
+    {
+        <div class="reportes-container">
+            @foreach (var proyecto in Model)
+            {
+                <div class="reporte-card">
+                    <div class="reporte-fecha">
+                        @if (proyecto.FechaInicio.HasValue)
+                        {
+                            <span>Inicio: @proyecto.FechaInicio.Value.ToString("dd/MM/yyyy")</span>
+
+                            <br />
+                        }
+                        @if (proyecto.FechaFin.HasValue)
+                        {
+                            <span>Fin: @proyecto.FechaFin.Value.ToString("dd/MM/yyyy")</span>
+
+                            <br />
+                        }
+                    </div>
+
+                    <div class="reporte-body">
+                        <img src="@Url.Content(proyecto.ImagenAdministrador)" alt="Administrador" class="reporte-img" />
+                        <div class="reporte-info">
+                            <strong>@proyecto.NombreAdministrador</strong><br />
+                            <small class="cargo">@proyecto.CargoAdministrador</small>
+
+                            <h5 class="mt-2">@proyecto.NombreProyecto</h5>
+                            <p class="descripcion">@proyecto.Descripcion</p>
+                        </div>
+                        <button class="btn btn-sm btn-action mt-5"
+                                data-bs-toggle="modal"
+                                data-bs-target="#editarProyectoModal"
+                                data-id="@proyecto.ProyectoId">
+                            Editar
+                        </button>
+                    </div> 
+                    
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning" role="alert">
+            No hay proyectos registrados.
+        </div>
+    }
+
+    <div class="modal fade mt-5" id="editarProyectoModal" tabindex="-1" aria-labelledby="editarProyectoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editarProyectoModalLabel">Editar Proyecto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="modalBodyEditarProyecto">
+                    <!-- Aquí se cargará el formulario por AJAX -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const modalElement = document.getElementById('editarProyectoModal');
+
+            // Instancia el modal solo si existe en el DOM
+            if (modalElement) {
+                modalElement.addEventListener('show.bs.modal', function (event) {
+                    const button = event.relatedTarget;
+                    const proyectoId = button.getAttribute('data-id');
+
+                    fetch(`/Proyectos/EditPartial?id=${proyectoId}`)
+                        .then(res => res.text())
+                        .then(html => {
+                            document.getElementById('modalBodyEditarProyecto').innerHTML = html;
+
+                            const form = document.getElementById('formEditarProyecto');
+
+                            if (form) {
+                                form.addEventListener('submit', function (e) {
+                                    e.preventDefault();
+
+                                    const formData = new FormData(form);
+                                    const token = form.querySelector('input[name="__RequestVerificationToken"]').value;
+
+                                    fetch('/Proyectos/EditModal', {
+                                        method: 'POST',
+                                        headers: {
+                                            'RequestVerificationToken': token
+                                        },
+                                        body: formData
+                                    })
+                                        .then(response => {
+                                            if (response.ok) {
+                                                const bootstrapModal = bootstrap.Modal.getInstance(modalElement);
+                                                bootstrapModal.hide();
+                                                alert("Proyecto actualizado correctamente.");
+                                                location.reload();
+                                            } else {
+                                                response.json().then(data => {
+                                                    alert("Error: " + (data.mensaje || "Error desconocido"));
+                                                });
+                                            }
+                                        })
+                                        .catch(err => {
+                                            alert("Error al guardar los datos.");
+                                            console.error(err);
+                                        });
+                                });
+                            }
+                        });
+                });
+            }
+        });
+    </script>
+}

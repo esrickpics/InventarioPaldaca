@@ -1,30 +1,35 @@
 ﻿@model InventarioPaldaca.Models.ViewModels.ReporteViewModel 
 
 <div class="container mt-4">
-    <h2>Generar Reporte</h2>
+    <div class="container my-5 form-container" id="top">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h2 class="form-title" style="margin: 0;">
+                    <img src="/img/Iconos/Report.svg" alt="Icono Reporte" style="width: 32px; height: 32px; margin-right: 10px;">
+                    Generar Reporte
+                </h2>
+            </div>
+        <form asp-action="Generar" method="post">
+            <div class="mb-3">
+                <label for="ActivoIdSeleccionado" class="form-label">Activo asociado</label>
+                <select asp-for="ActivoIdSeleccionado" asp-items="Model.ActivosAsociados" class="form-select">
+                    <option value="">-- Selecciona un activo --</option>
+                </select>
+                <span asp-validation-for="ActivoIdSeleccionado" class="text-danger"></span>
+            </div>
 
-    @if (TempData["Success"] != null)
-    {
-        <div class="alert alert-success">
-            @TempData["Success"]
-        </div>
-    }
-    <form asp-action="Generar" method="post">
-        <div class="mb-3">
-            <label for="ActivoIdSeleccionado" class="form-label">Activo asociado</label>
-            <select asp-for="ActivoIdSeleccionado" asp-items="Model.ActivosAsociados" class="form-select">
-                <option value="">-- Selecciona un activo --</option>
-            </select>
-            <span asp-validation-for="ActivoIdSeleccionado" class="text-danger"></span>
-        </div>
+            <div class="mb-3">
+                <label for="Descripcion" class="form-label">Descripción del Reporte</label>
+                <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
-            <label for="Descripcion" class="form-label">Descripción del Reporte</label>
-            <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
-            <span asp-validation-for="Descripcion" class="text-danger"></span>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Generar</button>
-    </form>
-
+            <button type="submit" class="btn btn-primary ">Generar</button>
+        </form>
+        @if (ViewBag.Success != null)
+        {
+            <div class="alert alert-success mt-4">
+                @ViewBag.Success
+            </div>
+        }
+    </div>
 </div>

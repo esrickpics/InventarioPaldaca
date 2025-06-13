@@ -61,12 +61,7 @@ namespace InventarioPaldaca.Controllers
 
             }
 
-            // Validar si el usuario tiene asignado un PDF
-            if (string.IsNullOrEmpty(model.AsignacionPdf))
-            {
-                ViewBag.ErrorMensaje = "Este usuario no tiene un PDF asignado.";
-             
-            }
+           
 
             // Realizar búsqueda si se proporcionó un término de búsqueda
             if (!string.IsNullOrWhiteSpace(searchTerm))
@@ -97,6 +92,8 @@ namespace InventarioPaldaca.Controllers
             _context.SaveChanges();
 
             TempData["Mensaje"] = "Restablecimiento aprobado.";
+
+            // Redirige a la acción que vuelve a cargar el usuario desde la DB
             return RedirectToAction("PerfilUsuario", new { id = usuarioId });
         }
 
@@ -304,6 +301,7 @@ namespace InventarioPaldaca.Controllers
                 UsuarioImagenUrl = usuario.ImagenUrl,
                 AsignacionPdf = usuario.AsignacionPdf,
                 SolicitarRestablecer = usuario.SolicitoRestablecer,
+                PuedeRestablecer = usuario.PuedeRestablecer,
 
                 ActivosAsociados = usuario.Activos.Select(a => new ActivosAsociadosViewModel
                 {

@@ -5,20 +5,24 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 }
+<!-- Contenedor superior con precio del dólar y botón de nuevo proveedor -->
+<div class="d-flex justify-content-between align-items-center flex-wrap mb-4 px-3">
+    <div class="alert alert-info py-2 px-4 mb-2 shadow-sm rounded" style="background-color: #f0f8ff;">
+        <strong>Precio del dólar oficial (VES):</strong>
+        @if (ViewBag.PrecioDolar != null)
+        {
+            @ViewBag.PrecioDolar
+        }
+        else
+        {
+            <span>No se pudo obtener el precio del dólar.</span>
+        }
+    </div>
 
-<div class="cuadro-dolar top-0 end-0 m-3 p-3">
-    @if (ViewBag.PrecioDolar != null)
-    {
-        <strong>Precio del dólar oficial (VES):</strong> @ViewBag.PrecioDolar
-    }
-    else
-    {
-        <span>No se pudo obtener el precio del dólar.</span>
-    }
-</div>
-
-<div class="col">
-    <a asp-controller="Proveedor" asp-action="Create" class="btn btn-action btn-sm w-auto">Nuevo Proveedor</a>
+    <a asp-controller="Proveedor" asp-action="Create" class="btn btn-sm btn-action text-white mb-2 shadow-sm"
+       style="min-width: 150px;">
+        Nuevo Proveedor
+    </a>
 </div>
 
 <section class="container form-container mt-5 mb-5">
@@ -73,6 +77,22 @@
     <div id="proveedoresEncontradosContainer" class="text-white p-4 rounded">
         <partial name="_ProveedoresEncontradosPartial" model="Model.ProveedoresEncontrados" />
     </div>
+
+    <!-- Modal para editar proveedor -->
+    <div class="modal fade" id="editarProveedorModal" tabindex="-1" aria-labelledby="editarProveedorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editarProveedorModalLabel">Editar Proveedor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="modalBodyEditarProveedor">
+                    <!-- Aquí se cargará el formulario por AJAX -->
+                </div>
+            </div>
+        </div>
+    </div>
+
 </section>
 
 @section Scripts {
@@ -112,5 +132,100 @@
         document.getElementById("categoriaMasterFilter").addEventListener("change", function () {
             buscarProveedores();
         });
+        const modal = document.getElementById('editarProveedorModal');
+
+        modal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const proveedorId = button.getAttribute('data-id');
+
+            fetch(`/Proveedor/EditPartial?id=${proveedorId}`)
+                .then(res => res.text())
+                .then(html => {
+                    document.getElementById('modalBodyEditarProveedor').innerHTML = html;
+
+                    // Después de cargar el formulario, engancha el submit para AJAX
+                    const form = document.getElementById('formEditarProveedor');
+
+                    form.addEventListener('submit', function (e) {
+                        e.preventDefault();
+
+                        const formData = new FormData(form);
+
+                        // Obtener el token antifalsificación
+                        const token = form.querySelector('input[name="__RequestVerificationToken"]').value;
+
+                        fetch('/Proveedor/EditModal', {
+                            method: 'POST',
+                            headers: {
+                                'RequestVerificationToken': token
+                            },
+                            body: formData
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                // Cerrar modal y mostrar mensaje
+                                const bootstrapModal = bootstrap.Modal.getInstance(modal);
+                                bootstrapModal.hide();
+                                alert("Proveedor actualizado correctamente.");
+                                // Aquí puedes refrescar datos en la tabla o UI
+                            } else {
+                                response.json().then(data => {
+                                    alert("Error al guardar: " + (data.mensaje || "Error desconocido"));
+                                    console.error(data.errores);
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            alert("Error al guardar los datos.");
+                            console.error(err);
+                        });
+                    });
+                });
+        }); 
+        //ELiminar
+               document.addEventListener('DOMContentLoaded', function () {
+            // Delegación de evento para botones eliminar (si el partial se recarga)
+            document.body.addEventListener('click', function (e) {
+                if (e.target.classList.contains('btnEliminarProveedor')) {
+                    const proveedorId = e.target.getAttribute('data-id');
+
+                    if (confirm('¿Estás seguro de eliminar este proveedor?')) {
+                        // Crear un FormData para enviar los datos como formulario
+                        const formData = new FormData();
+                        formData.append("id", proveedorId);
+                        formData.append("__RequestVerificationToken", getAntiForgeryToken());
+
+                        fetch('/Proveedor/Delete', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(res => {
+                            if (res.ok) {
+                                // Remover fila de la tabla
+                                const row = document.getElementById(`proveedorRow_${proveedorId}`);
+                                if (row) row.remove();
+                                alert('Proveedor eliminado correctamente.');
+                            } else {
+                                alert('Error al eliminar proveedor.');
+                            }
+                        })
+                        .catch(err => {
+                            alert('Error al eliminar proveedor.');
+                            console.error(err);
+                        });
+                    }
+                }
+            });
+        });
+
+        // Función para obtener el token antiforgery de la página
+        function getAntiForgeryToken() {
+            return document.querySelector('input[name="__RequestVerificationToken"]').value;
+        }
+
+
+
+        // (Opcional) Función para recargar solo la lista de proveedores:
+        
     </script>
 }

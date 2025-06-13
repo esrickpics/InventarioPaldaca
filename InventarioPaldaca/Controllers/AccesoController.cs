@@ -145,9 +145,13 @@ namespace InventarioPaldaca.Controllers
             _context.Update(usuario);
             _context.SaveChanges();
 
-            return View("ConfirmarSolicitudRestablecimiento", usuario);
+            var model = new ConfirmarSolicitudViewModel
+            {
+                Email = usuario.UsuarioEmail,
+                NombreCompleto = usuario.UsuarioNombre
+            };
+            return View("ConfirmarSolicitudRestablecimiento", model);
         }
-
 
         [HttpGet]
         public IActionResult RestablecerPassword(int usuarioId)

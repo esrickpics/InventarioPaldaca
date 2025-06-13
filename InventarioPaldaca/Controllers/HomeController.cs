@@ -38,17 +38,14 @@ namespace InventarioPaldaca.Controllers
                 return RedirectToAction("Login", "Acceso");
             }
 
-            // Utilizar un switch expression para determinar la redirección según el rol
+    
             IActionResult redireccion = rol switch
             {
                 1 => RedirectToAction("UsuarioHome"),
                 2 => RedirectToAction("Home"),
+                3 => RedirectToAction("Home"), // rol administradorproyecto(3)
                 _ => RedirectToAction("Login", "Acceso")
             };
-
-            // Opcional: imprimir la redirección que se realizará
-            Console.WriteLine($"Redirigiendo a {(rol == 1 ? "UsuarioHome" : rol == 2 ? "Home" : "Login")}.");
-
             return redireccion;
         }
 

@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="~/css/Reportes.css" />
 }
 
-<h2 class="mb-4">Reportes</h2>
+<h2 class="form-title mb-4" style="margin: 0;">
+    <img src="/img/Iconos/Report.svg" alt="Icono Reporte" style="width: 32px; height: 32px; margin-right: 10px;">
+    Reportes
+</h2>
 
 @if (Model.Any())
 {
@@ -16,6 +19,17 @@
             <div class="reporte-card">
                 <div class="reporte-fecha">
                     @reporte.FechaGeneracion.ToString("dd/MM/yyyy HH:mm")
+
+                    <div class="mt-1">
+                        <span class="badge @(reporte.Estado == "Finalizado" ? "bg-success" : "bg-warning text-dark")">
+                            @reporte.Estado
+                        </span>
+
+                        @if (reporte.Estado != "Finalizado")
+                        {
+                            <button class="btn btn-sm btn-outline-primary ms-2" onclick="marcarFinalizado(@reporte.ReporteId)">Finalizar</button>
+                        }
+                    </div>
                 </div>
                 <div class="reporte-body">
                     <img src="@Url.Content(string.IsNullOrEmpty(reporte.Usuario.ImagenUrl) ? "~/img/Usuarios/Img.default.png" : reporte.Usuario.ImagenUrl)" alt="Foto del usuario" class="reporte-img" />
@@ -45,3 +59,21 @@ else
     </div>
 }
 
+@section scripts {
+    <script>
+        function marcarFinalizado(reporteId) {
+            $.ajax({
+                url: '@Url.Action("FinalizarReporte", "Reporte")',
+                type: 'POST',
+                data: { id: reporteId },
+                success: function () {
+                    location.reload(); // Recargar para reflejar el cambio
+                },
+                error: function () {
+                    alert('Error al cambiar el estado del reporte.');
+                }
+            });
+        }
+    </script>
+
+}

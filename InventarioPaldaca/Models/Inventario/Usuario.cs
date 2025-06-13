@@ -35,6 +35,8 @@ public partial class Usuario
 
     public virtual ICollection<Movimiento> MovimientoUsuarioNuevos { get; set; } = new List<Movimiento>();
 
+    public virtual ICollection<ProyectoAdministrador> ProyectoAdministradors { get; set; } = new List<ProyectoAdministrador>();
+
     public virtual ICollection<Reporte> Reportes { get; set; } = new List<Reporte>();
 
     public virtual Rol? Rol { get; set; }

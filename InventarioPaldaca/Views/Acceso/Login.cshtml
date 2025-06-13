@@ -13,20 +13,6 @@
 
         <div class="login__forms">
 
-            @* Mostrar mensajes *@
-            @if (ViewBag.Error != null || ViewBag.Mensaje != null)
-            {
-                <div class="login__mensajes">
-                    @if (ViewBag.Error != null)
-                    {
-                        <div class="alert alert-danger">@ViewBag.Error</div>
-                    }
-                    @if (ViewBag.Mensaje != null)
-                    {
-                        <div class="alert alert-success">@ViewBag.Mensaje</div>
-                    }
-                </div>
-            }
 
             <form asp-action="Login" method="post" class="login__registre" id="login-in">
                 @Html.AntiForgeryToken()
@@ -44,15 +30,22 @@
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
 
-              
-
-
                 <button type="submit" class="login__button">Iniciar Sesión</button>
 
-                <div>
-                    <span class="login__account">¿No tienes una cuenta?</span>
-                    <a asp-action="Registro" class="login__signup">Registrarse</a>
-                </div>
+                @* Mostrar mensajes *@
+                @if (ViewBag.Error != null || ViewBag.Mensaje != null)
+                {
+                    <div class="login__mensajes">
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-danger">@ViewBag.Error</div>
+                        }
+                        @if (ViewBag.Mensaje != null)
+                        {
+                            <div class="alert alert-success">@ViewBag.Mensaje</div>
+                        }
+                    </div>
+                }
             </form>
             @* Botón para restablecer contraseña debajo de los inputs *@
             <div class="mb-3">

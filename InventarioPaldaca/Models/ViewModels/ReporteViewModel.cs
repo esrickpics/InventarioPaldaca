@@ -9,8 +9,6 @@ namespace InventarioPaldaca.Models.ViewModels
         public string Descripcion { get; set; }
         public int? ActivoIdSeleccionado { get; set; }
         public List<SelectListItem> ActivosAsociados { get; set; } = new();
-        public string RutaArchivo { get; set; } // si usas archivos
-
     }
 }
 

@@ -140,5 +140,69 @@ namespace InventarioPaldaca.Controllers
             };
             return model;
         }
+        // Devuelve la vista parcial con el formulario para editar (GET)
+        public IActionResult EditPartial(int id)
+        {
+            var proveedor = _context.Proveedors.Find(id);
+            if (proveedor == null)
+                return NotFound();
+
+            var viewModel = new ProveedorEditViewModel
+            {
+                ProveedorId = proveedor.ProveedorId,
+                ProveedorNombre = proveedor.ProveedorNombre,
+                ProveedorRif = proveedor.ProveedorRif,
+                ProveedorTelefono = proveedor.ProveedorTelefono,
+                ProveedorEmail = proveedor.ProveedorEmail,
+                ProveedorDireccion = proveedor.ProveedorDireccion,
+                ProveedorOrigen = proveedor.Origen
+            };
+
+            return PartialView("_EditarProveedorPartial", viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditModal(ProveedorEditViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                var errores = ModelState.Values.SelectMany(v => v.Errors)
+                                              .Select(e => e.ErrorMessage)
+                                              .ToList();
+                return BadRequest(new { mensaje = "Modelo inválido", errores });
+            }
+
+            var proveedorExistente = _context.Proveedors.Find(model.ProveedorId);
+            if (proveedorExistente == null)
+                return NotFound();
+
+            proveedorExistente.ProveedorNombre = model.ProveedorNombre;
+            proveedorExistente.ProveedorRif = model.ProveedorRif;
+            proveedorExistente.ProveedorTelefono = model.ProveedorTelefono;
+            proveedorExistente.ProveedorEmail = model.ProveedorEmail;
+            proveedorExistente.ProveedorDireccion = model.ProveedorDireccion;
+            proveedorExistente.Origen = model.ProveedorOrigen;
+            Console.WriteLine($"ProveedorOrigen: {model.ProveedorOrigen}");
+
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            var proveedor = _context.Proveedors.Find(id);
+            if (proveedor == null)
+                return NotFound(new { mensaje = "Proveedor no encontrado" });
+
+            _context.Proveedors.Remove(proveedor);
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
     }
 }

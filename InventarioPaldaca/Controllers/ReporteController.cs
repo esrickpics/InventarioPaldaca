@@ -29,7 +29,7 @@ namespace InventarioPaldaca.Controllers
                 .Select(a => new SelectListItem
                 {
                     Value = a.ActivoId.ToString(),
-                    Text = $"{a.CodigoInventario} - {a.Marca} {a.Modelo}"
+                    Text = $"{a.CodigoInventario} - {a.Marca} - {a.Modelo} - {a.Categoria.CategoriaNombre}"
                 }).ToList();
 
             var viewModel = new ReporteViewModel
@@ -39,7 +39,6 @@ namespace InventarioPaldaca.Controllers
 
             return View(viewModel);
         }
-
         [HttpPost]
         public async Task<IActionResult> Generar(ReporteViewModel model)
         {
@@ -54,15 +53,27 @@ namespace InventarioPaldaca.Controllers
                     UsuarioId = usuarioId,
                     FechaGeneracion = DateTime.Now,
                     Descripcion = model.Descripcion,
-                    RutaArchivo = model.RutaArchivo,
                     ActivoId = model.ActivoIdSeleccionado
                 };
 
                 _context.Reportes.Add(nuevoReporte);
                 await _context.SaveChangesAsync();
 
-                TempData["Success"] = "Reporte generado exitosamente.";
-                return RedirectToAction("Index", "Home");
+                // Recargar lista de activos
+                model.ActivosAsociados = _context.Activos
+                    .Where(a => a.UsuarioId == usuarioId)
+                    .Select(a => new SelectListItem
+                    {
+                        Value = a.ActivoId.ToString(),
+                        Text = $"{a.CodigoInventario} - {a.Marca} {a.Modelo}"
+                    }).ToList();
+
+                // Limpiar campos del formulario
+                model.Descripcion = string.Empty;
+                model.ActivoIdSeleccionado = null;
+
+                ViewBag.Success = "Reporte generado exitosamente.";
+                return View("Reporte", model);
             }
 
             // Recargar lista de activos si hay errores
@@ -71,11 +82,27 @@ namespace InventarioPaldaca.Controllers
                 .Select(a => new SelectListItem
                 {
                     Value = a.ActivoId.ToString(),
-                    Text = $"{a.CodigoInventario} - {a.Marca} {a.Modelo}"
+                    Text = $"{a.CodigoInventario} - {a.Marca} - {a.Modelo} - {a.Categoria.CategoriaNombre}"
                 }).ToList();
 
             return View("Reporte", model);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> FinalizarReporte(int id)
+        {
+            var reporte = await _context.Reportes.FindAsync(id);
+            if (reporte == null)
+            {
+                return NotFound();
+            }
+
+            reporte.Estado = "Finalizado";
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
 
         [AuthorizeRole("Administrador")]
         public async Task<IActionResult> Index()

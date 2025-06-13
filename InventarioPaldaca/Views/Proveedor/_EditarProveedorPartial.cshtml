@@ -1,0 +1,46 @@
+﻿@model InventarioPaldaca.Models.ViewModels.ProveedorEditViewModel
+
+<form id="formEditarProveedor" method="post">
+    <input type="hidden" asp-for="ProveedorId" />
+
+    <div class="mb-3">
+        <label asp-for="ProveedorNombre" class="form-label"></label>
+        <input asp-for="ProveedorNombre" class="form-control" />
+        <span asp-validation-for="ProveedorNombre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProveedorRif" class="form-label"></label>
+        <input asp-for="ProveedorRif" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProveedorTelefono" class="form-label"></label>
+        <input asp-for="ProveedorTelefono" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProveedorEmail" class="form-label"></label>
+        <input asp-for="ProveedorEmail" type="email" class="form-control" />
+        <span asp-validation-for="ProveedorEmail" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProveedorDireccion" class="form-label"></label>
+        <textarea asp-for="ProveedorDireccion" class="form-control" rows="2"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProveedorOrigen" class="form-label"></label>
+        <input asp-for="ProveedorOrigen" class="form-control" />
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-success me-2">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,112 +1,126 @@
 ﻿@model InventarioPaldaca.Models.ViewModels.ActivosMantenimientoViewModel
+@using System.Globalization
 
-<a asp-action="HistorialMantenimientos" asp-controller="Mantenimientos" class="btn btn-action btn-smha">
-    Historial de Mantenimientos
-</a>
 
-<h2>Activos en Mantenimiento</h2>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Categoría</th>
-            <th>Ubicación</th>
-            <th>Usuario Asignado</th>
-            <th>Estado del Mantenimiento</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var activo in Model.Activos)
-        {
-            var mantenimientoActual = activo.Mantenimientos
-                .Where(m => m.Estado == "En proceso")
-                .OrderByDescending(m => m.FechaInicio)
-                .FirstOrDefault();
 
+<div class="form-container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h2 class="form-title" style="margin: 0;">
+            <img src="/img/Iconos/Mantenimiento.svg" alt="Icono Mantenimiento" style="width: 32px; height: 32px; margin-right: 10px;">
+            Activos en Mantenimiento
+        </h2>
+        <a asp-action="HistorialMantenimientos" asp-controller="Mantenimientos" class="btn btn-sm btn-action text-white mb-2 shadow-sm"
+           style="min-width: 150px; margin-bottom: 0 !important;">
+            Historial de Mantenimientos
+        </a>
+    </div>
+    <hr class="linea" />
+    <table class="table table-bordered">
+        <thead>
             <tr>
-                <td>@activo.CodigoInventario</td>
-                <td>@activo.Categoria?.CategoriaNombre</td>
-                <td>@activo.Ubicacion?.UbicacionNombre</td>
-                <td>@activo.Usuario?.UsuarioNombre</td>
-                <td>
-                    @if (mantenimientoActual != null)
-                    {
-                        <span class="badge bg-warning">En proceso desde @mantenimientoActual.FechaInicio.ToShortDateString()</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-secondary">Sin mantenimiento activo</span>
-                    }
-                </td>
-                <td>
-                    @if (mantenimientoActual != null)
-                    {
-                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editarMantenimientoModal-@mantenimientoActual.MantenimientoId">
-                            Editar
-                        </button>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Ubicación</th>
+                <th>Usuario Asignado</th>
+                <th>Estado del Mantenimiento</th>
+                <th>Descripcion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var activo in Model.Activos)
+            {
+                var mantenimientoActual = activo.Mantenimientos
+                    .Where(m => m.Estado == "En proceso")
+                    .OrderByDescending(m => m.FechaInicio)
+                    .FirstOrDefault();
 
-                        <form asp-action="FinalizarMantenimiento" method="post" style="display:inline;">
-                            <input type="hidden" name="mantenimientoId" value="@mantenimientoActual.MantenimientoId" />
-                            <button type="submit" class="btn btn-sm btn-success ms-1"
-                                    onclick="return confirm('¿Estás seguro de finalizar este mantenimiento?');">
-                                Finalizar
+                <tr>
+                    <td>@activo.CodigoInventario</td>
+                    <td>@activo.Categoria?.CategoriaNombre</td>
+                    <td>@activo.Ubicacion?.UbicacionNombre</td>
+                    <td>@activo.Usuario?.UsuarioNombre</td>
+                    <td>
+                        @if (mantenimientoActual != null)
+                        {
+                            <span class="badge bg-warning">En proceso desde @mantenimientoActual.FechaInicio.ToShortDateString()</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Sin mantenimiento activo</span>
+                        }
+                    </td>
+                    <td>
+                        @if (mantenimientoActual != null)
+                        {
+                            <span> @mantenimientoActual.Descripcion</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Sin mantenimiento activo</span>
+                        }
+                    </td>
+                    <td>
+                        @if (mantenimientoActual != null)
+                        {
+                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editarMantenimientoModal-@mantenimientoActual.MantenimientoId">
+                                Editar
                             </button>
-                        </form>
 
-                        <!-- Modal de edición -->
-                        <div class="modal fade" id="editarMantenimientoModal-@mantenimientoActual.MantenimientoId" tabindex="-1" aria-labelledby="editarMantenimientoLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form asp-action="EditarMantenimiento" method="post">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Editar Mantenimiento</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <input type="hidden" name="MantenimientoId" value="@mantenimientoActual.MantenimientoId" />
-                                            <div class="mb-3">
-                                                <label class="form-label">Técnico</label>
-                                                <input type="text" name="Tecnico" value="@mantenimientoActual.Tecnico" class="form-control" required />
+                            <form asp-action="FinalizarMantenimiento" method="post" style="display:inline;">
+                                <input type="hidden" name="mantenimientoId" value="@mantenimientoActual.MantenimientoId" />
+                                <button type="submit" class="btn btn-sm btn-success ms-1"
+                                        onclick="return confirm('¿Estás seguro de finalizar este mantenimiento?');">
+                                    Finalizar
+                                </button>
+                            </form>
+
+                            <!-- Modal de edición -->
+                            <div class="modal fade" id="editarMantenimientoModal-@mantenimientoActual.MantenimientoId" tabindex="-1" aria-labelledby="editarMantenimientoLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form asp-action="EditarMantenimiento" method="post">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Editar Mantenimiento</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Número Técnico</label>
-                                                <input type="text" name="NumeroTecnico" value="@mantenimientoActual.NumeroTecnico" class="form-control" required />
+                                            <div class="modal-body">
+                                                <input type="hidden" name="MantenimientoId" value="@mantenimientoActual.MantenimientoId" />
+                                                <div class="mb-3">
+                                                    <label class="form-label">Técnico</label>
+                                                    <input type="text" name="Tecnico" value="@mantenimientoActual.Tecnico" class="form-control" required />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Número Técnico</label>
+                                                    <input type="text" name="NumeroTecnico" value="@mantenimientoActual.NumeroTecnico" class="form-control" required />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Costo</label>
+                                                    <input type="number" name="Costo" value="@mantenimientoActual.Costo?.ToString("0.00", CultureInfo.InvariantCulture)" step="0.01" class="form-control" required />
+
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Descripción</label>
+                                                    <textarea name="Descripcion" class="form-control">@mantenimientoActual.Descripcion</textarea>
+                                                </div>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Costo</label>
-                                                <input type="number" name="Costo" value="@mantenimientoActual.Costo" step="0.01" class="form-control" required />
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-success">Guardar Cambios</button>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Descripción</label>
-                                                <textarea name="Descripcion" class="form-control">@mantenimientoActual.Descripcion</textarea>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Estado</label>
-                                                <select name="Estado" class="form-control">
-                                                    @foreach (var estado in Model.EstadosDisponibles)
-                                                    {
-                                                        @estado.Value
-                                                    }
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                            <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    }
-                    else
-                    {
-                        <span class="text-muted">N/A</span>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                        }
+                        else
+                        {
+                            <span class="text-muted">N/A</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

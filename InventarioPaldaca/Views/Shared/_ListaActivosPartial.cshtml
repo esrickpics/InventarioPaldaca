@@ -8,11 +8,17 @@
 }
 else
 {
+    <div class="d-flex justify-content-end mb-2">
+        <button id="toggle-funcionalidad-column" class="btn btn-primary me-3">
+            Mostrar Acciones
+        </button>
+    </div>
     @foreach (var activo in Model.ListaActivos)
     {
         <tr class="clickable-row"
             data-historial-url="@Url.Action("HistorialMovimientos", "Movimientos", new { id = activo.ActivoId })"
             data-user-url="@(activo.Usuario != null ? Url.Action("PerfilUsuario", "Usuario", new { id = activo.Usuario.UsuarioId }) : null)">
+
             <td><span class="perfil-link">@(activo.Usuario?.UsuarioNombre ?? "No asignado")</span></td>
             <td><span class="perfil-link">@(activo.Usuario?.UsuarioApellido ?? "No asignado")</span></td>
             <td>@Html.DisplayFor(m => activo.Marca)</td>
@@ -21,11 +27,14 @@ else
             <td>@Html.DisplayFor(m => activo.NumeroSerial)</td>
             <td>@(activo.Ubicacion?.UbicacionNombre ?? "No asignada")</td>
             <td>@(string.IsNullOrEmpty(activo.CodigoInventario) ? "No asignado" : activo.CodigoInventario)</td>
-            <td class="funcionabilidad-column">
+
+
+            <!-- Celda oculta con acciones -->
+            <td id="funcionalidad-@activo.ActivoId" class="funcionabilidad-column" style="display: none;">
                 @if (activo.Funcionabilidad.GetValueOrDefault())
                 {
                     <button type="button" class="btn btn-sm btn-action" data-bs-toggle="modal" data-bs-target="#mantenimientoModal-@activo.ActivoId" style="font-size: 12px; padding: 5px 10px;">
-                        Marcar como dañado
+                        Agregar Mantenimiento
                     </button>
                 }
                 else
@@ -33,11 +42,15 @@ else
                     <form asp-action="ActualizarFuncionabilidad" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="@activo.ActivoId" />
                         <button type="submit" class="btn btn-sm btn-action" style="font-size: 12px; padding: 5px 10px;">
-                            Reparado
+                            Finalizar Mantenimiento
                         </button>
                     </form>
                 }
+                <button type="button" class="btn btn-sm btn-secondary ms-1" data-bs-toggle="modal" data-bs-target="#editarActivoModal-@activo.ActivoId" style="font-size: 12px; padding: 5px 10px;">
+                    Editar
+                </button>
 
+                <!-- Modal de mantenimiento -->
                 <div class="modal fade" id="mantenimientoModal-@activo.ActivoId" tabindex="-1" aria-labelledby="mantenimientoModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -73,7 +86,46 @@ else
                         </div>
                     </div>
                 </div>
+                <!-- Modal de edición de activo -->
+                <div class="modal fade" id="editarActivoModal-@activo.ActivoId" tabindex="-1" aria-labelledby="editarActivoModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form asp-action="EditarActivo" method="post">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editarActivoModalLabel">Editar Activo</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="hidden" name="ActivoId" value="@activo.ActivoId" />
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Marca</label>
+                                        <input type="text" name="Marca" value="@activo.Marca" class="form-control" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Modelo</label>
+                                        <input type="text" name="Modelo" value="@activo.Modelo" class="form-control" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Número Serial</label>
+                                        <input type="text" name="NumeroSerial" value="@activo.NumeroSerial" class="form-control" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Código Inventario</label>
+                                        <input type="text" name="CodigoInventario" value="@activo.CodigoInventario" class="form-control" />
+                                    </div>
+                                    <!-- Puedes añadir más campos si necesitas -->
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </td>
+
             <td class="delete-column" style="display:none;">
                 <form asp-action="Delete" asp-route-id="@activo.ActivoId" method="post">
                     <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
@@ -81,6 +133,7 @@ else
             </td>
         </tr>
     }
+
 }
 
 @section scripts {

@@ -75,11 +75,21 @@
                         }
                     </select>
                 </div>
-
-                <!-- Tercera fila con Código de Inventario ocupando toda la fila -->
-                <div class="col-md-12 mt-3">
+                <!-- Tercera fila: Código Inventario y Proyecto -->
+                <div class="col-md-6 mt-3">
                     <label for="codigoInventario" class="form-label">Código de Inventario:</label>
                     <input type="text" class="form-control" id="codigoInventario" placeholder="Ingrese el código de inventario" onkeyup="filtrarActivos()">
+                </div>
+
+                <div class="col-md-6 mt-3">
+                    <label for="proyecto" class="form-label">Proyecto:</label>
+                    <select class="form-select" id="proyecto" onchange="filtrarActivos()">
+                        <option value="0">Seleccione un proyecto</option>
+                        @foreach (var proyecto in Model.Proyectos)
+                        {
+                            <option value="@proyecto.ProyectoId">@proyecto.Nombre</option>
+                        }
+                    </select>
                 </div>
             </div>
         </form>
@@ -91,48 +101,65 @@
 
     <hr class="linea" />
 
-
-    <!-- Modal para reasignar activos -->
+    <!-- Modal para reasignar usuario y proyecto -->
     <div class="modal fade" id="reassignModal" tabindex="-1" role="dialog" aria-labelledby="reassignModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+
                 <div class="modal-header">
                     <h5 class="modal-title" id="reassignModalLabel">Reasignar activo</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
+
                 <div class="modal-body">
-                    <form id="reassignForm" asp-action="ReasignarActivo" method="post">
-                        <div class="form-group">
+                    <form id="reassignForm" asp-action="ReasignarActivo" method="post" onsubmit="return confirm('¿Estás seguro de realizar la reasignación?');">
+                        <div class="form-group mb-3">
                             <label for="activoId">Seleccione un activo:</label>
-                            <select id="activoId" name="id" class="form-control">
-                                <!-- Cambiado a "id" -->
-                                @foreach (var activo in Model.ListaActivosCompleta)
+                            <select id="activoId" name="id" class="form-control" required>
+                                @foreach (var activo in Model.ActivosDisponiblesParaReasignar)
                                 {
-                                    <option value="@activo.ActivoId">@activo.CodigoInventario - @activo.Modelo - @activo.Categoria.CategoriaNombre - @(activo.Usuario?.UsuarioNombre ?? "No asignado")</option>
+                                    <option value="@activo.ActivoId">
+                                        @activo.CodigoInventario - @activo.Modelo - @activo.Categoria.CategoriaNombre - @(activo.Usuario?.UsuarioNombre ?? "No asignado")
+                                    </option>
                                 }
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="usuarioId">Seleccione un nuevo usuario:</label>
+
+                        <div class="form-group mb-3">
+                            <label for="usuarioId">Nuevo usuario</label>
                             <select id="usuarioId" name="usuarioId" class="form-control">
-                                <!-- Cambiado a "usuarioId" -->
+                                <option value="default">-- Seleccione un usuario --</option>
+                                <option value="">-- Disponible --</option>
                                 @foreach (var usuario in ViewBag.Usuarios)
                                 {
                                     <option value="@usuario.Value">@usuario.Text</option>
                                 }
                             </select>
                         </div>
+
+                        <div class="form-group mb-3">
+                            <label for="proyectoId">Nuevo proyecto</label>
+                            <select id="proyectoId" name="proyectoId" class="form-control">
+                                <option value="default">-- Seleccione un proyecto --</option>
+                                <option value="">-- Sin Proyecto --</option>
+                                @foreach (var proyecto in ViewBag.Proyectos)
+                                {
+                                    <option value="@proyecto.Value">@proyecto.Text</option>
+                                }
+                            </select>
+                        </div>
+
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Reasignar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>
+
 
     <!-- Modal para reubicar activos -->
     <div class="modal fade" id="relocalizarModal" tabindex="-1" role="dialog" aria-labelledby="relocalizarModalLabel" aria-hidden="true">
@@ -305,7 +332,7 @@
             });
         }
 
-
+           
         $(document).ready(function () {
 
                  asignarEventosFila();
@@ -315,13 +342,17 @@
             $('#openReassignModalBtn').click(function () {
                 $('#reassignModal').modal('show');
             });
-
+        
             $('#toggleDelete').click(function () {
                 // Alternar la visibilidad de la columna de eliminación
                 $('.delete-column').toggle();
 
                 // Alternar la visibilidad de la columna de cambiar funcionalidad
                 $('.funcionabilidad-column').toggle();
+            });
+
+            document.getElementById("activoId").addEventListener("change", function () {
+            document.getElementById("liberarActivoId").value = this.value;
             });
 
             $('#categoriaMaster').change(function () {
@@ -376,10 +407,11 @@
                 });
             });
 
-                   function filtrarActivos(categoriaMaster = '') {
+                         function filtrarActivos(categoriaMaster = '') {
             var categoria = $('#categoria').val();
             var ubicacion = $('#ubicacion').val();
             var codigoInventario = $('#codigoInventario').val();
+            var proyectoId = $('#proyecto').val(); // nuevo select
 
             $.ajax({
                 url: '@Url.Action("FiltrarActivos", "Activo")',
@@ -388,17 +420,19 @@
                     categoria: categoria,
                     ubicacion: ubicacion,
                     codigoInventario: codigoInventario,
-                    categoriaMaster: categoriaMaster
+                    categoriaMaster: categoriaMaster,
+                    proyectoId: proyectoId // incluir proyectoId en el GET
                 },
                 success: function (result) {
-                    $('#contenedorTablaPaginada').html(result); // Reemplaza tabla
-                    asignarEventosFila(); // <- 🔧 REACTIVA los eventos después del filtro
+                    $('#contenedorTablaPaginada').html(result);
+                    asignarEventosFila(); // reactiva eventos en la tabla
                 },
                 error: function (xhr, status, error) {
                     alert('Ocurrió un error al filtrar los activos: ' + error);
                 }
             });
         }
+
 
         });
 
@@ -408,16 +442,13 @@
 
             // Ruta de la imagen en el servidor
             const logoUrl = '/img/Paldaca logoyRif.png';
-            //encabezado
-            // Cargar la imagen desde el servidor y convertirla a base64
+
             async function getBase64ImageFromUrl(url) {
                 const response = await fetch(url);
                 const blob = await response.blob();
                 return new Promise((resolve, reject) => {
                     const reader = new FileReader();
                     reader.onloadend = () => resolve(reader.result);
-                
-                    
                     reader.onerror = () => reject(new Error('Error al cargar la imagen'));
                     reader.readAsDataURL(blob);
                 });
@@ -429,17 +460,23 @@
             } catch (error) {
                 console.error('Error al cargar el logo:', error);
             }
+                 const today = new Date();
+            const formattedDate = today.toLocaleDateString('es-VE', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
 
-            // Genera la tabla del encabezado
+            // Encabezado tabla del título
             doc.autoTable({
-                startY: 10, // Posición vertical
-                margin: { left: 60, right: 40 }, // Margen izquierdo para que no se superponga con el logo
-                tableWidth: 140, // Ajusta el ancho de la tabla
+                startY: 10,
+                margin: { left: 60, right: 40 },
+                tableWidth: 140,
                 theme: 'plain',
                 body: [
-                    [{ content: 'SISTEMA DE GESTION DE LA CALIDAD', styles: { halign: 'center', fontSize: 10 } }],
+                    [{ content: 'SISTEMA DE GESTIÓN DE LA CALIDAD', styles: { halign: 'center', fontSize: 10 } }],
                     [{ content: 'SISTEMAS Y TECNOLOGÍA', styles: { halign: 'center', fontSize: 10 } }],
-                    [{ content: 'CONTROL DE INVENTARIO', styles: { halign: 'center', fontSize: 12, fontStyle: 'bold' } }],
+                    [{ content: 'CONTROL DE INVENTARIO', styles: { halign: 'center', fontSize: 12, fontStyle: 'bold' } }]
                 ],
                 styles: {
                     cellPadding: 2,
@@ -448,16 +485,47 @@
                     lineWidth: 0.5,
                     font: 'helvetica',
                 },
-                showHead: false, // No mostrar encabezados de tabla
+                showHead: false,
             });
-            // Línea divisoria
+
+            // Agregar la fecha de emisión justo debajo del encabezado
+            doc.setFontSize(10);
+            doc.text(`Fecha de emisión: ${formattedDate}`, 14, doc.lastAutoTable.finalY + 5);
             doc.setLineWidth(0.5);
             doc.line(14, 52, 196, 52);
 
-            // Tabla de datos
+            // Obtener la tabla HTML
+            const table = document.querySelector('#activosTable');
+            if (!table) {
+                alert('No se encontró la tabla #activosTable');
+                return;
+            }
+
+            // Obtener encabezados (th)
+            const headers = Array.from(table.querySelectorAll('thead tr th'));
+
+            // Filtrar para eliminar columnas 8 y 9 (índices 7 y 8)
+            const filteredHeaders = headers.filter((_, index) => index !== 8 && index !== 9);
+
+            // Preparar array de encabezados para autoTable
+            const head = [filteredHeaders.map(th => th.textContent.trim())];
+
+            // Obtener todas las filas de tbody
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+
+            // Preparar body filtrando las columnas 8 y 9
+            const body = rows.map(row => {
+                const cells = Array.from(row.querySelectorAll('td'));
+                // Filtramos las columnas 7 y 8 para excluir funcionalidad y eliminar
+                const filteredCells = cells.filter((_, index) => index !== 8 && index !== 9);
+                return filteredCells.map(cell => cell.textContent.trim());
+            });
+
+            // Generar la tabla en el PDF sin las columnas 8 y 9
             doc.autoTable({
-                html: '#activosTable',
                 startY: 55,
+                head: head,
+                body: body,
                 theme: 'grid',
                 headStyles: {
                     fillColor: [0, 51, 102],
@@ -497,7 +565,7 @@
             doc.text("Firma: _____________________", 110, doc.lastAutoTable.finalY + 34);
             doc.text("Fecha: _____________________", 110, doc.lastAutoTable.finalY + 42);
 
-            // Guardar o mostrar el PDF
+            // Guardar o mostrar PDF
             const pdfBlob = doc.output('blob');
             if (window.showSaveFilePicker) {
                 const options = {
@@ -518,7 +586,6 @@
                     alert('Error al guardar el archivo: ' + error.message);
                 }
             } else {
-                // Método de respaldo para navegadores sin soporte de File System Access API
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(pdfBlob);
                 link.download = 'controlactivos.pdf';
@@ -529,5 +596,30 @@
             function cambiarTamañoPagina(size) {
             window.location.href = '@Url.Action("Index")' + '?pagina=1&pageSize=' + size;
         }
+
+          
+        // Mostrar/Ocultar acciones de funcionalidad
+        document.addEventListener('DOMContentLoaded', function () {
+             const toggleButton = document.getElementById('toggle-funcionalidad-column');
+             const funcionalidadCeldas = document.querySelectorAll('.funcionabilidad-column');
+             let visible = false;
+
+             toggleButton.addEventListener('click', function () {
+                 visible = !visible;
+                 funcionalidadCeldas.forEach(celda => {
+                     celda.style.display = visible ? 'table-cell' : 'none';
+                 });
+                 toggleButton.textContent = visible ? 'Ocultar Acciones' : 'Mostrar Acciones';
+             });
+         });
+
+            $(document).on('click', '#toggle-funcionalidad-column', function () {
+            const columnas = $(".funcionabilidad-column");
+            const estadoActual = columnas.first().css("display") === "none";
+
+            columnas.css("display", estadoActual ? "table-cell" : "none");
+            $(this).text(estadoActual ? "Ocultar Acciones" : "Mostrar Acciones");
+        });
+
     </script>
 }

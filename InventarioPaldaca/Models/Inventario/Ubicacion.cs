@@ -9,7 +9,7 @@ public partial class Ubicacion
 
     public string UbicacionNombre { get; set; } = null!;
 
-    public string UbicacionDireccion { get; set; } = null!;
+    public string? UbicacionDireccion { get; set; }
 
     public string? UbicacionDescripcion { get; set; }
 

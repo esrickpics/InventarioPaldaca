@@ -13,10 +13,9 @@ namespace InventarioPaldaca.Models.ViewModels
         public string Modelo { get; set; }
 
         [DisplayName("Número Serial")]
-        public string NumeroSerial { get; set; }
+        public string? NumeroSerial { get; set; }
 
-        [DisplayName("Funcionabilidad")]
-        public bool Funcionabilidad { get; set; }
+        public bool Funcionabilidad = true;
 
         [DisplayName("Observaciones")]
         public string? Observaciones { get; set; }
@@ -33,11 +32,12 @@ namespace InventarioPaldaca.Models.ViewModels
         [DisplayName("Ubicación")]
         public int UbicacionId { get; set; }
 
-        [Required(ErrorMessage = "Ingrese un Usuario")]
         [DisplayName("Usuario")]
-        public int UsuarioId { get; set; }
+        public int? UsuarioId { get; set; }
 
-        public int AñoAdquirido { get; set; }
+        public int? ProyectoId { get; set; }
+
+        public int? AñoAdquirido { get; set; }
 
     }
 }

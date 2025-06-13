@@ -87,7 +87,7 @@ header {
 }
 
 .btn-action {
-    background-color: #2a3f7a;
+    background-color: var(--e-global-color-azul);
     color: white;
     padding: 10px 20px;
     border: none;

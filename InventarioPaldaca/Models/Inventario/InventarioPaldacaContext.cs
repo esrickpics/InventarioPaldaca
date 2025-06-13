@@ -29,6 +29,8 @@ public partial class InventarioPaldacaContext : DbContext
 
     public virtual DbSet<Proyecto> Proyectos { get; set; }
 
+    public virtual DbSet<ProyectoAdministrador> ProyectoAdministradors { get; set; }
+
     public virtual DbSet<Reporte> Reportes { get; set; }
 
     public virtual DbSet<Rol> Rols { get; set; }
@@ -83,6 +85,10 @@ public partial class InventarioPaldacaContext : DbContext
             entity.HasOne(d => d.Proveedor).WithMany(p => p.Activos)
                 .HasForeignKey(d => d.ProveedorId)
                 .HasConstraintName("FK__activo__proveedo__5629CD9C");
+
+            entity.HasOne(d => d.Proyecto).WithMany(p => p.Activos)
+                .HasForeignKey(d => d.ProyectoId)
+                .HasConstraintName("FK_Activo_Proyectos");
 
             entity.HasOne(d => d.Ubicacion).WithMany(p => p.Activos)
                 .HasForeignKey(d => d.UbicacionId)
@@ -156,6 +162,14 @@ public partial class InventarioPaldacaContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Movimient__Activ__634EBE90");
 
+            entity.HasOne(d => d.ProyectoAnterior).WithMany(p => p.MovimientoProyectoAnteriors)
+                .HasForeignKey(d => d.ProyectoAnteriorId)
+                .HasConstraintName("FK_Movimiento_ProyectoAnterior");
+
+            entity.HasOne(d => d.ProyectoNuevo).WithMany(p => p.MovimientoProyectoNuevos)
+                .HasForeignKey(d => d.ProyectoNuevoId)
+                .HasConstraintName("FK_Movimiento_ProyectoNuevo");
+
             entity.HasOne(d => d.UbicacionAnterior).WithMany(p => p.MovimientoUbicacionAnteriors)
                 .HasForeignKey(d => d.UbicacionAnteriorId)
                 .HasConstraintName("FK__Movimient__Ubica__662B2B3B");
@@ -227,7 +241,24 @@ public partial class InventarioPaldacaContext : DbContext
             entity.HasKey(e => e.ProyectoId).HasName("PK__Proyecto__CF241D65A2125893");
 
             entity.Property(e => e.Estado).HasMaxLength(50);
-            entity.Property(e => e.Nombre).HasMaxLength(100);
+            entity.Property(e => e.Nombre).IsUnicode(false);
+        });
+
+        modelBuilder.Entity<ProyectoAdministrador>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Proyecto__3214EC07AEDE2C74");
+
+            entity.ToTable("ProyectoAdministrador");
+
+            entity.HasOne(d => d.Proyecto).WithMany(p => p.ProyectoAdministradors)
+                .HasForeignKey(d => d.ProyectoId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ProyectoA__Proye__32767D0B");
+
+            entity.HasOne(d => d.Usuario).WithMany(p => p.ProyectoAdministradors)
+                .HasForeignKey(d => d.UsuarioId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ProyectoA__Usuar__318258D2");
         });
 
         modelBuilder.Entity<Reporte>(entity =>
@@ -240,6 +271,9 @@ public partial class InventarioPaldacaContext : DbContext
             entity.Property(e => e.Descripcion)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+            entity.Property(e => e.Estado)
+                .HasMaxLength(20)
+                .HasDefaultValue("En proceso");
             entity.Property(e => e.FechaGeneracion)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");

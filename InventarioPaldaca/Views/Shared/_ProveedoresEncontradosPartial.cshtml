@@ -5,25 +5,36 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 }
+@Html.AntiForgeryToken()
 
 @if (Model?.Any() ?? false)
 {
-    <ul class="list-group">
+    <div class="list-group">
         @foreach (var proveedor in Model)
         {
-            <li class="list-group-item cardusuario">
-                <div class="bg-primary text-white p-4 rounded">
-                    <strong>@proveedor.ProveedorNombre</strong> - @proveedor.ProveedorTelefono
+            <div class="list-group-item mb-3 p-3 shadow-sm rounded d-flex justify-content-between align-items-center bg-white border">
+                <div>
+                    <h5 class="mb-1 text-dark fw-semibold">@proveedor.ProveedorNombre</h5>
+                    <p class="mb-0 text-muted">@proveedor.ProveedorTelefono</p>
                 </div>
-            </li>
+
+                <div class="d-flex gap-2">
+                    <button type="button"
+                            class="btn btn-sm text-white"
+                            style="background-color: #2a3f7a;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editarProveedorModal"
+                            data-id="@proveedor.ProveedorId">
+                        Editar
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-sm btn-danger btnEliminarProveedor"
+                            data-id="@proveedor.ProveedorId">
+                        Eliminar
+                    </button>
+                </div>
+            </div>
         }
-    </ul>
-}
-else
-{
-    <div class="card mt-5 d-none text-dark" id="noProvidersFoundMessage">
-        <div class="card-body">
-            <p>No se encontraron Proveedores</p>
-        </div>
     </div>
 }

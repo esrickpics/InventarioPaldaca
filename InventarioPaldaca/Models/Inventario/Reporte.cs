@@ -17,7 +17,10 @@ public partial class Reporte
 
     public int? ActivoId { get; set; }
 
+    public string Estado { get; set; } = "Pendiente";
+
     public virtual Activo? Activo { get; set; }
 
     public virtual Usuario Usuario { get; set; } = null!;
 }
+ 

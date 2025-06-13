@@ -59,7 +59,7 @@ namespace InventarioPaldaca.Controllers
             return View(model);
         }
 
-        public IActionResult EditarMantenimiento(int MantenimientoId, string Tecnico, string NumeroTecnico, decimal Costo, string Descripcion, string Estado)
+        public IActionResult EditarMantenimiento(int MantenimientoId, string Tecnico, string NumeroTecnico, decimal Costo, string Descripcion)
         {
             var mantenimiento = _context.Mantenimientos.FirstOrDefault(m => m.MantenimientoId == MantenimientoId);
             if (mantenimiento == null)
@@ -72,19 +72,9 @@ namespace InventarioPaldaca.Controllers
             mantenimiento.NumeroTecnico = NumeroTecnico;
             mantenimiento.Costo = Costo;
             mantenimiento.Descripcion = Descripcion;
-            mantenimiento.Estado = Estado;
+            
 
-            if (Estado == "Finalizado" && mantenimiento.FechaFin == null)
-            {
-                mantenimiento.FechaFin = DateOnly.FromDateTime(DateTime.Now);
-
-                // Opcional: reactivar la funcionabilidad del activo
-                var activo = _context.Activos.FirstOrDefault(a => a.ActivoId == mantenimiento.ActivoId);
-                if (activo != null)
-                {
-                    activo.Funcionabilidad = true;
-                }
-            }
+          
 
             _context.SaveChanges();
             TempData["SuccessMessage"] = "Mantenimiento actualizado correctamente.";

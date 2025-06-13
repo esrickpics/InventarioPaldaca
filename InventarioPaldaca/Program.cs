@@ -24,6 +24,7 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 builder.Services.AddHttpClient<Dolar>();
+builder.Services.AddHostedService<LimpiezaReportesService>();
 
 var app = builder.Build();
 

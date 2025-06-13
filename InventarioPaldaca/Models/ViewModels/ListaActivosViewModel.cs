@@ -12,7 +12,9 @@ namespace InventarioPaldaca.Models.ViewModels
         public List<Ubicacion> Ubicaciones { get; set; }
         public List<CategoriaMaster> CategoriasMaster { get; set; }
 
-        // Filtros de búsqueda
+        public List<Proyecto> Proyectos { get; set; }
+
+        
         public string? Nombre { get; set; }
         public string? Apellido { get; set; }
         public string Marca { get; set; }
@@ -30,6 +32,8 @@ namespace InventarioPaldaca.Models.ViewModels
         public int TotalReportes { get; set; }
         public List<Activo> ListaActivosCompleta { get; set; }
 
+        public List<Activo> ActivosDisponiblesParaReasignar { get; set; }
+
 
         public Dictionary<string, int> ActivosPorCategoria { get; set; }
         public Dictionary<string, int> ActivosPorUbicacion { get; set; }
@@ -41,7 +45,7 @@ namespace InventarioPaldaca.Models.ViewModels
             { "Proyector", "/img/Iconos/iconproyector.svg" },
             { "MiniPC", "/img/Iconos/iconminipc.svg" },
             { "Escáner", "/img/Iconos/iconscanner.svg" },
-            { "Servidor", "/img/Iconos/iconservidor.svg" },
+            { "Servidor", "/img/Iconos/Servericon.svg" },
             { "PC", "/img/Iconos/iconpc.svg" }
         };
 

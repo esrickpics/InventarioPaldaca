@@ -1,0 +1,133 @@
+﻿@model InventarioPaldaca.Models.ViewModels.EditarUbicacionViewModel
+@{
+    ViewData["Title"] = "Editar Ubicación";
+}
+@Html.AntiForgeryToken()
+<div class="form-container">
+    <h2 class="form-title">
+        <img src="/img/Iconos/nueva_ubicacion.svg" alt="Icono Ubicación" style="width: 32px; height: 32px; margin-right: 10px;">
+        Gestionar Ubicaciones
+    </h2>
+
+    <div class="form-group">
+        <label for="ubicacionSelect">Seleccionar Ubicación</label>
+        <select id="ubicacionSelect" class="form-control">
+            <option value="">Seleccione una ubicación...</option>
+            @foreach (var ubicacion in Model.UbicacionesDisponibles)
+            {
+                <option value="@ubicacion.Value">@ubicacion.Text</option>
+            }
+        </select>
+    </div>
+
+    <button type="button" class="btn btn-action mt-3" id="btnEditar" disabled>Editar Ubicación</button>
+    <button type="button" class="btn btn-danger mt-3" id="btnEliminar" style="display: none;">Eliminar Ubicación</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editarModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <form method="post" asp-controller="Ubicacion" asp-action="GuardarCambiosUbicacion">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Ubicación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="UbicacionSeleccionadaId" name="UbicacionSeleccionadaId" />
+
+                    <div class="form-group">
+                        <label for="UbicacionNombre">Nombre</label>
+                        <input type="text" class="form-control" id="UbicacionNombre" name="UbicacionNombre" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="UbicacionDireccion">Dirección</label>
+                        <input type="text" class="form-control" id="UbicacionDireccion" name="UbicacionDireccion" />
+                    </div>
+                    <div class="form-group">
+                        <label for="UbicacionDescripcion">Descripción</label>
+                        <textarea class="form-control" id="UbicacionDescripcion" name="UbicacionDescripcion"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-action">Guardar</button>
+                    <button type="button" class="btn btn-secondary" onclick="$('#editarModal').modal('hide')">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (TempData["MensajeExito"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        @TempData["MensajeExito"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const ubicacionSelect = document.getElementById("ubicacionSelect");
+            const btnEditar = document.getElementById("btnEditar");
+            const btnEliminar = document.getElementById("btnEliminar");
+
+            ubicacionSelect.addEventListener("change", () => {
+                const id = ubicacionSelect.value;
+                btnEditar.disabled = !id;
+                btnEliminar.style.display = id ? "inline-block" : "none";
+            });
+
+            btnEditar.addEventListener("click", async () => {
+                const id = ubicacionSelect.value;
+                if (!id) return;
+
+                try {
+                    const response = await fetch(`/Ubicacion/ObtenerUbicacion/${id}`);
+                    if (!response.ok) throw new Error("Error al obtener la ubicación.");
+
+                    const data = await response.json();
+
+                    document.getElementById("UbicacionSeleccionadaId").value = data.ubicacionId;
+                    document.getElementById("UbicacionNombre").value = data.ubicacionNombre;
+                    document.getElementById("UbicacionDireccion").value = data.ubicacionDireccion ?? '';
+                    document.getElementById("UbicacionDescripcion").value = data.ubicacionDescripcion ?? '';
+
+                    $('#editarModal').modal('show');
+                } catch (err) {
+                    alert("Error al cargar los datos: " + err.message);
+                }
+            });
+
+            btnEliminar.addEventListener("click", async () => {
+                const id = ubicacionSelect.value;
+                if (!id) return;
+
+                if (!confirm("¿Estás seguro de que deseas eliminar esta ubicación?")) return;
+
+                try {
+                    const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+                    const formData = new FormData();
+                    formData.append("id", id);
+                    formData.append("__RequestVerificationToken", token);
+
+                    const response = await fetch('/Ubicacion/EliminarUbicacion', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const result = await response.json();
+                    if (result.exito) {
+                        alert(result.mensaje);
+                        location.reload();
+                    } else {
+                        alert(result.mensaje);
+                    }
+                } catch (error) {
+                    alert("Error al intentar eliminar: " + error.message);
+                }
+            });
+        });
+    </script>
+}

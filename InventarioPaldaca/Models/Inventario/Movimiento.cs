@@ -23,7 +23,15 @@ public partial class Movimiento
 
     public int CantidadMantenimientos { get; set; }
 
+    public int? ProyectoAnteriorId { get; set; }
+
+    public int? ProyectoNuevoId { get; set; }
+
     public virtual Activo Activo { get; set; } = null!;
+
+    public virtual Proyecto? ProyectoAnterior { get; set; }
+
+    public virtual Proyecto? ProyectoNuevo { get; set; }
 
     public virtual Ubicacion? UbicacionAnterior { get; set; }
 

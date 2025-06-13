@@ -31,6 +31,8 @@ namespace InventarioPaldaca.Controllers
             return View(model);
         }
 
+        
+
         // POST: Crear categoría
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -48,7 +50,7 @@ namespace InventarioPaldaca.Controllers
                 _context.Add(categoria);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Create", "Activo"); // O a donde necesites redirigir
+                return RedirectToAction("Index", "Activo");
             }
 
             // Si falla la validación, recargar el combo de categorías master
@@ -61,47 +63,84 @@ namespace InventarioPaldaca.Controllers
 
             return View(model);
         }
-
-        public async Task<IActionResult> Editar(int? id)
+        public async Task<IActionResult> Editar()
         {
-            if (id == null) return NotFound();
+            var viewModel = new EditarCategoriaViewModel
+            {
+                CategoriasDisponibles = await _context.Categoria
+                    .Select(c => new SelectListItem
+                    {
+                        Value = c.CategoriaId.ToString(),
+                        Text = c.CategoriaNombre
+                    }).ToListAsync()
+            };
 
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult EliminarCategoria(int id)
+        {
+            var categoria = _context.Categoria.FirstOrDefault(c => c.CategoriaId == id);
+            if (categoria == null)
+            {
+                return Json(new { exito = false, mensaje = "Categoría no encontrada." });
+            }
+
+            bool tieneActivos = _context.Activos.Any(a => a.CategoriaId == id);
+            if (tieneActivos)
+            {
+                return Json(new { exito = false, mensaje = "No se puede eliminar la categoría porque hay activos asociados." });
+            }
+
+            _context.Categoria.Remove(categoria);
+            _context.SaveChanges();
+
+            return Json(new { exito = true, mensaje = "Categoría eliminada correctamente." });
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> ObtenerCategoria(int id)
+        {
             var categoria = await _context.Categoria.FindAsync(id);
             if (categoria == null) return NotFound();
 
-            ViewData["CategoriaMasterId"] = new SelectList(_context.CategoriaMasters, "CategoriaMasterId", "Nombre", categoria.CategoriaMasterId);
-
-            return View(categoria);
+            return Json(new
+            {
+                categoriaId = categoria.CategoriaId,
+                categoriaNombre = categoria.CategoriaNombre,
+                categoriaDescripcion = categoria.CategoriaDescripcion
+            });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Editar(int id, [Bind("CategoriaId,CategoriaNombre,CategoriaDescripcion,CategoriaMasterId")] Categorium categoria)
+        public async Task<IActionResult> GuardarCambiosCategoria(EditarCategoriaViewModel model)
         {
-            if (id != categoria.CategoriaId)
-                return NotFound();
-
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(categoria);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction("Index");
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.Categoria.Any(e => e.CategoriaId == id))
-                        return NotFound();
-                    else
-                        throw;
-                }
+                // Recargar categorías si es necesario
+                model.CategoriasDisponibles = await _context.Categoria
+                    .Select(c => new SelectListItem
+                    {
+                        Value = c.CategoriaId.ToString(),
+                        Text = c.CategoriaNombre
+                    }).ToListAsync();
+                return View("Editar", model);
             }
 
-            ViewData["CategoriaMasterId"] = new SelectList(_context.CategoriaMasters, "CategoriaMasterId", "Nombre", categoria.CategoriaMasterId);
-            return View(categoria);
+            var categoria = await _context.Categoria.FindAsync(model.CategoriaSeleccionadaId);
+            if (categoria == null) return NotFound();
+
+            categoria.CategoriaNombre = model.CategoriaNombre;
+            categoria.CategoriaDescripcion = model.CategoriaDescripcion;
+
+            _context.Update(categoria);
+            await _context.SaveChangesAsync();
+            TempData["MensajeExito"] = "La categoría se actualizó correctamente.";
+            return RedirectToAction("Editar");
+
         }
-
-
     }
 }

@@ -11,15 +11,19 @@ using System.Diagnostics;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using InventarioPaldaca.Utilidades.Filters;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using InventarioPaldaca.Utilidades;
 namespace InventarioPaldaca.Controllers
 {
     public class ActivoController : Controller
     {
         private readonly InventarioPaldacaContext _context;
+        
+      
 
         public ActivoController(InventarioPaldacaContext context)
         {
             _context = context;
+           
         }
 
         // ========================== VISTAS PRINCIPALES ==========================
@@ -27,9 +31,28 @@ namespace InventarioPaldaca.Controllers
         [AuthorizeRole("Administrador")]
         public async Task<IActionResult> Index(int pagina = 1, int pageSize = 10)
         {
-            ViewData["Usuarios"] = new SelectList(_context.Usuarios
-                .Select(u => new { u.UsuarioId, NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido }),
-                "UsuarioId", "NombreCompleto");
+            var usuarios = _context.Usuarios
+                .Select(u => new SelectListItem
+                {
+                    Value = u.UsuarioId.ToString(),
+                    Text = u.UsuarioNombre + " " + u.UsuarioApellido
+                }).ToList();
+
+            // Opción para liberar activo (sin usuario asignado)
+            usuarios.Insert(0, new SelectListItem
+            {
+                Value = "", // o "0" si usas un valor entero especial
+                Text = "-- Disponible --"
+            });
+
+            ViewBag.Usuarios = usuarios;
+
+            ViewBag.Proyectos = _context.Proyectos
+                .Select(p => new SelectListItem
+                {
+                    Value = p.ProyectoId.ToString(),
+                    Text = p.Nombre ?? "-- Sin Proyecto --"
+                }).ToList();
 
             var query = _context.Activos
                 .Include(a => a.Usuario)
@@ -58,12 +81,13 @@ namespace InventarioPaldaca.Controllers
                 Categorias = await _context.Categoria.ToListAsync(),
                 Ubicaciones = await _context.Ubicacions.ToListAsync(),
                 CategoriasMaster = await _context.CategoriaMasters.ToListAsync(),
+                Proyectos = await _context.Proyectos.ToListAsync(),
                 TotalActivos = totalActivos,
                 TotalActivosDañados = await _context.Activos.CountAsync(a => a.Funcionabilidad == false),
                 PaginaActual = pagina,
                 PageSize = pageSize,
                 TotalFiltrados = totalActivos,
-                ListaActivosCompleta = listaActivosCompleta,  
+                ListaActivosCompleta = listaActivosCompleta,
                 ActivosPorCategoria = await query
                     .GroupBy(a => a.Categoria.CategoriaNombre)
                     .Select(g => new { g.Key, Count = g.Count() })
@@ -71,9 +95,14 @@ namespace InventarioPaldaca.Controllers
                 ActivosPorUbicacion = await query
                     .GroupBy(a => a.Ubicacion.UbicacionNombre)
                     .Select(g => new { g.Key, Count = g.Count() })
-                    .ToDictionaryAsync(g => g.Key, g => g.Count)
-            };
+                    .ToDictionaryAsync(g => g.Key, g => g.Count),
 
+                ActivosDisponiblesParaReasignar = _context.Activos
+                    .Include(a => a.Categoria)
+                    .Include(a => a.Usuario)
+                    .Where(a => a.Funcionabilidad == true || a.Funcionabilidad == null)
+                    .ToList()
+            };
             return View(model);
         }
 
@@ -130,24 +159,50 @@ namespace InventarioPaldaca.Controllers
         }
 
         // ========================== CREACIÓN ==========================
-
+        [HttpGet]
         public IActionResult Create()
         {
-            var usuarios = _context.Usuarios
-                .Select(u => new UsuarioSelectDTO
-                {
-                    UsuarioId = u.UsuarioId,
-                    NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido
-                }).ToList();
+            try
+            {
+                var usuarios = _context.Usuarios
+                    .Select(u => new UsuarioSelectDTO
+                    {
+                        UsuarioId = u.UsuarioId,
+                        NombreCompleto = (u.UsuarioNombre ?? "") + " " + (u.UsuarioApellido ?? "")
+                    }).ToList();  
 
-            usuarios.Insert(0, new UsuarioSelectDTO { UsuarioId = null, NombreCompleto = "-- Disponible --" });
+                usuarios.Insert(0, new UsuarioSelectDTO { UsuarioId = null, NombreCompleto = "-- Disponible --" });
 
-            ViewData["Usuario"] = new SelectList(usuarios, "UsuarioId", "NombreCompleto");
-            ViewData["Categoria"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaNombre");
-            ViewData["Ubicacion"] = new SelectList(_context.Ubicacions, "UbicacionId", "UbicacionNombre");
+                var proyectos = _context.Proyectos
+                    .Select(p => new ProyectoSelectDTO
+                    {
+                        ProyectoId = p.ProyectoId,
+                        Nombre = p.Nombre ?? "-- Proyecto sin nombre --"
+                    }).ToList();
 
-            return View();
+               
+                var categorias = _context.Categoria
+                    .Where(c => c.CategoriaNombre != null)
+                    .ToList();
+ 
+                var ubicaciones = _context.Ubicacions
+                    .Where(u => u.UbicacionNombre != null)
+                    .ToList();
+
+                ViewData["Usuario"] = new SelectList(usuarios, "UsuarioId", "NombreCompleto");
+                ViewData["Proyecto"] = new SelectList(proyectos, "ProyectoId", "Nombre");
+                ViewData["Categoria"] = new SelectList(categorias, "CategoriaId", "CategoriaNombre");
+                ViewData["Ubicacion"] = new SelectList(ubicaciones, "UbicacionId", "UbicacionNombre");
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR EN EL MÉTODO GET CREATE: " + ex.Message);
+                throw;
+            }
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -161,13 +216,15 @@ namespace InventarioPaldaca.Controllers
                     Marca = model.Marca,
                     Modelo = model.Modelo,
                     NumeroSerial = model.NumeroSerial,
-                    Funcionabilidad = model.Funcionabilidad,
+                    Funcionabilidad = true, // Por defecto, al crear un activo, se asume que está funcional
                     Observaciones = model.Observaciones,
                     CodigoInventario = model.CodigoInventario,
                     CategoriaId = model.CategoriaId,
                     UbicacionId = model.UbicacionId,
                     UsuarioId = model.UsuarioId,
+                    ProyectoId = model.ProyectoId,
                 };
+
                 try
                 {
                     _context.Add(activo);
@@ -188,25 +245,37 @@ namespace InventarioPaldaca.Controllers
                     NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido
                 }).ToList();
 
-            usuarios.Insert(0, new UsuarioSelectDTO { UsuarioId = null, NombreCompleto = "-- No asignado --" });
+            usuarios.Insert(0, new UsuarioSelectDTO { UsuarioId = null, NombreCompleto = "-- Disponible --" });
+
+            var proyectos = _context.Proyectos
+             .Select(p => new ProyectoSelectDTO
+             {
+                 ProyectoId = p.ProyectoId,
+                 Nombre = p.Nombre
+             }).ToList();
+
+            proyectos.Insert(0, new ProyectoSelectDTO { ProyectoId = null, Nombre = "-- Sin Proyecto --" });
+
 
             ViewData["Usuario"] = new SelectList(usuarios, "UsuarioId", "NombreCompleto", model.UsuarioId);
-            ViewData["Categoria"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaNombre");
-            ViewData["Ubicacion"] = new SelectList(_context.Ubicacions, "UbicacionId", "UbicacionNombre");
+            ViewData["Proyecto"] = new SelectList(proyectos, "ProyectoId", "Nombre", model.ProyectoId);
+            ViewData["Categoria"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaNombre", model.CategoriaId);
+            ViewData["Ubicacion"] = new SelectList(_context.Ubicacions, "UbicacionId", "UbicacionNombre", model.UbicacionId);
 
             return View(model);
         }
 
+
         // ========================== FILTROS, ORDEN Y BÚSQUEDA ==========================
-        public async Task<IActionResult> FiltrarActivos(string categoria, string CodigoInventario, string ubicacion, string categoriamaster, int pagina = 1, int pageSize = 10)
+        public async Task<IActionResult> FiltrarActivos(string categoria, string CodigoInventario, string ubicacion, string categoriamaster,int? proyectoId,int pagina = 1, int pageSize = 10)
         {
             var activos = _context.Activos
                 .Include(a => a.Usuario)
                 .Include(a => a.Categoria)
                 .Include(a => a.Ubicacion)
+                .Include(a => a.Proyecto)
                 .AsQueryable();
 
-            // Aplicar los filtros
             if (!string.IsNullOrEmpty(CodigoInventario))
                 activos = activos.Where(a => a.CodigoInventario.Contains(CodigoInventario));
 
@@ -226,17 +295,19 @@ namespace InventarioPaldaca.Controllers
                 activos = activos.Where(a => subcategorias.Contains(a.Categoria.CategoriaNombre));
             }
 
-            
+            if (proyectoId.HasValue && proyectoId.Value != 0)
+            {
+                activos = activos.Where(a => a.ProyectoId == proyectoId.Value);
+            }
+
             var totalActivos = await activos.CountAsync();
 
-            // Paginación: Aplicar Skip y Take para la paginación
             var listaActivos = await activos
-                .OrderBy(a => a.ActivoId)  
+                .OrderBy(a => a.ActivoId)
                 .Skip((pagina - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
 
-            // Crear el ViewModel
             var model = new ListaActivosViewModel
             {
                 ListaActivos = listaActivos,
@@ -244,9 +315,10 @@ namespace InventarioPaldaca.Controllers
                 PaginaActual = pagina,
                 PageSize = pageSize
             };
-            Console.WriteLine($"Pagina actual {pagina}");
+
             return PartialView("_PaginacionActivosPartial", model);
         }
+
 
 
         [HttpGet]
@@ -307,7 +379,34 @@ namespace InventarioPaldaca.Controllers
                 });
             }
         }
+        [HttpPost]
+        public async Task<IActionResult> EditarActivo(int ActivoId, string Marca, string Modelo, string NumeroSerial, string CodigoInventario)
+        {
+            var activo = await _context.Activos.FindAsync(ActivoId);
+            if (activo == null)
+            {
+                return NotFound();
+            }
 
+            // Actualizamos los campos permitidos
+            activo.Marca = Marca;
+            activo.Modelo = Modelo;
+            activo.NumeroSerial = NumeroSerial;
+            activo.CodigoInventario = CodigoInventario;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                TempData["Mensaje"] = "Activo editado correctamente.";
+            }
+            catch (DbUpdateException ex)
+            {
+                // Manejo básico de errores
+                ModelState.AddModelError("", "Error al guardar los cambios: " + ex.Message);
+            }
+
+            return RedirectToAction("Index"); // O donde estés listando los activos
+        }
         [HttpPost]
         public IActionResult ActualizarFuncionabilidad(int id, string Tecnico, string NumeroTecnico, decimal? Costo, string Descripcion)
         {
@@ -368,44 +467,87 @@ namespace InventarioPaldaca.Controllers
         }
 
         [HttpPost]
-        public IActionResult ReasignarActivo(int id, int usuarioId)
+        public IActionResult ReasignarActivo(int id)
         {
             var activo = _context.Activos
                 .Include(a => a.Usuario)
+                .Include(a => a.Proyecto)
                 .FirstOrDefault(a => a.ActivoId == id);
 
             if (activo == null) return NotFound();
 
+            var form = Request.Form;
+            var usuarioIdStr = form["usuarioId"];
+            var proyectoIdStr = form["proyectoId"];
+
             var usuarioAnteriorId = activo.UsuarioId;
-            activo.UsuarioId = usuarioId;
+            var proyectoAnteriorId = activo.ProyectoId;
 
-            try
+            bool huboCambio = false;
+
+            // ✅ Lógica para usuario: solo cambiar si seleccionó algo
+            if (usuarioIdStr != "default")
             {
-                var cantidadMantenimientos = _context.Mantenimientos
-                    .Count(m => m.ActivoId == id);
-
-                var movimiento = new Movimiento
+                int? nuevoUsuarioId = string.IsNullOrEmpty(usuarioIdStr) ? null : int.Parse(usuarioIdStr);
+                if (nuevoUsuarioId != activo.UsuarioId)
                 {
-                    ActivoId = id,
-                    FechaMovimiento = DateTime.Now,
-                    UsuarioAnteriorId = usuarioAnteriorId,
-                    UsuarioNuevoId = usuarioId,
-                    UbicacionAnteriorId = activo.UbicacionId,
-                    UbicacionNuevaId = activo.UbicacionId, // no cambia en este caso
-                    CantidadMantenimientos = cantidadMantenimientos,
-                    Observaciones = $"Reasignación del usuario responsable del activo {id}"
-                };
-
-                _context.Movimientos.Add(movimiento);
-                _context.SaveChanges();
+                    activo.UsuarioId = nuevoUsuarioId;
+                    huboCambio = true;
+                }
             }
-            catch
+
+            // ✅ Lógica para proyecto: solo cambiar si seleccionó algo
+            if (proyectoIdStr != "default")
             {
-                TempData["ErrorMessage"] = "Error al reasignar el activo.";
+                int? nuevoProyectoId = string.IsNullOrEmpty(proyectoIdStr) ? null : int.Parse(proyectoIdStr);
+                if (nuevoProyectoId != activo.ProyectoId)
+                {
+                    activo.ProyectoId = nuevoProyectoId;
+                    huboCambio = true;
+                }
+            }
+            Console.WriteLine($"proyectoIdStr: '{proyectoIdStr}'");
+
+            if (huboCambio)
+            {
+                try
+                {
+                    var cantidadMantenimientos = _context.Mantenimientos
+                        .Count(m => m.ActivoId == id);
+
+                    var movimiento = new Movimiento
+                    {
+                        ActivoId = id,
+                        FechaMovimiento = DateTime.Now,
+                        UsuarioAnteriorId = usuarioAnteriorId,
+                        UsuarioNuevoId = activo.UsuarioId,
+                        ProyectoAnteriorId = proyectoAnteriorId,
+                        ProyectoNuevoId = activo.ProyectoId,
+                        UbicacionAnteriorId = activo.UbicacionId,
+                        UbicacionNuevaId = activo.UbicacionId,
+                        CantidadMantenimientos = cantidadMantenimientos,
+                        Observaciones = $"Reasignación del activo {activo.CodigoInventario}. " +
+                                        (usuarioAnteriorId != activo.UsuarioId ? "Cambio de usuario. " : "") +
+                                        (proyectoAnteriorId != activo.ProyectoId ? "Cambio de proyecto." : "")
+                    };
+
+                    _context.Movimientos.Add(movimiento);
+                    _context.SaveChanges();
+                    TempData["Success"] = "Reasignación realizada correctamente.";
+                }
+                catch
+                {
+                    TempData["ErrorMessage"] = "Error al reasignar el activo.";
+                }
+            }
+            else
+            {
+                TempData["InfoMessage"] = "No se realizaron cambios.";
             }
 
             return RedirectToAction("Index");
         }
+
 
         [HttpPost]
         public IActionResult RelocalizarActivo(int id, int ubicacionId)
@@ -431,7 +573,7 @@ namespace InventarioPaldaca.Controllers
                     UbicacionAnteriorId = ubicacionAnteriorId,
                     UbicacionNuevaId = ubicacionId,
                     CantidadMantenimientos = cantidadMantenimientos,
-                    Observaciones = $"Cambio de ubicación del activo #{id}"
+                    Observaciones = $"Cambio de ubicación del activo de codigo {activo.CodigoInventario}"
                 };
 
                 _context.Movimientos.Add(movimiento);
@@ -444,13 +586,62 @@ namespace InventarioPaldaca.Controllers
 
             return RedirectToAction("Index");
         }
-    }
 
-    // ========================== DTOs ==========================
 
-    public class UsuarioSelectDTO
-    {
-        public int? UsuarioId { get; set; }
-        public string NombreCompleto { get; set; }
+        [HttpPost]
+        public IActionResult LiberarActivo(int id)
+        {
+            var activo = _context.Activos.FirstOrDefault(a => a.ActivoId == id);
+            if (activo == null) return NotFound();
+
+            var usuarioAnteriorId = activo.UsuarioId;
+            var proyectoAnteriorId = activo.ProyectoId;
+
+            activo.UsuarioId = null;
+            activo.ProyectoId = null;
+
+            try
+            {
+                var cantidadMantenimientos = _context.Mantenimientos
+                    .Count(m => m.ActivoId == id);
+
+                var movimiento = new Movimiento
+                {
+                    ActivoId = id,
+                    FechaMovimiento = DateTime.Now,
+                    UsuarioAnteriorId = usuarioAnteriorId,
+                    UsuarioNuevoId = null,
+                    UbicacionAnteriorId = activo.UbicacionId,
+                    UbicacionNuevaId = activo.UbicacionId,
+                    CantidadMantenimientos = cantidadMantenimientos,
+                    Observaciones = $"Liberación del activo {activo.CodigoInventario}, sin usuario ni proyecto."
+                };
+
+                _context.Movimientos.Add(movimiento);
+                _context.SaveChanges();
+
+                TempData["Success"] = "Activo liberado correctamente.";
+            }
+            catch
+            {
+                TempData["ErrorMessage"] = "Error al liberar el activo.";
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        // ========================== DTOs ==========================
+
+        public class UsuarioSelectDTO
+        {
+            public int? UsuarioId { get; set; }
+            public string NombreCompleto { get; set; }
+        }
+
+        public class ProyectoSelectDTO
+        {
+            public int? ProyectoId { get; set; }
+            public string Nombre { get; set; }
+        }
     }
 }
