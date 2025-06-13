@@ -103,6 +103,7 @@ namespace InventarioPaldaca.Controllers
         {
             return View();
         }
+
         [AuthorizeRole("Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -110,6 +111,16 @@ namespace InventarioPaldaca.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Validación: Verificar si el correo ya está registrado
+                var correoExistente = await _context.Usuarios
+                    .AnyAsync(u => u.UsuarioEmail == model.Email);
+
+                if (correoExistente)
+                {
+                    ModelState.AddModelError("Email", "Este correo ya está registrado.");
+                    return View(model);
+                }
+
                 var usuario = new Usuario
                 {
                     UsuarioNombre = model.Nombre,

@@ -18,8 +18,6 @@ namespace InventarioPaldaca.Controllers
     {
         private readonly InventarioPaldacaContext _context;
         
-      
-
         public ActivoController(InventarioPaldacaContext context)
         {
             _context = context;

@@ -129,7 +129,6 @@
                             <label for="usuarioId">Nuevo usuario</label>
                             <select id="usuarioId" name="usuarioId" class="form-control">
                                 <option value="default">-- Seleccione un usuario --</option>
-                                <option value="">-- Disponible --</option>
                                 @foreach (var usuario in ViewBag.Usuarios)
                                 {
                                     <option value="@usuario.Value">@usuario.Text</option>
@@ -346,9 +345,6 @@
             $('#toggleDelete').click(function () {
                 // Alternar la visibilidad de la columna de eliminación
                 $('.delete-column').toggle();
-
-                // Alternar la visibilidad de la columna de cambiar funcionalidad
-                $('.funcionabilidad-column').toggle();
             });
 
             document.getElementById("activoId").addEventListener("change", function () {
