@@ -51,18 +51,52 @@ namespace InventarioPaldaca.Controllers
 
         public async Task<IActionResult> Home()
         {
-            var Activos = await _context.Activos.ToListAsync();
-            var TotalReportes = await _context.Reportes.CountAsync(); // Contar los reportes en la BD
+            var rolString = HttpContext.Session.GetString("UsuarioRol");
+            var usuarioIdStr = HttpContext.Session.GetString("UsuarioId");
+
+            if (!int.TryParse(usuarioIdStr, out int usuarioId))
+            {
+                return RedirectToAction("Login", "Acceso");
+            }
+
+            List<Activo> activosFiltrados;
+            int totalReportes;
+
+            if (rolString == "3" || rolString == "AdministradorProyecto")
+            {
+                // ?? Filtrar activos y reportes solo del proyecto del usuario
+                var proyectosDelUsuario = _context.ProyectoAdministradors
+                    .Where(pa => pa.UsuarioId == usuarioId)
+                    .Select(pa => pa.ProyectoId)
+                    .ToList();
+
+                activosFiltrados = await _context.Activos
+                    .Where(a => a.ProyectoId != null && proyectosDelUsuario.Contains(a.ProyectoId.Value))
+                    .ToListAsync();
+
+                totalReportes = await _context.Reportes
+                    .Where(r => r.Activo != null && r.Activo.ProyectoId != null &&
+                                proyectosDelUsuario.Contains(r.Activo.ProyectoId.Value))
+                    .CountAsync();
+            }
+            else
+            {
+                // ?? Administrador normal ve todo
+                activosFiltrados = await _context.Activos.ToListAsync();
+                totalReportes = await _context.Reportes.CountAsync();
+            }
 
             var model = new ListaActivosViewModel
             {
-                TotalActivos = Activos.Count,
-                ListaActivos = Activos,
-                TotalActivosDañados = Activos.Count(a => a.Funcionabilidad == false),
-                TotalReportes = TotalReportes // Asignar la cantidad de reportes
+                ListaActivos = activosFiltrados,
+                TotalActivos = activosFiltrados.Count,
+                TotalActivosDañados = activosFiltrados.Count(a => a.Funcionabilidad == false),
+                TotalReportes = totalReportes
             };
+
             return View(model);
         }
+
         public IActionResult UsuarioHome()
         {
             return View();

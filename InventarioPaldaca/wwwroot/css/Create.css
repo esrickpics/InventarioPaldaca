@@ -125,4 +125,32 @@
         width: 100%; 
         margin-top: 10px; 
     }
+
+
+    /* Responsive: stack on smaller screens */
+        .option-group {
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+            .option-group .form-group {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+                .option-group .form-group select {
+                    max-width: 100%;
+                }
+
+            .option-group .input-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .option-group .input-group-append {
+                margin-left: 0;
+                margin-top: 6px;
+                justify-content: flex-start;
+            }
+    
 }

@@ -22,7 +22,7 @@ namespace InventarioPaldaca.Utilidades.Filters
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            // Se obtiene el valor de la sesión; este valor puede ser el nombre del rol o el id ("Administrador" o "2", "Usuario" o "1")
+            // Obtener el rol del usuario desde sesión
             var rolUsuario = context.HttpContext.Session.GetString("UsuarioRol");
 
             if (string.IsNullOrEmpty(rolUsuario))
@@ -34,10 +34,8 @@ namespace InventarioPaldaca.Utilidades.Filters
 
             bool autorizado = false;
 
-            // Se recorre cada rol permitido definido en el atributo
             foreach (var rolPermitido in _rolesPermitidos)
             {
-                // Para el rol Administrador: se permite si el valor de sesión es "Administrador" o "2"
                 if (rolPermitido.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
                 {
                     if (rolUsuario.Equals("Administrador", StringComparison.OrdinalIgnoreCase) || rolUsuario.Equals("2"))
@@ -46,7 +44,6 @@ namespace InventarioPaldaca.Utilidades.Filters
                         break;
                     }
                 }
-                // Para el rol Usuario: se permite si el valor de sesión es "Usuario" o "1"
                 else if (rolPermitido.Equals("Usuario", StringComparison.OrdinalIgnoreCase))
                 {
                     if (rolUsuario.Equals("Usuario", StringComparison.OrdinalIgnoreCase) || rolUsuario.Equals("1"))
@@ -55,7 +52,14 @@ namespace InventarioPaldaca.Utilidades.Filters
                         break;
                     }
                 }
-                // Si se usan otros valores, se hace comparación directa
+                else if (rolPermitido.Equals("AdministradorProyecto", StringComparison.OrdinalIgnoreCase))
+                {
+                    if (rolUsuario.Equals("AdministradorProyecto", StringComparison.OrdinalIgnoreCase) || rolUsuario.Equals("3"))
+                    {
+                        autorizado = true;
+                        break;
+                    }
+                }
                 else if (rolUsuario.Equals(rolPermitido, StringComparison.OrdinalIgnoreCase))
                 {
                     autorizado = true;
@@ -70,5 +74,4 @@ namespace InventarioPaldaca.Utilidades.Filters
             }
         }
     }
-}
-
+  }

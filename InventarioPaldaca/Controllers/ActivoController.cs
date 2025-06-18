@@ -12,23 +12,35 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using InventarioPaldaca.Utilidades.Filters;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using InventarioPaldaca.Utilidades;
+using System;
 namespace InventarioPaldaca.Controllers
 {
     public class ActivoController : Controller
     {
         private readonly InventarioPaldacaContext _context;
-        
-        public ActivoController(InventarioPaldacaContext context)
+        private readonly FiltroActivosService _filtroActivosService;
+
+        public ActivoController(InventarioPaldacaContext context, FiltroActivosService filtroActivosService)
         {
             _context = context;
-           
+            _filtroActivosService = filtroActivosService;
         }
 
         // ========================== VISTAS PRINCIPALES ==========================
 
-        [AuthorizeRole("Administrador")]
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         public async Task<IActionResult> Index(int pagina = 1, int pageSize = 10)
         {
+            var rolUsuario = HttpContext.Session.GetString("UsuarioRol");
+            var usuarioIdString = HttpContext.Session.GetString("UsuarioId");
+            
+            if (!int.TryParse(usuarioIdString, out int usuarioId))
+            {
+                // Si no se puede obtener o convertir, redirige al login o maneja el error
+                return RedirectToAction("Login", "Acceso");
+            }
+
+
             var usuarios = _context.Usuarios
                 .Select(u => new SelectListItem
                 {
@@ -36,7 +48,6 @@ namespace InventarioPaldaca.Controllers
                     Text = u.UsuarioNombre + " " + u.UsuarioApellido
                 }).ToList();
 
-            // Opción para liberar activo (sin usuario asignado)
             usuarios.Insert(0, new SelectListItem
             {
                 Value = "", // o "0" si usas un valor entero especial
@@ -52,12 +63,26 @@ namespace InventarioPaldaca.Controllers
                     Text = p.Nombre ?? "-- Sin Proyecto --"
                 }).ToList();
 
+            // Consulta base para activos con includes necesarios
             var query = _context.Activos
                 .Include(a => a.Usuario)
                 .Include(a => a.Ubicacion)
                 .Include(a => a.Categoria)
-                .ThenInclude(c => c.CategoriaMaster)
+                    .ThenInclude(c => c.CategoriaMaster)
                 .AsQueryable();
+
+            List<int> proyectosDelUsuario = null;
+
+            // Si el usuario es AdministradorProyecto (rol "3" o string "AdministradorProyecto"), filtrar por sus proyectos
+            if (rolUsuario == "3" || string.Equals(rolUsuario, "AdministradorProyecto", StringComparison.OrdinalIgnoreCase))
+            {
+                proyectosDelUsuario = _context.ProyectoAdministradors
+                    .Where(pa => pa.UsuarioId == usuarioId)
+                    .Select(pa => pa.ProyectoId)
+                    .ToList();
+
+                query = query.Where(a => a.ProyectoId != null && proyectosDelUsuario.Contains(a.ProyectoId.Value));
+            }
 
             int totalActivos = await query.CountAsync();
 
@@ -67,11 +92,31 @@ namespace InventarioPaldaca.Controllers
                 .Take(pageSize)
                 .ToListAsync();
 
-            var listaActivosCompleta = await _context.Activos
-           .Include(a => a.Categoria)
-           .Include(a => a.Usuario)
-           .ToListAsync(); // Esto trae todos
+            // Traemos solo los activos completos filtrados por proyectos si aplica
+            var listaActivosCompletaQuery = _context.Activos
+                .Include(a => a.Categoria)
+                .Include(a => a.Usuario)
+                .AsQueryable();
 
+            if (proyectosDelUsuario != null)
+            {
+                listaActivosCompletaQuery = listaActivosCompletaQuery
+                    .Where(a => a.ProyectoId != null && proyectosDelUsuario.Contains(a.ProyectoId.Value));
+            }
+
+            var listaActivosCompleta = await listaActivosCompletaQuery.ToListAsync();
+
+            // Activos disponibles para reasignar, también filtrados si aplica
+            IQueryable<Activo> activosDisponiblesQuery = _context.Activos
+                .Include(a => a.Categoria)
+                .Include(a => a.Usuario)
+                .Where(a => a.Funcionabilidad == true || a.Funcionabilidad == null);
+
+            if (proyectosDelUsuario != null)
+            {
+                activosDisponiblesQuery = activosDisponiblesQuery
+                    .Where(a => a.ProyectoId != null && proyectosDelUsuario.Contains(a.ProyectoId.Value));
+            }
 
             var model = new ListaActivosViewModel
             {
@@ -94,15 +139,12 @@ namespace InventarioPaldaca.Controllers
                     .GroupBy(a => a.Ubicacion.UbicacionNombre)
                     .Select(g => new { g.Key, Count = g.Count() })
                     .ToDictionaryAsync(g => g.Key, g => g.Count),
-
-                ActivosDisponiblesParaReasignar = _context.Activos
-                    .Include(a => a.Categoria)
-                    .Include(a => a.Usuario)
-                    .Where(a => a.Funcionabilidad == true || a.Funcionabilidad == null)
-                    .ToList()
+                ActivosDisponiblesParaReasignar = await activosDisponiblesQuery.ToListAsync()
             };
+
             return View(model);
         }
+
 
         [AuthorizeRole("Administrador")]
         public IActionResult ActivosDañados()
@@ -158,31 +200,55 @@ namespace InventarioPaldaca.Controllers
 
         // ========================== CREACIÓN ==========================
         [HttpGet]
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         public IActionResult Create()
         {
             try
             {
+                var rolUsuario = HttpContext.Session.GetString("UsuarioRol");
+                var usuarioIdStr = HttpContext.Session.GetString("UsuarioId");
+                int.TryParse(usuarioIdStr, out int usuarioId);
+
+                // Cargar usuarios
                 var usuarios = _context.Usuarios
                     .Select(u => new UsuarioSelectDTO
                     {
                         UsuarioId = u.UsuarioId,
                         NombreCompleto = (u.UsuarioNombre ?? "") + " " + (u.UsuarioApellido ?? "")
-                    }).ToList();  
+                    }).ToList();
 
                 usuarios.Insert(0, new UsuarioSelectDTO { UsuarioId = null, NombreCompleto = "-- Disponible --" });
 
-                var proyectos = _context.Proyectos
-                    .Select(p => new ProyectoSelectDTO
-                    {
-                        ProyectoId = p.ProyectoId,
-                        Nombre = p.Nombre ?? "-- Proyecto sin nombre --"
-                    }).ToList();
+                // Cargar proyectos filtrados
+                List<ProyectoSelectDTO> proyectos;
 
-               
+                if (rolUsuario == "3" || rolUsuario == "AdministradorProyecto")
+                {
+                    proyectos = _context.ProyectoAdministradors
+                        .Where(pa => pa.UsuarioId == usuarioId)
+                        .Select(pa => new ProyectoSelectDTO
+                        {
+                            ProyectoId = pa.Proyecto.ProyectoId,
+                            Nombre = pa.Proyecto.Nombre ?? "-- Proyecto sin nombre --"
+                        }).ToList();
+                }
+                else
+                {
+                    proyectos = _context.Proyectos
+                        .Select(p => new ProyectoSelectDTO
+                        {
+                            ProyectoId = p.ProyectoId,
+                            Nombre = p.Nombre ?? "-- Proyecto sin nombre --"
+                        }).ToList();
+                }
+
+                proyectos.Insert(0, new ProyectoSelectDTO { ProyectoId = null, Nombre = "-- Sin Proyecto --" });
+
+                // Categorías y ubicaciones
                 var categorias = _context.Categoria
                     .Where(c => c.CategoriaNombre != null)
                     .ToList();
- 
+
                 var ubicaciones = _context.Ubicacions
                     .Where(u => u.UbicacionNombre != null)
                     .ToList();
@@ -201,62 +267,98 @@ namespace InventarioPaldaca.Controllers
             }
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AuthorizeRole("Administrador")]
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         public async Task<IActionResult> Create(ActivoViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var activo = new Activo
-                {
-                    Marca = model.Marca,
-                    Modelo = model.Modelo,
-                    NumeroSerial = model.NumeroSerial,
-                    Funcionabilidad = true, // Por defecto, al crear un activo, se asume que está funcional
-                    Observaciones = model.Observaciones,
-                    CodigoInventario = model.CodigoInventario,
-                    CategoriaId = model.CategoriaId,
-                    UbicacionId = model.UbicacionId,
-                    UsuarioId = model.UsuarioId,
-                    ProyectoId = model.ProyectoId,
-                };
+                var rolUsuario = HttpContext.Session.GetString("UsuarioRol");
+                var usuarioIdStr = HttpContext.Session.GetString("UsuarioId");
+                int.TryParse(usuarioIdStr, out int usuarioId);
 
-                try
+                // Si es administrador de proyecto, verificar que solo pueda asignar proyectos propios
+                if ((rolUsuario == "3" || rolUsuario == "AdministradorProyecto") && model.ProyectoId != null)
                 {
-                    _context.Add(activo);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    var proyectoEsValido = _context.ProyectoAdministradors
+                        .Any(pa => pa.UsuarioId == usuarioId && pa.ProyectoId == model.ProyectoId);
+
+                    if (!proyectoEsValido)
+                    {
+                        ModelState.AddModelError("ProyectoId", "No puedes asignar este proyecto.");
+                    }
                 }
-                catch (Exception ex)
+
+                if (ModelState.IsValid)
                 {
-                    ModelState.AddModelError("", "No se pudo guardar el activo. Intente nuevamente.");
-                    Console.WriteLine(ex.Message);
+                    var activo = new Activo
+                    {
+                        Marca = model.Marca,
+                        Modelo = model.Modelo,
+                        NumeroSerial = model.NumeroSerial,
+                        Funcionabilidad = true,
+                        Observaciones = model.Observaciones,
+                        CodigoInventario = model.CodigoInventario,
+                        CategoriaId = model.CategoriaId,
+                        UbicacionId = model.UbicacionId,
+                        UsuarioId = model.UsuarioId,
+                        ProyectoId = model.ProyectoId
+                    };
+
+                    try
+                    {
+                        _context.Add(activo);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+                    catch (Exception ex)
+                    {
+                        ModelState.AddModelError("", "No se pudo guardar el activo. Intente nuevamente.");
+                        Console.WriteLine(ex.Message);
+                    }
                 }
             }
-
             var usuarios = _context.Usuarios
                 .Select(u => new UsuarioSelectDTO
                 {
                     UsuarioId = u.UsuarioId,
-                    NombreCompleto = u.UsuarioNombre + " " + u.UsuarioApellido
-                }).ToList();
+                    NombreCompleto = (u.UsuarioNombre ?? "") + " " + (u.UsuarioApellido ?? "")
+                })
+                .OrderBy(u => u.NombreCompleto)
+                .ToList();
 
             usuarios.Insert(0, new UsuarioSelectDTO { UsuarioId = null, NombreCompleto = "-- Disponible --" });
 
-            var proyectos = _context.Proyectos
-             .Select(p => new ProyectoSelectDTO
-             {
-                 ProyectoId = p.ProyectoId,
-                 Nombre = p.Nombre
-             }).ToList();
 
-            proyectos.Insert(0, new ProyectoSelectDTO { ProyectoId = null, Nombre = "-- Sin Proyecto --" });
+            var rolUsuarioRecarga = HttpContext.Session.GetString("UsuarioRol");
+            var usuarioIdStrRecarga = HttpContext.Session.GetString("UsuarioId");
+            int.TryParse(usuarioIdStrRecarga, out int usuarioIdRecarga);
 
+            List<ProyectoSelectDTO> proyectosRecarga;
+            if (rolUsuarioRecarga == "3" || rolUsuarioRecarga == "AdministradorProyecto")
+            {
+                proyectosRecarga = _context.ProyectoAdministradors
+                    .Where(pa => pa.UsuarioId == usuarioIdRecarga)
+                    .Select(pa => new ProyectoSelectDTO
+                    {
+                        ProyectoId = pa.Proyecto.ProyectoId,
+                        Nombre = pa.Proyecto.Nombre ?? "-- Proyecto sin nombre --"
+                    }).ToList();
+            }
+            else
+            {
+                proyectosRecarga = _context.Proyectos
+                    .Select(p => new ProyectoSelectDTO
+                    {
+                        ProyectoId = p.ProyectoId,
+                        Nombre = p.Nombre ?? "-- Proyecto sin nombre --"
+                    }).ToList();
+            }
+            proyectosRecarga.Insert(0, new ProyectoSelectDTO { ProyectoId = null, Nombre = "-- Sin Proyecto --" });
 
             ViewData["Usuario"] = new SelectList(usuarios, "UsuarioId", "NombreCompleto", model.UsuarioId);
-            ViewData["Proyecto"] = new SelectList(proyectos, "ProyectoId", "Nombre", model.ProyectoId);
+            ViewData["Proyecto"] = new SelectList(proyectosRecarga, "ProyectoId", "Nombre", model.ProyectoId);
             ViewData["Categoria"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaNombre", model.CategoriaId);
             ViewData["Ubicacion"] = new SelectList(_context.Ubicacions, "UbicacionId", "UbicacionNombre", model.UbicacionId);
 
@@ -267,13 +369,10 @@ namespace InventarioPaldaca.Controllers
         // ========================== FILTROS, ORDEN Y BÚSQUEDA ==========================
         public async Task<IActionResult> FiltrarActivos(string categoria, string CodigoInventario, string ubicacion, string categoriamaster,int? proyectoId,int pagina = 1, int pageSize = 10)
         {
-            var activos = _context.Activos
-                .Include(a => a.Usuario)
-                .Include(a => a.Categoria)
-                .Include(a => a.Ubicacion)
-                .Include(a => a.Proyecto)
-                .AsQueryable();
+       
+            var activos = _filtroActivosService.ObtenerActivosFiltrados();
 
+            // 🔍 Filtros adicionales
             if (!string.IsNullOrEmpty(CodigoInventario))
                 activos = activos.Where(a => a.CodigoInventario.Contains(CodigoInventario));
 
@@ -288,8 +387,7 @@ namespace InventarioPaldaca.Controllers
                 var subcategorias = _context.Categoria
                     .Where(c => c.CategoriaMaster.Nombre == categoriamaster)
                     .Select(c => c.CategoriaNombre)
-                    .ToList();
-
+                .ToList();
                 activos = activos.Where(a => subcategorias.Contains(a.Categoria.CategoriaNombre));
             }
 
@@ -298,6 +396,7 @@ namespace InventarioPaldaca.Controllers
                 activos = activos.Where(a => a.ProyectoId == proyectoId.Value);
             }
 
+            // 📦 Paginación
             var totalActivos = await activos.CountAsync();
 
             var listaActivos = await activos
@@ -306,6 +405,7 @@ namespace InventarioPaldaca.Controllers
                 .Take(pageSize)
                 .ToListAsync();
 
+            // 📊 ViewModel parcial
             var model = new ListaActivosViewModel
             {
                 ListaActivos = listaActivos,
@@ -467,7 +567,7 @@ namespace InventarioPaldaca.Controllers
         [HttpPost]
         public IActionResult ReasignarActivo(int id)
         {
-            var activo = _context.Activos
+            var activo = _filtroActivosService.ObtenerActivosFiltrados()
                 .Include(a => a.Usuario)
                 .Include(a => a.Proyecto)
                 .FirstOrDefault(a => a.ActivoId == id);
@@ -483,7 +583,6 @@ namespace InventarioPaldaca.Controllers
 
             bool huboCambio = false;
 
-            // ✅ Lógica para usuario: solo cambiar si seleccionó algo
             if (usuarioIdStr != "default")
             {
                 int? nuevoUsuarioId = string.IsNullOrEmpty(usuarioIdStr) ? null : int.Parse(usuarioIdStr);
@@ -494,7 +593,6 @@ namespace InventarioPaldaca.Controllers
                 }
             }
 
-            // ✅ Lógica para proyecto: solo cambiar si seleccionó algo
             if (proyectoIdStr != "default")
             {
                 int? nuevoProyectoId = string.IsNullOrEmpty(proyectoIdStr) ? null : int.Parse(proyectoIdStr);
@@ -504,7 +602,6 @@ namespace InventarioPaldaca.Controllers
                     huboCambio = true;
                 }
             }
-            Console.WriteLine($"proyectoIdStr: '{proyectoIdStr}'");
 
             if (huboCambio)
             {
@@ -524,9 +621,7 @@ namespace InventarioPaldaca.Controllers
                         UbicacionAnteriorId = activo.UbicacionId,
                         UbicacionNuevaId = activo.UbicacionId,
                         CantidadMantenimientos = cantidadMantenimientos,
-                        Observaciones = $"Reasignación del activo {activo.CodigoInventario}. " +
-                                        (usuarioAnteriorId != activo.UsuarioId ? "Cambio de usuario. " : "") +
-                                        (proyectoAnteriorId != activo.ProyectoId ? "Cambio de proyecto." : "")
+                        Observaciones = $"Reasignación del activo {activo.CodigoInventario}."
                     };
 
                     _context.Movimientos.Add(movimiento);
@@ -550,9 +645,10 @@ namespace InventarioPaldaca.Controllers
         [HttpPost]
         public IActionResult RelocalizarActivo(int id, int ubicacionId)
         {
-            var activo = _context.Activos
+            var activo = _filtroActivosService.ObtenerActivosFiltrados()
                 .Include(a => a.Ubicacion)
                 .FirstOrDefault(a => a.ActivoId == id);
+
             if (activo == null) return RedirectToAction("Index");
 
             var ubicacionAnteriorId = activo.UbicacionId;
@@ -571,7 +667,7 @@ namespace InventarioPaldaca.Controllers
                     UbicacionAnteriorId = ubicacionAnteriorId,
                     UbicacionNuevaId = ubicacionId,
                     CantidadMantenimientos = cantidadMantenimientos,
-                    Observaciones = $"Cambio de ubicación del activo de codigo {activo.CodigoInventario}"
+                    Observaciones = $"Cambio de ubicación del activo de código {activo.CodigoInventario}"
                 };
 
                 _context.Movimientos.Add(movimiento);
@@ -585,48 +681,6 @@ namespace InventarioPaldaca.Controllers
             return RedirectToAction("Index");
         }
 
-
-        [HttpPost]
-        public IActionResult LiberarActivo(int id)
-        {
-            var activo = _context.Activos.FirstOrDefault(a => a.ActivoId == id);
-            if (activo == null) return NotFound();
-
-            var usuarioAnteriorId = activo.UsuarioId;
-            var proyectoAnteriorId = activo.ProyectoId;
-
-            activo.UsuarioId = null;
-            activo.ProyectoId = null;
-
-            try
-            {
-                var cantidadMantenimientos = _context.Mantenimientos
-                    .Count(m => m.ActivoId == id);
-
-                var movimiento = new Movimiento
-                {
-                    ActivoId = id,
-                    FechaMovimiento = DateTime.Now,
-                    UsuarioAnteriorId = usuarioAnteriorId,
-                    UsuarioNuevoId = null,
-                    UbicacionAnteriorId = activo.UbicacionId,
-                    UbicacionNuevaId = activo.UbicacionId,
-                    CantidadMantenimientos = cantidadMantenimientos,
-                    Observaciones = $"Liberación del activo {activo.CodigoInventario}, sin usuario ni proyecto."
-                };
-
-                _context.Movimientos.Add(movimiento);
-                _context.SaveChanges();
-
-                TempData["Success"] = "Activo liberado correctamente.";
-            }
-            catch
-            {
-                TempData["ErrorMessage"] = "Error al liberar el activo.";
-            }
-
-            return RedirectToAction("Index");
-        }
 
         // ========================== DTOs ==========================
 

@@ -2,8 +2,6 @@
 @using System.Globalization
 
 
-
-
 <div class="form-container">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
         <h2 class="form-title" style="margin: 0;">
@@ -23,12 +21,20 @@
                 <th>Categoría</th>
                 <th>Ubicación</th>
                 <th>Usuario Asignado</th>
+                <th>Costo</th>
                 <th>Estado del Mantenimiento</th>
                 <th>Descripcion</th>
                 <th>Acciones</th>
-            </tr>
+            </tr>   
         </thead>
         <tbody>
+        @if (!Model.Activos.Any())
+        {
+            <tr>
+                <td colspan="7" class="text-center text-muted">No hay activos en mantenimiento actualmente.</td>
+            </tr>
+        }
+        else
             @foreach (var activo in Model.Activos)
             {
                 var mantenimientoActual = activo.Mantenimientos
@@ -40,7 +46,8 @@
                     <td>@activo.CodigoInventario</td>
                     <td>@activo.Categoria?.CategoriaNombre</td>
                     <td>@activo.Ubicacion?.UbicacionNombre</td>
-                    <td>@activo.Usuario?.UsuarioNombre</td>
+                    <td>@activo.Usuario?.UsuarioNombre @activo.Usuario?.UsuarioApellido</td>
+                    <td>@mantenimientoActual.Costo</td>
                     <td>
                         @if (mantenimientoActual != null)
                         {
@@ -123,4 +130,49 @@
             }
         </tbody>
     </table>
+   
+    @{
+        decimal totalCosto = 0;
+
+        foreach (var activo in Model.Activos)
+        {
+            var mantenimiento = activo.Mantenimientos
+            .Where(m => m.Estado == "En proceso")
+            .OrderByDescending(m => m.FechaInicio)
+            .FirstOrDefault();
+
+            if (mantenimiento?.Costo != null)
+            {
+                totalCosto += mantenimiento.Costo.Value;
+            }
+        }
+    }
+
+
+    <div class="info-card mt-4 p-3 shadow-sm rounded d-flex justify-content-between align-items-center" style="font-size: 1.2rem;">
+        <div class="d-flex align-items-center">
+            <img src="~/img/Iconos/Dolar-icon.jpeg" alt="Dólar" style="width: 32px; height: 32px; margin-right: 10px;" />
+            <strong>Costo total de mantenimiento</strong>
+        </div>
+        <span class="fs-5 fw-bold text-primary">
+            $@totalCosto.ToString("0.00", CultureInfo.InvariantCulture)
+        </span>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+        </div>
+    }
 </div>

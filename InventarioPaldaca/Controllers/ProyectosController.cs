@@ -220,9 +220,6 @@ namespace InventarioPaldaca.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditModal(ProyectoViewModel model)
         {
-            // 1. **Validación de la lógica de negocio para UsuarioId (si es null)**
-            // Agregamos este error *primero* si el UsuarioId es nulo.
-            // Esto asegura que si el UsuarioId NO se selecciona, el error se captura.
             if (!model.UsuarioId.HasValue)
             {
                 // Añade el error directamente a ModelState para que sea capturado por ModelState.IsValid
@@ -239,8 +236,6 @@ namespace InventarioPaldaca.Controllers
                     kvp => kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray()
                 );
 
-                // Retorna un BadRequest con un mensaje general y los errores específicos.
-                // El JavaScript del lado del cliente se encargará de mostrar estos errores.
                 return BadRequest(new { mensaje = "Error de validación.", errores = errors });
             }
 
@@ -281,6 +276,69 @@ namespace InventarioPaldaca.Controllers
 
             return Ok();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EliminarProyecto(int ProyectoId)
+        {
+            Console.WriteLine($"🧹 Eliminando Proyecto ID: {ProyectoId}");
+
+            var proyecto = await _context.Proyectos.FindAsync(ProyectoId);
+            if (proyecto == null)
+            {
+                TempData["ErrorMessage"] = "Proyecto no encontrado.";
+                return RedirectToAction("ListadoProyectos");
+            }
+
+            try
+            {
+                // 1. Liberar activos relacionados
+                var activos = _context.Activos.Where(a => a.ProyectoId == ProyectoId).ToList();
+                foreach (var a in activos)
+                {
+                    a.ProyectoId = null;
+                }
+
+                // 2. Eliminar relaciones con administradores
+                var relaciones = _context.ProyectoAdministradors
+                    .Where(pa => pa.ProyectoId == ProyectoId)
+                    .ToList();
+                _context.ProyectoAdministradors.RemoveRange(relaciones);
+
+                // 3. Liberar movimientos relacionados (ProyectoAnteriorId y/o ProyectoNuevoId)
+                var movimientosConProyectoAnterior = _context.Movimientos
+                    .Where(m => m.ProyectoAnteriorId == ProyectoId)
+                    .ToList();
+                foreach (var m in movimientosConProyectoAnterior)
+                {
+                    m.ProyectoAnteriorId = null;
+                }
+
+                var movimientosConProyectoNuevo = _context.Movimientos
+                    .Where(m => m.ProyectoNuevoId == ProyectoId)
+                    .ToList();
+                foreach (var m in movimientosConProyectoNuevo)
+                {
+                    m.ProyectoNuevoId = null;
+                }
+
+                // 4. Guardar todos los cambios previos a la eliminación
+                await _context.SaveChangesAsync();
+
+                // 5. Eliminar el proyecto
+                _context.Proyectos.Remove(proyecto);
+                await _context.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "Proyecto eliminado correctamente.";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("❌ Error eliminando proyecto: " + ex.Message);
+                TempData["ErrorMessage"] = "No se pudo eliminar el proyecto. Revisa las relaciones existentes.";
+            }
+            return RedirectToAction("ListadoProyectos");
+        }
+
     }
 }
 

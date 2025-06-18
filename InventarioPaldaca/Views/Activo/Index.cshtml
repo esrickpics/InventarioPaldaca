@@ -309,6 +309,8 @@
             var ubicacion = $('#ubicacion').val();
             var codigoInventario = $('#codigoInventario').val();
             var categoriaMaster = $('#categoriaMaster').val();
+            var proyectoId = $('#proyecto').val(); // <--- FALTABA ESTO
+
 
             $.ajax({
                 url: '@Url.Action("FiltrarActivos", "Activo")',
@@ -318,6 +320,7 @@
                     ubicacion: ubicacion,
                     codigoInventario: codigoInventario,
                     categoriaMaster: categoriaMaster,
+                     proyectoId: proyectoId, // <---
                     pagina: pagina,
                     pageSize: 10
                 },

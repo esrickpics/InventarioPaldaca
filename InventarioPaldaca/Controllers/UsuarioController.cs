@@ -19,7 +19,7 @@ namespace InventarioPaldaca.Controllers
         {
             _context = context;
         }
-        [AuthorizeRole("Administrador")]
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         public async Task<IActionResult> Index(string searchTerm = "")
         {
             var model = new UsuarioPerfilViewModel
@@ -28,7 +28,7 @@ namespace InventarioPaldaca.Controllers
             };
             return View(model);
         }
-        [AuthorizeRole("Administrador")]
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         [HttpPost]
         public async Task<IActionResult> BuscarUsuariosIndex(string searchTerm = "")
         {
@@ -42,7 +42,7 @@ namespace InventarioPaldaca.Controllers
         }
 
         // Acción para mostrar el perfil de un usuario
-        [AuthorizeRole("Administrador")]
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         public async Task<IActionResult> PerfilUsuario(int? id, string searchTerm = "", bool mostrarBotonRestablecer = false)
         {
             if (id == null)
@@ -98,7 +98,7 @@ namespace InventarioPaldaca.Controllers
         }
 
 
-        [AuthorizeRole("Administrador")]
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         public IActionResult Create()
         {
             return View();
@@ -138,7 +138,7 @@ namespace InventarioPaldaca.Controllers
             return View(model);
         }
 
-        [AuthorizeRole("Administrador")]
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         public async Task<IActionResult> EditarUsuario(UsuarioPerfilViewModel model, IFormFile pdfFile, IFormFile imageFile)
         {
             ModelState.Remove("SearchTerm");
@@ -262,8 +262,8 @@ namespace InventarioPaldaca.Controllers
         }
 
         // Método para eliminar archivos
-      
-        [AuthorizeRole("Administrador")]
+
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         // Acción para buscar usuarios
         public async Task<IActionResult> BuscarUsuarios(string searchTerm = "")
         {

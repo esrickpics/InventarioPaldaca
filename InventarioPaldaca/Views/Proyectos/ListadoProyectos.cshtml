@@ -7,10 +7,11 @@
 @section styles {
     <link rel="stylesheet" href="~/css/Reportes.css" />
 }
+@Html.AntiForgeryToken()
 <div class="container my-5 form-container" id="top">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
         <h2 class="form-title" style="margin: 0;">
-            <img src="/img/Iconos/Mantenimiento.svg" alt="Icono Mantenimiento" style="width: 32px; height: 32px; margin-right: 10px;">
+            <img src="/img/Iconos/proyectos.svg" alt="Icono Mantenimiento" style="width: 32px; height: 32px; margin-right: 10px;">
             Listado de Proyectos
         </h2>
         <a asp-action="Crear" asp-controller="Proyectos" class="btn btn-sm btn-action text-white mb-2 shadow-sm"
@@ -39,23 +40,35 @@
                         }
                     </div>
 
-                    <div class="reporte-body">
+                    <div class="reporte-body d-flex">
+                        <!-- Imagen del administrador -->
                         <img src="@Url.Content(proyecto.ImagenAdministrador)" alt="Administrador" class="reporte-img" />
-                        <div class="reporte-info">
+
+                        <!-- Info del proyecto y administrador -->
+                        <div class="reporte-info flex-grow-1">
                             <strong>@proyecto.NombreAdministrador</strong><br />
                             <small class="cargo">@proyecto.CargoAdministrador</small>
 
                             <h5 class="mt-2">@proyecto.NombreProyecto</h5>
                             <p class="descripcion">@proyecto.Descripcion</p>
+
+                            <!-- Botones alineados abajo -->
+                            <div class="mt-3 d-flex justify-content-end gap-2">
+                                <button class="btn btn-sm btn-action px-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#editarProyectoModal"
+                                        data-id="@proyecto.ProyectoId">
+                                    Editar
+                                </button>
+
+                                <button class="btn btn-sm btn-danger px-3"
+                                        onclick="eliminarProyecto(@proyecto.ProyectoId)">
+                                    Eliminar
+                                </button>
+                            </div>
                         </div>
-                        <button class="btn btn-sm btn-action mt-5"
-                                data-bs-toggle="modal"
-                                data-bs-target="#editarProyectoModal"
-                                data-id="@proyecto.ProyectoId">
-                            Editar
-                        </button>
-                    </div> 
-                    
+                    </div>
+
                 </div>
             }
         </div>
@@ -67,6 +80,7 @@
         </div>
     }
 
+  
     <div class="modal fade mt-5" id="editarProyectoModal" tabindex="-1" aria-labelledby="editarProyectoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -81,6 +95,23 @@
         </div>
     </div>
 </div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+}
 
 @section Scripts {
     <script>
@@ -136,5 +167,31 @@
                 });
             }
         });
+            
+        function eliminarProyecto(id) {
+            if (confirm("¿Estás seguro de que deseas eliminar este proyecto? Esta acción no se puede deshacer.")) {
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/Proyectos/EliminarProyecto';
+
+                const token = document.querySelector('input[name="__RequestVerificationToken"]');
+                if (token) {
+                    const tokenInput = document.createElement('input');
+                    tokenInput.type = 'hidden';
+                    tokenInput.name = '__RequestVerificationToken';
+                    tokenInput.value = token.value;
+                    form.appendChild(tokenInput);
+                }
+
+                const idInput = document.createElement('input');
+                idInput.type = 'hidden';
+                idInput.name = 'ProyectoId';
+                idInput.value = id;
+                form.appendChild(idInput);
+
+                document.body.appendChild(form);
+                form.submit();
+            }
+        }
     </script>
 }

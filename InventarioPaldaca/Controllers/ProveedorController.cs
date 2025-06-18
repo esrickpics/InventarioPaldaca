@@ -21,7 +21,7 @@ namespace InventarioPaldaca.Controllers
             _context = context;
         }
 
-        [AuthorizeRole("Administrador")]
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         public async Task<IActionResult> Index()
         {
             var precio = await _dolar.ObtenerPrecioDolarAsync();
@@ -59,7 +59,7 @@ namespace InventarioPaldaca.Controllers
         // POST: Proveedor/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AuthorizeRole("Administrador")]
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         public async Task<IActionResult> Create(CreateProveedorViewModel Model)
         {
             if (!ModelState.IsValid)

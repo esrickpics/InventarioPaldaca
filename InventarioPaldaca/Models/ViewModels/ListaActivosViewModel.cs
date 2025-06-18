@@ -41,12 +41,18 @@ namespace InventarioPaldaca.Models.ViewModels
         public Dictionary<string, string> IconosPorCategoria => new Dictionary<string, string>
         {
             { "Laptop", "/img/Iconos/iconlaptop.svg" },
-            { "Impresora", "/img/Iconos/iconimpresora.svg" },
+            { "Impresora", "/img/Iconos/Impresora.svg" },
             { "Proyector", "/img/Iconos/iconproyector.svg" },
             { "MiniPC", "/img/Iconos/iconminipc.svg" },
-            { "Escáner", "/img/Iconos/iconscanner.svg" },
             { "Servidor", "/img/Iconos/Servericon.svg" },
-            { "PC", "/img/Iconos/iconpc.svg" }
+            { "PC", "/img/Iconos/iconpc.svg" },
+            { "All in One", "/img/Iconos/Monitor.svg" },
+            { "Monitor", "/img/Iconos/Monitor.svg" },
+            { "Vehiculo", "/img/Iconos/iconcar.svg"},
+            { "Carro", "/img/Iconos/iconcar.svg" },
+            { "Camioneta", "/img/Iconos/iconcar.svg" },
+            { "Gandola", "/img/Iconos/iconcar.svg" },
+            { "Grúa", "/img/Iconos/iconcar.svg" },
         };
 
         // Paginación
@@ -55,6 +61,5 @@ namespace InventarioPaldaca.Models.ViewModels
         public int TotalPage => (int)Math.Ceiling(TotalFiltrados / (double)PageSize);
 
         // Estados disponibles para filtros o formularios
-       
     }
 }

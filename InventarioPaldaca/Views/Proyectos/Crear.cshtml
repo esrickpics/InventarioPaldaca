@@ -44,7 +44,6 @@
         <div class="form-group">
             <label asp-for="UsuarioId" class="control-label">Administrador del Proyecto</label>
             <select asp-for="UsuarioId" class="form-control" asp-items="Model.UsuariosDisponibles">
-                <option value="">-- Seleccione un administrador --</option>
             </select>
             <span asp-validation-for="UsuarioId" class="text-danger"></span>
         </div>

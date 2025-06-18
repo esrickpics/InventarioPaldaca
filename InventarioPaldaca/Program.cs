@@ -25,6 +25,9 @@ builder.Services.AddSession(options =>
 });
 builder.Services.AddHttpClient<Dolar>();
 builder.Services.AddHostedService<LimpiezaReportesService>();
+builder.Services.AddScoped<FiltroActivosService>();
+builder.Services.AddHttpContextAccessor(); // necesario para acceder a la sesión
+
 
 var app = builder.Build();
 
