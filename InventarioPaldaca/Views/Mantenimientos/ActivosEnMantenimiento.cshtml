@@ -47,7 +47,7 @@
                     <td>@activo.Categoria?.CategoriaNombre</td>
                     <td>@activo.Ubicacion?.UbicacionNombre</td>
                     <td>@activo.Usuario?.UsuarioNombre @activo.Usuario?.UsuarioApellido</td>
-                    <td>@mantenimientoActual.Costo</td>
+                    <td>@mantenimientoActual.Costo?.ToString("C", new System.Globalization.CultureInfo("en-US"))</td>
                     <td>
                         @if (mantenimientoActual != null)
                         {

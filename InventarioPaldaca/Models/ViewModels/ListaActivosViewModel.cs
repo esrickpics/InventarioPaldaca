@@ -48,9 +48,12 @@ namespace InventarioPaldaca.Models.ViewModels
             { "PC", "/img/Iconos/iconpc.svg" },
             { "All in One", "/img/Iconos/Monitor.svg" },
             { "Monitor", "/img/Iconos/Monitor.svg" },
-            { "Vehiculo", "/img/Iconos/iconcar.svg"},
+            { "Vehículo", "/img/Iconos/iconcar.svg"},
             { "Carro", "/img/Iconos/iconcar.svg" },
+            { "Autobús", "/img/Iconos/iconcar.svg" },
+            { "Mini bus", "/img/Iconos/iconcar.svg" },
             { "Camioneta", "/img/Iconos/iconcar.svg" },
+            { "Ambulancia", "/img/Iconos/ambulancia.svg" },
             { "Gandola", "/img/Iconos/iconcar.svg" },
             { "Grúa", "/img/Iconos/iconcar.svg" },
         };

@@ -17,6 +17,7 @@ namespace InventarioPaldaca.Controllers
             _context = context;
         }
 
+
         // Acción para mostrar el formulario de generación
         public IActionResult Reporte()
         {
@@ -104,7 +105,8 @@ namespace InventarioPaldaca.Controllers
         }
 
 
-        [AuthorizeRole("Administrador")]
+
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         public async Task<IActionResult> Index()
         {
             var reportes = await _context.Reportes

@@ -4,7 +4,7 @@
     --e-global-color-moradopaldaca: #32407b;
     --e-global-color-azulmarino: #141644;
     --e-global-color-azul: #282c89;
-}
+ }
 
 .main-content { 
     background-color: white !important;
@@ -20,6 +20,7 @@ html {
     margin: 20px 0;
     color: #000;
 }
+
 .headercontainer {
     display: flex;
     justify-content: flex-end;
@@ -30,6 +31,7 @@ html {
 .logoheader {
     max-width: 100%;
     height: auto;
+    max-height: 45px;
 }
 .form-container {
     background-color: #f8f8f8; /* Color de fondo gris */

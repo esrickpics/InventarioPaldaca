@@ -104,7 +104,7 @@ namespace InventarioPaldaca.Controllers
             return View();
         }
 
-        [AuthorizeRole("Administrador")]
+        [AuthorizeRole("Administrador", "AdministradorProyecto")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(UsuarioViewModel model)
@@ -257,6 +257,7 @@ namespace InventarioPaldaca.Controllers
             }
             catch (Exception ex)
             {
+
                 return (false, null, $"Error al subir el archivo: {ex.Message}");
             }
         }

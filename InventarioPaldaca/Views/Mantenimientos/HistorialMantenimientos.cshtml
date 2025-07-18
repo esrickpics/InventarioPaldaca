@@ -47,7 +47,7 @@
                         <td>@item.Estado</td>
                         <td>@item.Tecnico</td>
                         <td>@item.Descripcion</td>
-                        <td>@item.Costo?.ToString("C")</td>
+                        <td>@item.Costo?.ToString("C", new System.Globalization.CultureInfo("en-US"))</td>
                     </tr>
                 }
             </tbody>
@@ -68,6 +68,7 @@
                 <th>Marca</th>
                 <th>Fecha Inicio</th>
                 <th>Fecha Fin</th>
+                <th>Descripción</th>
                 <th>Estado</th>
                 <th>Técnico</th>
             </tr>
@@ -81,6 +82,7 @@
                     <td>@item.Activo.Marca</td>
                     <td>@item.FechaInicio.ToShortDateString()</td>
                     <td>@item.FechaFin?.ToShortDateString()</td>
+                    <td>@item.Descripcion</td>
                     <td>@item.Estado</td>
                     <td>@item.Tecnico</td>
                 </tr>

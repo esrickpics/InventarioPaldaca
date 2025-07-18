@@ -3,25 +3,25 @@
     ViewData["Title"] = "Lista de Activos";
 }
 <div class="table-responsive">
-<table class="table" id="activosTable">
-    <thead>
-        <tr>
-            <th><button id="sortByName" class="sort-button">Nombre</button></th>
-            <th>Apellido</th>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>Categoría</th>
-            <th>Número de Serial</th>
-            <th>Ubicación</th>
-            <th>Codigo De Inventario</th>
-            <th class="funcionabilidad-column" style="display: none;">Funcionalidad</th>
-            <th class="delete-column" style="display:none;">Eliminar</th>
-        </tr>
-    </thead>
-    <tbody id="activosTableBody">
-        <partial name="_ListaActivosPartial" model="Model" />
-    </tbody>
-</table>
+    <table class="table table-hover" id="activosTable">
+        <thead>
+            <tr>
+                <th><button id="sortByName" class="sort-button">Nombre</button></th>
+                <th>Apellido</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Categoría</th>
+                <th>Número de Serial</th>
+                <th>Ubicación</th>
+                <th>Código De Inventario</th>
+                <th class="funcionabilidad-column" style="display: none;">Funcionalidad</th>
+                <th class="delete-column" style="display:none;">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody id="activosTableBody">
+            <partial name="_ListaActivosPartial" model="Model" />
+        </tbody>
+    </table>
 </div>
 @if (Model.TotalPage > 1)
 {

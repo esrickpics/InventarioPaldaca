@@ -31,8 +31,6 @@ namespace InventarioPaldaca.Controllers
             return View(model);
         }
 
-        
-
         // POST: Crear categoría
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -50,7 +48,8 @@ namespace InventarioPaldaca.Controllers
                 _context.Add(categoria);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index", "Activo");
+                TempData["SuccessMessage"] = "¡Categoría creada exitosamente!";
+                return RedirectToAction("Create");
             }
 
             // Si falla la validación, recargar el combo de categorías master

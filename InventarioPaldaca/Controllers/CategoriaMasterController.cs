@@ -32,10 +32,9 @@ namespace InventarioPaldaca.Controllers
                 var nueva = new CategoriaMaster { Nombre = model.Nombre };
                 _context.Add(nueva);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Create", "Categoria");
-
+                TempData["SuccessMessage"] = "¡Categoría creada exitosamente!";
+                return RedirectToAction("Create");
             }
-
             return View(model);
         }
 

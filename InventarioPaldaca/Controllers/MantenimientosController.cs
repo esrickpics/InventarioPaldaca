@@ -26,7 +26,6 @@ namespace InventarioPaldaca.Controllers
             var usuarioIdStr = HttpContext.Session.GetString("UsuarioId");
             int.TryParse(usuarioIdStr, out int usuarioId);
 
-            // ✅ Declaración corregida:
             IQueryable<Mantenimiento> mantenimientosQuery = _context.Mantenimientos
                 .Include(m => m.Activo);
 

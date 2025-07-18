@@ -36,7 +36,8 @@ namespace InventarioPaldaca.Controllers
 
                 _context.Ubicacions.Add(ubicacion);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Create", "Activo"); 
+                TempData["SuccessMessage"] = "¡Ubicación creada exitosamente!";
+                return RedirectToAction("Create"); 
             }
 
             return View(model);

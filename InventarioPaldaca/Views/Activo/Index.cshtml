@@ -1,4 +1,25 @@
 ﻿@model InventarioPaldaca.Models.ViewModels.ListaActivosViewModel
+@{
+    bool esAdministradorProyecto = User.IsInRole("AdministradorProyecto") || ViewBag.RolUsuario == "3";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+}
 
 <div class="container my-5 form-container" id="top">
     <h1 class="form-title">
@@ -91,6 +112,11 @@
                         }
                     </select>
                 </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="soloDisponibles" name="soloDisponibles" onchange="filtrarActivos()" />
+                    <label class="form-check-label" for="soloDisponibles">Solo disponibles</label>
+                </div>
+
             </div>
         </form>
     </div>
@@ -136,17 +162,21 @@
                             </select>
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label for="proyectoId">Nuevo proyecto</label>
-                            <select id="proyectoId" name="proyectoId" class="form-control">
-                                <option value="default">-- Seleccione un proyecto --</option>
-                                <option value="">-- Sin Proyecto --</option>
-                                @foreach (var proyecto in ViewBag.Proyectos)
-                                {
-                                    <option value="@proyecto.Value">@proyecto.Text</option>
-                                }
-                            </select>
-                        </div>
+                        @if (!esAdministradorProyecto)
+                        {
+                            <div class="form-group mb-3">
+                                <label for="proyectoId">Nuevo proyecto</label>
+                                <select id="proyectoId" name="proyectoId" class="form-control">
+                                    <option value="default">-- Seleccione un proyecto --</option>
+                                    <option value="">-- Sin Proyecto --</option>
+                                    @foreach (var proyecto in ViewBag.Proyectos)
+                                    {
+                                        <option value="@proyecto.Value">@proyecto.Text</option>
+                                    }
+                                </select>
+                            </div>
+                        }
+
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Reasignar</button>
@@ -214,7 +244,10 @@
             <!-- Activos por Categoría -->
             <div class="col-md-4 mb-3">
                 <div class="info-card">
-                    <h5>Activos por Categoría</h5>
+                    <h5>
+                        <img src="/img/Iconos/nueva-categoria.svg" alt="Icono Activos" style="width: 30px; height: 30px; margin-right: 6px; vertical-align: middle;">
+                        Activos por Categoría
+                    </h5>
                     <ul class="list-unstyled">
                         @foreach (var categoria in Model.ActivosPorCategoria)
                         {
@@ -310,6 +343,7 @@
             var codigoInventario = $('#codigoInventario').val();
             var categoriaMaster = $('#categoriaMaster').val();
             var proyectoId = $('#proyecto').val(); // <--- FALTABA ESTO
+            var soloDisponibles = $('#soloDisponibles').is(':checked');
 
 
             $.ajax({
@@ -320,7 +354,8 @@
                     ubicacion: ubicacion,
                     codigoInventario: codigoInventario,
                     categoriaMaster: categoriaMaster,
-                     proyectoId: proyectoId, // <---
+                     proyectoId: proyectoId, 
+                     soloDisponibles : soloDisponibles,// <---
                     pagina: pagina,
                     pageSize: 10
                 },
@@ -411,6 +446,7 @@
             var ubicacion = $('#ubicacion').val();
             var codigoInventario = $('#codigoInventario').val();
             var proyectoId = $('#proyecto').val(); // nuevo select
+            var soloDisponibles = $('#soloDisponibles').is(':checked');
 
             $.ajax({
                 url: '@Url.Action("FiltrarActivos", "Activo")',
@@ -420,7 +456,8 @@
                     ubicacion: ubicacion,
                     codigoInventario: codigoInventario,
                     categoriaMaster: categoriaMaster,
-                    proyectoId: proyectoId // incluir proyectoId en el GET
+                    proyectoId: proyectoId, // incluir proyectoId en el GET
+                    soloDisponibles: soloDisponibles
                 },
                 success: function (result) {
                     $('#contenedorTablaPaginada').html(result);

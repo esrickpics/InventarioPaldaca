@@ -56,6 +56,9 @@ namespace InventarioPaldaca.Controllers
 
             ViewBag.Usuarios = usuarios;
 
+            ViewBag.RolUsuario = rolUsuario;
+
+
             ViewBag.Proyectos = _context.Proyectos
                 .Select(p => new SelectListItem
                 {
@@ -118,13 +121,42 @@ namespace InventarioPaldaca.Controllers
                     .Where(a => a.ProyectoId != null && proyectosDelUsuario.Contains(a.ProyectoId.Value));
             }
 
+            List<Proyecto> proyectos;
+
+            if (rolUsuario == "2" || string.Equals(rolUsuario, "Administrador", StringComparison.OrdinalIgnoreCase))
+            {
+                // Si es administrador, muestra todos los proyectos
+                proyectos = await _context.Proyectos.ToListAsync();
+            }
+            else if (rolUsuario == "3" || string.Equals(rolUsuario, "AdministradorProyecto", StringComparison.OrdinalIgnoreCase))
+            {
+                // Si es administrador de proyecto, solo muestra los proyectos asignados a él
+                var proyectosIdsAsignados = await _context.ProyectoAdministradors
+                    .Where(pa => pa.UsuarioId == usuarioId)
+                    .Select(pa => pa.ProyectoId)
+                    .ToListAsync();
+
+                proyectos = await _context.Proyectos
+                    .Where(p => proyectosIdsAsignados.Contains(p.ProyectoId))
+                    .ToListAsync();
+            }
+            else
+            {
+                // Otros roles (por ejemplo, usuario normal) no ven proyectos, o solo los que necesiten
+                proyectos = new List<Proyecto>();
+            }
+
+
             var model = new ListaActivosViewModel
             {
                 ListaActivos = activosPaginados,
-                Categorias = await _context.Categoria.ToListAsync(),
+                Categorias = await _context.Categoria
+                    .Where(c => c.CategoriaNombre != null)
+                    .OrderBy(c => c.CategoriaNombre)
+                    .ToListAsync(),
                 Ubicaciones = await _context.Ubicacions.ToListAsync(),
                 CategoriasMaster = await _context.CategoriaMasters.ToListAsync(),
-                Proyectos = await _context.Proyectos.ToListAsync(),
+                Proyectos = proyectos,
                 TotalActivos = totalActivos,
                 TotalActivosDañados = await _context.Activos.CountAsync(a => a.Funcionabilidad == false),
                 PaginaActual = pagina,
@@ -209,15 +241,17 @@ namespace InventarioPaldaca.Controllers
                 var usuarioIdStr = HttpContext.Session.GetString("UsuarioId");
                 int.TryParse(usuarioIdStr, out int usuarioId);
 
-                // Cargar usuarios
                 var usuarios = _context.Usuarios
-                    .Select(u => new UsuarioSelectDTO
-                    {
-                        UsuarioId = u.UsuarioId,
-                        NombreCompleto = (u.UsuarioNombre ?? "") + " " + (u.UsuarioApellido ?? "")
-                    }).ToList();
+                  .Select(u => new UsuarioSelectDTO
+                  {
+                      UsuarioId = u.UsuarioId,
+                      NombreCompleto = (u.UsuarioNombre ?? "") + " " + (u.UsuarioApellido ?? "")
+                  })
+                  .OrderBy(u => u.NombreCompleto)
+                  .ToList();
 
                 usuarios.Insert(0, new UsuarioSelectDTO { UsuarioId = null, NombreCompleto = "-- Disponible --" });
+
 
                 // Cargar proyectos filtrados
                 List<ProyectoSelectDTO> proyectos;
@@ -246,11 +280,13 @@ namespace InventarioPaldaca.Controllers
 
                 // Categorías y ubicaciones
                 var categorias = _context.Categoria
-                    .Where(c => c.CategoriaNombre != null)
-                    .ToList();
+                     .Where(c => c.CategoriaNombre != null)
+                     .OrderBy(c => c.CategoriaNombre)
+                     .ToList();
 
                 var ubicaciones = _context.Ubicacions
                     .Where(u => u.UbicacionNombre != null)
+                    .OrderBy(u => u.UbicacionNombre)
                     .ToList();
 
                 ViewData["Usuario"] = new SelectList(usuarios, "UsuarioId", "NombreCompleto");
@@ -288,6 +324,14 @@ namespace InventarioPaldaca.Controllers
                     {
                         ModelState.AddModelError("ProyectoId", "No puedes asignar este proyecto.");
                     }
+                }
+                // Validar que el Código de Inventario no esté repetido
+                var codigoExiste = await _context.Activos
+                    .AnyAsync(a => a.CodigoInventario == model.CodigoInventario);
+
+                if (codigoExiste)
+                {
+                    ModelState.AddModelError("CodigoInventario", "El código de inventario ya está en uso.");
                 }
 
                 if (ModelState.IsValid)
@@ -367,7 +411,7 @@ namespace InventarioPaldaca.Controllers
 
 
         // ========================== FILTROS, ORDEN Y BÚSQUEDA ==========================
-        public async Task<IActionResult> FiltrarActivos(string categoria, string CodigoInventario, string ubicacion, string categoriamaster,int? proyectoId,int pagina = 1, int pageSize = 10)
+        public async Task<IActionResult> FiltrarActivos(string categoria, string CodigoInventario, string ubicacion, string categoriamaster,int? proyectoId, bool? soloDisponibles, int pagina = 1, int pageSize = 10)
         {
        
             var activos = _filtroActivosService.ObtenerActivosFiltrados();
@@ -375,6 +419,12 @@ namespace InventarioPaldaca.Controllers
             // 🔍 Filtros adicionales
             if (!string.IsNullOrEmpty(CodigoInventario))
                 activos = activos.Where(a => a.CodigoInventario.Contains(CodigoInventario));
+
+            if (soloDisponibles == true)
+            {
+                activos = activos.Where(a => a.UsuarioId == null);
+            }
+
 
             if (!string.IsNullOrEmpty(categoria))
                 activos = activos.Where(a => a.Categoria.CategoriaNombre.Contains(categoria));
@@ -417,8 +467,6 @@ namespace InventarioPaldaca.Controllers
             return PartialView("_PaginacionActivosPartial", model);
         }
 
-
-
         [HttpGet]
         public async Task<IActionResult> OrdenarPorNombre(string sortOrder)
         {
@@ -447,7 +495,7 @@ namespace InventarioPaldaca.Controllers
 
             var subcategorias = _context.Categoria
                 .Where(c => c.CategoriaMaster.Nombre == categoriaMaster)
-                .Select(c => new { c.CategoriaNombre })
+                .Select(c => new { c.CategoriaNombre }).OrderBy(c => c.CategoriaNombre)
                 .ToList();
 
             return Json(subcategorias);
@@ -480,6 +528,13 @@ namespace InventarioPaldaca.Controllers
         [HttpPost]
         public async Task<IActionResult> EditarActivo(int ActivoId, string Marca, string Modelo, string NumeroSerial, string CodigoInventario)
         {
+            if (string.IsNullOrWhiteSpace(CodigoInventario))
+            {
+                ModelState.AddModelError("CodigoInventario", "El código de inventario es obligatorio.");
+                TempData["Error"] = "El código de inventario no puede estar vacío.";
+                return RedirectToAction("Index"); // O redirige a una vista de edición con errores
+            }
+
             var activo = await _context.Activos.FindAsync(ActivoId);
             if (activo == null)
             {
@@ -499,12 +554,13 @@ namespace InventarioPaldaca.Controllers
             }
             catch (DbUpdateException ex)
             {
-                // Manejo básico de errores
                 ModelState.AddModelError("", "Error al guardar los cambios: " + ex.Message);
+                TempData["Error"] = "Error al guardar los cambios.";
             }
 
-            return RedirectToAction("Index"); // O donde estés listando los activos
+            return RedirectToAction("Index");
         }
+
         [HttpPost]
         public IActionResult ActualizarFuncionabilidad(int id, string Tecnico, string NumeroTecnico, decimal? Costo, string Descripcion)
         {
@@ -556,9 +612,13 @@ namespace InventarioPaldaca.Controllers
                 _context.SaveChanges();
                 TempData["SuccessMessage"] = "El estado del activo y el mantenimiento se actualizaron correctamente.";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Ocurrió un error al intentar actualizar el activo.";
+                return View("Error", new ErrorViewModel
+                {
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+                    Message = ex.Message
+                });
             }
 
             return RedirectToAction("Index");
@@ -567,6 +627,10 @@ namespace InventarioPaldaca.Controllers
         [HttpPost]
         public IActionResult ReasignarActivo(int id)
         {
+
+            var rolUsuario = HttpContext.Session.GetString("UsuarioRol");
+
+            ViewBag.RolUsuario = rolUsuario;  
             var activo = _filtroActivosService.ObtenerActivosFiltrados()
                 .Include(a => a.Usuario)
                 .Include(a => a.Proyecto)
@@ -576,13 +640,12 @@ namespace InventarioPaldaca.Controllers
 
             var form = Request.Form;
             var usuarioIdStr = form["usuarioId"];
-            var proyectoIdStr = form["proyectoId"];
-
-            var usuarioAnteriorId = activo.UsuarioId;
             var proyectoAnteriorId = activo.ProyectoId;
+            var usuarioAnteriorId = activo.UsuarioId;
 
             bool huboCambio = false;
 
+            // Reasignación de usuario (permitido para todos)
             if (usuarioIdStr != "default")
             {
                 int? nuevoUsuarioId = string.IsNullOrEmpty(usuarioIdStr) ? null : int.Parse(usuarioIdStr);
@@ -593,13 +656,19 @@ namespace InventarioPaldaca.Controllers
                 }
             }
 
-            if (proyectoIdStr != "default")
+            // Reasignación de proyecto SOLO si el rol lo permite y el campo fue enviado
+            if ((User.IsInRole("Administrador") || ViewBag.RolUsuario == "2") && !string.IsNullOrWhiteSpace(form["proyectoId"]))
             {
-                int? nuevoProyectoId = string.IsNullOrEmpty(proyectoIdStr) ? null : int.Parse(proyectoIdStr);
-                if (nuevoProyectoId != activo.ProyectoId)
+                var proyectoIdStr = form["proyectoId"];
+
+                if (proyectoIdStr != "default")
                 {
-                    activo.ProyectoId = nuevoProyectoId;
-                    huboCambio = true;
+                    int? nuevoProyectoId = string.IsNullOrEmpty(proyectoIdStr) ? null : int.Parse(proyectoIdStr);
+                    if (nuevoProyectoId != activo.ProyectoId)
+                    {
+                        activo.ProyectoId = nuevoProyectoId;
+                        huboCambio = true;
+                    }
                 }
             }
 
@@ -626,7 +695,7 @@ namespace InventarioPaldaca.Controllers
 
                     _context.Movimientos.Add(movimiento);
                     _context.SaveChanges();
-                    TempData["Success"] = "Reasignación realizada correctamente.";
+                    TempData["SuccessMessage"] = "Activo reasignado correctamente.";
                 }
                 catch
                 {
@@ -640,6 +709,7 @@ namespace InventarioPaldaca.Controllers
 
             return RedirectToAction("Index");
         }
+
 
 
         [HttpPost]
